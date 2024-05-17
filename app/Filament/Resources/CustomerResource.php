@@ -234,11 +234,11 @@ class CustomerResource extends Resource
     // for page
     public static function getModelLabel(): string
     {
-        return __(key : 'Post');
+        return __(key : 'Customer');
     }
     // for sidebar
     public static function getPluralModelLabel(): string
     {
-        return __(key : 'Posts');
+        return __(key : 'Customers');
     }
 }
