@@ -17,7 +17,7 @@ return [
     'State' => 'สถานะ',
     'Enter state' => 'เข้ารัฐ',
     'Country' => 'ประเทศ',
-    'Issue By' => 'ออกโดย',
+    'Approved By' => 'อนุญาตโดย',
     'Password' => 'รหัสผ่าน',
     'Enter password' => 'ใส่รหัสผ่าน',
     'Line ID' => 'ไอดีไลน์',
@@ -208,6 +208,7 @@ return [
     "Note" => "บันทึก",
     "Please don't share Login credentials to anyone" => "กรุณาอย่าเปิดเผยข้อมูลการเข้าสู่ระบบให้กับใครก็ตาม",
     "Sr. no." => "ซีเนียร์ ไม่.",
+    "OR" => "หรือ",
     
     
 

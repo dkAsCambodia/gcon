@@ -9,18 +9,24 @@ use App\Models\Customer;
 class RegisterPage extends Component
 {
    
-    public $membertype=1, $card_number='G', $name, $phone, $email, $password, $issue_by=4, $address, $city, $state, $country, $line_id, $facebook_id, $instagram;
+    public $membertype=1, $card_number='G', $name, $phone, $email, $password, $issue_by=4, $address, $country, $line_id, $facebook_id, $instagram;
 
     // OnKeyUp validation in field START
     public function updated($field){
         $this->validateOnly($field, [
             'membertype' => 'required',
-            'card_number' => 'required|min:6|unique:customers',
+            // 'card_number' => 'required|min:6|unique:customers',
+            'card_number' => [
+                'sometimes', 
+                'required_if:membertype,1,2',
+                'min:6', 
+                'unique:customers'
+            ],
             'name' => 'required',
             'email' => 'required|email|max:255|unique:customers',
             'phone' => 'required|numeric|unique:customers',
-            'city' => 'required',
-            'state' => 'required',
+            // 'city' => 'required',
+            // 'state' => 'required',
             'country' => 'required',
             'issue_by' => 'required',
             'password'  => 'required|min:8',
@@ -44,12 +50,18 @@ class RegisterPage extends Component
     {
         $validated = $this->validate([ 
             'membertype' => 'required',
-            'card_number' => 'required|min:6|unique:customers',
+            // 'card_number' => 'required|min:6|unique:customers',
+            'card_number' => [
+                'sometimes', 
+                'required_if:membertype,1,2',
+                'min:6', 
+                'unique:customers'
+            ],
             'name' => 'required',
             'email' => 'required|email|max:255|unique:customers',
             'phone' => 'required|numeric|unique:customers',
-            'city' => 'required',
-            'state' => 'required',
+            // 'city' => 'required',
+            // 'state' => 'required',
             'country' => 'required',
             'issue_by' => 'required',
             'password'  => 'required|min:8',
@@ -65,8 +77,8 @@ class RegisterPage extends Component
             'password'   => base64_encode($this->password),
             'issue_by'      => $this->issue_by,
             'address'      => $this->address,
-            'city'      => $this->city,
-            'state'      => $this->state,
+            // 'city'      => $this->city,
+            // 'state'      => $this->state,
             'country'     => $this->country,
             'line_id'    => $this->line_id,
             'facebook_id' => $this->facebook_id,

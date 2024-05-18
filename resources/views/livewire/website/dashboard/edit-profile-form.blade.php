@@ -64,13 +64,15 @@
                     </div><!-- /.col-lg-6 -->
                     <div class="col-sm-4 col-md-4 col-lg-4">
                       <div class="form-group">
-                        <label for="issue_by">{{ __('message.Issue By') }}</label>
+                        <label for="issue_by">{{ __('message.Approved By') }}</label>
                         <input type="text" class="form-control" wire:model="authorizedByName" readonly/>
                       </div>
                     </div><!-- /.col-lg-6 -->
                     <div class="col-12">
                       <div class="border-top mb-30"></div>
                       <p class="mb-30">{{ __('message.Kindly provide your personal informations below') }}:</p>
+                    </div><!-- /.col-lg-12 -->
+                    <div class="col-sm-6 col-md-6 col-lg-6">
                       <div class="form-group">
                         <label for="address">{{ __('message.Address') }}</label>
                         <input type="text" class="form-control @error('address') is-invalid @enderror" wire:model="address" placeholder="{{ __('message.Enter address') }}" value="{{old('address')}}">
@@ -78,8 +80,9 @@
                               <label class="error" for="address">{{ $message }}</label>
                               @enderror
                       </div>
-                    </div><!-- /.col-lg-12 -->
-                    <div class="col-sm-4 col-md-4 col-lg-4">
+                    </div>
+                    
+                    {{-- <div class="col-sm-4 col-md-4 col-lg-4">
                       <div class="form-group">
                         <label for="city">{{ __('message.City') }} <span class="red">*</span></label>
                         <input type="text" class="form-control @error('city') is-invalid @enderror" wire:model.live="city" placeholder="{{ __('message.Enter city') }}" value="{{old('city')}}">
@@ -96,8 +99,8 @@
                               <label class="error" for="state">{{ $message }}</label>
                               @enderror
                       </div>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-sm-4 col-md-4 col-lg-4">
+                    </div><!-- /.col-lg-4 --> --}}
+                    <div class="col-sm-6 col-md-6 col-lg-6">
                       <div class="form-group">
                         <label for="country">{{ __('message.Country') }} <span class="red">*</span></label>
                         <select class="form-control @error('country') is-invalid @enderror" wire:model="country" id="country">

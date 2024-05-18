@@ -17,7 +17,7 @@ return [
     'State' => 'State',
     'Enter state' => 'Enter state',
     'Country' => 'Country',
-    'Issue By' => 'Issue By',
+    'Approved By' => 'Approved By',
     'Password' => 'Password',
     'Enter password' => 'Enter password',
     'Line ID' => 'Line ID',
@@ -208,7 +208,7 @@ return [
     "Note" => "Note",
     "Please don't share Login credentials to anyone" => "Please don't share Login credentials to anyone",
     "Sr. no." => "Sr. no.",
-    "Team" => "Team",
+    "OR" => "OR",
     "Team" => "Team",
 
     

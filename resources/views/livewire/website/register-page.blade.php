@@ -10,7 +10,7 @@
                   <div class="col-sm-12">
                     <h4 class="contact-panel-title">{{ __('message.Member Registration') }}</h4>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="{{empty($card_number) ? 'col-sm-12 col-md-12 col-lg-12' : 'col-sm-6 col-md-6 col-lg-6'}}">
                     <div class="form-group">
                       <label for="membertype">{{ __('message.Type of Member') }} <span class="red">*</span></label>
                       <select class="form-control @error('membertype') is-invalid @enderror" wire:model.live="membertype">
@@ -26,15 +26,17 @@
                             @enderror
                     </div>
                   </div><!-- /.col-lg-6 -->
-                  <div class="col-sm-6 col-md-6 col-lg-6">
-                    <div class="form-group">
-                      <label for="card_number">{{ __('message.Gcon ID') }}<span class="red">*</span></label>
-                      <input type="text" class="form-control @error('card_number') is-invalid @enderror" wire:model.live="card_number" placeholder="{{ __('message.Enter Gcon ID') }}" value="" maxlength="6">
-                            @error('card_number')
-                            <label class="error" for="card_number">{{ $message }}</label>
-                            @enderror
-                    </div>
-                  </div><!-- /.col-lg-6 -->
+                  @if(!empty($card_number))
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label for="card_number">{{ __('message.Gcon ID') }}<span class="red">*</span></label>
+                        <input type="text" class="form-control @error('card_number') is-invalid @enderror" wire:model.live="card_number" placeholder="{{ __('message.Enter Gcon ID') }}" value="" maxlength="6">
+                              @error('card_number')
+                              <label class="error" for="card_number">{{ $message }}</label>
+                              @enderror
+                      </div>
+                    </div><!-- /.col-lg-6 -->
+                  @endif
                   <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
                       <label for="name">{{ __('message.Guest Name') }} <span class="red">*</span></label>
@@ -73,7 +75,7 @@
                   </div><!-- /.col-lg-6 -->
                   <div class="col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
-                      <label for="issue_by">{{ __('message.Issue By') }} <span class="red">*</span></label>
+                      <label for="issue_by">{{ __('message.Approved By') }} <span class="red">*</span></label>
                         <select class="form-control @error('issue_by') is-invalid @enderror" wire:model="issue_by" id="issue_by">
                                 <option value="{{old('issue_by')}}">--{{ __('message.Select') }}--</option>
                                 @if(!empty($AuthorizedBye))
@@ -90,15 +92,39 @@
                   <div class="col-12">
                     <div class="border-top mb-30"></div>
                     <p class="mb-30">{{ __('message.Kindly provide your personal informations below') }}:</p>
-                    <div class="form-group">
-                      <label for="address">{{ __('message.Address') }}</label>
-                      <input type="text" class="form-control @error('address') is-invalid @enderror" wire:model="address" placeholder="{{ __('message.Enter address') }}" value="{{old('address')}}">
-                            @error('address')
-                            <label class="error" for="address">{{ $message }}</label>
-                            @enderror
-                    </div>
                   </div><!-- /.col-lg-12 -->
-                  <div class="col-sm-4 col-md-4 col-lg-4">
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                          <label for="address">{{ __('message.Address') }}</label>
+                          <input type="text" class="form-control @error('address') is-invalid @enderror" wire:model="address" placeholder="{{ __('message.Enter address') }}" value="{{old('address')}}">
+                                @error('address')
+                                <label class="error" for="address">{{ $message }}</label>
+                                @enderror
+                        </div>
+                      </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label for="country">{{ __('message.Country') }} <span class="red">*</span></label>
+                        <select class="form-control @error('country') is-invalid @enderror" wire:model="country" id="country">
+                              <option value="{{old('country')}}">--{{ __('message.Select') }}--</option>
+                              <option value="MY">Malaysia</option>
+                              <option value="TH">Thailand</option>
+                              <option value="VN">Vietnam</option>
+                              <option value="ID">Indonesia</option>
+                              <option value="US">United States</option>
+                              <option value="PH">Philippines</option>
+                              <option value="IN">India</option>
+                              <option value="KH">Cambodia</option>
+                              <option value="CN">China</option>
+                        </select>
+                              @error('country')
+                              <label class="error" for="country">{{ $message }}</label>
+                              @enderror
+                      </div>
+                    </div><!-- /.col-lg-4 -->
+                    
+                  
+                  {{-- <div class="col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
                       <label for="city">{{ __('message.City') }} <span class="red">*</span></label>
                       <input type="text" class="form-control @error('city') is-invalid @enderror" wire:model.live="city" placeholder="{{ __('message.Enter city') }}" value="{{old('city')}}">
@@ -115,27 +141,8 @@
                             <label class="error" for="state">{{ $message }}</label>
                             @enderror
                     </div>
-                  </div><!-- /.col-lg-4 -->
-                  <div class="col-sm-4 col-md-4 col-lg-4">
-                    <div class="form-group">
-                      <label for="country">{{ __('message.Country') }} <span class="red">*</span></label>
-                      <select class="form-control @error('country') is-invalid @enderror" wire:model="country" id="country">
-                            <option value="{{old('country')}}">--{{ __('message.Select') }}--</option>
-                            <option value="MY">Malaysia</option>
-                            <option value="TH">Thailand</option>
-                            <option value="VN">Vietnam</option>
-                            <option value="ID">Indonesia</option>
-                            <option value="US">United States</option>
-                            <option value="PH">Philippines</option>
-                            <option value="IN">India</option>
-                            <option value="KH">Cambodia</option>
-                            <option value="CN">China</option>
-                      </select>
-                            @error('country')
-                            <label class="error" for="country">{{ $message }}</label>
-                            @enderror
-                    </div>
-                  </div><!-- /.col-lg-4 -->
+                  </div><!-- /.col-lg-4 --> --}}
+                 
                   <div class="col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
                       <label for="line_id">{{ __('message.Line ID') }}</label>

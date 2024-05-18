@@ -6,7 +6,7 @@ use Session;
 
 class LoginPage extends Component
 {
-        public $card_number, $password;
+        public $card_number, $phone, $password;
 
         public function render()
         {
@@ -16,8 +16,8 @@ class LoginPage extends Component
         // OnKeyUp validation in field START
         public function updated($field){
             $this->validateOnly($field, [
-            
-                'card_number' => 'required',
+                'card_number' => 'required_without:phone|nullable|min:6',
+                'phone' => 'required_without:card_number|nullable|numeric',
                 'password'  => 'required|min:8',
             ]);
         }
@@ -25,12 +25,17 @@ class LoginPage extends Component
         public function loginCheck()
         {
             $validated = $this->validate([ 
-                'card_number' => 'required',
+                'card_number' => 'required_without:phone|nullable|min:6',
+                'phone' => 'required_without:card_number|nullable|numeric',
                 'password'  => 'required|min:8',
             ]);
 
-            $checkCustomer=Customer::where('card_number', $this->card_number)->get()->toArray();
-            // echo "<pre>"; print_r($checkCustomer); die;
+            if(!empty($this->card_number)){
+                $checkCustomer=Customer::where('card_number', $this->card_number)->get()->toArray();
+            }else{
+                $checkCustomer=Customer::where('phone', $this->phone)->get()->toArray();
+            }
+            // echo "<pre>"; print_r($checCustomer); die;
             if(!empty($checkCustomer)){
                 $customer=$checkCustomer[0];
                 
