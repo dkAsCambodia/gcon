@@ -17,7 +17,7 @@ return [
     'State' => 'រដ្ឋ',
     'Enter state' => 'បញ្ចូលរដ្ឋ',
     'Country' => 'ប្រទេស',
-    'Issue By' => 'ចេញផ្សាយដោយ',
+    'Approved By' => 'អនុម័តដោយ',
     'Password' => 'ពាក្យសម្ងាត់',
     'Enter password' => 'បញ្ចូលពាក្យសម្ងាត់',
     'Line ID' => 'លេខសម្គាល់បន្ទាត់',
@@ -208,6 +208,7 @@ return [
     "Note" => "ចំណាំ",
     "Please don't share Login credentials to anyone" => "សូម​កុំ​ចែករំលែក​ព័ត៌មាន​សម្ងាត់​ចូល​ទៅ​អ្នក​ណា​ម្នាក់",
     "Sr. no." => "ស.",
+    "OR" => "ឬ",
 
 
 

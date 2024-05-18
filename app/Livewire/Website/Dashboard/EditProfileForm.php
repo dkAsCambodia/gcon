@@ -14,7 +14,7 @@ class EditProfileForm extends Component
     public $sessUser, $customer, $memberTypeName, $authorizedByName;
     // this rule is working for onsubmit and ontype validation
     #[Rule('required')]
-    public $name, $city, $state, $country;
+    public $name, $country;
    
     #[Rule('')]
     public $address, $line_id, $facebook_id, $instagram;
@@ -30,9 +30,9 @@ class EditProfileForm extends Component
             $this->phone = $this->customer->phone;
             $this->email = $this->customer->email;
             $this->address = $this->customer->address;
-            $this->city = $this->customer->city;
+            // $this->city = $this->customer->city;
+            // $this->state = $this->customer->state;
             $this->phone = $this->customer->phone;
-            $this->state = $this->customer->state;
             $this->country = $this->customer->country;
             $this->line_id = $this->customer->line_id;
             $this->facebook_id = $this->customer->facebook_id;

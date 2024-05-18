@@ -53,7 +53,16 @@
                           <td class="cart-product-quantity"><a class="btn btn-primary btn-link btn-block" href="/invoice/{{ base64_encode($tablerow->total_amount) }}/{{ $tablerow->currency_symbol }}/{{ base64_encode($tablerow->currency) }}/{{ base64_encode($tablerow->id) }}"  >{{ __('message.View More') }}</a></td>
                         </tr>
                         @empty
-                        <li><span>Not Found! </span><span class="price"></span></li>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><span>{{ __('message.Not Found') }}!</span><span class="price"></span></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
                         @endforelse
                       
                       </tbody>

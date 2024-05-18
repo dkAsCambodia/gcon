@@ -7,13 +7,21 @@
                 <form wire:submit.prevent="loginCheck" class="login-form">
                 <h4 class="contact-panel-title">{{ __('message.Gcon Member Login') }}</h4>
                 <p class="contact-panel-desc">{{ __('message.Please enter card ID and password to complete the Login process') }}!</p>
-                <div class="form-group">
-                    <label for="email">{{ __('message.Gcon ID') }} <span class="red">*</span></label>
-                    <input type="text" class="form-control @error('card_number') is-invalid @enderror" wire:model.live="card_number" placeholder="{{ __('message.Enter Gcon ID') }}" value="" maxlength="6">
-                            @error('card_number')
-                            <label class="error" for="card_number">{{ $message }}</label>
-                            @enderror
-                </div>
+                  <div class="form-group">
+                      <label for="email">{{ __('message.Gcon ID') }}</label>
+                      <input type="text" class="form-control @error('card_number') is-invalid @enderror" wire:model.live="card_number" placeholder="{{ __('message.Enter Gcon ID') }}" value="" maxlength="6">
+                              @error('card_number')
+                              <label class="error" for="card_number">{{ $message }}</label>
+                              @enderror
+                  </div>
+                  <p class="contact-panel-desc">{{ __('message.OR') }}</p>
+                  <div class="form-group">
+                      <label for="phone">{{ __('message.Phone Number') }}</label>
+                      <input type="text" class="form-control @error('phone') is-invalid @enderror" wire:model.live="phone" placeholder="{{ __('message.Enter phone number') }}" value="{{old('phone')}}" maxlength="12">
+                      @error('phone')
+                      <label class="error" for="phone">{{ $message }}</label>
+                      @enderror
+                  </div>
                 <div class="form-group">
                         <label for="zip">{{ __('message.Password') }} <span class="red">*</span></label>
                       <input type="password" class="form-control @error('password') is-invalid @enderror" wire:model.live="password" placeholder="{{ __('message.Enter password') }}">
