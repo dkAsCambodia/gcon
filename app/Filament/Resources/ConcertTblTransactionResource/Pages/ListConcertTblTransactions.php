@@ -27,6 +27,8 @@ class ListConcertTblTransactions extends ListRecords
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'success')),
             'Pending' => Tab::make('Pending')
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'pending')),
+            'Cancellled Booking' => Tab::make('Cancellled Booking')
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('cancelStatus', '1')),
             
         ];
     }

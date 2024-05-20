@@ -32,6 +32,7 @@
                       </ul><!-- /.social-icons -->
                   </div>
                   <br/>
+                  <p class="mb-30">&nbsp;&nbsp;Member Account Status : <b>{{ $customer->status=='1' ? 'Acitve' : 'InActive' }}</b></p>
                   <p class="mb-30"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{{ ucfirst($customer->address) ?? '' }}, {{ ucfirst($customer->country) ?? '' }}</p>
                   <a href="/dashboard/updateProfile" wire:navigate class="btn btn-secondary mb-10">Edit <i class="fa fa-edit"></i></a>
               </div>

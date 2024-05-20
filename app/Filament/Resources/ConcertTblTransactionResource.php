@@ -38,13 +38,13 @@ class ConcertTblTransactionResource extends Resource
                     ->schema([
                         Forms\Components\Select::make('user_id')
                             ->label('Username')
-                            ->options(Customer::where('status', 1)->pluck('name', 'id')) 
+                            ->options(Customer::pluck('name', 'id')) 
                             ->prefixIcon('heroicon-m-user')
                             ->default('Guest')
                             ->required(),
                         Forms\Components\Select::make('user_id')
                             ->label('UserEmail')
-                            ->options(Customer::where('status', 1)->pluck('email', 'id')) 
+                            ->options(Customer::pluck('email', 'id')) 
                             ->prefixIcon('heroicon-m-envelope')
                             ->default('guest@gmail.com')
                             ->required(),
@@ -122,6 +122,11 @@ class ConcertTblTransactionResource extends Resource
                         Forms\Components\TextInput::make('future_payment_custId')
                             ->maxLength(255),
                     ])->columns(3),
+                Forms\Components\Toggle::make('cancelStatus')
+                    ->label('Cancel Booking')
+                    ->onIcon('heroicon-m-bolt')
+                    ->onColor('success')
+                    ->required(),
             ]);
     }
 
@@ -166,7 +171,14 @@ class ConcertTblTransactionResource extends Resource
                         'pending' => 'danger',
                         'success' => 'success',
                     }),
-
+                Tables\Columns\TextColumn::make('cancelStatus')
+                        ->searchable()
+                        ->formatStateUsing(fn (string $state): string => $state === '0' ? '' : 'Cancelled')
+                        ->badge()
+                        ->color(fn (string $state): string => match ($state) {
+                            '0' => 'success',
+                            '1' => 'danger',
+                        }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -183,7 +195,7 @@ class ConcertTblTransactionResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                // Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
