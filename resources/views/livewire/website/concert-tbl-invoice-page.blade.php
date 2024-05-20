@@ -47,6 +47,7 @@
                           <li><span>{{ __('message.Email') }}</span><span>{{ !empty($transaction->email) ? ucfirst($transaction->email) : '' }}</span></li>
                           <li><span>{{ __('message.Address') }}</span><span>{{ !empty($transaction->address) ? ucfirst($transaction->address) : '' }}</span></li>
                           <li><span>{{ __('message.No. of people') }}</span><span>{{ !empty($transaction->no_of_people) ? ucfirst($transaction->no_of_people) : '' }}</span></li>
+                          <li><span>{{ __('message.Table quantity') }}</span><span>{{ !empty($transaction->quantity) ? ucfirst($transaction->quantity) : '' }}</span></li>
                           @if(!empty($transaction->payment_time))
                           <li><span>{{ __('message.Date') }}</span><span>{{ !empty($transaction->payment_time) ? ucfirst($transaction->payment_time) : '' }}</span></li>
                           @endif
@@ -61,7 +62,7 @@
                           @if(!empty($transaction->transaction_id))
                           <li><span>{{ __('message.TransactionId') }}</span><span>{{ $transaction->transaction_id }}</span></li>
                           @endif
-                          <li><span>{{ __('message.Table quantity') }}</span><span>{{ !empty($transaction->quantity) ? ucfirst($transaction->quantity) : '' }}</span></li>
+                          
                           <li><span>{{ __('message.Payment type') }}</span><span class="price">{{ !empty($transaction->paymentType) ? ucfirst($transaction->paymentType) : '' }}</span></li>
                           <li><span>{{ __('message.Concert booking date') }}</span><span>
                                 <?php
@@ -73,6 +74,12 @@
                             </span></li>
                           <li><span>{{ __('message.Concert arrival time') }}</span><span>{{ !empty($transaction->concert_arrival_time) ? $transaction->concert_arrival_time : '' }}</span></li>
                           <li><span>{{ __('message.Transaction Status') }}</span><span>{{ !empty($transaction->status) ? $transaction->status : '' }}</span></li>
+                          @if($transaction->cancelStatus=='1')
+                            <li><span>{{ __('message.Booking Status') }}</span><span class="text-danger">{{ $transaction->cancelStatus=='1' ? 'Cancelled' : '' }}</span></li>
+                          @else
+                            <li><button class="btn btn-danger" wire:click.prevent="deleteConfirmation({{ $transaction->id }})">Cancel Booking</button></li>
+                          @endif
+                          
                         </ul>
                       </div>
                     </div><!-- /.col-md-6 -->
