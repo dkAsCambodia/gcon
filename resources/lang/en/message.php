@@ -209,7 +209,15 @@ return [
     "Please don't share Login credentials to anyone" => "Please don't share Login credentials to anyone",
     "Sr. no." => "Sr. no.",
     "OR" => "OR",
-    "Team" => "Team",
+    "Booking Status" => "Booking Status",
+    "Are you sure?" => "Are you sure?",
+    "You want to cancel this booking!" => "You want to cancel this booking!",
+    "Yes, cancel it!" => "Yes, cancel it!",
+    "Cancel Booking" => "Cancel Booking",
+    "Cancel" =>"Cancel",
+    "Cancelled" =>"Cancelled",
+    "Your Booking has been Cancelled" =>"Your Booking has been Cancelled",
+   
 
     
     

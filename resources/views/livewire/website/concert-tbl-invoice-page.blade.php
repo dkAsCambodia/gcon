@@ -74,10 +74,10 @@
                             </span></li>
                           <li><span>{{ __('message.Concert arrival time') }}</span><span>{{ !empty($transaction->concert_arrival_time) ? $transaction->concert_arrival_time : '' }}</span></li>
                           <li><span>{{ __('message.Transaction Status') }}</span><span>{{ !empty($transaction->status) ? $transaction->status : '' }}</span></li>
-                          @if($transaction->cancelStatus=='1')
-                            <li><span>{{ __('message.Booking Status') }}</span><span class="text-danger">{{ $transaction->cancelStatus=='1' ? 'Cancelled' : '' }}</span></li>
+                          @if($cancelButtonShow=='1')
+                            <li><span>{{ __('message.Booking Status') }}</span><span class="text-danger">{{ $cancelButtonShow=='1' ? 'Cancelled' : '' }}</span></li>
                           @else
-                            <li><button class="btn btn-danger" wire:click.prevent="deleteConfirmation({{ $transaction->id }})">Cancel Booking</button></li>
+                            <li><button class="btn btn-danger" wire:click.prevent="cancelButtonfun({{ $transaction->id }})">{{ __('message.Cancel Booking') }}</button></li>
                           @endif
                           
                         </ul>

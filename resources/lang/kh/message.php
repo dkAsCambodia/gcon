@@ -209,6 +209,14 @@ return [
     "Please don't share Login credentials to anyone" => "សូម​កុំ​ចែករំលែក​ព័ត៌មាន​សម្ងាត់​ចូល​ទៅ​អ្នក​ណា​ម្នាក់",
     "Sr. no." => "ស.",
     "OR" => "ឬ",
+    "Booking Status" => "ស្ថានភាពកក់",
+    "Are you sure?" => "តើ​អ្នក​ប្រាកដ​ឬ​អត់?",
+    "You want to cancel this booking!" => "អ្នកចង់លុបចោលការកក់នេះ!",
+    "Yes, cancel it!" => "បាទ លុបចោល!",
+    "Cancel Booking" => "បោះបង់ការកក់",
+    "Cancel" =>"បោះបង់",
+    "Cancelled" =>"បានលុបចោល",
+    "Your Booking has been Cancelled" =>"ការកក់របស់អ្នកត្រូវបានលុបចោល",
 
 
 

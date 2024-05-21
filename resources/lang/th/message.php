@@ -209,6 +209,14 @@ return [
     "Please don't share Login credentials to anyone" => "กรุณาอย่าเปิดเผยข้อมูลการเข้าสู่ระบบให้กับใครก็ตาม",
     "Sr. no." => "ซีเนียร์ ไม่.",
     "OR" => "หรือ",
+    "Booking Status" => "สถานะการจอง",
+    "Are you sure?" => "คุณแน่ใจไหม?",
+    "You want to cancel this booking!" => "คุณต้องการยกเลิกการจองนี้!",
+    "Yes, cancel it!" => "ใช่ ยกเลิกเลย!",
+    "Cancel Booking" => "ยกเลิกการจอง",
+    "Cancel" =>"ยกเลิก",
+    "Cancelled" =>"ยกเลิก",
+    "Your Booking has been Cancelled" =>"การจองของคุณถูกยกเลิกแล้ว",
     
     
 
