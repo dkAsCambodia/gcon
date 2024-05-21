@@ -195,7 +195,7 @@
     });
 </script>
      <!-- Toster JS END For Livewire-->
-  @livewireScripts
+ 
   <script type="text/javascript">
     var url = "{{ route('LangChange') }}";
     $("#Langchange li").on("click", function(){
@@ -219,24 +219,40 @@
 </script>
 {{-- toastr js END for LARAVEL controller--}}
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  window.addEventlistner('show-delete-confirmation', event => {
-    
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Livewire.emit('deleteConfirmed');
-        }
-      });
-  })
+@livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('show-cancel-confirmation', event => {
+                Swal.fire({
+                    title: "{{ __('message.Are you sure?') }}",
+                    text: "{{ __('message.You want to cancel this booking!') }}",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "{{ __('message.Yes, cancel it!') }}",
+                    cancelButtonText: "{{ __('message.Cancel') }}"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (typeof Livewire !== 'undefined' && typeof Livewire.dispatch === 'function') {
+                            Livewire.dispatch('cancelConcertTicket');
+                        } else {
+                            console.error('Livewire is not available or dispatch function is not defined.');
+                        }
+                    }
+                });
+            });
+        });
+
+  window.addEventListener('ticketCancelled', event => {
+    Swal.fire(
+        "{{ __('message.Cancelled') }}!",
+        "{{ __('message.Your Booking has been Cancelled') }}.",
+        'success'
+      )
+  });
 </script>
+
 </body>
 </html>
