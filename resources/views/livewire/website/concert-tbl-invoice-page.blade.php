@@ -124,4 +124,37 @@
         };
     </script>
         {{-- Disable_Browser_Back_JavaScript END --}}
+        {{-- Code for Cancel Booking Js via sweetalert 2 START --}}
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              window.addEventListener('show-cancel-confirmation', event => {
+                  Swal.fire({
+                      title: "{{ __('message.Are you sure?') }}",
+                      text: "{{ __('message.You want to cancel this booking!') }}",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#3085d6",
+                      cancelButtonColor: "#d33",
+                      confirmButtonText: "{{ __('message.Yes, cancel it!') }}",
+                      cancelButtonText: "{{ __('message.Cancel') }}"
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          if (typeof Livewire !== 'undefined' && typeof Livewire.dispatch === 'function') {
+                              Livewire.dispatch('cancelConcertTicket');
+                          } else {
+                              console.error('Livewire is not available or dispatch function is not defined.');
+                          }
+                      }
+                  });
+              });
+          });
+        window.addEventListener('ticketCancelled', event => {
+          Swal.fire(
+              "{{ __('message.Cancelled') }}!",
+              "{{ __('message.Your Booking has been Cancelled') }}.",
+              'success'
+            )
+        });
+    </script>
+    {{-- Code for Cancel Booking Js via sweetalert 2 END --}}
   </section>
