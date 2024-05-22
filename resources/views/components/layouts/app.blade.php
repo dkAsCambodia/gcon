@@ -181,7 +181,9 @@
     </svg>
 
   </div><!-- /.wrapper -->
-
+  {{-- sweetalert 2 js START --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  {{-- sweetalert 2 js END --}}
   <script src="{{ URL::to('website/assets/js/jquery-3.5.1.min.js') }}"></script>
   <script src="{{ URL::to('website/assets/js/plugins.js') }}"></script>
   <script src="{{ URL::to('website/assets/js/main.js') }}"></script>
@@ -218,41 +220,6 @@
     });
 </script>
 {{-- toastr js END for LARAVEL controller--}}
-
 @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            window.addEventListener('show-cancel-confirmation', event => {
-                Swal.fire({
-                    title: "{{ __('message.Are you sure?') }}",
-                    text: "{{ __('message.You want to cancel this booking!') }}",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "{{ __('message.Yes, cancel it!') }}",
-                    cancelButtonText: "{{ __('message.Cancel') }}"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        if (typeof Livewire !== 'undefined' && typeof Livewire.dispatch === 'function') {
-                            Livewire.dispatch('cancelConcertTicket');
-                        } else {
-                            console.error('Livewire is not available or dispatch function is not defined.');
-                        }
-                    }
-                });
-            });
-        });
-
-  window.addEventListener('ticketCancelled', event => {
-    Swal.fire(
-        "{{ __('message.Cancelled') }}!",
-        "{{ __('message.Your Booking has been Cancelled') }}.",
-        'success'
-      )
-  });
-</script>
-
 </body>
 </html>
