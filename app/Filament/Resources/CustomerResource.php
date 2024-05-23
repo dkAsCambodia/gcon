@@ -66,6 +66,7 @@ class CustomerResource extends Resource
                             ->tel()
                             ->prefixIcon('heroicon-m-phone')
                             ->unique()
+                            ->maxLength(10)
                             // ->validationMessages([
                             //     'unique' => 'The :attribute has already been registered.',
                             // ])

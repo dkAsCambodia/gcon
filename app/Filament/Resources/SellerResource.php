@@ -51,6 +51,7 @@ class SellerResource extends Resource
                     ->tel()
                     ->prefixIcon('heroicon-m-phone')
                     ->required()
+                    ->maxLength(10)
                     ->unique(ignorable: fn ($record) => $record)
                     ->reactive()
                     ->disabled(fn ($context) => $context === 'edit'),
@@ -68,8 +69,6 @@ class SellerResource extends Resource
                     ->password()
                     ->required()
                     ->revealable()
-                    ->unique(ignorable: fn ($record) => $record)
-                    ->reactive()
                     ->disabled(fn ($context) => $context === 'edit'),
                 Forms\Components\TextInput::make('address')
                     ->required()
@@ -131,27 +130,31 @@ class SellerResource extends Resource
                 Tables\Columns\TextColumn::make('cuisine')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('firstName')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('lastName')
+                    ->getStateUsing(fn ($record)=> ucfirst($record->firstName.' '.$record->lastName))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phoneNumber')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('shopImage')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('shopImage')
+                    ->square(),
                 Tables\Columns\TextColumn::make('address')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('city')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('country')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('additionalAddress')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('contractStatus')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
+                    ->searchable()
+                    ->formatStateUsing(fn (string $state): string => ucfirst($state))
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'pending' => 'warning',
+                        'approved' => 'success',
+                        'rejected' => 'danger',
+                    }),
+                Tables\Columns\IconColumn::make('status')
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
