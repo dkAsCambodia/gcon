@@ -22,100 +22,109 @@ use Filament\Resources\Pages\CreateRecord;
 class SellerResource extends Resource
 {
     protected static ?string $model = Seller::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
+    protected static ?string $navigationGroup = 'Restaurant Management';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('shopName')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Select::make('businessType')
-                    ->options([
-                        'Restaurant' => 'Restaurant',
-                        'Shop' => 'Shop',
-                    ])
-                    ->prefixIcon('heroicon-m-flag')
-                    ->required(),
-                Forms\Components\TextInput::make('cuisine')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('firstName')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('lastName')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('phoneNumber')
-                    ->tel()
-                    ->prefixIcon('heroicon-m-phone')
-                    ->required()
-                    ->maxLength(10)
-                    ->unique(ignorable: fn ($record) => $record)
-                    ->reactive()
-                    ->disabled(fn ($context) => $context === 'edit'),
-                Forms\Components\TextInput::make('email')
-                    ->label('Email')
-                    ->prefixIcon('heroicon-m-envelope')
-                    ->required()
-                    ->unique(ignorable: fn ($record) => $record)
-                    ->regex('/^.+@.+$/i')
-                    ->email()
-                    ->reactive()
-                    ->disabled(fn ($context) => $context === 'edit'),
-                Forms\Components\TextInput::make('password')
-                    ->prefixIcon('heroicon-m-lock-closed')
-                    ->password()
-                    ->required()
-                    ->revealable()
-                    ->disabled(fn ($context) => $context === 'edit'),
-                Forms\Components\TextInput::make('address')
-                    ->required()
-                    ->prefixIcon('heroicon-m-map-pin')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('city')
-                    ->prefixIcon('heroicon-m-map-pin')
-                    ->required(),
-                Forms\Components\Select::make('country')
-                    ->options([
-                        'KH' => 'Cambodia',
-                        'TH' => 'Thailand',
-                        'VN' => 'Vietnam',
-                        'MY' => 'Malaysia',
-                        'ID' => 'Indonesia',
-                        'US' => 'United States',
-                        'PH' => 'Philippines',
-                        'IN' => 'India',
-                        'CN' => 'China',
-                    ])
-                    ->default('KH')
-                    ->prefixIcon('heroicon-m-flag')
-                    ->searchable()
-                    ->required(),
-                Forms\Components\TextInput::make('additionalAddress')
-                    ->prefixIcon('heroicon-m-map-pin')
-                    ->maxLength(255),
-                Forms\Components\Select::make('contractStatus')
-                    ->options([
-                        'pending' => 'pending',
-                        'approved' => 'approved',
-                        'rejected' => 'rejected',
-                    ])
-                    ->default('pending')
-                    ->prefixIcon('heroicon-m-flag')
-                    ->required(),
-                Forms\Components\FileUpload::make('shopImage')
-                    ->label('Table Image')
-                    ->required()
-                    // ->directory('images/restaurant/shop')
-                    ->directory('images/concertTable')
-                    ->image(),
-                Forms\Components\Toggle::make('status')
-                    ->default('0')
-                    ->onIcon('heroicon-m-bolt')
-                    ->offIcon('heroicon-m-user')
-                    ->onColor('success'),
+                Forms\Components\Section::make('Shop information')
+                    ->schema([
+                        Forms\Components\TextInput::make('shopName')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Select::make('businessType')
+                            ->options([
+                                'Restaurant' => 'Restaurant',
+                                'Shop' => 'Shop',
+                            ])
+                            ->prefixIcon('heroicon-m-flag')
+                            ->required(),
+                        Forms\Components\TextInput::make('cuisine')
+                            ->required()
+                            ->maxLength(255),
+                    ])->columns(3),
+                Forms\Components\Section::make('Seller information')
+                    ->schema([
+                        Forms\Components\TextInput::make('firstName')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('lastName')
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('phoneNumber')
+                            ->tel()
+                            ->prefixIcon('heroicon-m-phone')
+                            ->required()
+                            ->maxLength(10)
+                            ->unique(ignorable: fn ($record) => $record)
+                            ->reactive()
+                            ->disabled(fn ($context) => $context === 'edit'),
+                        Forms\Components\TextInput::make('email')
+                            ->label('Email')
+                            ->prefixIcon('heroicon-m-envelope')
+                            ->required()
+                            ->unique(ignorable: fn ($record) => $record)
+                            ->regex('/^.+@.+$/i')
+                            ->email()
+                            ->reactive()
+                            ->disabled(fn ($context) => $context === 'edit'),
+                        Forms\Components\TextInput::make('password')
+                            ->prefixIcon('heroicon-m-lock-closed')
+                            ->password()
+                            ->required()
+                            ->revealable()
+                            ->disabled(fn ($context) => $context === 'edit'),
+                        Forms\Components\TextInput::make('address')
+                            ->required()
+                            ->prefixIcon('heroicon-m-map-pin')
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('city')
+                            ->prefixIcon('heroicon-m-map-pin')
+                            ->required(),
+                        Forms\Components\Select::make('country')
+                            ->options([
+                                'KH' => 'Cambodia',
+                                'TH' => 'Thailand',
+                                'VN' => 'Vietnam',
+                                'MY' => 'Malaysia',
+                                'ID' => 'Indonesia',
+                                'US' => 'United States',
+                                'PH' => 'Philippines',
+                                'IN' => 'India',
+                                'CN' => 'China',
+                            ])
+                            ->default('KH')
+                            ->prefixIcon('heroicon-m-flag')
+                            ->searchable()
+                            ->required(),
+                        Forms\Components\TextInput::make('additionalAddress')
+                            ->prefixIcon('heroicon-m-map-pin')
+                            ->maxLength(255),
+                    ])->columns(3),
+                Forms\Components\Section::make('Shop information')
+                    ->schema([
+                        Forms\Components\Select::make('contractStatus')
+                            ->options([
+                                'pending' => 'pending',
+                                'approved' => 'approved',
+                                'rejected' => 'rejected',
+                            ])
+                            ->default('pending')
+                            ->prefixIcon('heroicon-m-flag')
+                            ->required(),
+                        Forms\Components\Toggle::make('status')
+                            ->default('0')
+                            ->onIcon('heroicon-m-bolt')
+                            ->offIcon('heroicon-m-user')
+                            ->onColor('success'),
+                        Forms\Components\FileUpload::make('shopImage')
+                            ->label('Table Image')
+                            ->required()
+                            ->directory('images/restaurant/shop')
+                            ->image(),
+                    ])->columns(3),
             ]);
     }
 
