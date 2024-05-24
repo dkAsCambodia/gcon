@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Filament\Resources\SellerResource\Pages;
+namespace App\Filament\Resources\RestaurantResource\Pages;
 
-use App\Filament\Resources\SellerResource;
+use App\Filament\Resources\RestaurantResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditSeller extends EditRecord
+class EditRestaurant extends EditRecord
 {
-    protected static string $resource = SellerResource::class;
+    protected static string $resource = RestaurantResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
+            Actions\ViewAction::make(),
             Actions\DeleteAction::make(),
             Actions\ForceDeleteAction::make(),
             Actions\RestoreAction::make(),
@@ -23,5 +24,4 @@ class EditSeller extends EditRecord
     {
         return $this->getResource()::getUrl('index');
     }
-
 }
