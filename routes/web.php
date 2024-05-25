@@ -15,6 +15,7 @@ use App\Livewire\Website\ConcertFormPage;
 use App\Livewire\Website\PaymentOptionsPage;
 use App\Livewire\Website\ConcertTblInvoicePage;
 use App\Livewire\Website\DashboardPage;
+use App\Livewire\Website\RestaurantPage;
 use App\Livewire\Website\dashboard\EditProfileForm;
 use App\Livewire\Website\dashboard\ConcertBookingList;
 use App\Livewire\Website\Email\ForgetPassMailComponent;
@@ -62,6 +63,7 @@ Route::get('/GEntertainment/concertForm/{tableId?}', ConcertFormPage::class)->na
 Route::get('/paymentOptions/{amount}/{currencySymbol}/{currency}', PaymentOptionsPage::class); ////
 Route::get('/invoice/{amount}/{currencySymbol}/{currency}/{recordId}', ConcertTblInvoicePage::class); ////
 //For GEntertainment concert END
+
 // For Paypal payment Gateway START
 Route::post('/paypal/checkout', [PaypalPaymentController::class, 'paypalCheckout'])->name('paypal.checkout');
 Route::get('/paypalCheckout/success', [PaypalPaymentController::class, 'paypalSuccess'])->name('paypalCheckout.success');
@@ -76,7 +78,10 @@ Route::get('/language', function () {
     return view('welcome', compact('languages', 'banners'));
 });
 Route::get('lang/change', [LocalizationController::class, 'lang_change'])->name('LangChange');
-
-
 //Email
 // Route::get('/email-sender', ForgetPassMailComponent::class);
+
+//For GBooking restaurant START
+Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage');
+//For GBooking restaurant END
+
