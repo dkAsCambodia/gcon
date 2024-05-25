@@ -11,4 +11,14 @@ class Restaurant extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded = ['id'];
+
+    public function getsellerData()
+    {
+        return $this->belongsTo(Seller::class,  'sellerId', 'id');
+    }
+
+    public function gbookingdata()
+    {
+        return $this->belongsTo(TblGbooking::class,  'GBookingId', 'id');
+    }
 }
