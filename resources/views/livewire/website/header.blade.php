@@ -88,7 +88,7 @@
                   @if(!empty($bookings))
                     @foreach($bookings as $key => $booking)
                         <li class="nav-item">
-                          <a href="/" wire:navigate class="nav-item-link">{{!empty($booking->translationValue->GBookingname) ? ucwords($booking->translationValue->GBookingname) : ''}}</a>
+                          <a href="/{{ $booking->recognize."/".$booking->BookingType ?? ''}}" wire:navigate class="nav-item-link">{{!empty($booking->translationValue->GBookingname) ? ucwords($booking->translationValue->GBookingname) : ''}}</a>
                         </li><!-- /.nav-item -->
                     @endforeach
                   @endif

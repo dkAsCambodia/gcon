@@ -12,6 +12,24 @@ class Restaurant extends Model
     use SoftDeletes;
     protected $guarded = ['id'];
 
+    protected $relationsToCascade = ['translations'];
+    public function translations(): HasMany
+    {
+        return $this->hasMany(RestaurantTranslation::class);
+    }
+
+    public function translationValue(): Attribute
+    {
+        return new Attribute(
+            get: function () {
+                return $this->translations()
+                    ->where(['language_id' => Language::where('code', app()->getLocale())->first()?->id ?? 'en'])
+                    ->get()->first();
+            }
+        );
+    }
+
+
     public function getsellerData()
     {
         return $this->belongsTo(Seller::class,  'sellerId', 'id');
