@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('sellerId')->nullable();
             $table->string('GBookingId')->nullable();
-            $table->string('heading')->nullable();
-            $table->string('title')->nullable();
+            $table->string('restaurantName')->nullable();
             $table->string('imgRestaurant')->nullable();
             $table->string('openTime')->nullable();
             $table->string('closedtime')->nullable();

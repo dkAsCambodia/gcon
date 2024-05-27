@@ -45,10 +45,7 @@ class RestaurantResource extends Resource
                             ->prefixIcon('heroicon-o-rectangle-stack')
                             ->default('2')
                             ->reactive(),
-                        Forms\Components\TextInput::make('heading')
-                            ->required()
-                            ->maxLength(255),
-                        Forms\Components\TextInput::make('title')
+                        Forms\Components\TextInput::make('restaurantName')
                             ->required()
                             ->maxLength(255),
                     ])->columns(2),
@@ -125,9 +122,7 @@ class RestaurantResource extends Resource
                 Tables\Columns\TextColumn::make(ucfirst('gbookingdata.BookingType'))
                     ->label('GBooking Type')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('heading')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('restaurantName')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('imgRestaurant')
                     ->square(),
