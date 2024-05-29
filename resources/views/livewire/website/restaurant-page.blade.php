@@ -36,26 +36,34 @@
                     <div class="post-item">
                       <div class="post-img">
                         <span class="post-meta-date">
-                          <span class="day">30% off</span>
-                          {{-- <span class="month">off</span> --}}
+                          <h6><span class="day"><i class='fas fa-percentage'></i>&nbsp;Free Delivery</span></h6>
+                          {{-- @if(!empty($row->Discount))
+                          <span class="day">Free delivery {{ !empty($row->Discount) ? $row->Discount.'% off' : ''}}</span>
+                          @endif --}}
                         </span>
                         <a href="#">
                           <img src="{{ asset('storage/'.$row->imgRestaurant	) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" alt="post image" loading="lazy">
                         </a>
                       </div><!-- /.post-img -->
                       <div class="post-body">
+                        <h4 class="post-title"><a href="#">{{!empty($row->translationValue->heading) ? ucwords($row->translationValue->heading) : ''}}</a></h4>
+                        <p class="post-desc">{{!empty($row->translationValue->title) ? ucwords($row->translationValue->title) : ''}}</p>
+                        <p class="post-desc">Available Daily:</p>
                         <div class="post-meta d-flex align-items-center">
                           <div class="post-meta-cat">
-                            <a href="#">Mental Health</a>
+                            <?php   
+                              $dateTime1 = DateTime::createFromFormat('H:i:s', $row->openTime);
+                              $firstTime=$dateTime1->format('g:i A');
+
+                              $dateTime2 = DateTime::createFromFormat('H:i:s', $row->closedtime);
+                              $secondTime=$dateTime2->format('g:i A');
+                              
+                              ?>
+                            <a href="#">{{ ucfirst($row->openingDay) ?? ''}} to {{ ucfirst($row->closingday) ?? ''}}</a>
                           </div><!-- /.blog-meta-cat -->
-                          <a class="post-meta-author" href="#">Martin King</a>
+                          <a class="post-meta-author" href="#">{{ $firstTime ?? ''}} to {{ $secondTime ?? ''}}</a>
                         </div>
-                        <h4 class="post-title"><a href="#">Partnership to Increase COVID19 Testing Capacity and Track All
-                            COVID-19 Variants
-                          </a></h4>
-                        <p class="post-desc">It’s normal to feel anxiety, worry and grief any time you’re diagnosed with a
-                          condition that’s certainly true if you test positive for COVID-19, or are presumed to be positive...
-                        </p>
+                       
                         <a href="blog-single-post.html" class="btn btn-link">
                           <i class="plus-icon">+</i>
                           <span>Read More</span>
