@@ -164,7 +164,7 @@ return [
     "Pay with Paypal" => "ชำระเงินด้วย PayPal",
     "Pay" => "จ่าย",
     "Payment Options" => "ตัวเลือกการชำระเงิน",
-    "Cash on delivery" => "เงินสดในการจัดส่ง",
+    "Cash Deposit" => "การฝากเงินสด",
     "Online Payment" => "การชำระเงินออนไลน์",
     "Booking Concert Table Invoice" => "ใบแจ้งการจองโต๊ะคอนเสิร์ต",
     "Back" => "กลับ",
@@ -217,7 +217,10 @@ return [
     "Cancel" =>"ยกเลิก",
     "Cancelled" =>"ยกเลิก",
     "Your Booking has been Cancelled" =>"การจองของคุณถูกยกเลิกแล้ว",
-    
+    "Restaurants" => "ร้านอาหาร",
+    "Free Delivery" => "จัดส่งฟรี",
+    "Available Daily" => "มีจำหน่ายทุกวัน",
+    "to" => "ถึง",
     
 
 

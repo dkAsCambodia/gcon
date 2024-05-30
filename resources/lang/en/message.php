@@ -164,7 +164,7 @@ return [
     "Pay with Paypal" => "Pay with PayPal",
     "Pay" => "Pay",
     "Payment Options" => "Payment Options",
-    "Cash on delivery" => "Cash on delivery",
+    "Cash Deposit" => "Cash Deposit",
     "Online Payment" => "Online Payment",
     "Booking Concert Table Invoice" => "Booking Concert Table Invoice",
     "Back" => "Back",
@@ -217,6 +217,12 @@ return [
     "Cancel" =>"Cancel",
     "Cancelled" =>"Cancelled",
     "Your Booking has been Cancelled" =>"Your Booking has been Cancelled",
+    "Restaurants" => "Restaurants",
+    "Free Delivery" => "Free Delivery",
+    "Available Daily" => "Available Daily",
+    "to" => "to",
+    "OR" => "OR",
+    "OR" => "OR",
    
 
     

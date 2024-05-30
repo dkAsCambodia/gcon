@@ -164,7 +164,7 @@ return [
     "Pay with Paypal" => "បង់ជាមួយ PayPal",
     "Pay" => "បង់",
     "Payment Options" => "ជម្រើស​ការ​ទូទាត់",
-    "Cash on delivery" => "សាច់ប្រាក់លើការដឹកជញ្ជូន",
+    "Cash Deposit" => "លុយ​តម្កល់",
     "Online Payment" => "ការទូទាត់តាមអ៊ីនធឺណិត",
     "Booking Concert Table Invoice" => "វិក្កយបត្រតារាងការប្រគុំតន្ត្រីកក់",
     "Back" => "ត្រឡប់មកវិញ",
@@ -217,6 +217,10 @@ return [
     "Cancel" =>"បោះបង់",
     "Cancelled" =>"បានលុបចោល",
     "Your Booking has been Cancelled" =>"ការកក់របស់អ្នកត្រូវបានលុបចោល",
+    "Restaurants" => "ភោជនីយដ្ឋាន",
+    "Free Delivery" => "ដឹកជញ្ជូនឥតគិតថ្លៃ",
+    "Available Daily" => "មានប្រចាំថ្ងៃ",
+    "to" => "ទៅ",
 
 
 

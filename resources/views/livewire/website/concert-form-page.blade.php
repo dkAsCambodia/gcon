@@ -119,7 +119,7 @@
                             <label for="payment_type">{{ __('message.Payment type') }} <span class="red">*</span></label>
                             <select class="form-control @error('paymentType') is-invalid @enderror" wire:model.live="paymentType">
                                 <option value="">--{{ __('message.Select') }}--</option>
-                                <option value="cash on delivery">{{ __('message.Cash on delivery') }}</option>
+                                <option value="cash on delivery">{{ __('message.Cash Deposit') }}</option>
                                 <option value="online">{{ __('message.Online Payment') }}</option>
                             </select>
                             @error('paymentType')

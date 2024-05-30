@@ -1,4 +1,6 @@
 <section class="pb-40">
+    <link rel="stylesheet" href="{{ URL::to('website/assets/css/countryflags.css') }}">
+    <script src="{{ URL::to('website/assets/js/countrycode-list.js') }}"></script>
       <div class="container">
         <div class="row">
           
@@ -46,7 +48,13 @@
                             @enderror
                     </div>
                   </div><!-- /.col-lg-6 -->
-                  <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="col-sm-2 col-md-2 col-lg-2" wire:ignore>
+                    <div class="form-group">
+                      <label for="phonecopde" style="visibility:hidden">dddddd</label>
+                      <input type="tel" class="tel form-control" id="mobile-number" placeholder="Contact number" readonly>
+                    </div>
+                  </div><!-- /.col-lg-6 -->
+                  <div class="col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
                         <label for="phone">{{ __('message.Phone Number') }} <span class="red">*</span></label>
                         <input type="text" class="form-control @error('phone') is-invalid @enderror" wire:model.live="phone" placeholder="{{ __('message.Enter phone number') }}" value="{{old('phone')}}" maxlength="12">
@@ -172,4 +180,7 @@
           </div><!-- /.col-lg-8 -->
         </div><!-- /.row -->
       </div><!-- /.container -->
+      <script>
+        $("#mobile-number").intlTelInput();
+        </script>
     </section>

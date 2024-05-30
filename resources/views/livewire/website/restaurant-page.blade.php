@@ -13,7 +13,7 @@
             <nav>
               <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item">
-                  <a href="/"><i class="icon-home"></i> <span>Home</span></a>
+                  <a href="/"><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">{{ __('message.Restaurants') }}</li>
               </ol>
@@ -36,7 +36,7 @@
                     <div class="post-item">
                       <div class="post-img">
                         <span class="post-meta-date">
-                          <h6><span class="day"><i class='fas fa-percentage'></i>&nbsp;Free Delivery</span></h6>
+                          <h6><span class="day"><i class='fas fa-percentage'></i>&nbsp;{{ __('message.Free Delivery') }}</span></h6>
                           {{-- @if(!empty($row->Discount))
                           <span class="day">Free delivery {{ !empty($row->Discount) ? $row->Discount.'% off' : ''}}</span>
                           @endif --}}
@@ -48,7 +48,7 @@
                       <div class="post-body">
                         <h4 class="post-title"><a href="#">{{!empty($row->translationValue->heading) ? ucwords($row->translationValue->heading) : ''}}</a></h4>
                         <p class="post-desc">{{!empty($row->translationValue->title) ? ucwords($row->translationValue->title) : ''}}</p>
-                        <p class="post-desc">Available Daily:</p>
+                        <p class="post-desc">{{ __('message.Available Daily') }}:</p>
                         <div class="post-meta d-flex align-items-center">
                           <div class="post-meta-cat">
                             <?php   
@@ -59,14 +59,14 @@
                               $secondTime=$dateTime2->format('g:i A');
                               
                               ?>
-                            <a href="#">{{ ucfirst($row->openingDay) ?? ''}} to {{ ucfirst($row->closingday) ?? ''}}</a>
+                            <a href="#">{{ ucfirst($row->openingDay) ?? ''}} {{ __('message.to') }} {{ ucfirst($row->closingday) ?? ''}}</a>
                           </div><!-- /.blog-meta-cat -->
-                          <a class="post-meta-author" href="#">{{ $firstTime ?? ''}} to {{ $secondTime ?? ''}}</a>
+                          <a class="post-meta-author" href="#">{{ $firstTime ?? ''}} {{ __('message.to') }} {{ $secondTime ?? ''}}</a>
                         </div>
                        
-                        <a href="blog-single-post.html" class="btn btn-link">
+                        <a href="#" class="btn btn-link">
                           <i class="plus-icon">+</i>
-                          <span>Read More</span>
+                          <span>{{ __('message.View More') }}</span>
                         </a>
                       </div><!-- /.post-body -->
                     </div><!-- /.post-item -->
@@ -76,7 +76,7 @@
             
            
           </div><!-- /.row -->
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-12 text-center">
               <nav class="pagination-area">
                 <ul class="pagination justify-content-center mb-0">
@@ -86,7 +86,7 @@
                 </ul>
               </nav><!-- .pagination-area -->
             </div><!-- /.col-12 -->
-          </div><!-- /.row -->
+          </div><!-- /.row --> --}}
         </div><!-- /.container -->
       </section><!-- /.blog Grid -->
 </div>
