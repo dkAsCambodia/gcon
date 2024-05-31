@@ -1,4 +1,4 @@
-.intl-tel-input { position: relative; }
+.intl-tel-input { position: relative; top: 5px;}
 .intl-tel-input .hide { display: none; }
 .intl-tel-input .flag-dropdown { position: absolute; z-index: 1; cursor: pointer; }
 .intl-tel-input .flag-dropdown .selected-flag { margin: 1px; padding: 14px 63px 12px 6px; }
@@ -11,8 +11,11 @@
     width: 0;
     height: 0;
     font-size: 13px; }
+    input.form-control.phone-design {
+        padding: 0px 0px 0px 113px;
+    }
 .intl-tel-input .flag-dropdown .selected-flag .down-arrow:before{content: "\f282"; font-family: bootstrap-icons !important; font-weight: 600; }
-.intl-tel-input .flag-dropdown .country-list { list-style: none; padding: 0; margin: 0; z-index: 1;  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); background-color: white; border: 1px solid #cccccc; position: absolute; top: 44px; width: 378px; max-height: 200px; overflow-y:auto; }
+.intl-tel-input .flag-dropdown .country-list { list-style: none; padding: 0; margin: 0; z-index: 1;  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); background-color: white; border: 1px solid #cccccc; position: absolute; top: 44px; width: 285px; max-height: 200px; overflow-y:auto; }
 .intl-tel-input .flag-dropdown .country-list .divider { display: none; padding-bottom: 5px; margin-bottom: 5px; border-bottom: 1px solid #cccccc; }
  .intl-tel-input .flag-dropdown .country-list li { padding:10px; color:#1F1F1F; font-weight:500; }
 

@@ -1,6 +1,7 @@
 <section class="pb-40">
     <link rel="stylesheet" href="{{ URL::to('website/assets/css/countryflags.css') }}">
     <script src="{{ URL::to('website/assets/js/countrycode-list.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
       <div class="container">
         <div class="row">
           
@@ -39,7 +40,7 @@
                       </div>
                     </div><!-- /.col-lg-6 -->
                   @endif
-                  <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="col-sm-4 col-md-4 col-lg-6">
                     <div class="form-group">
                       <label for="name">{{ __('message.Guest Name') }} <span class="red">*</span></label>
                       <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.live="name" placeholder="{{ __('message.Enter Guest name') }}" value="{{old('name')}}">
@@ -48,21 +49,20 @@
                             @enderror
                     </div>
                   </div><!-- /.col-lg-6 -->
-                  <div class="col-sm-2 col-md-2 col-lg-2" wire:ignore>
-                    <div class="form-group">
-                      <label for="phonecopde" style="visibility:hidden">dddddd</label>
-                      <input type="tel" class="tel form-control" id="mobile-number" placeholder="Contact number" readonly>
-                    </div>
-                  </div><!-- /.col-lg-6 -->
-                  <div class="col-sm-4 col-md-4 col-lg-4">
-                    <div class="form-group">
+
+                  <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group" >
                         <label for="phone">{{ __('message.Phone Number') }} <span class="red">*</span></label>
-                        <input type="text" class="form-control @error('phone') is-invalid @enderror" wire:model.live="phone" placeholder="{{ __('message.Enter phone number') }}" value="{{old('phone')}}" maxlength="12">
+                        <div wire:ignore>
+                          <input type="tel" class="tel" id="mobile-number" placeholder="Country code" value="+855" readonly>
+                        </div>
+                        <input type="text" class="form-control phone-design @error('phone') is-invalid @enderror" wire:model.live="phone" placeholder="{{ __('message.Enter phone number') }}" value="{{old('phone')}}" maxlength="12">
                         @error('phone')
                         <label class="error" for="phone">{{ $message }}</label>
                         @enderror
                     </div>
                   </div><!-- /.col-lg-6 -->
+                  
                   <div class="col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
                       <label for="email">{{ __('message.Email') }} <span class="red">*</span></label>
@@ -182,5 +182,5 @@
       </div><!-- /.container -->
       <script>
         $("#mobile-number").intlTelInput();
-        </script>
+      </script>
     </section>

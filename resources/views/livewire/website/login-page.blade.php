@@ -39,7 +39,7 @@
                 <button type="submit" class="btn btn-primary btn-block mb-10">
                     <span>{{ __('message.Login Now') }}</span> <i class="icon-arrow-right"></i>
                 </button>
-                <a href="/register" wire:navigate class="btn btn-primary btn-link btn-block">{{ __('message.Register') }}</a>
+                <a href="/register" class="btn btn-primary btn-link btn-block">{{ __('message.Register') }}</a>
                 </form>
             </div>
           </div><!-- /.col-lg-7 -->
