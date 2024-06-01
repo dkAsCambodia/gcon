@@ -54,7 +54,7 @@
                     <div class="form-group" >
                         <label for="phone">{{ __('message.Phone Number') }} <span class="red">*</span></label>
                         <div wire:ignore>
-                          <input type="tel" class="tel" id="mobile-number" placeholder="Country code" value="+855" readonly>
+                          <input type="tel" class="tel" id="mobile-number"  placeholder="Country code" value="{{   Session::get('sessLocation')?->mobile_country_code ??  '' }}" readonly>
                         </div>
                         <input type="text" class="form-control phone-design @error('phone') is-invalid @enderror" wire:model.live="phone" placeholder="{{ __('message.Enter phone number') }}" value="{{old('phone')}}" maxlength="12">
                         @error('phone')
@@ -181,6 +181,15 @@
         </div><!-- /.row -->
       </div><!-- /.container -->
       <script>
+        
+
+        $(document).ready(function(){
+            $('#mobile-number').change(function(){
+                var selectedValue = $(this).val();
+                alert('You selected: ' + selectedValue);
+            });
+        });
+
         $("#mobile-number").intlTelInput();
       </script>
     </section>

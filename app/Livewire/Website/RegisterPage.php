@@ -4,13 +4,12 @@ use Livewire\Component;
 use App\Models\MemberType;
 use App\Models\AuthorizedBye;
 use App\Models\Customer;
-
+use Session;
 
 class RegisterPage extends Component
 {
    
     public $membertype=1, $card_number='G', $name, $phone, $email, $password, $issue_by=4, $address, $country, $line_id, $facebook_id, $instagram;
-
     public $latestSequence, $prefix;
 
     // OnKeyUp validation in field START
@@ -72,7 +71,6 @@ class RegisterPage extends Component
 
     public function save()
     {
-      
         $validated = $this->validate([ 
             'membertype' => 'required',
             // 'card_number' => 'required|min:6|unique:customers',
@@ -93,10 +91,14 @@ class RegisterPage extends Component
         ]);
         date_default_timezone_set('Asia/Phnom_Penh');
         $created_at=date("Y-m-d h:i:s");
+        if(Session::get('sessLocation')){
+            $mobile_country_code = Session::get('sessLocation.mobile_country_code');
+        }
         $data=array(
             'card_number'      => $this->card_number,
             'member_type'      => $this->membertype,
             'name'      => $this->name,
+            'mobile_country_code'  => $mobile_country_code ?? 'not working',
             'phone'      => $this->phone,
             'email'      => $this->email,
             'password'   => base64_encode($this->password),

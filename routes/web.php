@@ -85,3 +85,12 @@ Route::get('lang/change', [LocalizationController::class, 'lang_change'])->name(
 Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage');
 //For GBooking restaurant END
 
+Route::get('/location', function (Request $request) {
+    $ip= request()->ip()=='127.0.0.1' ? '103.146.44.34' : request()->ip();
+    $position = Location::get($ip);
+    echo "<pre>";
+    echo "ip=".$ip;
+    print_r($position);
+})->name('location');
+
+

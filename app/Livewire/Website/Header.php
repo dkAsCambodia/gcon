@@ -5,8 +5,25 @@ use App\Models\Language;
 use App\Models\TblGbooking;
 use Session;
 
+use Stevebauman\Location\Facades\Location;
+use App\Models\Country;
+
+
 class Header extends Component
 {
+    public $IpLocation;
+
+    public function mount($logo = null)
+    {
+        $SESSLOCAATION= Session::get('sessLocation');
+        if(empty($SESSLOCAATION)){
+                $ip= request()->ip()=='127.0.0.1' ? '103.146.44.34' : request()->ip();
+                $IpLocation = Location::get($ip);
+                //  dd($IpLocation->currencyCode);
+                $Query = Country::where(['curency_code' => $IpLocation->currencyCode, 'status'=> '1'])->first();
+                Session::put('sessLocation', $Query);
+        }
+    }
     public function customerlogout()
     {
         // Session::flush();
