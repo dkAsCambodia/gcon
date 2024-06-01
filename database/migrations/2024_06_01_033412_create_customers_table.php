@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('card_number')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+            $table->string('mobile_country_code')->nullable();
             $table->string('phone')->nullable();
             $table->string('member_type')->nullable();
             $table->string('address')->nullable();
