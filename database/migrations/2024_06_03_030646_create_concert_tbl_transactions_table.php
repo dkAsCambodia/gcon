@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->string('no_of_people')->nullable();
+            $table->string('preferredSeats')->nullable();
             $table->string('paymentType')->nullable();
             $table->string('concert_booking_date')->nullable();
             $table->string('concert_arrival_time')->nullable();

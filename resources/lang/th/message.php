@@ -221,6 +221,11 @@ return [
     "Free Delivery" => "จัดส่งฟรี",
     "Available Daily" => "มีจำหน่ายทุกวัน",
     "to" => "ถึง",
+    "Preferred seats" => "ที่นั่งที่ต้องการ",
+    "Seat near the restroom" => "ที่นั่งใกล้ห้องน้ำ",
+    "Birthday surprise" => "เซอร์ไพรส์วันเกิด",
+    "Child seats" => "ที่นั่งเด็ก",
+    "Other" => "อื่น",
     
 
 

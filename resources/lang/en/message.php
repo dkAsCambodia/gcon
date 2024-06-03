@@ -221,7 +221,11 @@ return [
     "Free Delivery" => "Free Delivery",
     "Available Daily" => "Available Daily",
     "to" => "to",
-    "OR" => "OR",
+    "Preferred seats" => "Preferred seats",
+    "Seat near the restroom" => "Seat near the restroom",
+    "Birthday surprise" => "Birthday surprise",
+    "Child seats" => "Child seats",
+    "Other" => "Other",
     "OR" => "OR",
    
 

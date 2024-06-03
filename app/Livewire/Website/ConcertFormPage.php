@@ -13,12 +13,14 @@ class ConcertFormPage extends Component
     public $categorydata;
     public $tableDetails;
     public $timeslotList;
-    public $cat_id, $tbl_price, $date, $time, $no_of_people, $name, $email, $phone, $address, $paymentType;
+    public $cat_id, $tbl_price, $date, $time, $no_of_people, $name, $email, $phone, $address, $paymentType, $preferredSeats='Other';
     // public $showDiv = false;
     public $loading = false;
     public $quantity=1;
     public function mount($tableId)
     {
+       
+        $this->date = now()->toDateString();
         $this->categorydata=TableCategory::where(['status' => '1', 'GBooking_id' => '1'])->orderBy('order', 'asc')->get();
         $this->tableDetails=Bookingtable::where(['id' => base64_decode($tableId), 'tbl_status' => '1', 'deleteStatus' => '0'])->first();
         $this->cat_id=$this->tableDetails->cat_id;
@@ -92,6 +94,7 @@ class ConcertFormPage extends Component
             'email'                     => $this->email,
             'address'                   => $this->address,
             'no_of_people'              => $this->no_of_people,
+            'preferredSeats'            => $this->preferredSeats,
             'quantity'                  => $this->quantity,
             'paymentType'               => $this->paymentType,
             'concert_booking_date'      => $this->date,
@@ -103,14 +106,23 @@ class ConcertFormPage extends Component
             'created_at' =>  $created_at
         );
         $newTrnasaction = ConcertTblTransaction::create($data);
+        // if($this->paymentType=='online'){
+        //     Session::put('sess_transaction_recordId', $newTrnasaction->id);
+        //     return $this->redirect('/paymentOptions'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code), navigate: true);
+        // }else{
+        //     $msg =  __('message.Table Booked Successfully!');
+        //     $this->dispatch('toast', message: $msg, notify:'success' ); 
+        //     return $this->redirect('/invoice'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
+        // }
         if($this->paymentType=='online'){
             Session::put('sess_transaction_recordId', $newTrnasaction->id);
-            return $this->redirect('/paymentOptions'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code), navigate: true);
-        }else{
-            $msg =  __('message.Table Booked Successfully!');
-            $this->dispatch('toast', message: $msg, notify:'success' ); 
-            return $this->redirect('/invoice'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
         }
+        //     return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code), navigate: true);
+        // }else{
+            // $msg =  __('message.Table Booked Successfully!');
+            // $this->dispatch('toast', message: $msg, notify:'success' ); 
+            return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
+        
         
         
     }
@@ -124,7 +136,7 @@ class ConcertFormPage extends Component
         }else{
             $emailExists = Customer::where('email', $email)->first();
             // die($emailExists);
-            if (!empty($emailExists->id) || $emailExists->id!='') {
+            if (!empty($emailExists) || $emailExists!='') {
                 return $emailExists->id;
             }else{
                 $lastCustomer = Customer::latest()->first();

@@ -181,15 +181,6 @@
         </div><!-- /.row -->
       </div><!-- /.container -->
       <script>
-        
-
-        $(document).ready(function(){
-            $('#mobile-number').change(function(){
-                var selectedValue = $(this).val();
-                alert('You selected: ' + selectedValue);
-            });
-        });
-
         $("#mobile-number").intlTelInput();
       </script>
     </section>
