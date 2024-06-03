@@ -40,16 +40,16 @@
                   </div>
           </div><!-- /.col-lg-6 -->
                 
-                <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="col-sm-3 col-md-3 col-lg-3">
                   <div class="form-group">
                     <label for="date">{{ __('message.Select date') }} <span class="red">*</span></label>
-                    <input type="date" class="form-control @error('date') is-invalid @enderror" wire:model="date" id="selectdate">
+                    <input type="date" class="form-control @error('date') is-invalid @enderror" wire:model="date" min="{{ $date }}" id="selectdate">
                           @error('date')
                           <label class="error" for="date">{{ $message }}</label>
                           @enderror
                   </div>
                 </div><!-- /.col-lg-6 -->
-                <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="col-sm-3 col-md-3 col-lg-3">
                     <div class="form-group">
                         <label for="location">{{ __('message.Select time') }} <span class="red">*</span></label>
                           <select id="location" class="form-control @error('time') is-invalid @enderror" wire:model.live="time" id="time">
@@ -65,7 +65,7 @@
                               @enderror
                       </div>
                 </div><!-- /.col-lg-6 -->
-                <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="col-sm-3 col-md-3 col-lg-3">
                     <div class="form-group">
                       <label for="no_of_people">{{ __('message.No. of people') }} <span class="red">*</span></label>
                       <input type="text" class="form-control @error('no_of_people') is-invalid @enderror" wire:model.live="no_of_people" placeholder="{{ __('message.Enter no. of people') }}" maxlength="2">
@@ -74,6 +74,18 @@
                             @enderror
                     </div>
                 </div><!-- /.col-lg-6 -->
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <div class="form-group">
+                      <label for="Preferred">{{ __('message.Preferred seats') }}</label>
+                        <select class="form-control" wire:model="preferredSeats">
+                                <option value="">--{{ __('message.Select') }}--</option>
+                                <option value="Seat near the restroom">{{ __('message.Seat near the restroom') }}</option>
+                                <option value="Birthday surprise">{{ __('message.Birthday surprise') }}</option>
+                                <option value="Child seats">{{ __('message.Child seats') }}</option>
+                                <option value="Other">{{ __('message.Other') }}</option>
+                        </select>
+                    </div>
+              </div><!-- /.col-lg-6 -->
                 <div class="col-12">
                   <div class="border-top mb-30"></div>
                   <p class="mb-30">{{ __('message.Kindly provide your personal informations below') }}:</p>
@@ -202,14 +214,6 @@
         </div><!-- /.col-lg-8 -->
       </div><!-- /.row -->
     </div><!-- /.container -->
-    <script>
-        // Get the input element
-        var datePicker = document.getElementById('selectdate');
-        // Get today's date in the format YYYY-MM-DD
-        var today = new Date().toISOString().split('T')[0];
-        // Set the minimum date to today
-        datePicker.setAttribute('min', today);
-    </script>
     {{-- Disable_Browser_Back_JavaScript START --}}
     <script type="text/javascript">
       function preventBack() {

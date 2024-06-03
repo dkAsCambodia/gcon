@@ -14,6 +14,7 @@ use App\Livewire\Website\ConcertPage;
 use App\Livewire\Website\ConcertFormPage;
 use App\Livewire\Website\PaymentOptionsPage;
 use App\Livewire\Website\ConcertTblInvoicePage;
+use App\Livewire\Website\PaymentPolicyPage;
 use App\Livewire\Website\DashboardPage;
 use App\Livewire\Website\RestaurantPage;
 use App\Livewire\Website\dashboard\EditProfileForm;
@@ -62,6 +63,7 @@ Route::get('/GEntertainment/concert', ConcertPage::class)->name('concert');
 Route::get('/GEntertainment/concertForm/{tableId?}', ConcertFormPage::class)->name('concertForm');
 Route::get('/paymentOptions/{amount}/{currencySymbol}/{currency}', PaymentOptionsPage::class); ////
 Route::get('/invoice/{amount}/{currencySymbol}/{currency}/{recordId}', ConcertTblInvoicePage::class); ////
+Route::get('/payment/privacypolicy/{amount}/{currencySymbol}/{currency}/{recordId}', PaymentPolicyPage::class); ////
 //For GEntertainment concert END
 
 // For Paypal payment Gateway START

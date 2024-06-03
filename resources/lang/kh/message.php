@@ -221,6 +221,11 @@ return [
     "Free Delivery" => "ដឹកជញ្ជូនឥតគិតថ្លៃ",
     "Available Daily" => "មានប្រចាំថ្ងៃ",
     "to" => "ទៅ",
+    "Preferred seats" => "កៅអីដែលពេញចិត្ត",
+    "Seat near the restroom" => "អង្គុយក្បែរបន្ទប់ទឹក",
+    "Birthday surprise" => "ការភ្ញាក់ផ្អើលថ្ងៃកំណើត",
+    "Child seats" => "កៅអីកុមារ",
+    "Other" => "ផ្សេងទៀត",
 
 
 
