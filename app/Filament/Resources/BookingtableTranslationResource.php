@@ -48,8 +48,8 @@ class BookingtableTranslationResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tbl_title')
-                    ->label('Title')
-                    ->required()
+                    ->label('No of people')
+                    ->numeric()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tbl_address')
                     ->label('Address')
@@ -80,6 +80,7 @@ class BookingtableTranslationResource extends Resource
                 Tables\Columns\TextColumn::make('tbl_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tbl_title')
+                    ->label('No of people')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tbl_address')
                     ->searchable(),

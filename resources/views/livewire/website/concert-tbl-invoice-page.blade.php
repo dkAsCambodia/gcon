@@ -38,7 +38,7 @@
                 </div><!-- /.row -->
                 <div class="row">
                     <div class="col-12 col-md-6">
-                      <br/><br/>
+                      <br/>
                       <div class="pricing-widget-layout1">
                         <h5 class="pricing-title">{{ __('message.Customer Information') }}</h5>
                         <ul class="pricing-list list-unstyled mb-0">
@@ -47,6 +47,7 @@
                           <li><span>{{ __('message.Email') }}</span><span>{{ !empty($transaction->email) ? ucfirst($transaction->email) : '' }}</span></li>
                           <li><span>{{ __('message.Address') }}</span><span>{{ !empty($transaction->address) ? ucfirst($transaction->address) : '' }}</span></li>
                           <li><span>{{ __('message.No. of people') }}</span><span>{{ !empty($transaction->no_of_people) ? ucfirst($transaction->no_of_people) : '' }}</span></li>
+                          <li><span>{{ __('message.Preferred seats') }}</span><span>{{ !empty($transaction->preferredSeats) ? ucfirst($transaction->preferredSeats) : '' }}</span></li>
                           <li><span>{{ __('message.Table quantity') }}</span><span>{{ !empty($transaction->quantity) ? ucfirst($transaction->quantity) : '' }}</span></li>
                           @if(!empty($transaction->payment_time))
                           <li><span>{{ __('message.Date') }}</span><span>{{ !empty($transaction->payment_time) ? ucfirst($transaction->payment_time) : '' }}</span></li>
