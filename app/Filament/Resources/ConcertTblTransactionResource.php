@@ -119,6 +119,14 @@ class ConcertTblTransactionResource extends Resource
                             ->maxLength(255),
                         Forms\Components\TextInput::make('no_of_people')
                             ->maxLength(255),
+                        Forms\Components\Select::make('preferredSeats')
+                            ->options([
+                                'Seat near the restroom' => 'Seat near the restroom',
+                                'Birthday surprise' => 'Birthday surprise',
+                                'Child seats' => 'Child seats',
+                                'Other' => 'Other',
+                            ])
+                            ->prefixIcon('heroicon-m-calendar'),
                         Forms\Components\TextInput::make('future_payment_custId')
                             ->maxLength(255),
                     ])->columns(3),
@@ -164,6 +172,7 @@ class ConcertTblTransactionResource extends Resource
                 Tables\Columns\TextColumn::make('concert_arrival_time')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
+                    ->label('Payment Status')
                     ->searchable()
                     ->formatStateUsing(fn (string $state): string => ucfirst($state))
                     ->badge()
