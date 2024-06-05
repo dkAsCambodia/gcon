@@ -66,7 +66,7 @@
                  </div>
                  <div class="col-12">
                     <div class="form-group">
-                        <p class="mb-30">{{ __('message.Last Updated') }} : Aprail 2024</p>
+                        <p class="mb-30">{{ __('message.Last Updated') }} : Jun 2024</p>
                     </div>
                  </div>
                  <div class="col-12">

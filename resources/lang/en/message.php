@@ -246,10 +246,13 @@ return [
     "YourConsentDesc" => "By visiting our Platform or by providing your personal data, you consent to the collection, use, storage, disclosure and otherwise processing of your personal data on the Platform in accordance with this Privacy Policy. If you disclose to us any personal data relating to other people, you represent that you have the authority to do so and to permit us to use the data in accordance with this Privacy Policy",
     "ChangesDesc" => "Please check our Privacy Policy periodically for changes . We may update this Privacy Policy to reflect changes to our information practices. We will alert you to significant changes by posting the date our policy got last updated, placing a notice on our Platform, or by sending you an email when we are required to do so by applicable law",
     "CustomerSupportDesc" => "If you have a query, concern, or complaint in relation to collection or usage of your personal data under this Privacy Policy, please contact us at privacy.grievance@gcon.com",
-    "to" => "to",
-    "to" => "to",
-    "to" => "to",
-    "to" => "to",
+    "Cancellation Policy" => "Cancellation Policy",
+    "cancelDesc1" => "The time window for cancellation varies based on different services and the booking cannot be canceled once the specified time has passed",
+    "cancelDesc2" => "In some cases, the customer may not be allowed to cancel the booking for free, post the specified time and a cancellation fee will be charged. The details about the time window mentioned on the below will be considered final",
+    "cancelDesc3" => "G-CON reserves the right to accept the cancellation of online Booking. G-CON also reserves the right to waive off or modify the time window or cancellation fee from time to time",
+    "cancelCharge1" => "Cancel within 48 hours after table booking date. Refund 80% of the amount paid by the customer",
+    "cancelCharge2" => "Cancel within 24 hours after table booking date. Refund 50% of the amount paid by the customer",
+    "Cancellation follow on online payment" => "Cancellation follow on online payment",
    
 
     
