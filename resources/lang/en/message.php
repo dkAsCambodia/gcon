@@ -253,6 +253,16 @@ return [
     "cancelCharge1" => "Cancel within 48 hours after table booking date. Refund 80% of the amount paid by the customer",
     "cancelCharge2" => "Cancel within 24 hours after table booking date. Refund 50% of the amount paid by the customer",
     "Cancellation follow on online payment" => "Cancellation follow on online payment",
+
+    "list of restaurant on G-CON" => "list of restaurant on G-CON",
+    "Do you want to become our partner and increase your revenue" => "Do you want to become our partner and increase your revenue",
+    "Would you like millions of new customers to enjoy your amazing food and groceries? So would we" => "Would you like millions of new customers to enjoy your amazing food and groceries? So would we",
+    "It's simple: we list your menu and product lists online, help you process orders, pick them up, and deliver them to hungry – in a heartbeat" => "It's simple: we list your menu and product lists online, help you process orders, pick them up, and deliver them to hungry – in a heartbeat",
+    "Interested? Let's start our partnership today" => "Interested? Let's start our partnership today",
+    "Get started" => "Get started",
+    "Parnter with Gcon" => "Parnter with Gcon",
+    "Partner Providers Registration" => "Partner Providers Registration",
+    "Interested? Fill in the form below to become our partner and increase your revenue" => "Interested? Fill in the form below to become our partner and increase your revenue",
    
 
     

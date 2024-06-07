@@ -17,6 +17,7 @@ use App\Livewire\Website\ConcertTblInvoicePage;
 use App\Livewire\Website\PaymentPolicyPage;
 use App\Livewire\Website\DashboardPage;
 use App\Livewire\Website\RestaurantPage;
+use App\Livewire\Website\RestaurantSellerFormPage;
 use App\Livewire\Website\dashboard\EditProfileForm;
 use App\Livewire\Website\dashboard\ConcertBookingList;
 use App\Livewire\Website\dashboard\ConcertCalcelationPolicyPage;
@@ -87,6 +88,7 @@ Route::get('lang/change', [LocalizationController::class, 'lang_change'])->name(
 
 //For GBooking restaurant START
 Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage');
+Route::get('/GBooking/restaurant/newSeller', RestaurantSellerFormPage::class)->name('newRestaurantSeller');
 //For GBooking restaurant END
 
 Route::get('/location', function (Request $request) {

@@ -254,4 +254,14 @@ return [
     "cancelCharge2" => "ยกเลิกภายใน 24 ชั่วโมงหลังวันที่จองโต๊ะ คืนเงิน 50% ของจำนวนเงินที่ลูกค้าชำระ",
     "Cancellation follow on online payment" => "การยกเลิกเป็นไปตามการชำระเงินออนไลน์",
 
+    "list of restaurant on G-CON" => "รายชื่อร้านอาหารใน G-CON",
+    "Do you want to become our partner and increase your revenue" => "คุณต้องการเป็นพันธมิตรของเราและเพิ่มรายได้ของคุณ",
+    "Would you like millions of new customers to enjoy your amazing food and groceries? So would we" => "คุณต้องการให้ลูกค้าใหม่หลายล้านคนเพลิดเพลินไปกับอาหารและของชำที่น่าทึ่งของคุณหรือไม่? เราก็เช่นกัน",
+    "It's simple: we list your menu and product lists online, help you process orders, pick them up, and deliver them to hungry – in a heartbeat" => "ง่ายดาย: เราแสดงรายการเมนูและรายการผลิตภัณฑ์ของคุณทางออนไลน์ ช่วยคุณดำเนินการตามคำสั่งซื้อ หยิบและจัดส่งให้หิวได้ในทันที",
+    "Interested? Let's start our partnership today" => "สนใจ? มาเริ่มต้นความร่วมมือของเราวันนี้",
+    "Get started" => "เริ่ม",
+    "Parnter with Gcon" => "พาร์เนอร์กับ Gcon",
+    "Partner Providers Registration" => "การลงทะเบียนผู้ให้บริการพันธมิตร",
+    "Interested? Fill in the form below to become our partner and increase your revenue" => "สนใจ? กรอกแบบฟอร์มด้านล่างเพื่อเป็นพันธมิตรของเราและเพิ่มรายได้ของคุณ",
+
 ];

@@ -254,5 +254,15 @@ return [
     "cancelCharge2" => "បោះបង់ក្នុងរយៈពេល 24 ម៉ោងបន្ទាប់ពីកាលបរិច្ឆេទកក់តុ។ សងប្រាក់វិញ 50% នៃចំនួនទឹកប្រាក់ដែលបានបង់ដោយអតិថិជន",
     "Cancellation follow on online payment" => "ការលុបចោលត្រូវបានអនុវត្តលើការទូទាត់តាមអ៊ីនធឺណិត",
 
+    "list of restaurant on G-CON" => "បញ្ជីភោជនីយដ្ឋាននៅលើ G-CON",
+    "Do you want to become our partner and increase your revenue" => "តើអ្នកចង់ក្លាយជាដៃគូរបស់យើង និងបង្កើនប្រាក់ចំណូលរបស់អ្នកដែរឬទេ",
+    "Would you like millions of new customers to enjoy your amazing food and groceries? So would we" => "តើអ្នកចង់ឱ្យអតិថិជនថ្មីរាប់លាននាក់រីករាយជាមួយអាហារ និងគ្រឿងទេសដ៏អស្ចារ្យរបស់អ្នកទេ? ដូច្នេះយើងនឹង",
+    "It's simple: we list your menu and product lists online, help you process orders, pick them up, and deliver them to hungry – in a heartbeat" => "វាសាមញ្ញ៖ យើងរាយបញ្ជីមុខម្ហូប និងបញ្ជីផលិតផលរបស់អ្នកតាមអ៊ីនធឺណិត ជួយអ្នកឱ្យដំណើរការការបញ្ជាទិញ ទទួលយកវា និងបញ្ជូនពួកគេឱ្យស្រេកឃ្លាន – ដោយចង្វាក់បេះដូង",
+    "Interested? Let's start our partnership today" => "ចាប់អារម្មណ៍? សូមចាប់ផ្តើមភាពជាដៃគូរបស់យើងនៅថ្ងៃនេះ",
+    "Get started" => "ចាប់ផ្តើម",
+    "Parnter with Gcon" => "ដៃគូជាមួយ Gcon",
+    "Partner Providers Registration" => "ការចុះឈ្មោះអ្នកផ្តល់ដៃគូ",
+    "Interested? Fill in the form below to become our partner and increase your revenue" => "ចាប់អារម្មណ៍? បំពេញទម្រង់ខាងក្រោម ដើម្បីក្លាយជាដៃគូរបស់យើង និងបង្កើនប្រាក់ចំណូលរបស់អ្នក។",
+
 
 ];
