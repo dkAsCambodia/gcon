@@ -1,6 +1,6 @@
 <div>
     <section class="page-title-layout2 page-title-light text-center pb-0 bg-overlay bg-parallax">
-        <div class="bg-img"><img src="{{ URL::to('website/assets/images/banners/restaurantBanner.png') }}" style="height:100%;width: 100%;" alt="background"></div>
+        <div class="bg-img"><img src="https://img.freepik.com/free-psd/food-menu-restaurant-facebook-cover-template_106176-384.jpg?size=626&ext=jpg" style="height:100%;width: 100%;" alt="background"></div>
         <div class="container">
           <div class="row">
             {{-- <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 offset-xl-3">
@@ -21,12 +21,17 @@
           </div><!-- /.container -->
         </div><!-- /.breadcrumb-area -->
       </section><!-- /.page-title -->
-  
-      <!-- ======================
-        Blog Grid
-      ========================= -->
+
       <section class="blog-layout1 pb-70">
         <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+              <div class="heading text-center mb-50">
+                <h2 class="heading-subtitle">{{ __('message.G-Booking') }}</h2>
+                <h3 class="heading-title">{{ __('message.Our') }} {{ __('message.list of restaurant on G-CON') }}</h3>
+              </div>
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
           <div class="row">
 
             @if(!empty($restaurantList))
@@ -89,4 +94,33 @@
           </div><!-- /.row --> --}}
         </div><!-- /.container -->
       </section><!-- /.blog Grid -->
+      <section class="banner-layout3 py-0">
+        <div class="top-shape"></div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-xl-6 banner-img d-flex align-items-center">
+              <div class="bg-img">
+                <img src="https://images.deliveryhero.io/image/foodpanda/home-vendor-kh.jpg?width=1400&height=896" alt="backgrounds">
+              </div>
+              <div class="banner-shape"></div>
+            </div><!-- /.col-lg-6 -->
+            <div class="col-12 col-xl-6 banner-content">
+              <div class="banner-text">
+                <div class="heading-layout2 heading-light">
+                  <h3 class="heading-title">{{ __('message.Do you want to become our partner and increase your revenue') }}!</h3>
+                  <p class="heading-desc mb-10">{{ __('message.Would you like millions of new customers to enjoy your amazing food and groceries? So would we') }}!</p>
+                  <p class="heading-desc mb-10">{{ __("message.It's simple: we list your menu and product lists online, help you process orders, pick them up, and deliver them to hungry – in a heartbeat") }}!</p>
+                  <p class="heading-desc mb-10">{{ __("message.Interested? Let's start our partnership today") }}!</p>
+                </div>
+                <div class="mx-80 mt-20">
+                  <a href="/GBooking/restaurant/newSeller" wire:navigate class="btn btn-white btn-xl">
+                    <span>{{ __('message.Get started') }}</span> <i class="icon-arrow-right"></i>
+                  </a>
+                </div>
+              </div><!-- /.banner-text -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.Banner Layout3 -->
+
 </div>
