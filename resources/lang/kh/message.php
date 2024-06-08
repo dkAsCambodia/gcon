@@ -253,7 +253,6 @@ return [
     "cancelCharge1" => "បោះបង់ក្នុងរយៈពេល 48 ម៉ោងបន្ទាប់ពីកាលបរិច្ឆេទកក់តុ។ សងប្រាក់វិញ 80% នៃចំនួនទឹកប្រាក់ដែលបានបង់ដោយអតិថិជន",
     "cancelCharge2" => "បោះបង់ក្នុងរយៈពេល 24 ម៉ោងបន្ទាប់ពីកាលបរិច្ឆេទកក់តុ។ សងប្រាក់វិញ 50% នៃចំនួនទឹកប្រាក់ដែលបានបង់ដោយអតិថិជន",
     "Cancellation follow on online payment" => "ការលុបចោលត្រូវបានអនុវត្តលើការទូទាត់តាមអ៊ីនធឺណិត",
-
     "list of restaurant on G-CON" => "បញ្ជីភោជនីយដ្ឋាននៅលើ G-CON",
     "Do you want to become our partner and increase your revenue" => "តើអ្នកចង់ក្លាយជាដៃគូរបស់យើង និងបង្កើនប្រាក់ចំណូលរបស់អ្នកដែរឬទេ",
     "Would you like millions of new customers to enjoy your amazing food and groceries? So would we" => "តើអ្នកចង់ឱ្យអតិថិជនថ្មីរាប់លាននាក់រីករាយជាមួយអាហារ និងគ្រឿងទេសដ៏អស្ចារ្យរបស់អ្នកទេ? ដូច្នេះយើងនឹង",
@@ -263,6 +262,25 @@ return [
     "Parnter with Gcon" => "ដៃគូជាមួយ Gcon",
     "Partner Providers Registration" => "ការចុះឈ្មោះអ្នកផ្តល់ដៃគូ",
     "Interested? Fill in the form below to become our partner and increase your revenue" => "ចាប់អារម្មណ៍? បំពេញទម្រង់ខាងក្រោម ដើម្បីក្លាយជាដៃគូរបស់យើង និងបង្កើនប្រាក់ចំណូលរបស់អ្នក។",
-
+    
+    "Restaurant/ Shop Name" => "ឈ្មោះភោជនីយដ្ឋាន/ហាង",
+    "Enter here" => "ចូលទីនេះ",
+    "Business Type" => "ប្រភេទ​ពាណិជ្ជកម្ម",
+    "Shop" => "ហាង",
+    "Cuisine" => "ម្ហូប",
+    "First/Given Name" => "នាមត្រកូល/ឈ្មោះ",
+    "Enter first name" => "បញ្ចូលឈ្មោះដំបូង",
+    "Last/ Family Name" => "នាមត្រកូល/នាមត្រកូល",
+    "Enter last name" => "បញ្ចូលនាមត្រកូល",
+    "Shop Image" => "រូបភាពហាង",
+    "Submit your Request" => "ដាក់ស្នើសំណើរបស់អ្នក។",
+    "Contact Us" => "ទាក់ទង​មក​ពួក​យើង",
+    "Process of Partner with Us" => "ដំណើរការនៃភាពជាដៃគូជាមួយយើង",
+    "Step" => "ជំហាន",
+    "If you want to sell foods with us then you should fill up this form" => "ប្រសិនបើអ្នកចង់លក់អាហារជាមួយយើង អ្នកគួរតែបំពេញទម្រង់នេះ។",
+    "In the next process G-CON Team will verify your informations and contact you" => "នៅក្នុងដំណើរការបន្ទាប់ ក្រុមការងារ G-CON នឹងផ្ទៀងផ្ទាត់ព័ត៌មានរបស់អ្នក ហើយទាក់ទងទៅអ្នក។",
+    "G-con will share the contract with you" => "G-con នឹងចែករំលែកកិច្ចសន្យាជាមួយអ្នក",
+    "G-CON will provide Login credentials of Seller Dashboard" => "G-CON នឹងផ្តល់ព័ត៌មានបញ្ជាក់ការចូលនៃផ្ទាំងគ្រប់គ្រងអ្នកលក់",
+    "You can add your banner, Restaurant, Restaurant's category, Restaurant's food etc" => "អ្នកអាចបន្ថែមបដារបស់អ្នក ភោជនីយដ្ឋាន ប្រភេទភោជនីយដ្ឋាន អាហារភោជនីយដ្ឋានជាដើម។",
 
 ];

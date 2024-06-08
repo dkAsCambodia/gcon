@@ -253,7 +253,6 @@ return [
     "cancelCharge1" => "Cancel within 48 hours after table booking date. Refund 80% of the amount paid by the customer",
     "cancelCharge2" => "Cancel within 24 hours after table booking date. Refund 50% of the amount paid by the customer",
     "Cancellation follow on online payment" => "Cancellation follow on online payment",
-
     "list of restaurant on G-CON" => "list of restaurant on G-CON",
     "Do you want to become our partner and increase your revenue" => "Do you want to become our partner and increase your revenue",
     "Would you like millions of new customers to enjoy your amazing food and groceries? So would we" => "Would you like millions of new customers to enjoy your amazing food and groceries? So would we",
@@ -263,8 +262,28 @@ return [
     "Parnter with Gcon" => "Parnter with Gcon",
     "Partner Providers Registration" => "Partner Providers Registration",
     "Interested? Fill in the form below to become our partner and increase your revenue" => "Interested? Fill in the form below to become our partner and increase your revenue",
-   
-
+    "Restaurant/ Shop Name" => "Restaurant/ Shop Name",
+    "Enter here" => "Enter here",
+    "Business Type" => "Business Type",
+    "Shop" => "Shop",
+    "Cuisine" => "Cuisine",
+    "First/Given Name" => "First/Given Name",
+    "Enter first name" => "Enter first name",
+    "Last/ Family Name" => "Last/ Family Name",
+    "Enter last name" => "Enter last name",
+    "Shop Image" => "Shop Image",
+    "Submit your Request" => "Submit your Request",
+    "Contact Us" => "Contact Us",
+    "Process of Partner with Us" => "Process of Partner with Us",
+    "Step" => "Step",
+    "If you want to sell foods with us then you should fill up this form" => "If you want to sell foods with us then you should fill up this form",
+    "In the next process G-CON Team will verify your informations and contact you" => "In the next process G-CON Team will verify your informations and contact you",
+    "G-con will share the contract with you" => "G-con will share the contract with you",
+    "G-CON will provide Login credentials of Seller Dashboard" => "G-CON will provide Login credentials of Seller Dashboard",
+    "You can add your banner, Restaurant, Restaurant's category, Restaurant's food etc" => "You can add your banner, Restaurant, Restaurant's category, Restaurant's food etc",
+    "Shop" => "Shop",
+    "Shop" => "Shop",
+    "Shop" => "Shop",
     
     
     

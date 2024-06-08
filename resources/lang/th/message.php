@@ -253,7 +253,6 @@ return [
     "cancelCharge1" => "ยกเลิกภายใน 48 ชั่วโมง นับจากวันที่จองโต๊ะ คืนเงิน 80% ของจำนวนเงินที่ลูกค้าชำระ",
     "cancelCharge2" => "ยกเลิกภายใน 24 ชั่วโมงหลังวันที่จองโต๊ะ คืนเงิน 50% ของจำนวนเงินที่ลูกค้าชำระ",
     "Cancellation follow on online payment" => "การยกเลิกเป็นไปตามการชำระเงินออนไลน์",
-
     "list of restaurant on G-CON" => "รายชื่อร้านอาหารใน G-CON",
     "Do you want to become our partner and increase your revenue" => "คุณต้องการเป็นพันธมิตรของเราและเพิ่มรายได้ของคุณ",
     "Would you like millions of new customers to enjoy your amazing food and groceries? So would we" => "คุณต้องการให้ลูกค้าใหม่หลายล้านคนเพลิดเพลินไปกับอาหารและของชำที่น่าทึ่งของคุณหรือไม่? เราก็เช่นกัน",
@@ -263,5 +262,25 @@ return [
     "Parnter with Gcon" => "พาร์เนอร์กับ Gcon",
     "Partner Providers Registration" => "การลงทะเบียนผู้ให้บริการพันธมิตร",
     "Interested? Fill in the form below to become our partner and increase your revenue" => "สนใจ? กรอกแบบฟอร์มด้านล่างเพื่อเป็นพันธมิตรของเราและเพิ่มรายได้ของคุณ",
+
+    "Restaurant/ Shop Name" => "ชื่อร้านอาหาร/ร้านค้า",
+    "Enter here" => "เข้าที่นี่",
+    "Business Type" => "ประเภทธุรกิจ",
+    "Shop" => "ร้านค้า",
+    "Cuisine" => "อาหาร",
+    "First/Given Name" => "ชื่อจริง/ชื่อจริง",
+    "Enter first name" => "ป้อนชื่อ",
+    "Last/ Family Name" => "นามสกุล/นามสกุล",
+    "Enter last name" => "ใส่นามสกุล",
+    "Shop Image" => "รูปภาพร้านค้า",
+    "Submit your Request" => "ส่งคำขอของคุณ",
+    "Contact Us" => "ติดต่อเรา",
+    "Process of Partner with Us" => "กระบวนการเป็นพันธมิตรกับเรา",
+    "Step" => "ขั้นตอน",
+    "If you want to sell foods with us then you should fill up this form" => "หากคุณต้องการขายอาหารกับเรา คุณควรกรอกแบบฟอร์มนี้",
+    "In the next process G-CON Team will verify your informations and contact you" => "ในกระบวนการต่อไปทีมงาน G-CON จะตรวจสอบข้อมูลของคุณและติดต่อคุณ",
+    "G-con will share the contract with you" => "G-con จะแบ่งปันสัญญากับคุณ",
+    "G-CON will provide Login credentials of Seller Dashboard" => "G-CON จะให้ข้อมูลการเข้าสู่ระบบของแดชบอร์ดผู้ขาย",
+    "You can add your banner, Restaurant, Restaurant's category, Restaurant's food etc" => "คุณสามารถเพิ่มแบนเนอร์ ร้านอาหาร หมวดหมู่ร้านอาหาร อาหารของร้านอาหาร ฯลฯ",
 
 ];

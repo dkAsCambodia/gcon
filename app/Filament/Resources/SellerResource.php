@@ -74,8 +74,8 @@ class SellerResource extends Resource
                             ->prefixIcon('heroicon-m-lock-closed')
                             ->password()
                             ->required()
-                            ->revealable()
-                            ->disabled(fn ($context) => $context === 'edit'),
+                            // ->disabled(fn ($context) => $context === 'edit')
+                            ->revealable(),
                         Forms\Components\TextInput::make('address')
                             ->required()
                             ->prefixIcon('heroicon-m-map-pin')
