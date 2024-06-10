@@ -1,65 +1,4 @@
 <section class="contact-layout5 bg-secondary">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <style>
-    .avatar-upload {
-      position: relative;
-      max-width: 205px;
-      margin: 50px auto;
-    }
-    .avatar-upload .avatar-edit {
-      position: absolute;
-      right: 12px;
-      z-index: 1;
-      top: 10px;
-    }
-    .avatar-upload .avatar-edit input {
-      display: none;
-    }
-    .avatar-upload .avatar-edit input + label {
-      display: inline-block;
-      width: 34px;
-      height: 34px;
-      margin-bottom: 0;
-      border-radius: 100%;
-      background: #FFFFFF;
-      border: 1px solid transparent;
-      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
-      cursor: pointer;
-      font-weight: normal;
-      transition: all 0.2s ease-in-out;
-    }
-    .avatar-upload .avatar-edit input + label:hover {
-      background: #f1f1f1;
-      border-color: #d6d6d6;
-    }
-    .avatar-upload .avatar-edit input + label:after {
-      content: "\f040";
-      font-family: 'FontAwesome';
-      color: #757575;
-      position: absolute;
-      top: 10px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      margin: auto;
-    }
-    .avatar-upload .avatar-preview {
-      width: 192px;
-      height: 192px;
-      position: relative;
-      border-radius: 100%;
-      border: 6px solid #F8F8F8;
-      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-    }
-    .avatar-upload .avatar-preview > div {
-      width: 100%;
-      height: 100%;
-      border-radius: 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    </style>
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -184,18 +123,24 @@
                   <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
                       <label for="shopImage">{{ __('message.Shop Image') }} <span class="red">*</span></label>
-                     <!-- For image Preview --> 
-                          <div class="avatar-upload">
-                            <div class="avatar-edit">
-                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" wire:model="shopImage"/>
-                                <label for="imageUpload"></label>
-                            </div>
-                            <div class="avatar-preview">
-                                <div id="imagePreview" style="background-image: url(https://lh5.googleusercontent.com/proxy/t08n2HuxPfw8OpbutGWjekHAgxfPFv-pZZ5_-uTfhEGK8B5Lp-VN4VjrdxKtr8acgJA93S14m9NdELzjafFfy13b68pQ7zzDiAmn4Xg8LvsTw1jogn_7wStYeOx7ojx5h63Gliw);">
-                                </div>
-                            </div>
-                        </div>
-                      <!-- For image Preview  -->
+                      <input type='file'  @error('shopImage') is-invalid @enderror accept=".png, .jpg, .jpeg" wire:model="shopImage"/>
+                      @error('shopImage')
+                      <label class="error" for="address">{{ $message }}</label>
+                      @enderror
+                      <div wire:loading wire:target="shopImage" wire:key="shopImage"><i class="fa fa-spinner"></i> Uploading</div>
+
+                      @if($shopImage)
+                          {{-- <img src="{{ $shopImage->temporaryUrl() }}" style="width:100px;height:100px;border-radius" width="100" height="100"/> --}}
+                          <div class="post-item">
+                            <div class="post-img">
+                              <a href="blog-single-post.html">
+                                <img src="{{ $shopImage->temporaryUrl() }}" alt="post image" height="300" width="400" loading="lazy">
+                              </a>
+                            </div><!-- /.post-img -->
+                          </div><!-- /.post-item -->
+                      @endif
+                     
+
                     </div>
                   </div>
                   
@@ -208,7 +153,7 @@
               </form>
               <div class="contact-panel-banner">
                 <div class="widget widget-banner bg-overlay bg-overlay-primary">
-                  <div class="bg-img"><img src="{{ URL::to('website/assets/images/banners/4.jpg') }}" alt="background"></div>
+                  {{-- <div class="bg-img"><img src="{{ URL::to('website/assets/images/banners/4.jpg') }}" alt="background"></div> --}}
                   <div class="widget-content">
                     <h4 class="widget-title">{{ __('message.Process of Partner with Us') }}!</h4>
                     <p class="widget-desc mb-10"><span class="red">{{ __('message.Step') }}1:</span> {{ __('message.If you want to sell foods with us then you should fill up this form') }}.</p>
@@ -231,21 +176,4 @@
         </div><!-- /.col-lg-6 -->
       </div><!-- /.row -->
     </div><!-- /.container -->
-    {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> --}}
-    <script>
-      function readURL(input) {
-      if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function(e) {
-              $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-              $('#imagePreview').hide();
-              $('#imagePreview').fadeIn(650);
-          }
-          reader.readAsDataURL(input.files[0]);
-      }
-  }
-  $("#imageUpload").change(function() {
-      readURL(this);
-  });
-    </script>
   </section><!-- /.contact layout 5 -->
