@@ -24,4 +24,10 @@ class EditSeller extends EditRecord
         return $this->getResource()::getUrl('index');
     }
 
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $data['password'] = base64_encode($data['password']);
+        return $data;
+    }
+
 }

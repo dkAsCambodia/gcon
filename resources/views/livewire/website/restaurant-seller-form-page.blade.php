@@ -8,6 +8,12 @@
                 <h4 class="contact-panel-title">{{ __('message.Partner Providers Registration') }}</h4>
                 <p class="contact-panel-desc mb-30">{{ __('message.Interested? Fill in the form below to become our partner and increase your revenue') }}!</p>
               </div>
+              @if($submitform)
+              <div class="alert alert-success">
+                <p><b>{{ __('message.Thank you for your interest') }} {{$firstName ?? ''}}!</b></p>
+                <p><b>{{ __('message.In the next few hours we will contact you, so that we can begin the selling process together') }}</b></p>
+              </div>
+              @endif
             </div>
             <div class="d-flex flex-wrap">
               <form wire:submit.prevent="saveSeller" class="contact-panel-form">
@@ -64,10 +70,10 @@
 
                   <div class="col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group" >
-                        <label for="phone">{{ __('message.Phone Number') }} <span class="red">*</span></label>
-                        <input type="text" class="form-control phone-design @error('phone') is-invalid @enderror" wire:model.live="phone" placeholder="{{ __('message.Enter phone number') }}" value="{{old('phone')}}" maxlength="12">
-                        @error('phone')
-                        <label class="error" for="phone">{{ $message }}</label>
+                        <label for="phoneNumber">{{ __('message.Phone Number') }} <span class="red">*</span></label>
+                        <input type="text" class="form-control phone-design @error('phoneNumber') is-invalid @enderror" wire:model.live="phoneNumber" placeholder="{{ __('message.Enter phone number') }}" value="{{old('phone')}}" maxlength="12">
+                        @error('phoneNumber')
+                        <label class="error" for="phoneNumber">{{ $message }}</label>
                         @enderror
                     </div>
                   </div><!-- /.col-lg-6 -->
@@ -130,11 +136,10 @@
                       <div wire:loading wire:target="shopImage" wire:key="shopImage"><i class="fa fa-spinner"></i> Uploading</div>
 
                       @if($shopImage)
-                          {{-- <img src="{{ $shopImage->temporaryUrl() }}" style="width:100px;height:100px;border-radius" width="100" height="100"/> --}}
                           <div class="post-item">
                             <div class="post-img">
                               <a href="blog-single-post.html">
-                                <img src="{{ $shopImage->temporaryUrl() }}" alt="post image" height="300" width="400" loading="lazy">
+                                <img src="{{ $shopImage->temporaryUrl() }}" alt="post image" height="300" width="400" style="border-radius:10px;" loading="lazy">
                               </a>
                             </div><!-- /.post-img -->
                           </div><!-- /.post-item -->
