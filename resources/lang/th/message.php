@@ -282,5 +282,8 @@ return [
     "G-con will share the contract with you" => "G-con จะแบ่งปันสัญญากับคุณ",
     "G-CON will provide Login credentials of Seller Dashboard" => "G-CON จะให้ข้อมูลการเข้าสู่ระบบของแดชบอร์ดผู้ขาย",
     "You can add your banner, Restaurant, Restaurant's category, Restaurant's food etc" => "คุณสามารถเพิ่มแบนเนอร์ ร้านอาหาร หมวดหมู่ร้านอาหาร อาหารของร้านอาหาร ฯลฯ",
+    "Seller Registered Successfully!" => "ผู้ขายลงทะเบียนสำเร็จแล้ว!",
+    "Thank you for your interest" => "ขอขอบคุณสำหรับความสนใจของคุณ",
+    "In the next few hours we will contact you, so that we can begin the selling process together" => "ในอีกไม่กี่ชั่วโมงข้างหน้า เราจะติดต่อคุณเพื่อเริ่มกระบวนการขายร่วมกัน",
 
 ];

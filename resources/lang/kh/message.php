@@ -282,5 +282,7 @@ return [
     "G-con will share the contract with you" => "G-con នឹងចែករំលែកកិច្ចសន្យាជាមួយអ្នក",
     "G-CON will provide Login credentials of Seller Dashboard" => "G-CON នឹងផ្តល់ព័ត៌មានបញ្ជាក់ការចូលនៃផ្ទាំងគ្រប់គ្រងអ្នកលក់",
     "You can add your banner, Restaurant, Restaurant's category, Restaurant's food etc" => "អ្នកអាចបន្ថែមបដារបស់អ្នក ភោជនីយដ្ឋាន ប្រភេទភោជនីយដ្ឋាន អាហារភោជនីយដ្ឋានជាដើម។",
-
+    "Seller Registered Successfully!" => "អ្នកលក់បានចុះឈ្មោះដោយជោគជ័យ!",
+    "Thank you for your interest" => "សូម​អរគុណ​ចំពោះ​ការ​ចាប់​អារម្មណ៍​របស់​អ្នក",
+    "In the next few hours we will contact you, so that we can begin the selling process together" => "នៅប៉ុន្មានម៉ោងខាងមុខ យើងនឹងទាក់ទងទៅអ្នក ដើម្បីយើងអាចចាប់ផ្តើមដំណើរការលក់ជាមួយគ្នា",
 ];

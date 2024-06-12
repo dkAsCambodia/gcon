@@ -57,7 +57,7 @@ class SellerResource extends Resource
                             ->tel()
                             ->prefixIcon('heroicon-m-phone')
                             ->required()
-                            ->maxLength(10)
+                            ->maxLength(12)
                             ->unique(ignorable: fn ($record) => $record)
                             ->reactive()
                             ->disabled(fn ($context) => $context === 'edit'),
@@ -74,7 +74,9 @@ class SellerResource extends Resource
                             ->prefixIcon('heroicon-m-lock-closed')
                             ->password()
                             ->required()
-                            // ->disabled(fn ($context) => $context === 'edit')
+                            ->formatStateUsing(function ($state) {
+                                return base64_decode($state);
+                            })
                             ->revealable(),
                         Forms\Components\TextInput::make('address')
                             ->required()
@@ -204,7 +206,7 @@ class SellerResource extends Resource
     {
         return [
             'index' => Pages\ListSellers::route('/'),
-            'create' => Pages\CreateSeller::route('/create'),
+            // 'create' => Pages\CreateSeller::route('/create'),
             'edit' => Pages\EditSeller::route('/{record}/edit'),
         ];
     }

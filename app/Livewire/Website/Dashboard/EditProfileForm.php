@@ -4,7 +4,7 @@ use Livewire\Component;
 use App\Models\MemberType;
 use App\Models\AuthorizedBye;
 use App\Models\Customer;
-use Livewire\Attributes\Rule;
+use Livewire\Attributes\Rule; 
 use Session;
 use Illuminate\Support\Facades\DB;
 

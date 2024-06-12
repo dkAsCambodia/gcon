@@ -281,9 +281,9 @@ return [
     "G-con will share the contract with you" => "G-con will share the contract with you",
     "G-CON will provide Login credentials of Seller Dashboard" => "G-CON will provide Login credentials of Seller Dashboard",
     "You can add your banner, Restaurant, Restaurant's category, Restaurant's food etc" => "You can add your banner, Restaurant, Restaurant's category, Restaurant's food etc",
-    "Shop" => "Shop",
-    "Shop" => "Shop",
-    "Shop" => "Shop",
+    "Seller Registered Successfully!" => "Seller Registered Successfully!",
+    "Thank you for your interest" => "Thank you for your interest",
+    "In the next few hours we will contact you, so that we can begin the selling process together" => "In the next few hours we will contact you, so that we can begin the selling process together",
     
     
     
