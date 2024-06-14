@@ -11,4 +11,9 @@ class Seller extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded = ['id'];
+
+    public function sellerLoginData()
+    {
+        return $this->belongsTo(User::class,  'sellerLoginId', 'id');
+    }
 }

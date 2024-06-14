@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('sellers', function (Blueprint $table) {
             $table->id();
+            $table->string('sellerLoginId')->nullable();
             $table->string('shopName')->nullable();
             $table->string('businessType')->nullable();
             $table->string('cuisine')->nullable();
             $table->string('firstName')->nullable();
             $table->string('lastName')->nullable();
-            $table->string('phoneNumber')->nullable();
-            $table->string('email')->nullable();
-            $table->string('password')->nullable();
             $table->string('shopImage')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();

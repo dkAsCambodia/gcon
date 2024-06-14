@@ -53,31 +53,31 @@ class SellerResource extends Resource
                             ->maxLength(255),
                         Forms\Components\TextInput::make('lastName')
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('phoneNumber')
-                            ->tel()
-                            ->prefixIcon('heroicon-m-phone')
-                            ->required()
-                            ->maxLength(12)
-                            ->unique(ignorable: fn ($record) => $record)
-                            ->reactive()
-                            ->disabled(fn ($context) => $context === 'edit'),
-                        Forms\Components\TextInput::make('email')
-                            ->label('Email')
-                            ->prefixIcon('heroicon-m-envelope')
-                            ->required()
-                            ->unique(ignorable: fn ($record) => $record)
-                            ->regex('/^.+@.+$/i')
-                            ->email()
-                            ->reactive()
-                            ->disabled(fn ($context) => $context === 'edit'),
-                        Forms\Components\TextInput::make('password')
-                            ->prefixIcon('heroicon-m-lock-closed')
-                            ->password()
-                            ->required()
-                            ->formatStateUsing(function ($state) {
-                                return base64_decode($state);
-                            })
-                            ->revealable(),
+                        // Forms\Components\TextInput::make('phoneNumber')
+                        //     ->tel()
+                        //     ->prefixIcon('heroicon-m-phone')
+                        //     ->required()
+                        //     ->maxLength(12)
+                        //     ->unique(ignorable: fn ($record) => $record)
+                        //     ->reactive()
+                        //     ->disabled(fn ($context) => $context === 'edit'),
+                        // Forms\Components\TextInput::make('email')
+                        //     ->label('Email')
+                        //     ->prefixIcon('heroicon-m-envelope')
+                        //     ->required()
+                        //     ->unique(ignorable: fn ($record) => $record)
+                        //     ->regex('/^.+@.+$/i')
+                        //     ->email()
+                        //     ->reactive()
+                        //     ->disabled(fn ($context) => $context === 'edit'),
+                        // Forms\Components\TextInput::make('password')
+                        //     ->prefixIcon('heroicon-m-lock-closed')
+                        //     ->password()
+                        //     ->required()
+                        //     ->formatStateUsing(function ($state) {
+                        //         return base64_decode($state);
+                        //     })
+                        //     ->revealable(),
                         Forms\Components\TextInput::make('address')
                             ->required()
                             ->prefixIcon('heroicon-m-map-pin')
@@ -143,9 +143,11 @@ class SellerResource extends Resource
                 Tables\Columns\TextColumn::make('firstName')
                     ->getStateUsing(fn ($record)=> ucfirst($record->firstName.' '.$record->lastName))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phoneNumber')
+                Tables\Columns\TextColumn::make('sellerLoginData.phoneNumber')
+                    ->label('Phone')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                Tables\Columns\TextColumn::make('sellerLoginData.email')
+                    ->label('Email')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('shopImage')
                     ->square(),

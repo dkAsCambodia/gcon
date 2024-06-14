@@ -38,14 +38,32 @@ class UserResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('phoneNumber')
+                            ->tel()
+                            ->prefixIcon('heroicon-m-phone')
+                            ->required()
+                            // ->unique(ignorable: fn ($record) => $record)
+                            // ->disabled(fn ($context) => $context === 'edit')
+                            // ->reactive()
+                            ->maxLength(12),
                 // Forms\Components\TextInput::make('email_verified_at')
                 //     ->prefixIcon('heroicon-m-calendar-days'),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->revealable()
-                    ->required()
+                    // ->unique(ignorable: fn ($record) => $record)
+                    // ->disabled(fn ($context) => $context === 'edit')
+                    // ->reactive()
                     ->prefixIcon('heroicon-m-lock-closed')
                     ->maxLength(255),
+                Forms\Components\Select::make('role')
+                    ->options([
+                        'admin' => 'admin',
+                        'seller' => 'seller',
+                    ])
+                    ->default('admin')
+                    ->prefixIcon('heroicon-m-flag')
+                    ->required(),
         ]);
     }
 
@@ -60,6 +78,17 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('phoneNumber')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('role')
+                    ->searchable()
+                    ->formatStateUsing(fn (string $state): string => ucfirst($state))
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        // 'admin' => 'warning',
+                        'admin' => 'success',
+                        'seller' => 'danger',
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
