@@ -10,7 +10,7 @@
               </div>
               @if($submitform)
               <div class="alert alert-success">
-                <p><b>{{ __('message.Thank you for your interest') }} {{$firstName ?? ''}}!</b></p>
+                <p><b>{{ __('message.Thank you for your interest') }}!</b></p>
                 <p><b>{{ __('message.In the next few hours we will contact you, so that we can begin the selling process together') }}</b></p>
               </div>
               @endif

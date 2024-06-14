@@ -18,7 +18,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-use App\Models\Seller;
+
 
 class SellerPanelProvider extends PanelProvider
 {
@@ -28,9 +28,21 @@ class SellerPanelProvider extends PanelProvider
             ->id('seller')
             ->path('seller')
             ->login()
+            ->unsavedChangesAlerts(false)
+            ->passwordReset()
+            ->emailVerification()
+            ->profile()
             ->colors([
                 'primary' => Color::Emerald,
             ])
+            ->maxContentWidth('full')
+            ->font('Poppins')
+            ->favicon(url('admincon/assets/images/favicon/favicon.png'))
+            ->brandLogo(url('admincon/assets/images/logo/gconlogo.png'))
+            ->sidebarCollapsibleOnDesktop()
+            ->databaseNotifications()
+            ->databaseNotificationsPolling('30s')
+            // Created by DK END
             ->discoverResources(in: app_path('Filament/Seller/Resources'), for: 'App\\Filament\\Seller\\Resources')
             ->discoverPages(in: app_path('Filament/Seller/Pages'), for: 'App\\Filament\\Seller\\Pages')
             ->pages([

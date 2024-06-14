@@ -1,6 +1,7 @@
 <?php
 namespace App\Livewire\Website;
 use Livewire\Component;
+use App\Models\User;
 use App\Models\Seller;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Rule;
@@ -12,9 +13,9 @@ class RestaurantSellerFormPage extends Component
 
     #[Rule('required')]
     public $shopName,  $cuisine, $firstName, $lastName, $city, $country, $shopImage;
-    #[Rule('required|numeric|unique:sellers')]
+    #[Rule('required|numeric|unique:users')]
     public $phoneNumber;
-    #[Rule('required|email|max:255|unique:sellers')]
+    #[Rule('required|email|max:255|unique:users')]
     public $email;
     #[Rule('')]
     public $address;
@@ -25,16 +26,22 @@ class RestaurantSellerFormPage extends Component
         $imgName=$this->shopImage->store('images/restaurant/shop','public');
         date_default_timezone_set('Asia/Phnom_Penh');
         $created_at=date("Y-m-d h:i:s");
+
+        $NewUser = User::create([
+            'name' => $this->firstName.' '.$this->lastName,
+            'phoneNumber'   => $this->phoneNumber,
+            'email'         => $this->email,
+            'role'          => 'seller',
+            'password'      => 'password',
+        ]);
         
         $data=array(
+            'sellerLoginId' => $NewUser->id,
             'shopName'      => $this->shopName,
             'businessType'  => $this->businessType,
             'cuisine'       => $this->cuisine,
             'firstName'     => $this->firstName,
-            'lastName'      => $this->lastName,
-            'phoneNumber'   => $this->phoneNumber,
-            'email'         => $this->email,
-            'password'      => base64_encode('password'),
+            'lastName'      => $this->lastName ?? '',
             'address'       => $this->address,
             'city'          => $this->city,
             'country'       => $this->country,
