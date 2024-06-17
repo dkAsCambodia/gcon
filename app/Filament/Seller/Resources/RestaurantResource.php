@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Models\TblGbooking;
 use App\Models\Seller;
 use Filament\Forms\Components\TimePicker;
+use Dotswan\MapPicker\Fields\Map;
+use Filament\Forms\Set;
 
 class RestaurantResource extends Resource
 {
@@ -31,16 +33,12 @@ class RestaurantResource extends Resource
                 ->schema([
                     Forms\Components\Select::make('sellerId')
                         ->label('Select seller')
-                        // ->options(Seller::pluck('firstName', 'lastName', 'id')) 
-                        ->options(Seller::all()->mapWithKeys(function ($seller) {
-                            return [$seller->id => ucfirst($seller->firstName) . ' ' . $seller->lastName];
-                        })->toArray())
+                        ->options(Seller::where('sellerLoginId', auth()->id())->pluck('firstName', 'id')) 
                         ->prefixIcon('heroicon-o-tag')
-                        ->searchable()
                         ->required(),
                     Forms\Components\Select::make('GBookingId')
                         ->label('GBookingtype')
-                        ->options(TblGbooking::where('status', 1)->pluck('BookingType', 'id')) 
+                        ->options(TblGbooking::where(['status'=> 1, 'id'=> '2'])->pluck('BookingType', 'id')) 
                         ->prefixIcon('heroicon-o-rectangle-stack')
                         ->default('2')
                         ->reactive(),
@@ -89,16 +87,53 @@ class RestaurantResource extends Resource
                     Forms\Components\TextInput::make('Discount')
                         ->maxLength(255),
                     Forms\Components\TextInput::make('lat')
+                        ->readOnly()
                         ->maxLength(255),
                     Forms\Components\TextInput::make('long')
+                        ->readOnly()
                         ->maxLength(255),
-                    Forms\Components\Textarea::make('address')
+                    Forms\Components\TextInput::make('address')
                         ->required(),
                     Forms\Components\FileUpload::make('imgRestaurant')
                         ->label('Restaurant Image')
                         ->required()
                         ->directory('images/restaurant')
                         ->image(),
+                    Map::make('address')
+                        ->label('Location')
+                        ->columnSpanFull()
+                        ->default([
+                            'lat' => 13.650658,
+                            'lng' => 102.56424
+                        ])
+                        ->afterStateUpdated(function (\Filament\Forms\Set $set, ?array $state): void {
+                            $set('latitude', $state['lat']);
+                            $set('longitude', $state['lng']);
+                        })
+                        ->afterStateHydrated(function ($state, $record, \Filament\Forms\Set $set): void {
+                            $set('location', ['lat' => $record->lat, 'lng' => $record->long]);
+                        })
+                        ->extraStyles([
+                            'min-height: 60v',
+                            'width: 500px',
+                            'border-radius: 10px'
+                        ])
+                        ->liveLocation()
+                        ->showMarker()
+                        ->markerColor("#22c55eff")
+                        ->showFullscreenControl()
+                        ->showZoomControl()
+                        ->draggable()
+                        ->tilesUrl("https://tile.openstreetmap.de/{z}/{x}/{y}.png")
+                        ->zoom(15)
+                        ->detectRetina()
+                        ->showMyLocationButton()
+                        ->extraTileControl([])
+                        ->extraControl([
+                            'zoomDelta'           => 1,
+                            'zoomSnap'            => 2,
+                        ]),
+                    
                 ])->columns(3),
             Forms\Components\Toggle::make('openStatus')
                 ->default('1')
@@ -114,6 +149,7 @@ class RestaurantResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
                 Tables\Columns\TextColumn::make('getsellerData.firstName')
                     ->label('Seller')
@@ -157,7 +193,7 @@ class RestaurantResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort('created_at', 'desc')
-         
+           
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
@@ -186,8 +222,8 @@ class RestaurantResource extends Resource
         return [
             'index' => Pages\ListRestaurants::route('/'),
             'create' => Pages\CreateRestaurant::route('/create'),
-            'view' => Pages\ViewRestaurant::route('/{record}'),
-            'edit' => Pages\EditRestaurant::route('/{record}/edit'),
+            // 'view' => Pages\ViewRestaurant::route('/{record}'),
+            // 'edit' => Pages\EditRestaurant::route('/{record}/edit'),
         ];
     }
 

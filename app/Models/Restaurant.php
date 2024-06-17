@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
@@ -32,7 +33,6 @@ class Restaurant extends Model
         );
     }
 
-
     public function getsellerData()
     {
         return $this->belongsTo(Seller::class,  'sellerId', 'id');
@@ -42,4 +42,15 @@ class Restaurant extends Model
     {
         return $this->belongsTo(TblGbooking::class,  'GBookingId', 'id');
     }
+
+    //Created by sushil sir for seller
+    public function scopeOwner(Builder $query)
+    {
+        $seller = Seller::where('sellerLoginId', auth()->id())->first();
+        if($seller){
+            $query = $query->where('sellerId', $seller->id);
+        }
+        return $query;
+    }
+    //Created by sushil sir for seller
 }
