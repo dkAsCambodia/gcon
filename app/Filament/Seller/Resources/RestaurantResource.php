@@ -50,10 +50,12 @@ class RestaurantResource extends Resource
                 ->schema([
                     Forms\Components\TimePicker::make('openTime')
                         ->label('Shop opening time')
+                        ->default('08:00:00')
                         ->required()
                         ->prefixIcon('heroicon-m-play'),
                     Forms\Components\TimePicker::make('closedtime')
                         ->label('Shop closed time')
+                        ->default('23:00:00')
                         ->required()
                         ->prefixIcon('heroicon-m-play'),
                     Forms\Components\Select::make('openingDay')
@@ -86,11 +88,10 @@ class RestaurantResource extends Resource
                 ->schema([
                     Forms\Components\TextInput::make('Discount')
                         ->maxLength(255),
-                    Forms\Components\TextInput::make('lat')
-                        ->readOnly()
-                        ->maxLength(255),
+                    // Forms\Components\TextInput::make('lat')
+                    //     ->maxLength(255),
                     Forms\Components\TextInput::make('long')
-                        ->readOnly()
+                        // ->readOnly()
                         ->maxLength(255),
                     Forms\Components\TextInput::make('address')
                         ->required(),
@@ -99,7 +100,7 @@ class RestaurantResource extends Resource
                         ->required()
                         ->directory('images/restaurant')
                         ->image(),
-                    Map::make('address')
+                    Map::make('lat')
                         ->label('Location')
                         ->columnSpanFull()
                         ->default([
@@ -111,7 +112,7 @@ class RestaurantResource extends Resource
                             $set('longitude', $state['lng']);
                         })
                         ->afterStateHydrated(function ($state, $record, \Filament\Forms\Set $set): void {
-                            $set('location', ['lat' => $record->lat, 'lng' => $record->long]);
+                            $set('location', ['lat' => $record->lat ?? '13.650658', 'lng' => $record->long ?? '102.56424']);
                         })
                         ->extraStyles([
                             'min-height: 60v',
