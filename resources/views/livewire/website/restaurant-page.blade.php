@@ -47,7 +47,7 @@
                           @endif --}}
                         </span>
                         <a href="#">
-                          <img src="{{ asset('storage/'.$row->imgRestaurant	) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" alt="post image" loading="lazy">
+                          <img src="{{ asset('storage/'.$row->imgRestaurant	) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="250px" width="100%" alt="post image" loading="lazy">
                         </a>
                       </div><!-- /.post-img -->
                       <div class="post-body">
