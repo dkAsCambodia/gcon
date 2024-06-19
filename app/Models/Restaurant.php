@@ -53,4 +53,9 @@ class Restaurant extends Model
         return $query;
     }
     //Created by sushil sir for seller
+
+    public static function getRestaurantOptions()
+    {
+        return static::owner()->pluck('restaurantName', 'id');
+    }
 }

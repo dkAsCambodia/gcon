@@ -19,4 +19,16 @@ class EditRestaurant extends EditRecord
             Actions\RestoreAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if($data['lat']){
+            $locationArray = $data['lat'];
+            // Create a new associative array to store the extracted values
+            $data['lat'] = $locationArray['lat'];
+            $data['long'] = $locationArray['lng'];
+        }
+        return $data;
+    }
+
 }

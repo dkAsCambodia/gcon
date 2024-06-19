@@ -19,8 +19,5 @@ class CreateRestaurant extends CreateRecord
             $data['long'] = $locationArray['lng'];
         }
         return $data;
-        
-
-        
     }
 }
