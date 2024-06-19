@@ -22,15 +22,5 @@ class EditBookingtable extends EditRecord
         return $this->getResource()::getUrl('index');
     }
 
-    // protected function mutateFormDataBeforeCreate(array $data): array
-    // {
-    //     if($data['currency'] == 'USD'){
-    //         $cu = '$';
-    //     }else{
-    //         $cu = '฿';
-    //     }
-    //     $data['currency_symbol'] =$cu;
-
-    //     return $data;
-    // }
+    
 }

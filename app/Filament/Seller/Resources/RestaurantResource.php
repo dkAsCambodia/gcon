@@ -22,8 +22,7 @@ use Filament\Forms\Set;
 class RestaurantResource extends Resource
 {
     protected static ?string $model = Restaurant::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office';
 
     public static function form(Form $form): Form
     {
@@ -43,6 +42,7 @@ class RestaurantResource extends Resource
                         ->default('2')
                         ->reactive(),
                     Forms\Components\TextInput::make('restaurantName')
+                        ->unique(ignorable: fn ($record) => $record)
                         ->required()
                         ->maxLength(255),
                 ])->columns(2),
@@ -87,13 +87,16 @@ class RestaurantResource extends Resource
             Forms\Components\Section::make('Shop information')
                 ->schema([
                     Forms\Components\TextInput::make('Discount')
-                        ->maxLength(255),
+                        ->label('Discount in %')
+                        ->prefixIcon('heroicon-m-receipt-percent')
+                        ->numeric(),
                     // Forms\Components\TextInput::make('lat')
                     //     ->maxLength(255),
-                    Forms\Components\TextInput::make('long')
-                        // ->readOnly()
-                        ->maxLength(255),
+                    // Forms\Components\TextInput::make('long')
+                    //     // ->readOnly()
+                    //     ->maxLength(255),
                     Forms\Components\TextInput::make('address')
+                        ->prefixIcon('heroicon-m-map-pin')
                         ->required(),
                     Forms\Components\FileUpload::make('imgRestaurant')
                         ->label('Restaurant Image')
@@ -200,7 +203,17 @@ class RestaurantResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->mutateFormDataUsing(function (array $data): array {
+                    if($data['lat']){
+                        $locationArray = $data['lat'];
+                        // Create a new associative array to store the extracted values
+                        $data['lat'] = $locationArray['lat'];
+                        $data['long'] = $locationArray['lng'];
+                    }
+                    return $data;
+                }),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
