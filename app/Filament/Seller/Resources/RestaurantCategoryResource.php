@@ -21,8 +21,9 @@ class RestaurantCategoryResource extends Resource
     protected static ?string $model = RestaurantCategory::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationGroup = 'Category Management';
     protected static ?string $modelLabel = 'Food categories';
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 2;
 
 
     public static function form(Form $form): Form
@@ -42,9 +43,11 @@ class RestaurantCategoryResource extends Resource
                     ->reactive(),
                 Forms\Components\TextInput::make('cat_name')
                     ->required()
+                    ->prefixIcon('heroicon-o-tag')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('created_by')
                     ->default('seller')
+                    ->prefixIcon('heroicon-o-user')
                     ->readOnly()
                     ->maxLength(255),
                 Forms\Components\Toggle::make('cat_status')
@@ -66,6 +69,7 @@ class RestaurantCategoryResource extends Resource
                     })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('restaurantData.restaurantName')
+                    ->label('Restaurant Name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('cat_name')
                     ->label('Category Name')
