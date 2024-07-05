@@ -51,4 +51,9 @@ class RestaurantCategory extends Model
         return $query;
     }
     //Created by dk for seller
+
+    public static function getRestaurantCategoryOptions()
+    {
+        return static::owner()->where('cat_status', '1')->pluck('cat_name', 'id');
+    }
 }

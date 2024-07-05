@@ -22,7 +22,10 @@ use Filament\Forms\Set;
 class RestaurantResource extends Resource
 {
     protected static ?string $model = Restaurant::class;
+    protected static ?string $navigationGroup = 'Restaurant Management';
+    protected static ?int $navigationSort = 1;
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    
 
     public static function form(Form $form): Form
     {

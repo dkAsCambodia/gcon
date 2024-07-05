@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Filament\Seller\Resources\RestaurantTranslationResource\Pages;
+namespace App\Filament\Seller\Resources\RestaurantCategoryTranslationResource\Pages;
 
-use App\Filament\Seller\Resources\RestaurantTranslationResource;
+use App\Filament\Seller\Resources\RestaurantCategoryTranslationResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 use Filament\Resources\Components\Tab;
 use Illuminate\Database\Eloquent\Builder;
 
-class ListRestaurantTranslations extends ListRecords
+class ListRestaurantCategoryTranslations extends ListRecords
 {
-    protected static string $resource = RestaurantTranslationResource::class;
+    protected static string $resource = RestaurantCategoryTranslationResource::class;
 
     protected function getHeaderActions(): array
     {
