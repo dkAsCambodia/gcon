@@ -158,8 +158,10 @@ class RestaurantResource extends Resource
         return $table
             ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
-                Tables\Columns\TextColumn::make('getsellerData.firstName')
-                    ->label('Seller')
+                Tables\Columns\TextColumn::make('Seller Name')
+                    ->getStateUsing(function ($record) {
+                        return $record->getsellerData->firstName . ' ' . $record->getsellerData->lastName;
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make(ucfirst('gbookingdata.BookingType'))
                     ->label('GBooking Type')
