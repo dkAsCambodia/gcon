@@ -20,4 +20,5 @@ class RestaurantFoodTranslation extends Model
         return $this->belongsTo(RestaurantFood::class, 'restaurant_food_id', 'id');
     }
 
+    
 }

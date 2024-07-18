@@ -47,6 +47,9 @@ class RestaurantResource extends Resource
                             ->reactive(),
                         Forms\Components\TextInput::make('restaurantName')
                             ->required()
+                            ->rule(function ($record) {
+                                return $record ? 'unique:restaurants,restaurantName,' . $record->id : 'unique:restaurants,restaurantName';
+                            })
                             ->maxLength(255),
                     ])->columns(2),
                 Forms\Components\Section::make('Shop Timing')

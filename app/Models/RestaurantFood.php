@@ -62,4 +62,9 @@ class RestaurantFood extends Model
     {
         return $this->belongsTo(Currency::class,  'currency_id', 'id');
     }
+
+    public static function getFoodOptions()
+    {
+        return static::owner()->where('food_status', '1')->orderBy('id', 'DESC')->pluck('food_name', 'id');
+    }
 }

@@ -41,6 +41,9 @@ class TblGbookingResource extends Resource
                             ->required(),
                 Forms\Components\TextInput::make('BookingType')
                     ->label('BookingType slug')
+                    ->rule(function ($record) {
+                        return $record ? 'unique:tbl_gbookings,BookingType,' . $record->id : 'unique:tbl_gbookings,BookingType';
+                    })
                     ->required()
                     ->prefix('https://')
                     ->maxLength(255),

@@ -28,6 +28,9 @@ class CurrencyResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency_code')
                     ->required()
+                    ->rule(function ($record) {
+                        return $record ? 'unique:currencies,currency_code,' . $record->id : 'unique:currencies,currency_code';
+                    })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency_symbol')
                     ->required()

@@ -2,9 +2,9 @@
 
 namespace App\Filament\Seller\Resources;
 
-use App\Filament\Seller\Resources\RestaurantCategoryTranslationResource\Pages;
-use App\Filament\Seller\Resources\RestaurantCategoryTranslationResource\RelationManagers;
-use App\Models\RestaurantCategoryTranslation;
+use App\Filament\Seller\Resources\RestaurantFoodTranslationResource\Pages;
+use App\Filament\Seller\Resources\RestaurantFoodTranslationResource\RelationManagers;
+use App\Models\RestaurantFoodTranslation;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,41 +13,42 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use App\Models\RestaurantFood;
 use App\Models\Language;
-use App\Models\RestaurantCategory;
 
-
-class RestaurantCategoryTranslationResource extends Resource
+class RestaurantFoodTranslationResource extends Resource
 {
-    protected static ?string $model = RestaurantCategoryTranslation::class;
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
-    protected static ?string $navigationGroup = 'Category Management';
-    protected static ?string $modelLabel = 'Food Category Translation';
-    protected static ?int $navigationSort = 2;
+    protected static ?string $model = RestaurantFoodTranslation::class;
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Foods Management';
+    protected static ?string $modelLabel = 'Foods translation';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('restaurant_category_id')
-                    ->label("Restaurant's Category")
-                    ->options(RestaurantCategory::getRestaurantCategoryOptions())
-                    ->prefixIcon('heroicon-o-rectangle-stack')
-                    ->required()
-                    ->reactive(),
+                Forms\Components\Select::make('restaurant_food_id')
+                    ->label('Select Food')
+                    ->options(RestaurantFood::getFoodOptions()) 
+                    ->prefixIcon('heroicon-o-tag')
+                    ->required(),
                 Forms\Components\Select::make('language_id')
                     ->label('Select language')
                     ->options(Language::where('status', 1)->pluck('name', 'id')) 
                     ->required()
                     ->prefixIcon('heroicon-o-flag')
                     ->required(),
-                Forms\Components\TextInput::make('cat_translation_name')
-                    ->label('Category Translation Name')
-                    ->rule(function ($record) {
-                        return $record ? 'unique:restaurant_category_translations,cat_translation_name,' . $record->id : 'unique:restaurant_category_translations,cat_translation_name';
-                    })
-                    ->prefixIcon('heroicon-o-tag')
+                Forms\Components\TextInput::make('food_translation_name')
+                    ->prefixIcon('heroicon-o-arrow-right-circle')
                     ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('translation_title')
+                    ->prefixIcon('heroicon-o-arrow-right-circle')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('translation_desc')
+                    ->prefixIcon('heroicon-o-arrow-right-circle')
                     ->maxLength(255),
             ]);
     }
@@ -55,18 +56,19 @@ class RestaurantCategoryTranslationResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
-                Tables\Columns\TextColumn::make('RestaurantCategoryData.cat_name')
-                    ->label('RestaurantCategory')
+                Tables\Columns\TextColumn::make('RestaurantFoodData.food_name')
+                    ->label('Food Name')
                     ->numeric()
-                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('languages.name')
                     ->label('Language')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('cat_translation_name')
-                    ->label('Category Translation Name')
+                Tables\Columns\TextColumn::make('food_translation_name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('translation_title')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('translation_desc')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -102,9 +104,9 @@ class RestaurantCategoryTranslationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRestaurantCategoryTranslations::route('/'),
-            // 'create' => Pages\CreateRestaurantCategoryTranslation::route('/create'),
-            // 'edit' => Pages\EditRestaurantCategoryTranslation::route('/{record}/edit'),
+            'index' => Pages\ListRestaurantFoodTranslations::route('/'),
+            // 'create' => Pages\CreateRestaurantFoodTranslation::route('/create'),
+            // 'edit' => Pages\EditRestaurantFoodTranslation::route('/{record}/edit'),
         ];
     }
 }

@@ -59,7 +59,7 @@ class TableCategoryResource extends Resource
                 Tables\Columns\TextColumn::make('catgbookingData.BookingType')
                     ->label('Gbooking Name')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('Recognize')
+                Tables\Columns\TextColumn::make('GBooking_id')
                     ->label('Category ID')
                     ->getStateUsing(fn ($record)=> 'cat_'.$record->id)
                     ->searchable()

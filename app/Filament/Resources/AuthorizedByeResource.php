@@ -30,6 +30,9 @@ class AuthorizedByeResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('authorized_by')
                     ->required()
+                    ->rule(function ($record) {
+                        return $record ? 'unique:authorized_byes,authorized_by,' . $record->id : 'unique:authorized_byes,authorized_by';
+                    })
                     ->prefixIcon('heroicon-m-user')
                     ->maxLength(255),
                 Forms\Components\Toggle::make('status')

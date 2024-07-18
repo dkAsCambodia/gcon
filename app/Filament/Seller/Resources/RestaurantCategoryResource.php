@@ -44,6 +44,9 @@ class RestaurantCategoryResource extends Resource
                 Forms\Components\TextInput::make('cat_name')
                     ->required()
                     ->prefixIcon('heroicon-o-tag')
+                    ->rule(function ($record) {
+                        return $record ? 'unique:restaurant_categories,cat_name,' . $record->id : 'unique:restaurant_categories,cat_name';
+                    })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('created_by')
                     ->default('seller')
@@ -63,7 +66,8 @@ class RestaurantCategoryResource extends Resource
         return $table
             ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
-                Tables\Columns\TextColumn::make('Seller Name')
+                Tables\Columns\TextColumn::make('seller_id')
+                    ->label('Seller Name')
                     ->getStateUsing(function ($record) {
                         return $record->getsellerData->firstName . ' ' . $record->getsellerData->lastName;
                     })
@@ -88,12 +92,14 @@ class RestaurantCategoryResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('id', 'DESC')
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

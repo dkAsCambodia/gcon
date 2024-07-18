@@ -28,7 +28,6 @@ class UserResource extends Resource
     {
         return $form
         ->schema([
-
                 Forms\Components\TextInput::make('name')
                     ->prefixIcon('heroicon-o-user')
                     ->required()
@@ -36,16 +35,19 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->prefixIcon('heroicon-m-envelope')
                     ->email()
+                    ->rule(function ($record) {
+                        return $record ? 'unique:users,email,' . $record->id : 'unique:users,email';
+                    })
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phoneNumber')
-                            ->tel()
-                            ->prefixIcon('heroicon-m-phone')
-                            ->required()
-                            // ->unique(ignorable: fn ($record) => $record)
-                            // ->disabled(fn ($context) => $context === 'edit')
-                            // ->reactive()
-                            ->maxLength(12),
+                    ->tel()
+                    ->prefixIcon('heroicon-m-phone')
+                    ->required()
+                    ->rule(function ($record) {
+                        return $record ? 'unique:users,phoneNumber,' . $record->id : 'unique:users,phoneNumber';
+                    })
+                    ->maxLength(12),
                 // Forms\Components\TextInput::make('email_verified_at')
                 //     ->prefixIcon('heroicon-m-calendar-days'),
                 Forms\Components\TextInput::make('password')

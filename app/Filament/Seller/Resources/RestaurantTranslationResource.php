@@ -55,6 +55,7 @@ class RestaurantTranslationResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('restaurantData.restaurantName')
                     ->label('Restaurant Name')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('languages.name')
                     ->label('Language')
@@ -72,6 +73,7 @@ class RestaurantTranslationResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('id', 'DESC')
             ->filters([
                 //
             ])
