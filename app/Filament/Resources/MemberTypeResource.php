@@ -27,6 +27,9 @@ class MemberTypeResource extends Resource
                 Forms\Components\TextInput::make('member_type_name')
                     ->required()
                     ->prefixIcon('heroicon-m-credit-card')
+                    ->rule(function ($record) {
+                        return $record ? 'unique:member_types,member_type_name,' . $record->id : 'unique:member_types,member_type_name';
+                    })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('discount')
                     ->label('Discount in %')

@@ -56,7 +56,9 @@ class CustomerResource extends Resource
                         Forms\Components\TextInput::make('email')
                             ->regex('/^.+@.+$/i')
                             ->email()
-                            ->unique()
+                            ->rule(function ($record) {
+                                return $record ? 'unique:customers,email,' . $record->id : 'unique:customers,email';
+                            })
                             // ->validationMessages([
                             //     'unique' => 'The :attribute has already been registered.',
                             // ])
@@ -65,7 +67,9 @@ class CustomerResource extends Resource
                         Forms\Components\TextInput::make('phone')
                             ->tel()
                             ->prefixIcon('heroicon-m-phone')
-                            ->unique()
+                            ->rule(function ($record) {
+                                return $record ? 'unique:customers,phone,' . $record->id : 'unique:customers,phone';
+                            })
                             ->maxLength(10)
                             // ->validationMessages([
                             //     'unique' => 'The :attribute has already been registered.',

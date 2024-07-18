@@ -44,6 +44,9 @@ class TableCategoryTranslationResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('cat_name')
                     ->prefixIcon('heroicon-m-arrow-long-right')
+                    ->rule(function ($record) {
+                        return $record ? 'unique:table_category_translations,cat_name,' . $record->id : 'unique:table_category_translations,cat_name';
+                    })
                     ->required()
                     ->maxLength(255),
             ]);

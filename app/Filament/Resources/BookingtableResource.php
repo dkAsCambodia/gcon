@@ -106,7 +106,7 @@ class BookingtableResource extends Resource
                 Tables\Columns\ImageColumn::make('tbl_img')
                     ->label('Images')
                     ->square(),
-                Tables\Columns\TextColumn::make('Recognize')
+                Tables\Columns\TextColumn::make('id')
                     ->label('Table number')
                     ->getStateUsing(fn ($record)=> 'concertTbl_'.$record->id)
                     ->searchable()

@@ -27,9 +27,15 @@ class LanguageResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->prefixIcon('heroicon-m-arrow-long-right')
+                    ->rule(function ($record) {
+                        return $record ? 'unique:languages,name,' . $record->id : 'unique:languages,name';
+                    })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('code')
                     ->prefixIcon('heroicon-m-flag')
+                    ->rule(function ($record) {
+                        return $record ? 'unique:languages,code,' . $record->id : 'unique:languages,code';
+                    })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('order')
                     ->integer()

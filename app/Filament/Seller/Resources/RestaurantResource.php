@@ -45,7 +45,9 @@ class RestaurantResource extends Resource
                         ->default('2')
                         ->reactive(),
                     Forms\Components\TextInput::make('restaurantName')
-                        ->unique(ignorable: fn ($record) => $record)
+                        ->rule(function ($record) {
+                            return $record ? 'unique:restaurants,restaurantName,' . $record->id : 'unique:restaurants,restaurantName';
+                        })
                         ->required()
                         ->maxLength(255),
                 ])->columns(2),
@@ -158,7 +160,8 @@ class RestaurantResource extends Resource
         return $table
             ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
-                Tables\Columns\TextColumn::make('Seller Name')
+                Tables\Columns\TextColumn::make('sellerId')
+                    ->label('Seller Name')
                     ->getStateUsing(function ($record) {
                         return $record->getsellerData->firstName . ' ' . $record->getsellerData->lastName;
                     })
@@ -201,8 +204,7 @@ class RestaurantResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->defaultSort('created_at', 'desc')
-           
+            ->defaultSort('id', 'DESC')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])

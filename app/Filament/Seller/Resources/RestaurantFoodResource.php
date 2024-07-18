@@ -49,6 +49,9 @@ class RestaurantFoodResource extends Resource
                     ->required()
                     ->reactive(),
                 Forms\Components\TextInput::make('food_name')
+                    ->rule(function ($record) {
+                        return $record ? 'unique:restaurant_foods,food_name,' . $record->id : 'unique:restaurant_foods,food_name';
+                    })
                     ->maxLength(255),
                 Forms\Components\Select::make('currency_id')
                     ->label('Currency')
@@ -86,7 +89,8 @@ class RestaurantFoodResource extends Resource
         return $table
             ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
-                Tables\Columns\TextColumn::make('Seller Name')
+                Tables\Columns\TextColumn::make('seller_id')
+                    ->label('Seller Name')
                     ->getStateUsing(function ($record) {
                         return $record->getsellerData->firstName . ' ' . $record->getsellerData->lastName;
                     })
@@ -123,6 +127,7 @@ class RestaurantFoodResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('id', 'DESC')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
