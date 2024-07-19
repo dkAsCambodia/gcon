@@ -44,9 +44,9 @@ class RestaurantCategoryResource extends Resource
                 Forms\Components\TextInput::make('cat_name')
                     ->required()
                     ->prefixIcon('heroicon-o-tag')
-                    ->rule(function ($record) {
-                        return $record ? 'unique:restaurant_categories,cat_name,' . $record->id : 'unique:restaurant_categories,cat_name';
-                    })
+                    // ->rule(function ($record) {
+                    //     return $record ? 'unique:restaurant_categories,cat_name,' . $record->id : 'unique:restaurant_categories,cat_name';
+                    // })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('created_by')
                     ->default('seller')

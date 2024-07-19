@@ -4,3 +4,6 @@ section#shadow-host-companion {
 .red{
     color:red;
 }
+a.DkactiveItem {
+    color: #2e3192 !important;
+}
