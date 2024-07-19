@@ -56,6 +56,7 @@ class RestaurantFoodTranslationResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
                 Tables\Columns\TextColumn::make('RestaurantFoodData.food_name')
                     ->label('Food Name')

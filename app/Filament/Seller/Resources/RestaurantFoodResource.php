@@ -49,9 +49,9 @@ class RestaurantFoodResource extends Resource
                     ->required()
                     ->reactive(),
                 Forms\Components\TextInput::make('food_name')
-                    ->rule(function ($record) {
-                        return $record ? 'unique:restaurant_foods,food_name,' . $record->id : 'unique:restaurant_foods,food_name';
-                    })
+                    // ->rule(function ($record) {
+                    //     return $record ? 'unique:restaurant_foods,food_name,' . $record->id : 'unique:restaurant_foods,food_name';
+                    // })
                     ->maxLength(255),
                 Forms\Components\Select::make('currency_id')
                     ->label('Currency')

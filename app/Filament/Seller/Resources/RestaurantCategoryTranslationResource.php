@@ -43,9 +43,9 @@ class RestaurantCategoryTranslationResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('cat_translation_name')
                     ->label('Category Translation Name')
-                    ->rule(function ($record) {
-                        return $record ? 'unique:restaurant_category_translations,cat_translation_name,' . $record->id : 'unique:restaurant_category_translations,cat_translation_name';
-                    })
+                    // ->rule(function ($record) {
+                    //     return $record ? 'unique:restaurant_category_translations,cat_translation_name,' . $record->id : 'unique:restaurant_category_translations,cat_translation_name';
+                    // })
                     ->prefixIcon('heroicon-o-tag')
                     ->required()
                     ->maxLength(255),

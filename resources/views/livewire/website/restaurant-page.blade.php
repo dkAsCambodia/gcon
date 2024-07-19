@@ -46,12 +46,12 @@
                           <span class="day">Free delivery {{ !empty($row->Discount) ? $row->Discount.'% off' : ''}}</span>
                           @endif --}}
                         </span>
-                        <a href="#">
+                        <a href="/GBooking/restaurant/foods/{{ base64_encode($row->id) }}" wire:navigate>
                           <img src="{{ asset('storage/'.$row->imgRestaurant	) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="250px" width="100%" alt="post image" loading="lazy">
                         </a>
                       </div><!-- /.post-img -->
                       <div class="post-body">
-                        <h4 class="post-title"><a href="#">{{!empty($row->translationValue->heading) ? ucwords($row->translationValue->heading) : ''}}</a></h4>
+                        <h4 class="post-title"><a href="/GBooking/restaurant/foods/{{ base64_encode($row->id) }}" wire:navigate>{{!empty($row->translationValue->heading) ? ucwords($row->translationValue->heading) : ''}}</a></h4>
                         <p class="post-desc">{{!empty($row->translationValue->title) ? ucwords($row->translationValue->title) : ''}}</p>
                         <p class="post-desc">{{ __('message.Available Daily') }}:</p>
                         <div class="post-meta d-flex align-items-center">
@@ -64,12 +64,12 @@
                               $secondTime=$dateTime2->format('g:i A');
                               
                               ?>
-                            <a href="#">{{ ucfirst($row->openingDay) ?? ''}} {{ __('message.to') }} {{ ucfirst($row->closingday) ?? ''}}</a>
+                            <a href="/GBooking/restaurant/foods/{{ base64_encode($row->id) }}" wire:navigate>{{ ucfirst($row->openingDay) ?? ''}} {{ __('message.to') }} {{ ucfirst($row->closingday) ?? ''}}</a>
                           </div><!-- /.blog-meta-cat -->
-                          <a class="post-meta-author" href="#">{{ $firstTime ?? ''}} {{ __('message.to') }} {{ $secondTime ?? ''}}</a>
+                          <a class="post-meta-author" href="/GBooking/restaurant/foods/{{ base64_encode($row->id) }}" wire:navigate>{{ $firstTime ?? ''}} {{ __('message.to') }} {{ $secondTime ?? ''}}</a>
                         </div>
                        
-                        <a href="#" class="btn btn-link">
+                        <a href="/GBooking/restaurant/foods/{{ base64_encode($row->id) }}" wire:navigate class="btn btn-link">
                           <i class="plus-icon">+</i>
                           <span>{{ __('message.View More') }}</span>
                         </a>
