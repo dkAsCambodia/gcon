@@ -3671,14 +3671,17 @@ input[type=radio] {
   background-color: #f4572e;
 }
 
-.banner-layout3,
+.banner-layout3 {
+  /* overflow-x: hidden; */
+  padding-left: 30px;
+}
 .banner-layout4 {
   overflow-x: hidden;
   padding-left: 30px;
 }
 .banner-layout3 .banner-img,
 .banner-layout4 .banner-img {
-  min-height: 700px;
+  min-height: 300px;
 }
 .banner-layout3 .banner-shape,
 .banner-layout4 .banner-shape {
@@ -3690,9 +3693,12 @@ input[type=radio] {
   -webkit-clip-path: url(#path-direction-left);
           clip-path: url(#path-direction-left);
 }
-.banner-layout3 .banner-content,
 .banner-layout4 .banner-content {
   padding: 110px 0 110px 130px;
+  background-color: #2e3192;
+}
+.banner-layout3 .banner-content {
+  padding: 19px 0 20px 25px;
   background-color: #2e3192;
 }
 .banner-layout3 .banner-text,
@@ -3891,7 +3897,7 @@ input[type=radio] {
 @media (max-width: 1199px) {
   .banner-layout1 .banner-img,
 .banner-layout3 .banner-img {
-    min-height: 600px;
+    min-height: 300px;
   }
   .banner-layout1 .banner-content,
 .banner-layout3 .banner-content {
