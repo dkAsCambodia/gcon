@@ -284,7 +284,20 @@ return [
     "Seller Registered Successfully!" => "Seller Registered Successfully!",
     "Thank you for your interest" => "Thank you for your interest",
     "In the next few hours we will contact you, so that we can begin the selling process together" => "In the next few hours we will contact you, so that we can begin the selling process together",
-    
+    "Enjoy Restaurant Menu | Online order on GCON" => "Enjoy Restaurant Menu | Online order on GCON",
+    "Free delivery" => "Free delivery",
+    "Looking for More Info" => "Looking for More Info",
+    "Popular (Most ordered right now)" => "Popular (Most ordered right now)",
+    "Add To Cart" => "Add To Cart",
+    "not available in this restaurants" => "not available in this restaurants",
+    "Search foods here" => "Search foods here",
+    "food categories" => "food categories",
+    "No have category in this restaurant" => "No have category in this restaurant",
+    "Restaurant have closed Today" => "Restaurant have closed Today",
+    "Other Restaurants" => "Other Restaurants",
+    "Shop" => "Shop",
+    "Shop" => "Shop",
+    "Shop" => "Shop",
     
     
     

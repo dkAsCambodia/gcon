@@ -285,4 +285,17 @@ return [
     "Seller Registered Successfully!" => "អ្នកលក់បានចុះឈ្មោះដោយជោគជ័យ!",
     "Thank you for your interest" => "សូម​អរគុណ​ចំពោះ​ការ​ចាប់​អារម្មណ៍​របស់​អ្នក",
     "In the next few hours we will contact you, so that we can begin the selling process together" => "នៅប៉ុន្មានម៉ោងខាងមុខ យើងនឹងទាក់ទងទៅអ្នក ដើម្បីយើងអាចចាប់ផ្តើមដំណើរការលក់ជាមួយគ្នា",
+    "Enjoy Restaurant Menu | Online order on GCON" => "Enjoy Restaurant Menu | ការបញ្ជាទិញតាមអ៊ីនធឺណិត GCON",
+    "Free delivery" => "ដឹកជញ្ជូនដោយឥតគិតថ្លៃ",
+    "Looking for More Info" => "កំពុងស្វែងរកព័ត៌មានបន្ថែម",
+    "Popular (Most ordered right now)" => "ពេញនិយម (បញ្ជាទិញច្រើនបំផុតឥឡូវនេះ)",
+    "Add To Cart" => "បញ្ចូលទៅក្នុងរទេះ",
+    "not available in this restaurants" => "មិនមាននៅក្នុងភោជនីយដ្ឋាននេះទេ។",
+    "Search foods here" => "ស្វែងរកអាហារនៅទីនេះ",
+    "food categories" => "ប្រភេទអាហារ",
+    "No have category in this restaurant" => "មិនមានប្រភេទនៅក្នុងភោជនីយដ្ឋាននេះទេ។",
+    "Restaurant have closed Today" => "ភោជនីយដ្ឋានបានបិទថ្ងៃនេះ",
+    "Other Restaurants" => "ភោជនីយដ្ឋានផ្សេងៗ",
+
+
 ];

@@ -285,5 +285,16 @@ return [
     "Seller Registered Successfully!" => "ผู้ขายลงทะเบียนสำเร็จแล้ว!",
     "Thank you for your interest" => "ขอขอบคุณสำหรับความสนใจของคุณ",
     "In the next few hours we will contact you, so that we can begin the selling process together" => "ในอีกไม่กี่ชั่วโมงข้างหน้า เราจะติดต่อคุณเพื่อเริ่มกระบวนการขายร่วมกัน",
+    "Enjoy Restaurant Menu | Online order on GCON" => "เพลิดเพลินกับเมนูร้านอาหาร | สั่งซื้อออนไลน์บน GCON",
+    "Free delivery" => "จัดส่งฟรี",
+    "Looking for More Info" => "กำลังมองหาข้อมูลเพิ่มเติม",
+    "Popular (Most ordered right now)" => "ยอดนิยม (สั่งซื้อมากที่สุดในขณะนี้)",
+    "Add To Cart" => "เพิ่มลงตะกร้า",
+    "not available in this restaurants" => "ไม่มีให้บริการในร้านอาหารแห่งนี้",
+    "Search foods here" => "ค้นหาอาหารได้ที่นี่",
+    "food categories" => "หมวดอาหาร",
+    "No have category in this restaurant" => "ไม่มีหมวดหมู่ในร้านอาหารนี้",
+    "Restaurant have closed Today" => "วันนี้ร้านอาหารปิดแล้ว",
+    "Other Restaurants" => "ร้านอาหารอื่นๆ",
 
 ];
