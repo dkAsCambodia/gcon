@@ -9,7 +9,27 @@ use App\Models\RestaurantFood;
 class FoodListPage extends Component
 {
     public $restaurant_id, $cat_id=Null, $RestaurantDetails, $calegoryList, $foodList, $restaurantList;
+    // public $modalStatus = true;
 
+    // public function openModal(){
+    //         $this->modalStatus = true;
+    // }
+
+    // public function closeModal(){
+    //     $this->modalStatus = false;
+    // }
+
+    // public $showPopup = false;
+
+    // public function openPopup()
+    // {
+    //     $this->showPopup = true;
+    // }
+
+    // public function closePopup()
+    // {
+    //     $this->showPopup = false;
+    // }
 
     public function mount($restaurant_id, $cat_id=Null)
     {
