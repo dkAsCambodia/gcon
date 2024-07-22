@@ -7,3 +7,10 @@ section#shadow-host-companion {
 a.DkactiveItem {
     color: #2e3192 !important;
 }
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* margin: 0; */
+  }

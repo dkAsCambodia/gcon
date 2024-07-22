@@ -24,7 +24,7 @@
               </div>
              
               <div class="mx-80 mt-20">
-                <a href="about-us.html" class="btn btn-white btn-xl">
+                <a  class="btn btn-white btn-xl" data-toggle="modal" data-target="#myModal">
                   <span>{{ __('message.Looking for More Info') }}!</span> <i class="icon-arrow-right"></i>
                 </a>
               </div>
@@ -118,4 +118,38 @@
           </div><!-- /.row -->
         </div><!-- /.container -->
       </section><!-- /.shop -->
+       <!-- The Modal CODE START -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">{{ !empty($RestaurantDetails->restaurantName) ? ucwords($RestaurantDetails->restaurantName) : '' }} ({{ !empty($RestaurantDetails->address) ? ucwords($RestaurantDetails->address) : '' }})</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <p class="heading-desc"><i class="fa fa-clock" aria-hidden="true"></i> Now open until {{ !empty($RestaurantDetails->closedtime) ? ucwords($RestaurantDetails->closedtime) : '' }}</p>
+                  <p class="heading-desc"><b>{{ !empty($RestaurantDetails->openingDay) ? ucwords($RestaurantDetails->openingDay) : '' }} - {{ !empty($RestaurantDetails->closingday) ? ucwords($RestaurantDetails->closingday) : '' }}</b></p>
+                  <?php
+
+                        $dateTime = new DateTime($RestaurantDetails->openTime);
+                        echo $dateTime->format('H:i');
+                   ?>
+                  <p class="heading-desc"><b>{{ !empty($RestaurantDetails->openTime) ? ucwords($RestaurantDetails->openTime) : '' }} - {{ !empty($RestaurantDetails->closedtime) ? ucwords($RestaurantDetails->closedtime) : '' }}</b></p>
+                  <?php  $lat=$RestaurantDetails->lat;
+                         $long=$RestaurantDetails->long; ?>
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $lat; ?>,<?php echo $long; ?>&markers=color:red%7Clabel:C%7C<?php echo $lat; ?>,<?php echo $long; ?>&zoom=15&size=600x300&maptype=roadmap&key=AIzaSyDpthOrhTdzA26X7JlTG2k-5JH-S2oPj4g" height="300" style="border:0; width:100%; margin:0;">
+                  <h5>Delivery fee</h5>
+                  Delivery fee is charged based on time of day, distance, and surge conditions :
+                  0
+              </div>
+              <!-- Modal footer -->
+              {{-- <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div> --}}
+            </div>
+          </div>
+        </div>
+       <!-- The Modal CODE START -->
 </div>
