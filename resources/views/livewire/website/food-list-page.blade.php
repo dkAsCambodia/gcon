@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 col-xl-2"></div>
-          <div class="col-12 col-xl-5 banner-img d-flex align-items-center">
+          <div class="col-12 col-xl-5 banner-img d-flex align-items-center" wire:ignore>
             <div class="bg-img">
               <img src="{{ asset('storage/'.$RestaurantDetails->imgRestaurant ) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="250px" width="100%" alt="backgrounds">
             </div>
@@ -57,8 +57,11 @@
                         <div class="product-img">
                         <img src="{{ asset('storage/'.$foodrow->food_img ) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="250px" width="100%" alt="Product" loading="lazy">
                         <div class="product-action">
-                            <a href="#" class="btn btn-secondary">
+                            <a href="#" wire:click="addToCart('{{ base64_encode($foodrow->id) }}')" class="btn btn-secondary">
                             <i class="icon-cart"></i> <span>{{ __('message.Add To Cart') }}</span>
+                            </a>
+                            <a href="/GBooking/cart" wire:navigate class="btn btn-secondary">
+                              <i class="icon-cart"></i> <span>{{ __('message.Go To Cart') }}</span>
                             </a>
                         </div><!-- /.product-action -->
                         </div><!-- /.product-img -->
@@ -129,19 +132,20 @@
               </div>
               <!-- Modal body -->
               <div class="modal-body">
-                  <p class="heading-desc"><i class="fa fa-clock" aria-hidden="true"></i> Now open until {{ !empty($RestaurantDetails->closedtime) ? ucwords($RestaurantDetails->closedtime) : '' }}</p>
+                  <p class="heading-desc"><i class="fa fa-clock" aria-hidden="true"></i> {{ __('message.Now open until') }} {{ !empty($RestaurantDetails->closedtime) ? ucwords($RestaurantDetails->closedtime) : '' }}</p>
                   <p class="heading-desc"><b>{{ !empty($RestaurantDetails->openingDay) ? ucwords($RestaurantDetails->openingDay) : '' }} - {{ !empty($RestaurantDetails->closingday) ? ucwords($RestaurantDetails->closingday) : '' }}</b></p>
-                  <?php
-
-                        $dateTime = new DateTime($RestaurantDetails->openTime);
-                        echo $dateTime->format('H:i');
-                   ?>
-                  <p class="heading-desc"><b>{{ !empty($RestaurantDetails->openTime) ? ucwords($RestaurantDetails->openTime) : '' }} - {{ !empty($RestaurantDetails->closedtime) ? ucwords($RestaurantDetails->closedtime) : '' }}</b></p>
+                  @if(!empty($RestaurantDetails->openTime) && !empty($RestaurantDetails->closedtime))
+                    <?php
+                          $dateTime = new DateTime($RestaurantDetails->openTime);
+                          $dateTime2 = new DateTime($RestaurantDetails->closedtime);
+                    ?>
+                    <p class="heading-desc"><b>{{ $dateTime->format('H:i') }} - {{ $dateTime2->format('H:i') }}</b></p>
+                  @endif
                   <?php  $lat=$RestaurantDetails->lat;
                          $long=$RestaurantDetails->long; ?>
                     <img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $lat; ?>,<?php echo $long; ?>&markers=color:red%7Clabel:C%7C<?php echo $lat; ?>,<?php echo $long; ?>&zoom=15&size=600x300&maptype=roadmap&key=AIzaSyDpthOrhTdzA26X7JlTG2k-5JH-S2oPj4g" height="300" style="border:0; width:100%; margin:0;">
-                  <h5>Delivery fee</h5>
-                  Delivery fee is charged based on time of day, distance, and surge conditions :
+                  <h5>{{ __('message.Delivery fee') }}</h5>
+                  {{ __('message.Delivery fee is charged based on time of day, distance, and surge conditions') }} :
                   0
               </div>
               <!-- Modal footer -->

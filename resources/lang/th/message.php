@@ -296,5 +296,10 @@ return [
     "No have category in this restaurant" => "ไม่มีหมวดหมู่ในร้านอาหารนี้",
     "Restaurant have closed Today" => "วันนี้ร้านอาหารปิดแล้ว",
     "Other Restaurants" => "ร้านอาหารอื่นๆ",
+    "Go To Cart" => "ไปที่รถเข็น",
+    "Added Successfully!" => "เพิ่มเรียบร้อยแล้ว!",
+    "Delivery fee" => "ค่าจัดส่ง",
+    "Delivery fee is charged based on time of day, distance, and surge conditions" => "ค่าธรรมเนียมการจัดส่งคิดตามช่วงเวลาของวัน ระยะทาง และสภาวะไฟกระชาก",
+    "Now open until" => "ตอนนี้เปิดถึง",
 
 ];
