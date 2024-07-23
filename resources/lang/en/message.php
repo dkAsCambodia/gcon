@@ -295,9 +295,11 @@ return [
     "No have category in this restaurant" => "No have category in this restaurant",
     "Restaurant have closed Today" => "Restaurant have closed Today",
     "Other Restaurants" => "Other Restaurants",
-    "Shop" => "Shop",
-    "Shop" => "Shop",
-    "Shop" => "Shop",
+    "Go To Cart" => "Go To Cart",
+    "Added Successfully!" => "Added Successfully!",
+    "Delivery fee" => "Delivery fee",
+    "Delivery fee is charged based on time of day, distance, and surge conditions" => "Delivery fee is charged based on time of day, distance, and surge conditions",
+    "Now open until" => "Now open until",
     
     
     

@@ -296,6 +296,11 @@ return [
     "No have category in this restaurant" => "មិនមានប្រភេទនៅក្នុងភោជនីយដ្ឋាននេះទេ។",
     "Restaurant have closed Today" => "ភោជនីយដ្ឋានបានបិទថ្ងៃនេះ",
     "Other Restaurants" => "ភោជនីយដ្ឋានផ្សេងៗ",
+    "Go To Cart" => "ទៅរទេះ",
+    "Added Successfully!" => "បានបន្ថែមដោយជោគជ័យ!",
+    "Delivery fee" => "ថ្លៃដឹកជញ្ជូន",
+    "Delivery fee is charged based on time of day, distance, and surge conditions" => "ថ្លៃដឹកជញ្ជូនត្រូវបានគិតថ្លៃអាស្រ័យលើពេលវេលានៃថ្ងៃ ចម្ងាយ និងលក្ខខណ្ឌនៃការកើនឡើង",
+    "Now open until" => "ឥឡូវនេះបើករហូតដល់",
 
 
 ];
