@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2024 at 05:14 AM
+-- Generation Time: Jul 24, 2024 at 06:04 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,8 +40,8 @@ CREATE TABLE `authorized_byes` (
 --
 
 INSERT INTO `authorized_byes` (`id`, `authorized_by`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Khun Chao', 1, NULL, '2024-05-16 00:22:34'),
-(2, 'Owner', 1, NULL, '2024-05-16 00:22:51'),
+(1, 'Khun Chao', 1, NULL, '2024-07-18 00:25:49'),
+(2, 'Owner', 1, NULL, '2024-07-18 00:26:10'),
 (3, 'Srichai B', 1, NULL, NULL),
 (4, 'self', 1, NULL, NULL),
 (5, 'HR Department', 1, NULL, NULL),
@@ -171,7 +171,11 @@ INSERT INTO `concert_tbl_transactions` (`id`, `user_id`, `GBooking_id`, `cat_id`
 (4, '2', '1', '6', '6', 'PAYID-MZPPBDQ2YE57713K2335060R', '1', '1000', 'THB', '฿', '{\"id\":\"PAYID-MZPPBDQ2YE57713K2335060R\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"0LJ04957U2604582U\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-a0xcu29988399@personal.example.com\",\"first_name\":\"DK\",\"last_name\":\"Gupta\",\"payer_id\":\"CJEW9GJ4SFFZN\",\"shipping_address\":{\"recipient_name\":\"DK Gupta\",\"line1\":\"1 Main St\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\"},\"country_code\":\"US\"}},\"transactions\":[{\"amount\":{\"total\":\"1000.00\",\"currency\":\"THB\",\"details\":{\"subtotal\":\"1000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"PLVAQ4NRYMUJ2\",\"email\":\"sb-4ocvf30023489@business.example.com\"},\"item_list\":{\"shipping_address\":{\"recipient_name\":\"DK Gupta\",\"line1\":\"1 Main St\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\"}},\"related_resources\":[{\"sale\":{\"id\":\"2U521062AN989384R\",\"state\":\"completed\",\"amount\":{\"total\":\"1000.00\",\"currency\":\"THB\",\"details\":{\"subtotal\":\"1000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"49.90\",\"currency\":\"THB\"},\"receivable_amount\":{\"value\":\"25.10\",\"currency\":\"USD\"},\"exchange_rate\":\"0.026415605526957\",\"parent_payment\":\"PAYID-MZPPBDQ2YE57713K2335060R\",\"create_time\":\"2024-06-04T10:46:56Z\",\"update_time\":\"2024-06-04T10:46:56Z\",\"links\":[{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/sale\\/2U521062AN989384R\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/sale\\/2U521062AN989384R\\/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/payment\\/PAYID-MZPPBDQ2YE57713K2335060R\",\"rel\":\"parent_payment\",\"method\":\"GET\"}]}}]}],\"failed_transactions\":[],\"create_time\":\"2024-06-04T10:46:38Z\",\"update_time\":\"2024-06-04T10:46:56Z\",\"links\":[{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/payment\\/PAYID-MZPPBDQ2YE57713K2335060R\",\"rel\":\"self\",\"method\":\"GET\"}]}', 'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-0LJ04957U2604582U', 'Donation with Paypal', 'gfjh', '7234567890', 'dilipkumargupta631@gmail.com', '25A Alpha', '5', 'Other', 'online', '2024-06-04', '02:30 PM', 'CJEW9GJ4SFFZN', 'Asia/Bangkok', '2024-06-04 17:47:00', 'Paypal', 'success', '0', '2024-06-03 22:43:49', '2024-06-06 01:32:41'),
 (5, '2', '1', '5', '4', 'ch_3PNvARKyHXidWMBJ0czk9Dxp', '1', '700', 'THB', '฿', 'Stripe\\Charge JSON: {\n    \"id\": \"ch_3PNvARKyHXidWMBJ0czk9Dxp\",\n    \"object\": \"charge\",\n    \"amount\": 70000,\n    \"amount_captured\": 70000,\n    \"amount_refunded\": 0,\n    \"application\": null,\n    \"application_fee\": null,\n    \"application_fee_amount\": null,\n    \"balance_transaction\": \"txn_3PNvARKyHXidWMBJ0M1L0wre\",\n    \"billing_details\": {\n        \"address\": {\n            \"city\": null,\n            \"country\": null,\n            \"line1\": null,\n            \"line2\": null,\n            \"postal_code\": null,\n            \"state\": null\n        },\n        \"email\": null,\n        \"name\": \"gconofficial@mail.com\",\n        \"phone\": null\n    },\n    \"calculated_statement_descriptor\": \"Stripe\",\n    \"captured\": true,\n    \"created\": 1717499079,\n    \"currency\": \"thb\",\n    \"customer\": null,\n    \"description\": \"Global Payment Gateway created by DK\",\n    \"destination\": null,\n    \"dispute\": null,\n    \"disputed\": false,\n    \"failure_balance_transaction\": null,\n    \"failure_code\": null,\n    \"failure_message\": null,\n    \"fraud_details\": [],\n    \"invoice\": null,\n    \"livemode\": false,\n    \"metadata\": [],\n    \"on_behalf_of\": null,\n    \"order\": null,\n    \"outcome\": {\n        \"network_status\": \"approved_by_network\",\n        \"reason\": null,\n        \"risk_level\": \"normal\",\n        \"risk_score\": 62,\n        \"seller_message\": \"Payment complete.\",\n        \"type\": \"authorized\"\n    },\n    \"paid\": true,\n    \"payment_intent\": null,\n    \"payment_method\": \"card_1PNvANKyHXidWMBJAuOAKcUs\",\n    \"payment_method_details\": {\n        \"card\": {\n            \"amount_authorized\": 70000,\n            \"brand\": \"visa\",\n            \"checks\": {\n                \"address_line1_check\": null,\n                \"address_postal_code_check\": null,\n                \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 11,\n            \"exp_year\": 2024,\n            \"extended_authorization\": {\n                \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"P9se3K90jTsYtugK\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n                \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"1111\",\n            \"mandate\": null,\n            \"multicapture\": {\n                \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n                \"used\": false\n            },\n            \"overcapture\": {\n                \"maximum_amount_capturable\": 70000,\n                \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n        },\n        \"type\": \"card\"\n    },\n    \"receipt_email\": null,\n    \"receipt_number\": null,\n    \"receipt_url\": \"https:\\/\\/pay.stripe.com\\/receipts\\/payment\\/CAcaFwoVYWNjdF8xT21UZjBLeUhYaWRXTUJKKMfp-7IGMgbzjFAfqhs6LBbgJCnhrR4OG976bE_uovJKssTzQQ9UFqH5UG2uyNj-sVybtNCFgMvs-OLa\",\n    \"refunded\": false,\n    \"review\": null,\n    \"shipping\": null,\n    \"source\": {\n        \"id\": \"card_1PNvANKyHXidWMBJAuOAKcUs\",\n        \"object\": \"card\",\n        \"address_city\": null,\n        \"address_country\": null,\n        \"address_line1\": null,\n        \"address_line1_check\": null,\n        \"address_line2\": null,\n        \"address_state\": null,\n        \"address_zip\": null,\n        \"address_zip_check\": null,\n        \"brand\": \"Visa\",\n        \"country\": \"US\",\n        \"customer\": null,\n        \"cvc_check\": \"pass\",\n        \"dynamic_last4\": null,\n        \"exp_month\": 11,\n        \"exp_year\": 2024,\n        \"fingerprint\": \"P9se3K90jTsYtugK\",\n        \"funding\": \"credit\",\n        \"last4\": \"1111\",\n        \"metadata\": [],\n        \"name\": \"gconofficial@mail.com\",\n        \"tokenization_method\": null,\n        \"wallet\": null\n    },\n    \"source_transfer\": null,\n    \"statement_descriptor\": null,\n    \"statement_descriptor_suffix\": null,\n    \"status\": \"succeeded\",\n    \"transfer_data\": null,\n    \"transfer_group\": null\n}', 'https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xT21UZjBLeUhYaWRXTUJKKMfp-7IGMgbzjFAfqhs6LBbgJCnhrR4OG976bE_uovJKssTzQQ9UFqH5UG2uyNj-sVybtNCFgMvs-OLa', 'Donation with Striipe', 'hj', '7234567890', 'dilipkumargupta631@gmail.com', '25A Alpha', '6', 'Other', 'online', '2024-06-04', '02:30 PM', NULL, 'Asia/Bangkok', '2024-06-04 18:04:42', 'Stripe', 'success', '0', '2024-06-03 23:04:21', '2024-06-06 01:19:03'),
 (6, '2', '1', '6', '5', NULL, '1', '1000', 'THB', '฿', NULL, NULL, NULL, 'hj', '7234567890', 'dilipkumargupta631@gmail.com', '25A Alpha', '6', 'Birthday surprise', 'cash on delivery', '2024-06-21', '03:00 PM', NULL, NULL, NULL, NULL, 'pending', '1', '2024-06-03 23:06:30', '2024-06-06 03:19:03'),
-(7, '2', '1', '2', '2', NULL, '1', '500', 'THB', '฿', NULL, NULL, NULL, 'bhjmbhh', '7234567890', 'dilipkumargupta631@gmail.com', '25A Alpha', '8', 'Other', 'online', '2024-06-13', '03:00 PM', NULL, NULL, NULL, NULL, 'pending', '1', '2024-06-03 23:08:26', '2024-06-06 03:19:39');
+(7, '2', '1', '2', '2', NULL, '1', '500', 'THB', '฿', NULL, NULL, NULL, 'bhjmbhh', '7234567890', 'dilipkumargupta631@gmail.com', '25A Alpha', '8', 'Other', 'online', '2024-06-13', '03:00 PM', NULL, NULL, NULL, NULL, 'pending', '1', '2024-06-03 23:08:26', '2024-06-06 03:19:39'),
+(8, '3', '1', '1', '1', 'ch_3PSrzaKyHXidWMBJ0VIDzLpa', '1', '300', 'THB', '฿', 'Stripe\\Charge JSON: {\n    \"id\": \"ch_3PSrzaKyHXidWMBJ0VIDzLpa\",\n    \"object\": \"charge\",\n    \"amount\": 30000,\n    \"amount_captured\": 30000,\n    \"amount_refunded\": 0,\n    \"application\": null,\n    \"application_fee\": null,\n    \"application_fee_amount\": null,\n    \"balance_transaction\": \"txn_3PSrzaKyHXidWMBJ0qkTXAvH\",\n    \"billing_details\": {\n        \"address\": {\n            \"city\": null,\n            \"country\": null,\n            \"line1\": null,\n            \"line2\": null,\n            \"postal_code\": null,\n            \"state\": null\n        },\n        \"email\": null,\n        \"name\": \"gconofficial@mail.com\",\n        \"phone\": null\n    },\n    \"calculated_statement_descriptor\": \"Stripe\",\n    \"captured\": true,\n    \"created\": 1718678514,\n    \"currency\": \"thb\",\n    \"customer\": null,\n    \"description\": \"Global Payment Gateway created by DK\",\n    \"destination\": null,\n    \"dispute\": null,\n    \"disputed\": false,\n    \"failure_balance_transaction\": null,\n    \"failure_code\": null,\n    \"failure_message\": null,\n    \"fraud_details\": [],\n    \"invoice\": null,\n    \"livemode\": false,\n    \"metadata\": [],\n    \"on_behalf_of\": null,\n    \"order\": null,\n    \"outcome\": {\n        \"network_status\": \"approved_by_network\",\n        \"reason\": null,\n        \"risk_level\": \"normal\",\n        \"risk_score\": 55,\n        \"seller_message\": \"Payment complete.\",\n        \"type\": \"authorized\"\n    },\n    \"paid\": true,\n    \"payment_intent\": null,\n    \"payment_method\": \"card_1PSrzWKyHXidWMBJ3bzFjBtp\",\n    \"payment_method_details\": {\n        \"card\": {\n            \"amount_authorized\": 30000,\n            \"brand\": \"visa\",\n            \"checks\": {\n                \"address_line1_check\": null,\n                \"address_postal_code_check\": null,\n                \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 11,\n            \"exp_year\": 2024,\n            \"extended_authorization\": {\n                \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"P9se3K90jTsYtugK\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n                \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"1111\",\n            \"mandate\": null,\n            \"multicapture\": {\n                \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n                \"used\": false\n            },\n            \"overcapture\": {\n                \"maximum_amount_capturable\": 30000,\n                \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n        },\n        \"type\": \"card\"\n    },\n    \"receipt_email\": null,\n    \"receipt_number\": null,\n    \"receipt_url\": \"https:\\/\\/pay.stripe.com\\/receipts\\/payment\\/CAcaFwoVYWNjdF8xT21UZjBLeUhYaWRXTUJKKPLnw7MGMgY1PqvHSOI6LBZk7MuAtyPki3XXPCie_B08_SkgxFRtfAn5E599762XjtR0SItPzsx8aoNk\",\n    \"refunded\": false,\n    \"review\": null,\n    \"shipping\": null,\n    \"source\": {\n        \"id\": \"card_1PSrzWKyHXidWMBJ3bzFjBtp\",\n        \"object\": \"card\",\n        \"address_city\": null,\n        \"address_country\": null,\n        \"address_line1\": null,\n        \"address_line1_check\": null,\n        \"address_line2\": null,\n        \"address_state\": null,\n        \"address_zip\": null,\n        \"address_zip_check\": null,\n        \"brand\": \"Visa\",\n        \"country\": \"US\",\n        \"customer\": null,\n        \"cvc_check\": \"pass\",\n        \"dynamic_last4\": null,\n        \"exp_month\": 11,\n        \"exp_year\": 2024,\n        \"fingerprint\": \"P9se3K90jTsYtugK\",\n        \"funding\": \"credit\",\n        \"last4\": \"1111\",\n        \"metadata\": [],\n        \"name\": \"gconofficial@mail.com\",\n        \"tokenization_method\": null,\n        \"wallet\": null\n    },\n    \"source_transfer\": null,\n    \"statement_descriptor\": null,\n    \"statement_descriptor_suffix\": null,\n    \"status\": \"succeeded\",\n    \"transfer_data\": null,\n    \"transfer_group\": null\n}', 'https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xT21UZjBLeUhYaWRXTUJKKPLnw7MGMgY1PqvHSOI6LBZk7MuAtyPki3XXPCie_B08_SkgxFRtfAn5E599762XjtR0SItPzsx8aoNk', 'Donation with Striipe', 'dk', '7234567890', 'gold631@gmail.com', '25A Alpha', '2', 'Other', 'online', '2024-06-18', '03:00 PM', NULL, 'Asia/Bangkok', '2024-06-18 09:41:55', 'Stripe', 'success', '0', '2024-06-18 02:41:29', '2024-06-18 02:41:55'),
+(9, '3', '1', '1', '1', 'PAYID-M2NVXBI53U99450KY0454457', '1', '300', 'THB', '฿', '{\"id\":\"PAYID-M2NVXBI53U99450KY0454457\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"6FF72280RV802205A\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-a0xcu29988399@personal.example.com\",\"first_name\":\"DK\",\"last_name\":\"Gupta\",\"payer_id\":\"CJEW9GJ4SFFZN\",\"shipping_address\":{\"recipient_name\":\"DK Gupta\",\"line1\":\"1 Main St\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\"},\"country_code\":\"US\"}},\"transactions\":[{\"amount\":{\"total\":\"300.00\",\"currency\":\"THB\",\"details\":{\"subtotal\":\"300.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"PLVAQ4NRYMUJ2\",\"email\":\"sb-4ocvf30023489@business.example.com\"},\"item_list\":{\"shipping_address\":{\"recipient_name\":\"DK Gupta\",\"line1\":\"1 Main St\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\"}},\"related_resources\":[{\"sale\":{\"id\":\"5AK41443RU359544P\",\"state\":\"completed\",\"amount\":{\"total\":\"300.00\",\"currency\":\"THB\",\"details\":{\"subtotal\":\"300.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"25.47\",\"currency\":\"THB\"},\"receivable_amount\":{\"value\":\"7.38\",\"currency\":\"USD\"},\"exchange_rate\":\"0.026892100617829\",\"parent_payment\":\"PAYID-M2NVXBI53U99450KY0454457\",\"create_time\":\"2024-07-20T06:39:17Z\",\"update_time\":\"2024-07-20T06:39:17Z\",\"links\":[{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/sale\\/5AK41443RU359544P\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/sale\\/5AK41443RU359544P\\/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/payment\\/PAYID-M2NVXBI53U99450KY0454457\",\"rel\":\"parent_payment\",\"method\":\"GET\"}]}}]}],\"failed_transactions\":[],\"create_time\":\"2024-07-20T06:39:01Z\",\"update_time\":\"2024-07-20T06:39:17Z\",\"links\":[{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/payment\\/PAYID-M2NVXBI53U99450KY0454457\",\"rel\":\"self\",\"method\":\"GET\"}]}', 'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-6FF72280RV802205A', 'Donation with Paypal', 'dk', '7234567890', 'dilipkumargupta631@gmail.com', '25A Alpha', '2', 'Other', 'online', '2024-07-20', '05:30 PM', 'CJEW9GJ4SFFZN', 'Asia/Bangkok', '2024-07-20 13:39:19', 'Paypal', 'success', '0', '2024-07-19 18:38:52', '2024-07-20 06:39:19'),
+(10, '3', '1', '2', '2', 'ch_3PeWyGKyHXidWMBJ1hPz1uDa', '1', '500', 'THB', '฿', 'Stripe\\Charge JSON: {\n    \"id\": \"ch_3PeWyGKyHXidWMBJ1hPz1uDa\",\n    \"object\": \"charge\",\n    \"amount\": 50000,\n    \"amount_captured\": 50000,\n    \"amount_refunded\": 0,\n    \"application\": null,\n    \"application_fee\": null,\n    \"application_fee_amount\": null,\n    \"balance_transaction\": \"txn_3PeWyGKyHXidWMBJ1gBn4YTX\",\n    \"billing_details\": {\n        \"address\": {\n            \"city\": null,\n            \"country\": null,\n            \"line1\": null,\n            \"line2\": null,\n            \"postal_code\": null,\n            \"state\": null\n        },\n        \"email\": null,\n        \"name\": \"gconofficial@mail.com\",\n        \"phone\": null\n    },\n    \"calculated_statement_descriptor\": \"Stripe\",\n    \"captured\": true,\n    \"created\": 1721457644,\n    \"currency\": \"thb\",\n    \"customer\": null,\n    \"description\": \"Global Payment Gateway created by DK\",\n    \"destination\": null,\n    \"dispute\": null,\n    \"disputed\": false,\n    \"failure_balance_transaction\": null,\n    \"failure_code\": null,\n    \"failure_message\": null,\n    \"fraud_details\": [],\n    \"invoice\": null,\n    \"livemode\": false,\n    \"metadata\": [],\n    \"on_behalf_of\": null,\n    \"order\": null,\n    \"outcome\": {\n        \"network_status\": \"approved_by_network\",\n        \"reason\": null,\n        \"risk_level\": \"normal\",\n        \"risk_score\": 5,\n        \"seller_message\": \"Payment complete.\",\n        \"type\": \"authorized\"\n    },\n    \"paid\": true,\n    \"payment_intent\": null,\n    \"payment_method\": \"card_1PeWyCKyHXidWMBJ1OenwJNc\",\n    \"payment_method_details\": {\n        \"card\": {\n            \"amount_authorized\": 50000,\n            \"brand\": \"visa\",\n            \"checks\": {\n                \"address_line1_check\": null,\n                \"address_postal_code_check\": null,\n                \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 11,\n            \"exp_year\": 2024,\n            \"extended_authorization\": {\n                \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"P9se3K90jTsYtugK\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n                \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"1111\",\n            \"mandate\": null,\n            \"multicapture\": {\n                \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n                \"used\": false\n            },\n            \"overcapture\": {\n                \"maximum_amount_capturable\": 50000,\n                \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n        },\n        \"type\": \"card\"\n    },\n    \"receipt_email\": null,\n    \"receipt_number\": null,\n    \"receipt_url\": \"https:\\/\\/pay.stripe.com\\/receipts\\/payment\\/CAcaFwoVYWNjdF8xT21UZjBLeUhYaWRXTUJKKOy37bQGMgb5vNid0FE6LBY8_VOCoskGBiSXpCrqhN_Un6PI3ugvfXg9_zmVHPel6uaD3ZFw5YRHkrvS\",\n    \"refunded\": false,\n    \"review\": null,\n    \"shipping\": null,\n    \"source\": {\n        \"id\": \"card_1PeWyCKyHXidWMBJ1OenwJNc\",\n        \"object\": \"card\",\n        \"address_city\": null,\n        \"address_country\": null,\n        \"address_line1\": null,\n        \"address_line1_check\": null,\n        \"address_line2\": null,\n        \"address_state\": null,\n        \"address_zip\": null,\n        \"address_zip_check\": null,\n        \"brand\": \"Visa\",\n        \"country\": \"US\",\n        \"customer\": null,\n        \"cvc_check\": \"pass\",\n        \"dynamic_last4\": null,\n        \"exp_month\": 11,\n        \"exp_year\": 2024,\n        \"fingerprint\": \"P9se3K90jTsYtugK\",\n        \"funding\": \"credit\",\n        \"last4\": \"1111\",\n        \"metadata\": [],\n        \"name\": \"gconofficial@mail.com\",\n        \"tokenization_method\": null,\n        \"wallet\": null\n    },\n    \"source_transfer\": null,\n    \"statement_descriptor\": null,\n    \"statement_descriptor_suffix\": null,\n    \"status\": \"succeeded\",\n    \"transfer_data\": null,\n    \"transfer_group\": null\n}', 'https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xT21UZjBLeUhYaWRXTUJKKOy37bQGMgb5vNid0FE6LBY8_VOCoskGBiSXpCrqhN_Un6PI3ugvfXg9_zmVHPel6uaD3ZFw5YRHkrvS', 'Donation with Striipe', 'dk', '7234567890', 'dilipkumargupta631@gmail.com', '25A Alpha', '2', 'Other', 'online', '2024-07-31', '08:30 PM', NULL, 'Asia/Bangkok', '2024-07-20 13:40:46', 'Stripe', 'success', '0', '2024-07-19 18:40:27', '2024-07-20 06:40:46'),
+(11, '4', '1', '6', '5', NULL, '1', '1000', 'THB', '฿', NULL, NULL, NULL, 'srichaiB', '7234567890', 'scrichaiB@gmail.com', '25A Alpha', '2', 'Other', 'cash on delivery', '2024-07-25', '08:00 PM', NULL, NULL, NULL, NULL, 'pending', '1', '2024-07-22 04:19:58', '2024-07-21 21:22:26');
 
 -- --------------------------------------------------------
 
@@ -349,7 +353,9 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `card_number`, `name`, `email`, `mobile_country_code`, `phone`, `member_type`, `address`, `city`, `state`, `country`, `issue_by`, `password`, `line_id`, `facebook_id`, `instagram`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'S00001', 'dk', 'dk@gmail.com', '+855', '69861400', '3', '25A Alpha', NULL, NULL, 'KH', '4', 'ZGRkZGRkZGQ=', NULL, NULL, NULL, 1, '2024-05-31 21:21:46', '2024-06-01 09:21:46'),
-(2, 'S00002', 'dk', 'dilipkumargupta631@gmail.com', NULL, '7234567890', NULL, '25A Alpha', NULL, NULL, NULL, NULL, 'cGFzc3dvcmQ=', NULL, NULL, NULL, 1, '2024-06-03 03:21:16', '2024-06-03 03:21:16');
+(2, 'S00002', 'dk', 'dilipkumargupta631@gmail.com', NULL, '7234567890', NULL, '25A Alpha', NULL, NULL, NULL, NULL, 'cGFzc3dvcmQ=', NULL, NULL, NULL, 1, '2024-06-03 03:21:16', '2024-06-03 03:21:16'),
+(3, 'G00001', 'dk', 'dkgold@gmail.com', '+855', '7234567898', '1', 'poipet', 'poipet', 'gfhfhfgh', 'KH', '4', 'ZGRkZGRkZGQ=', NULL, NULL, NULL, 1, '2024-06-18 02:40:25', '2024-07-18 00:24:42'),
+(4, 'G00002', 'srichaiB', 'scrichaiB@gmail.com', NULL, '7234567890', NULL, '25A Alpha', NULL, NULL, NULL, NULL, 'cGFzc3dvcmQ=', NULL, NULL, NULL, 1, '2024-07-22 04:19:58', '2024-07-22 04:19:58');
 
 -- --------------------------------------------------------
 
@@ -472,9 +478,9 @@ CREATE TABLE `member_types` (
 --
 
 INSERT INTO `member_types` (`id`, `member_type_name`, `discount`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Gold', '10', 1, NULL, NULL),
+(1, 'Gold', '10', 1, NULL, '2024-07-18 00:15:48'),
 (2, 'Diamond', '20', 1, NULL, NULL),
-(3, 'Silver', '2', 1, NULL, '2024-05-29 01:54:12');
+(3, 'Silver', '2', 1, NULL, '2024-07-18 00:16:03');
 
 -- --------------------------------------------------------
 
@@ -493,7 +499,6 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
@@ -528,7 +533,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (33, '2024_05_27_093255_create_restaurants_table', 30),
 (34, '2024_05_27_094705_create_restaurant_translations_table', 31),
 (35, '2024_06_01_033412_create_customers_table', 32),
-(36, '2024_06_03_030646_create_concert_tbl_transactions_table', 33);
+(36, '2024_06_03_030646_create_concert_tbl_transactions_table', 33),
+(37, '2024_06_14_064004_create_sellers_table', 34),
+(39, '2024_06_14_065350_add_phone_number_and_role_to_users_table', 35),
+(42, '2014_10_12_000000_create_users_table', 36),
+(43, '2024_07_04_044329_create_restaurant_category_table', 37),
+(44, '2024_07_04_064953_create_restaurant_categories_table', 38),
+(45, '2024_07_04_065508_create_restaurant_category_translations_table', 39),
+(46, '2024_07_06_034949_create_restaurant_foods_table', 40),
+(47, '2024_07_17_043437_create_restaurant_food_translations_table', 41),
+(48, '2024_07_17_104517_add_currency_id_to_restaurant_foods_table', 42),
+(49, '2024_07_23_070157_create_restaurant_carts_table', 43),
+(50, '2024_07_23_093141_create_restaurant_carts_table', 44);
 
 -- --------------------------------------------------------
 
@@ -571,7 +587,9 @@ CREATE TABLE `password_reset_tokens` (
 --
 
 INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
-('gconadmin@gmail.com', '$2y$12$OaClDGvGIpUNV.YENYTaGO.fmGZNihKg4Ng8PV1F57vyUC8Dz750.', '2024-04-20 00:24:42');
+('gconadmin@gmail.com', '$2y$12$OaClDGvGIpUNV.YENYTaGO.fmGZNihKg4Ng8PV1F57vyUC8Dz750.', '2024-04-20 00:24:42'),
+('saiku@gmail.com', '$2y$12$DlOr6Bm0v5uc3g4Ad3t97ualzUB08bkv.Vrr574NEjRMwljOYi47K', '2024-07-05 20:31:12'),
+('seller@gmail.com', '$2y$12$JqPi9z2NoVs2YHQfoWdzMe6CrTeqQSkJbkjcA.GN3jJFFaJ1SzBu.', '2024-06-14 03:38:55');
 
 -- --------------------------------------------------------
 
@@ -624,8 +642,170 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`id`, `sellerId`, `GBookingId`, `restaurantName`, `imgRestaurant`, `openTime`, `closedtime`, `openingDay`, `closingday`, `Discount`, `lat`, `long`, `address`, `openStatus`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, '1', '2', 'Saikou', 'images/restaurant/01HYWS46054YM7SHBPAHM2BGGE.jpg', '10:00:25', '23:20:45', 'sunday', 'saturday', '', NULL, NULL, 'Beer city Poipet Zone 3', '1', '1', NULL, '2024-05-27 03:21:50', '2024-05-27 03:21:50'),
-(2, '2', '2', 'Thai house restaurant', 'images/restaurant/01HYWSB2SRYBPJ8QSKHXVB94B7.jpg', '10:00:00', '23:00:24', 'monday', 'sunday', '10', NULL, NULL, 'Beer city Poipet Zone 3', '1', '1', NULL, '2024-05-27 03:25:36', '2024-05-27 03:25:36');
+(1, '2', '2', 'Saikou', 'images/restaurant/01HYWS46054YM7SHBPAHM2BGGE.jpg', '10:00:25', '23:20:45', 'sunday', 'saturday', NULL, '13.650657608594', '102.56423950195', 'Beer city Poipet Zone 3', '1', '1', NULL, '2024-05-27 03:21:50', '2024-06-19 01:17:20'),
+(2, '3', '2', 'Thai house restaurant', 'images/restaurant/01J0MMTTTTC3SHEXPY7QC66M3F.png', '10:00:00', '23:00:24', 'monday', 'sunday', '10', '13.650657608594', '102.56423950195', 'Beer city Zone 3 poipet', '1', '1', NULL, '2024-05-27 03:25:36', '2024-07-18 03:52:17'),
+(3, '3', '2', 'Cafe in1', 'images/restaurant/01J0NFG3XMZQ4405DGPXYN4T6G.jpg', '08:00:00', '23:00:00', 'sunday', 'saturday', '10', '13.650657608594', '102.56423950195', 'Grand Diamond Poipet Resort', '1', '1', NULL, '2024-06-18 03:50:18', '2024-07-18 03:50:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurant_carts`
+--
+
+CREATE TABLE `restaurant_carts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `customer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `food_id` int(11) DEFAULT NULL,
+  `f_qty` int(11) DEFAULT NULL,
+  `order_status` int(11) NOT NULL DEFAULT 0,
+  `food_cart_status` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `restaurant_carts`
+--
+
+INSERT INTO `restaurant_carts` (`id`, `customer_id`, `food_id`, `f_qty`, `order_status`, `food_cart_status`, `created_at`, `updated_at`) VALUES
+(1, 230720241632, 2, 1, 0, 1, '2024-07-23 09:32:49', '2024-07-23 09:32:49'),
+(2, 230720241632, 1, 1, 0, 1, '2024-07-23 02:36:03', '2024-07-23 02:36:03'),
+(3, 230720241632, 1, 1, 0, 1, '2024-07-23 03:33:41', '2024-07-23 03:33:41'),
+(4, 230720241632, 1, 1, 0, 1, '2024-07-23 03:33:44', '2024-07-23 03:33:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurant_categories`
+--
+
+CREATE TABLE `restaurant_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `seller_id` varchar(255) DEFAULT NULL,
+  `restaurant_id` varchar(255) DEFAULT NULL,
+  `cat_name` varchar(255) DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `cat_status` varchar(255) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `restaurant_categories`
+--
+
+INSERT INTO `restaurant_categories` (`id`, `seller_id`, `restaurant_id`, `cat_name`, `created_by`, `cat_status`, `created_at`, `updated_at`) VALUES
+(1, '2', '1', 'Noodle', 'seller', '1', '2024-07-04 00:36:52', '2024-07-05 04:15:02'),
+(2, '3', '2', 'Rosted Fish', 'seller', '1', '2024-07-04 03:13:02', '2024-07-18 04:03:54'),
+(3, '3', '3', 'Green Tea', 'seller', '1', '2024-07-04 03:36:54', '2024-07-18 04:03:35'),
+(6, '3', '3', 'Coffie', 'seller', '1', '2024-07-19 07:37:19', '2024-07-24 07:37:19'),
+(7, '3', '2', 'Noodle', 'seller', '1', '2024-07-19 01:35:59', '2024-07-19 01:35:59'),
+(8, '2', '1', 'fried rice', 'seller', '1', '2024-07-19 02:16:16', '2024-07-19 02:16:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurant_category_translations`
+--
+
+CREATE TABLE `restaurant_category_translations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `restaurant_category_id` bigint(20) UNSIGNED NOT NULL,
+  `language_id` bigint(20) UNSIGNED NOT NULL,
+  `cat_translation_name` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `restaurant_category_translations`
+--
+
+INSERT INTO `restaurant_category_translations` (`id`, `restaurant_category_id`, `language_id`, `cat_translation_name`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 'Rosted Fish', '2024-07-05 00:08:35', '2024-07-05 00:08:35'),
+(2, 2, 2, 'ปลาเผา', '2024-07-05 00:53:54', '2024-07-05 00:53:54'),
+(3, 1, 1, 'Noodles', '2024-07-05 02:54:04', '2024-07-05 02:54:04'),
+(4, 1, 2, 'ก๋วยเตี๋ยว', '2024-07-05 02:57:20', '2024-07-05 02:57:20'),
+(5, 1, 3, 'គុយទាវ', '2024-07-05 02:58:07', '2024-07-05 02:58:07'),
+(6, 2, 3, 'ត្រីអាំង', '2024-07-19 01:32:11', '2024-07-19 01:32:11'),
+(7, 7, 1, 'Noodles', '2024-07-19 01:36:40', '2024-07-19 01:36:40'),
+(8, 7, 3, 'គុយទាវ', '2024-07-19 01:37:29', '2024-07-19 01:37:29'),
+(9, 7, 2, 'ก๋วยเตี๋ยว', '2024-07-19 01:38:04', '2024-07-19 01:38:04'),
+(10, 3, 2, 'ชาเขียว', '2024-07-19 02:12:58', '2024-07-19 02:12:58'),
+(11, 3, 3, 'តែ​បៃតង', '2024-07-19 02:13:15', '2024-07-19 02:13:15'),
+(12, 3, 1, 'Green tea', '2024-07-19 02:13:33', '2024-07-19 02:13:33'),
+(13, 6, 3, 'កាហ្វេ', '2024-07-19 02:14:13', '2024-07-19 02:14:13'),
+(14, 6, 1, 'coffie', '2024-07-19 02:14:22', '2024-07-19 02:14:22'),
+(15, 6, 2, 'คอฟฟี่', '2024-07-19 02:14:43', '2024-07-19 02:14:43'),
+(16, 8, 1, 'fried rice', '2024-07-19 02:16:35', '2024-07-19 02:16:35'),
+(17, 8, 2, 'ข้าวผัด', '2024-07-19 02:16:50', '2024-07-19 02:16:50'),
+(18, 8, 3, 'បាយ​ឆា', '2024-07-19 02:17:04', '2024-07-19 02:17:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurant_foods`
+--
+
+CREATE TABLE `restaurant_foods` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `seller_id` varchar(255) DEFAULT NULL,
+  `restaurant_id` varchar(255) DEFAULT NULL,
+  `restaurant_cat_id` varchar(255) DEFAULT NULL,
+  `food_name` varchar(255) DEFAULT NULL,
+  `food_img` varchar(255) DEFAULT NULL,
+  `price` varchar(255) DEFAULT NULL,
+  `currency_id` varchar(255) NOT NULL,
+  `discount` varchar(255) DEFAULT NULL,
+  `created_by` longtext DEFAULT NULL,
+  `food_status` varchar(255) NOT NULL DEFAULT '1',
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `restaurant_foods`
+--
+
+INSERT INTO `restaurant_foods` (`id`, `seller_id`, `restaurant_id`, `restaurant_cat_id`, `food_name`, `food_img`, `price`, `currency_id`, `discount`, `created_by`, `food_status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, '3', '2', '2', 'thai rosted fish', 'images/restaurant/food/01J3016QMPC2DPA12K5RXDGAQ5.jpg', '5', '3', '19', 'seller', '1', NULL, '2024-07-17 07:56:05', '2024-07-17 02:43:33'),
+(2, '3', '2', '2', 'fish curry', 'images/restaurant/food/01J303HN416TX59S5SSVAY52BZ.jpg', '100', '3', '19', 'seller', '1', NULL, '2024-07-17 07:56:05', '2024-07-17 03:24:28'),
+(3, '3', '3', '3', 'Green Tea', 'images/restaurant/food/01J305QRA26FRPDD7RDKWEXZMT.jpg', '20', '3', '3', 'seller', '1', NULL, '2024-07-17 04:02:45', '2024-07-18 03:55:54'),
+(4, '2', '1', '1', 'Noodle with chicken', 'images/restaurant/food/01J306EKVP33WCM13BM3GF7K22.png', '100', '3', '10', 'seller', '1', NULL, '2024-07-17 04:15:14', '2024-07-17 04:15:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurant_food_translations`
+--
+
+CREATE TABLE `restaurant_food_translations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `restaurant_food_id` bigint(20) UNSIGNED NOT NULL,
+  `language_id` bigint(20) UNSIGNED NOT NULL,
+  `food_translation_name` varchar(255) DEFAULT NULL,
+  `translation_title` varchar(255) DEFAULT NULL,
+  `translation_desc` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `restaurant_food_translations`
+--
+
+INSERT INTO `restaurant_food_translations` (`id`, `restaurant_food_id`, `language_id`, `food_translation_name`, `translation_title`, `translation_desc`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, 'green Tea', 'natural tea', 'green color with freshness', '2024-07-18 04:14:52', '2024-07-18 04:14:52'),
+(2, 2, 1, 'fish curry with rice', 'delicious thai food', 'bestise thai fish curry and rice', '2024-07-18 04:19:00', '2024-07-19 04:22:41'),
+(3, 4, 1, 'Noodle with chicken', 'Delicious Noodle with fried chicken', 'A Noodle with delicious chicken-fry and all of the ingredients and mixing sauce', '2024-07-19 04:00:51', '2024-07-19 04:13:42'),
+(4, 4, 3, 'គុយទាវជាមួយសាច់មាន់', 'គុយទាវឆ្ងាញ់ជាមួយមាន់បំពង', 'គុយទាវជាមួយមាន់បំពងឆ្ងាញ់ៗ និងគ្រឿងផ្សំទាំងអស់ និងទឹកជ្រលក់លាយ', '2024-07-19 04:13:06', '2024-07-19 04:14:30'),
+(5, 4, 2, 'ก๋วยเตี๋ยวไก่', 'บะหมี่อร่อยกับไก่ทอด', 'บะหมี่ไก่ทอดแสนอร่อยพร้อมส่วนผสมและซอสผสมทั้งหมด', '2024-07-19 04:13:24', '2024-07-19 04:14:42'),
+(6, 1, 1, 'thai rosted fish', 'Sweet And Sour rosted Fish', 'Crispy fried fish served with a tangy and sweet sauce (For ref only)', '2024-07-19 04:18:17', '2024-07-19 04:18:17'),
+(7, 1, 2, 'ปลาย่าง', 'ปลากระพงผัดเปรี้ยวหวาน', 'ปลาทอดกรอบเสิร์ฟพร้อมน้ำจิ้มรสเปรี้ยวอมหวาน (สำหรับการอ้างอิงเท่านั้น)', '2024-07-19 04:19:18', '2024-07-19 04:20:42'),
+(8, 1, 3, 'ត្រីអាំង', 'ត្រីប្រៃផ្អែម និងជូរ', 'ត្រីប្រឡាក់ប្រឡាក់ជាមួយទឹកជ្រលក់ហឹរ និងផ្អែម (សម្រាប់តែចំណាំ)', '2024-07-19 04:19:43', '2024-07-19 04:20:53'),
+(9, 2, 3, 'ការីត្រីជាមួយអង្ករ', 'ម្ហូបថៃឆ្ងាញ់', 'បាយត្រី និងបាយថៃល្អបំផុត', '2024-07-19 04:23:13', '2024-07-19 04:24:51'),
+(10, 2, 2, 'แกงปลากับข้าว', 'อาหารไทยแสนอร่อย', 'เสริมแกงปลาไทยและข้าว', '2024-07-19 04:23:34', '2024-07-19 04:25:04');
 
 -- --------------------------------------------------------
 
@@ -653,7 +833,8 @@ INSERT INTO `restaurant_translations` (`id`, `restaurant_id`, `language_id`, `he
 (3, 1, 2, 'อร่อยของเรา', 'Thai ร้านอาหาร', '2024-05-27 04:08:21', '2024-05-27 04:08:21'),
 (4, 2, 1, 'delicious thai food', 'Pad Thai: Stir-fried noodles', '2024-05-28 21:37:25', '2024-05-28 21:37:25'),
 (5, 2, 2, 'อาหารไทยแสนอร่อย', 'ผัดไทย: ผัดหมี่', '2024-05-30 00:48:33', '2024-05-30 00:48:33'),
-(6, 2, 3, 'ម្ហូបថៃឆ្ងាញ់', 'ផាតថៃ៖ មីឆា', '2024-05-30 00:49:13', '2024-05-30 00:49:13');
+(6, 2, 3, 'ម្ហូបថៃឆ្ងាញ់', 'ផាតថៃ៖ មីឆា', '2024-05-30 00:49:13', '2024-05-30 00:49:13'),
+(7, 3, 1, 'delicious thai cofee', 'delicious', '2024-06-19 01:13:55', '2024-06-19 01:13:55');
 
 -- --------------------------------------------------------
 
@@ -663,14 +844,12 @@ INSERT INTO `restaurant_translations` (`id`, `restaurant_id`, `language_id`, `he
 
 CREATE TABLE `sellers` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `sellerLoginId` varchar(255) DEFAULT NULL,
   `shopName` varchar(255) DEFAULT NULL,
   `businessType` varchar(255) DEFAULT NULL,
   `cuisine` varchar(255) DEFAULT NULL,
   `firstName` varchar(255) DEFAULT NULL,
   `lastName` varchar(255) DEFAULT NULL,
-  `phoneNumber` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
   `shopImage` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
@@ -687,9 +866,12 @@ CREATE TABLE `sellers` (
 -- Dumping data for table `sellers`
 --
 
-INSERT INTO `sellers` (`id`, `shopName`, `businessType`, `cuisine`, `firstName`, `lastName`, `phoneNumber`, `email`, `password`, `shopImage`, `address`, `city`, `country`, `additionalAddress`, `contractStatus`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Saikou', 'Restaurant', 'Thai food', 'khun', 'pk', '7234567890', 'khunpk@gmail.com', 'password', 'images/restaurant/shop/01HYMWX0N65TRFRF7TJ656N1HZ.jpg', 'Grand Diamond Poipet Resort', 'poipet', 'KH', 'beer city Zone 3', 'rejected', '1', NULL, '2024-05-21 23:50:17', '2024-05-24 01:53:54'),
-(2, 'Thai house', 'Restaurant', 'Thai food', 'gopal', 'pay', '723456788', 'thaihouse@gmail.com', 'password', 'images/restaurant/shop/01HYMWY1A302K2DET87ANF5TD6.jpg', '25A Alpha', 'poipet', 'KH', 'gconadmin@gmail.com', 'pending', '1', NULL, '2024-05-23 04:15:22', '2024-05-24 01:54:27');
+INSERT INTO `sellers` (`id`, `sellerLoginId`, `shopName`, `businessType`, `cuisine`, `firstName`, `lastName`, `shopImage`, `address`, `city`, `country`, `additionalAddress`, `contractStatus`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, '3', 'dfsdf', 'Restaurant', 'dfsd', 'gopal', 'pay', 'images/restaurant/shop/vF68VMHJri79Om56cxfPdmzyjpe715Nmh6jkCs1N.png', '25A Alpha\ntagore lane', 'poipet', 'KH', NULL, 'approved', '1', NULL, '2024-06-13 20:09:03', '2024-06-14 02:24:10'),
+(2, '4', 'Saikou', 'Restaurant', 'thai food', 'khun', 'pk', 'images/restaurant/shop/ASaT8ZYWD4ckbjacvRPsU0WawTs4sTpdTD480Q9j.jpg', 'poipet\nPoipet is a city in Banteay Meanchey Province in western Cambodia,', 'poipet', 'KH', NULL, 'approved', '1', NULL, '2024-06-13 22:48:47', '2024-06-14 03:53:44'),
+(3, '5', 'thai house', 'Restaurant', 'thai food', 'preta', 'khun', 'images/restaurant/shop/EtdyXQDydzzXIMaU6vCGvIaJj18K3dnimkmYsaK6.jpg', '25A Alpha\ntagore lane', 'poipet', 'KH', NULL, 'approved', '1', NULL, '2024-06-13 23:07:27', '2024-06-14 11:07:27'),
+(4, '6', 'cafe In', 'Shop', 'coffie', 'khun', 'cafe', 'images/restaurant/shop/T4Q69VgSXhUMCn9FOHg9G5jw2uua7kXfSPnpVbHv.jpg', 'poipet\nPoipet is a city in Banteay Meanchey Province in western Cambodia,', 'poipet', 'KH', NULL, 'pending', '1', NULL, '2024-06-13 23:11:32', '2024-06-14 11:11:32'),
+(5, '7', 'ddddd', 'Shop', 'ddddde', 'gopal', 'pay', 'images/restaurant/shop/RhPPWueV6mbT7OfaGmYVwj5Puf6Gi3SfT8TbgEfi.jpg', '25A Alpha\ntagore lane', 'poipet', 'KH', 'gconadmin@gmail.com', 'approved', '1', NULL, '2024-06-25 02:47:44', '2024-06-24 19:51:40');
 
 -- --------------------------------------------------------
 
@@ -785,7 +967,7 @@ INSERT INTO `tbl_gbookings` (`id`, `image`, `img_url`, `discount`, `BookingType`
 (9, 'images/services/VYmCaHLGwkH8wgiym4Uovxl3nAfuJx-metaY2FyLXBhcmsuanBn-.png', NULL, '6', 'carPark', 'GBooking', NULL, 1, 3, '2024-02-21 11:16:46', '2024-04-24 23:19:23'),
 (10, 'images/services/de4mTtD5rpFNSK01OaIbaX1H4oLpM0-metaY29uY2VydC1kb2N0b3IuanBn-.jpg', NULL, '5', 'onlineDoctor', 'GService', NULL, 1, 3, '2024-02-21 11:16:46', '2024-04-24 23:16:08'),
 (11, 'images/services/dPjwt6BRzbvTrkkX3kvfiUZ6fj96v5-metaaG9zcGl0YWwuanBn-.webp', NULL, '10', 'hospital', 'GBooking', NULL, 1, 4, '2024-02-21 11:43:57', '2024-04-24 23:19:47'),
-(13, 'images/services/eh7lPc5NTfxOXemzyjfJZuKMHUp7jj-metaNS5qcGc=-.jpg', NULL, '5', 'hgd', 'GEntertainment', 0, 0, 2, '2024-04-24 23:28:22', '2024-04-25 02:25:46');
+(13, 'images/services/eh7lPc5NTfxOXemzyjfJZuKMHUp7jj-metaNS5qcGc=-.jpg', NULL, '5', 'hgd', 'GEntertainment', 0, 0, 2, '2024-04-24 23:28:22', '2024-07-18 03:24:08');
 
 -- --------------------------------------------------------
 
@@ -849,8 +1031,10 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `email_verified_at` mediumtext DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
+  `phoneNumber` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -860,9 +1044,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'G-CON Admin', 'gconadmin@gmail.com', NULL, '$2y$12$3DQuDCnngh/nQGvdulr8CeizWUqjOQrom7mET4nKkfm64nkZkM3G2', 'BnCZAi1j4vwKjnhqPBdTCbHi49OZNPvOvEfLwrQlU2dhzUBW2exFP6RexvNx', '2024-04-17 21:33:13', '2024-04-29 20:18:13'),
-(4, 'dk', 'dk@gmail.com', NULL, '$2y$12$Mx6CUYoZ3BsQuhbUq09V2Obk8gYJsqJbs5/3.jesPMNo2g2hUTTmq', NULL, '2024-04-22 00:09:38', '2024-04-22 00:09:58');
+INSERT INTO `users` (`id`, `name`, `email`, `phoneNumber`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'G-CON Admin', 'gconadmin@gmail.com', '333333333333', 'admin', NULL, '$2y$12$pl6gDsa5trUrsklGfB.ZAurecMtw.t.iZ4Lwv8E21Q7SZwP5V2C9G', NULL, '2024-06-26 10:22:51', '2024-07-18 03:01:02'),
+(3, 'seller', 'seller@gmail.com', '543563454545', 'seller', NULL, '$2y$12$GGdX0rN9T.ONF4GjzZ.mq..2luk5Jw3suj59kVYMnuZcgcOF42DIu', NULL, '2024-06-26 10:22:51', '2024-06-14 03:28:42'),
+(4, 'khun pk', 'saiku@gmail.com', '534254342423', 'seller', NULL, '$2y$12$2a.hZ1T4bO3BVKSkpm3b3uhwYYjVmR.QRDlj2Ah8Hf/KHaxDXlUkK', NULL, '2024-06-14 10:48:48', '2024-06-14 03:51:15'),
+(5, 'preta khun', 'thaihouse@gmail.com', '7234567890', 'seller', NULL, '$2y$12$2a.hZ1T4bO3BVKSkpm3b3uhwYYjVmR.QRDlj2Ah8Hf/KHaxDXlUkK', NULL, '2024-06-14 11:07:27', '2024-06-14 11:07:27'),
+(6, 'khun cafe', 'cafein@gmail.com', '54645645645', 'seller', NULL, '$2y$12$nCoghuz3zqd1oDR4E2VlhedefBWL16LkZq9aB7EKUBfbAtwCgVW9K', NULL, '2024-06-14 11:11:32', '2024-06-14 11:11:32'),
+(7, 'gopal pay', 'dddd@gmail.com', '723456888888', 'seller', NULL, '$2y$12$wnXNn8QiiV9ITt2NMECCauDd1D.DaGZIxBPnU728WCubJu.F8OcVe', 'qubymFYVDMxivgrGkC8A8O5vIMBCYid2L12T4JEPTyKBGFMIP5a7ZifODuFQ', '2024-06-25 02:47:44', '2024-06-24 20:00:45');
 
 --
 -- Indexes for dumped tables
@@ -975,6 +1163,40 @@ ALTER TABLE `restaurants`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `restaurant_carts`
+--
+ALTER TABLE `restaurant_carts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `restaurant_categories`
+--
+ALTER TABLE `restaurant_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `restaurant_category_translations`
+--
+ALTER TABLE `restaurant_category_translations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `restaurant_category_translations_restaurant_category_id_foreign` (`restaurant_category_id`),
+  ADD KEY `restaurant_category_translations_language_id_foreign` (`language_id`);
+
+--
+-- Indexes for table `restaurant_foods`
+--
+ALTER TABLE `restaurant_foods`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `restaurant_food_translations`
+--
+ALTER TABLE `restaurant_food_translations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `restaurant_food_translations_restaurant_food_id_foreign` (`restaurant_food_id`),
+  ADD KEY `restaurant_food_translations_language_id_foreign` (`language_id`);
+
+--
 -- Indexes for table `restaurant_translations`
 --
 ALTER TABLE `restaurant_translations`
@@ -1048,7 +1270,7 @@ ALTER TABLE `bookingtable_translations`
 -- AUTO_INCREMENT for table `concert_tbl_transactions`
 --
 ALTER TABLE `concert_tbl_transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -1066,7 +1288,7 @@ ALTER TABLE `currencies`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1090,13 +1312,13 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `member_types`
 --
 ALTER TABLE `member_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1108,19 +1330,49 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `restaurant_carts`
+--
+ALTER TABLE `restaurant_carts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `restaurant_categories`
+--
+ALTER TABLE `restaurant_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `restaurant_category_translations`
+--
+ALTER TABLE `restaurant_category_translations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `restaurant_foods`
+--
+ALTER TABLE `restaurant_foods`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `restaurant_food_translations`
+--
+ALTER TABLE `restaurant_food_translations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `restaurant_translations`
 --
 ALTER TABLE `restaurant_translations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sellers`
 --
 ALTER TABLE `sellers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `table_categories`
@@ -1150,7 +1402,7 @@ ALTER TABLE `timeslots`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -1176,6 +1428,20 @@ ALTER TABLE `bookingtable_translations`
 ALTER TABLE `gbooking_translations`
   ADD CONSTRAINT `gbooking_translations_language_id_foreign` FOREIGN KEY (`language_id`) REFERENCES `languages` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `gbooking_translations_tbl_gbooking_id_foreign` FOREIGN KEY (`tbl_gbooking_id`) REFERENCES `tbl_gbookings` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `restaurant_category_translations`
+--
+ALTER TABLE `restaurant_category_translations`
+  ADD CONSTRAINT `restaurant_category_translations_language_id_foreign` FOREIGN KEY (`language_id`) REFERENCES `languages` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `restaurant_category_translations_restaurant_category_id_foreign` FOREIGN KEY (`restaurant_category_id`) REFERENCES `restaurant_categories` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `restaurant_food_translations`
+--
+ALTER TABLE `restaurant_food_translations`
+  ADD CONSTRAINT `restaurant_food_translations_language_id_foreign` FOREIGN KEY (`language_id`) REFERENCES `languages` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `restaurant_food_translations_restaurant_food_id_foreign` FOREIGN KEY (`restaurant_food_id`) REFERENCES `restaurant_foods` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `restaurant_translations`

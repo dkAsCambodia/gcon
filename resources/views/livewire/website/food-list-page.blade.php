@@ -57,12 +57,11 @@
                         <div class="product-img">
                         <img src="{{ asset('storage/'.$foodrow->food_img ) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="250px" width="100%" alt="Product" loading="lazy">
                         <div class="product-action">
-                            <a href="#" wire:click="addToCart('{{ base64_encode($foodrow->id) }}')" class="btn btn-secondary">
-                            <i class="icon-cart"></i> <span>{{ __('message.Add To Cart') }}</span>
-                            </a>
-                            <a href="/GBooking/cart" wire:navigate class="btn btn-secondary">
+                            <a href="javascript:void(0)" wire:click="addToCart('{{ base64_encode($foodrow->id) }}')" class="btn btn-secondary">
+                            <i class="icon-cart"></i>+ <span>{{ !empty($foodrow->cart_qty) ? "($foodrow->cart_qty)" : '' }}</span></a>
+                            {{-- <a href="/GBooking/cart" wire:navigate class="btn btn-secondary">
                               <i class="icon-cart"></i> <span>{{ __('message.Go To Cart') }}</span>
-                            </a>
+                            </a> --}}
                         </div><!-- /.product-action -->
                         </div><!-- /.product-img -->
                         <div class="product-info">
