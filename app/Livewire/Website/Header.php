@@ -3,6 +3,7 @@ namespace App\Livewire\Website;
 use Livewire\Component;
 use App\Models\Language;
 use App\Models\TblGbooking;
+use App\Models\RestaurantCart;
 use Session;
 
 use Stevebauman\Location\Facades\Location;
@@ -11,7 +12,14 @@ use App\Models\Country;
 
 class Header extends Component
 {
-    public $IpLocation;
+    public $IpLocation, $cartCount;
+
+    protected $listeners = ['cartUpdated' => 'updateCartCount'];
+
+    public function updateCartCount($count)
+    {
+        $this->cartCount = $count;
+    }
 
     public function mount($logo = null)
     {
@@ -23,6 +31,30 @@ class Header extends Component
                 $Query = Country::where(['curency_code' => $IpLocation->currencyCode, 'status'=> '1'])->first();
                 Session::put('sessLocation', $Query);
         }
+
+        // Code for Total Cart Count START
+        if(Session::get('memberdata')){
+            $uniqueId = Session::get('memberdata')['id'];
+            $existCartCount = RestaurantCart::where(['order_status' => '0', 'food_cart_status' => '1', 'customer_id' => $uniqueId])->sum('f_qty');
+                // dd($existCartCount);
+                if(!empty($existCartCount)){
+                    $this->cartCount = $existCartCount;
+                }else{
+                    $this->cartCount = '0';
+                }
+        }elseif(Session::get('guest_Cust_id')){
+                $uniqueId = Session::get('guest_Cust_id');
+                $existCartCount = RestaurantCart::where(['order_status' => '0', 'food_cart_status' => '1', 'customer_id' => $uniqueId])->sum('f_qty');
+                // dd($existCartCount);
+                if(!empty($existCartCount)){
+                    $this->cartCount = $existCartCount;
+                }else{
+                    $this->cartCount = '0';
+                }
+        }else{
+            $this->cartCount = '0';
+        }
+         // Code for Total Cart Count START
     }
     public function customerlogout()
     {

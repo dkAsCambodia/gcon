@@ -124,7 +124,7 @@
               </li>
               <li>
                 <a href="#" class="action-btn action-btn-cart">
-                  <i class="icon-cart"></i><span class="cart-counter">3</span>
+                  <i class="icon-cart"></i><span class="cart-counter">{{$cartCount}}</span>
                 </a>
                 <div class="cart-minipopup">
                   <ul class="list-unstyled">
