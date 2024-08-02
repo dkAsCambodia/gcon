@@ -301,6 +301,15 @@ return [
     "Delivery fee is charged based on time of day, distance, and surge conditions" => "Delivery fee is charged based on time of day, distance, and surge conditions",
     "Now open until" => "Now open until",
     
+    "My cart" => "My cart",
+    "Cart" => "Cart",
+    "Your items" => "Your items",
+    "Quantity" => "Quantity",
+    "Total" => "Total",
+    "Apply Coupon" => "Apply Coupon",
+    "Cart Totals" => "Cart Totals",
+    "Subtotal" => "Subtotal",
+    "Proceed To Checkout" => "Proceed To Checkout",
     
     
 
