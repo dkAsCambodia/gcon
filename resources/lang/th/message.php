@@ -302,4 +302,14 @@ return [
     "Delivery fee is charged based on time of day, distance, and surge conditions" => "ค่าธรรมเนียมการจัดส่งคิดตามช่วงเวลาของวัน ระยะทาง และสภาวะไฟกระชาก",
     "Now open until" => "ตอนนี้เปิดถึง",
 
+    "My cart" => "รถเข็นของฉัน",
+    "Cart" => "รถเข็น",
+    "Your items" => "รายการของคุณ",
+    "Quantity" => "ปริมาณ",
+    "Total" => "ทั้งหมด",
+    "Apply Coupon" => "ใช้คูปอง",
+    "Cart Totals" => "ยอดรวมรถเข็น",
+    "Subtotal" => "ผลรวมย่อย",
+    "Proceed To Checkout" => "ดำเนินการชำระเงิน",
+
 ];

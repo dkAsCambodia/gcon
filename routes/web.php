@@ -17,6 +17,7 @@ use App\Livewire\Website\ConcertTblInvoicePage;
 use App\Livewire\Website\PaymentPolicyPage;
 use App\Livewire\Website\DashboardPage;
 use App\Livewire\Website\RestaurantPage;
+use App\Livewire\Website\ViewcartPage;
 use App\Livewire\Website\FoodListPage;
 use App\Livewire\Website\RestaurantSellerFormPage;
 use App\Livewire\Website\dashboard\EditProfileForm;
@@ -88,9 +89,10 @@ Route::get('lang/change', [LocalizationController::class, 'lang_change'])->name(
 // Route::get('/email-sender', ForgetPassMailComponent::class);
 
 //For GBooking restaurant START
+Route::get('/GBooking/restaurant/newSeller', RestaurantSellerFormPage::class)->name('newRestaurantSeller');
 Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage');
 Route::get('/GBooking/restaurant/foods/{restaurant_id}/{cat_id?}', FoodListPage::class)->name('FoodListPage');
-Route::get('/GBooking/restaurant/newSeller', RestaurantSellerFormPage::class)->name('newRestaurantSeller');
+Route::get('/GBooking/restaurant/viewcart', ViewcartPage::class)->name('restaurantViewCartPage');
 //For GBooking restaurant END
 
 Route::get('/location', function (Request $request) {

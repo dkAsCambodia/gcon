@@ -123,7 +123,7 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="action-btn action-btn-cart">
+                <a href="/GBooking/restaurant/viewcart" wire:navigate class="action-btn action-btn-cart">
                   <i class="icon-cart"></i><span class="cart-counter">{{$cartCount}}</span>
                 </a>
                 <div class="cart-minipopup">

@@ -302,5 +302,14 @@ return [
     "Delivery fee is charged based on time of day, distance, and surge conditions" => "ថ្លៃដឹកជញ្ជូនត្រូវបានគិតថ្លៃអាស្រ័យលើពេលវេលានៃថ្ងៃ ចម្ងាយ និងលក្ខខណ្ឌនៃការកើនឡើង",
     "Now open until" => "ឥឡូវនេះបើករហូតដល់",
 
+    "My cart" => "រទេះរបស់ខ្ញុំ",
+    "Cart" => "រទេះ",
+    "Your items" => "ធាតុរបស់អ្នក។",
+    "Quantity" => "បរិមាណ",
+    "Total" => "សរុប",
+    "Apply Coupon" => "អនុវត្តប័ណ្ណ",
+    "Cart Totals" => "សរុបរទេះ",
+    "Subtotal" => "សរុបរង",
+    "Proceed To Checkout" => "បន្តទៅ Checkout",
 
 ];
