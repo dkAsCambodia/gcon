@@ -300,7 +300,6 @@ return [
     "Delivery fee" => "Delivery fee",
     "Delivery fee is charged based on time of day, distance, and surge conditions" => "Delivery fee is charged based on time of day, distance, and surge conditions",
     "Now open until" => "Now open until",
-    
     "My cart" => "My cart",
     "Cart" => "Cart",
     "Your items" => "Your items",
@@ -310,6 +309,12 @@ return [
     "Cart Totals" => "Cart Totals",
     "Subtotal" => "Subtotal",
     "Proceed To Checkout" => "Proceed To Checkout",
+    
+    "Go to restaurant" => "Go to restaurant",
+    "Empty Cart" => "Empty Cart",
+    "Charge" => "Charge",
+    "Cart" => "Cart",
+   
     
     
 
