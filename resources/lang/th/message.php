@@ -301,7 +301,6 @@ return [
     "Delivery fee" => "ค่าจัดส่ง",
     "Delivery fee is charged based on time of day, distance, and surge conditions" => "ค่าธรรมเนียมการจัดส่งคิดตามช่วงเวลาของวัน ระยะทาง และสภาวะไฟกระชาก",
     "Now open until" => "ตอนนี้เปิดถึง",
-
     "My cart" => "รถเข็นของฉัน",
     "Cart" => "รถเข็น",
     "Your items" => "รายการของคุณ",
@@ -311,5 +310,10 @@ return [
     "Cart Totals" => "ยอดรวมรถเข็น",
     "Subtotal" => "ผลรวมย่อย",
     "Proceed To Checkout" => "ดำเนินการชำระเงิน",
+
+    "Go to restaurant" => "ไปที่ร้านอาหาร",
+    "Empty Cart" => "รถเข็นเปล่า",
+    "Charge" => "ค่าใช้จ่าย",
+    "Cart" => "รถเข็น",
 
 ];
