@@ -11,6 +11,28 @@ use Illuminate\Support\Facades\DB;
 class ViewcartPage extends Component
 {
     public $cust_id, $cartList, $totalPrice=0, $cartCount, $subTotal, $charge;
+
+    public $food_id, $foodDetails, $modalPopup='';
+    
+
+    // protected $listeners = ['openFoodModal' => 'loadFoodDetails'];
+
+    public function loadFoodDetails($food_id)
+    {
+        $this->modalPopup = '';
+        $this->food_id = $food_id;
+        $this->foodDetails = RestaurantFood::find($food_id);
+        // dd($this->foodDetails);
+        $this->modalPopup = 'show';
+        // $this->dispatchBrowserEvent('openModal');
+    }
+
+    public function closemodel()
+    {
+        $this->modalPopup = '';
+    }
+
+
     public function mount()
     {
         // $totalPrice = $foods->sum(function ($food) {
