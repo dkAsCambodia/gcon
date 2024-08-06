@@ -40,9 +40,13 @@
                             <td class="d-flex align-items-center">
                                 <i class="fas fa-times cart-product-remove" wire:click="deleteFoodformCart({{ $cartrow->cart_id }})"></i>
                                 <div class="cart-product-img">
+                                    <a href="void:javascript()" wire:click="loadFoodDetails( {{ $cartrow->id }} )" wire:loading.attr="disabled" data-toggle="modal" data-target="#myModal">
                                 <img src="{{ asset('storage/'.$cartrow->food_img ) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="50px" width="100%" alt="product" />
+                                    </a>
                                 </div>
-                                <h5 class="cart-product-title">{{ !empty($cartrow->translationValue->food_translation_name) ? ucwords($cartrow->translationValue->food_translation_name) : '' }}</h5>
+                                <a href="void:javascript()" wire:click="loadFoodDetails( {{ $cartrow->id }} )" wire:loading.attr="disabled" data-toggle="modal" data-target="#myModal">
+                                    <h5 class="cart-product-title">{{ !empty($cartrow->translationValue->food_translation_name) ? ucwords($cartrow->translationValue->food_translation_name) : '' }}</h5>
+                                </a>
                             </td>
                             <td class="cart-product-price">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? ucwords($cartrow->getcurrencyData->currency_symbol) : '' }} {{ !empty($cartrow->price) ? ucwords($cartrow->price) : '' }}</td>
                             <td class="cart-product-quantity">
@@ -107,4 +111,45 @@
             </div><!-- /.container -->
         </section><!-- /.Services Layout 4 -->
     @endif
+
+    <!-- The Modal CODE START -->
+    <div class="modal fade {{ $modalPopup ?? ''}}" id="myModal" style="display:{{ !empty($modalPopup) ? 'block' : 'none' }}" aria-modal="{{ !empty($modalPopup) ? 'true' : 'false' }}">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title"></h4>
+              <button type="button" wire:click="closemodel" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                @if(!empty($foodDetails->food_img))
+                <img src="{{ asset('storage/'.$foodDetails->food_img ) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="300px" width="100%" class="food-img-popup" alt="product"/>
+                @endif
+                <h5>{{ !empty($foodDetails->translationValue->food_translation_name) ? ucwords($foodDetails->translationValue->food_translation_name) : '' }}</h5>
+                <p class="heading-desc text text-success">{{ !empty($foodDetails->getcurrencyData->currency_symbol) ? ucwords($foodDetails->getcurrencyData->currency_symbol) : '' }} {{ !empty($foodDetails->price) ? ucwords($foodDetails->price) : '' }}</p>
+                <hr/>
+                <p class="heading-desc"><b>{{ !empty($foodDetails->translationValue->translation_title) ? ucwords($foodDetails->translationValue->translation_title) : '' }}</b></p>
+                <p class="heading-desc"><b>{{ !empty($foodDetails->translationValue->translation_desc) ? ucwords($foodDetails->translationValue->translation_desc) : '' }}</b></p>
+                <p class="heading-desc"><b>{{ __('message.Restaurant') }} :<a href="/GBooking/restaurant/foods/{{ base64_encode($foodDetails->restaurant_id ?? '1') }}" wire:navigate>{{ !empty($foodDetails->restaurantData->restaurantName) ? ucwords($foodDetails->restaurantData->restaurantName) : '' }}</a></b></p>
+                
+            </div>
+            <!-- Modal footer -->
+            {{-- <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>  --}}
+          </div>
+        </div>
+      </div>
+     <!-- The Modal CODE START -->
+    
+    <script>
+        window.addEventListener('openModal', event => {
+            console.log('openModal event received');
+            $('#myModal').modal('show');
+        });
+    </script>
+    
+    
+    
 </div>

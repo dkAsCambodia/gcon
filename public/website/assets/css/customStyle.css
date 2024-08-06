@@ -14,3 +14,6 @@ a.DkactiveItem {
     min-height: 100vh;
     /* margin: 0; */
   }
+img.food-img-popup {
+    border-radius: 10px;
+}
