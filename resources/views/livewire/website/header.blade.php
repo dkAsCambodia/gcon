@@ -123,32 +123,34 @@
                 </a>
               </li>
               <li>
-                <a href="/GBooking/restaurant/viewcart" wire:navigate class="action-btn action-btn-cart">
+                <a href="/GBooking/restaurant/viewcart" wire:navigate class="action-btn action-btn-cart" wire:ingore>
                   <i class="icon-cart"></i><span class="cart-counter">{{$cartCount}}</span>
                 </a>
                 <div class="cart-minipopup">
                   <ul class="list-unstyled">
+                    @forelse($cartList as $cartrow)
                     <li class="cart-item">
-                      <div class="cart-img"><img src="{{ URL::to('website/assets/images/products/1.jpg') }}" alt="thumb"></div>
+                      <div class="cart-img">
+                        <a href="#" wire:click="loadFoodDetails( {{ $cartrow->id }} )">
+                          <img src="{{ asset('storage/'.$cartrow->food_img ) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="50px" width="100%" alt="product" />
+                              </a>
+                      </div>
                       <div class="cart-content">
-                        <a class="cart-title" href="shop-single.html">Green Tea</a>
-                        <span class="cart-price">$ 4.00</span>
-                        <button class="cart-delete">&times;</button>
+                        <a class="cart-title"href="void:javascript()" wire:click="loadFoodDetails( {{ $cartrow->id }} )" wire:loading.attr="disabled" data-toggle="modal" data-target="#myModal">
+                          {{ !empty($cartrow->translationValue->food_translation_name) ? ucwords($cartrow->translationValue->food_translation_name) : '' }}
+                      </a>
+                        <span class="cart-price">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? ucwords($cartrow->getcurrencyData->currency_symbol) : '' }} {{ !empty($cartrow->price) ? ucwords($cartrow->price) : '' }}</span>
+                        {{-- <button class="cart-delete">&times;</button> --}}
                       </div><!-- /.cart-item-content -->
                     </li><!-- /.cart-item -->
-                    <li class="cart-item">
-                      <div class="cart-img"><img src="{{ URL::to('website/assets/images/products/2.jpg') }}" alt="thumb"></div>
-                      <div class="cart-content">
-                        <a class="cart-title" href="shop-single.html">Biotin Complex </a>
-                        <span class="cart-price">$ 26.00</span>
-                        <button class="cart-delete">&times;</button>
-                      </div><!-- /.cart-item-content -->
-                    </li><!-- /.cart-item -->
+                    @empty
+                    <li>{{ __('message.Empty Cart') }}</li>
+                    @endforelse
                   </ul>
-                  <div class="cart-total">
+                  {{-- <div class="cart-total">
                     <span>Total:</span>
                     <span>$14.00</span>
-                  </div><!-- /.cart-subtotal -->
+                  </div><!-- /.cart-subtotal --> --}}
                   <a href="shopping-cart.html" class="btn btn-secondary btn-block">View Cart</a>
                 </div><!-- /.cart-minipopup -->
               </li>

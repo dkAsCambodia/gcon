@@ -314,6 +314,7 @@ return [
     "Empty Cart" => "Empty Cart",
     "Charge" => "Charge",
     "Cart" => "Cart",
+    "View Cart" => "View Cart",
    
     
     
