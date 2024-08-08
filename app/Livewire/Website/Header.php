@@ -69,6 +69,8 @@ class Header extends Component
             $this->cust_id = Session::get('memberdata')['id'];
         }elseif(Session::get('guest_Cust_id')){
             $this->cust_id = Session::get('guest_Cust_id');
+        }else{
+            $this->cust_id='0';
         }
         // for cartCount in header
         $TotalCartCount = RestaurantCart::where(['order_status' => '0', 'food_cart_status' => '1', 'customer_id' => $this->cust_id])->sum('f_qty');
