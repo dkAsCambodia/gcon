@@ -6,10 +6,10 @@
       <a href="/dashboard/myConcertBooking" wire:navigate class="{{ Route::is('dashboard.myConcertBooking') ? 'active' : '' }}"><span class="cat-title">{{ __('message.My concert booking') }}</span><span class="cat-count"><i class="fa fa-list" aria-hidden="true"></i></span></a>
     </li>
     <li>
-      <a href="" class=""><span class="cat-title">{{ __('message.My order') }}</span><span class="cat-count"><i class="fa fa-list" aria-hidden="true"></i></span></a>
+      <a href="/dashboard/shippingAddress" wire:navigate class="{{ Route::is('dashboard.myshippingAddress') ? 'active' : '' }}"><span class="cat-title">{{ __('message.Shipping Address') }}</span><span class="cat-count"><i class="fa fa-map-marker-alt"></i></span></a>
     </li>
     <li>
-      <a href="#" class=""><span class="cat-title">{{ __('message.Shipping Address') }}</span><span class="cat-count"><i class="fa fa-map-marker-alt"></i></span></a>
+      <a href="" class=""><span class="cat-title">{{ __('message.My order') }}</span><span class="cat-count"><i class="fa fa-list" aria-hidden="true"></i></span></a>
     </li>
     {{-- <li>
       <a href="#" class="tablinks" onclick="openCity(event, 'accordion')"><span class="cat-title">accordion</span><span class="cat-count">12</span></a>
