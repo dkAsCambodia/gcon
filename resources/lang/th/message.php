@@ -310,10 +310,14 @@ return [
     "Cart Totals" => "ยอดรวมรถเข็น",
     "Subtotal" => "ผลรวมย่อย",
     "Proceed To Checkout" => "ดำเนินการชำระเงิน",
-
     "Go to restaurant" => "ไปที่ร้านอาหาร",
     "Empty Cart" => "รถเข็นเปล่า",
     "Charge" => "ค่าใช้จ่าย",
     "Cart" => "รถเข็น",
+    "My shipping address" => "ที่อยู่จัดส่งของฉัน",
+    "landmark" => "จุดสังเกต",
+    "Enter landmark" => "เข้าสู่จุดสังเกต",
+    "zip" => "ซิป",
+    "Enter zip" => "ใส่ซิป",
 
 ];

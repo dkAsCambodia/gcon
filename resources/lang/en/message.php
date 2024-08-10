@@ -309,12 +309,19 @@ return [
     "Cart Totals" => "Cart Totals",
     "Subtotal" => "Subtotal",
     "Proceed To Checkout" => "Proceed To Checkout",
-    
     "Go to restaurant" => "Go to restaurant",
     "Empty Cart" => "Empty Cart",
     "Charge" => "Charge",
     "Cart" => "Cart",
     "View Cart" => "View Cart",
+
+    "My shipping address" => "My shipping address",
+    "landmark" => "landmark",
+    "Enter landmark" => "Enter landmark",
+    "zip" => "zip",
+    "Enter zip" => "Enter zip",
+    "Cart" => "Cart",
+    "Cart" => "Cart",
    
     
     
