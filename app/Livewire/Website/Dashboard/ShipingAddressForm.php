@@ -9,10 +9,12 @@ use Session;
 
 class ShipingAddressForm extends Component
 {
-    public $sessUser, $shipAddressData;
+    public $sessUser, $shipAddressData, $ship_id;
 
     #[Rule('required')]
-    public  $name, $mobile, $address, $city, $state, $zip, $country, $landmark;
+    public $name, $address, $city, $state, $country, $landmark;
+    #[Rule('required|numeric')]
+    public $mobile, $zip;
 
     public function mount()
     {
@@ -22,6 +24,7 @@ class ShipingAddressForm extends Component
             $this->shipAddressData = ShipAddresse::where('cust_id', $this->sessUser['id'])->first();
             // dd($this->shipAddressData);
             if(!empty($this->shipAddressData)){
+                $this->ship_id= $this->shipAddressData->id;
                 $this->name= $this->shipAddressData->name;
                 $this->mobile = $this->shipAddressData->mobile;
                 $this->address = $this->shipAddressData->address;
@@ -41,16 +44,31 @@ class ShipingAddressForm extends Component
     public function updateshippingaddress()
     {
         $validated = $this->validate();
-        dd($validated);
-        try {
+        // dd($validated);
+        
+        if(!empty($this->ship_id)){
             $this->shipAddressData->update($validated);
-            $msg = __('message.Profile updated Successfully!');
+            $msg = __('message.Updated Successfully!');
             $this->dispatch('toast', message: $msg, notify: 'success');
-            return $this->redirect('/dashboard', navigate: true);
-        } catch (\Exception $e) {
-            // Log the error message
-            \Log::error($e->getMessage());
+            // return $this->redirect('/dashboard/shippingAddress', navigate: true);
+        }else{
+            $data=array(
+                'cust_id'      => $this->sessUser['id'],
+                'name'      => $this->name,
+                'mobile'      => $this->mobile,
+                'address'      => $this->address,
+                'city'      => $this->city,
+                'state'      => $this->state,
+                'country'     => $this->country,
+                'zip'      => $this->zip,
+                'landmark'      => $this->landmark,
+            );
+            ShipAddresse::create($data);
+            $msg = __('message.Added Successfully!');
+            $this->dispatch('toast', message: $msg, notify: 'success');
         }
+            
+        
     }
 
 

@@ -310,10 +310,14 @@ return [
     "Cart Totals" => "សរុបរទេះ",
     "Subtotal" => "សរុបរង",
     "Proceed To Checkout" => "បន្តទៅ Checkout",
-
     "Go to restaurant" => "ទៅភោជនីយដ្ឋាន",
     "Empty Cart" => "រទេះទទេ",
     "Charge" => "គិតថ្លៃ",
     "Cart" => "រទេះ",
+    "My shipping address" => "អាសយដ្ឋានដឹកជញ្ជូនរបស់ខ្ញុំ",
+    "landmark" => "កន្លែងសម្គាល់",
+    "Enter landmark" => "បញ្ចូលទីតាំងសម្គាល់",
+    "zip" => "zip",
+    "Enter zip" => "បញ្ចូល zip",
 
 ];
