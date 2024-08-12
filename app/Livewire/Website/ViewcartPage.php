@@ -5,12 +5,13 @@ use Livewire\Component;
 use App\Models\Language;
 use App\Models\RestaurantFood;
 use App\Models\RestaurantCart;
+use App\Models\ShipAddresse;
 use Session;
 use Illuminate\Support\Facades\DB;
 
 class ViewcartPage extends Component
 {
-    public $cust_id, $cartList, $totalPrice=0, $cartCount, $subTotal, $charge;
+    public $cust_id, $cartList, $totalPrice=0, $cartCount, $subTotal, $charge, $shipAddress;
 
     public $food_id, $foodDetails, $modalPopup='';
     
@@ -45,10 +46,10 @@ class ViewcartPage extends Component
         
         // $this->cartList = $foods;
         // $this->totalPrice = $totalPrice;
-        // dd($this->cartList);
         $this->getCartList();
         $this->calculateTotalPrice();
-
+        $this->shipAddress = ShipAddresse::where('cust_id', $this->cust_id)->first();
+        //  dd($this->shipAddress);
     }
 
     public function increaseQty($cartrowId)

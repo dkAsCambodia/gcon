@@ -113,7 +113,7 @@
                       <button type="submit" class="btn btn-secondary btn-block">
                         <span>{{ __('message.Save') }}</span> <i class="icon-arrow-right"></i>
                       </button>
-                      <a href="/dashboard" wire:navigate class="btn btn-primary btn-link btn-block">{{ __('message.Back') }}</a>
+                      <a href="{{ $previousURL ?? ''}}" wire:navigate class="btn btn-primary btn-link btn-block">{{ __('message.Back') }}</a>
                     </div>
                   </div><!-- /.row -->
                 </form>

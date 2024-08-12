@@ -320,8 +320,12 @@ return [
     "Enter landmark" => "Enter landmark",
     "zip" => "zip",
     "Enter zip" => "Enter zip",
-    "Cart" => "Cart",
-    "Cart" => "Cart",
+    "Updated Successfully!" => "Updated Successfully!",
+    "Added Successfully!" => "Added Successfully!",
+    "Edit" => "Edit",
+    "Add shipping address" => "Add shipping address",
+    "zip" => "zip",
+    "zip" => "zip",
    
     
     

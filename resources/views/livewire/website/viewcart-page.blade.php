@@ -84,16 +84,42 @@
             </div><!-- /.col-lg-12 -->
 
             <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="cart-total-amount">
-                <h6>{{ __('message.Cart Totals') }}</h6>
-                <ul class="list-unstyled mb-30">
-                <li><span> {{ __('message.Subtotal') }} :</span><span>{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{$subTotal ?? ''}}</span></li>
-                <li><span> {{ __('message.Charge') }} :</span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{ $charge ?? '0'}}</span></li>
-                <li><span> {{ __('message.Total') }} :</span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{$totalPrice ?? ''}}</span></li>
-                </ul>
-                <a href="#" class="btn btn-secondary">{{ __('message.Proceed To Checkout') }}</a>
-            </div><!-- /.cart-total-amount -->
+                <h6>{{ __('message.My shipping address') }}</h6>
+                <div class="about-Text">
+                    @if(!empty($shipAddress))
+                    <ul class="features-list-layout2 list-unstyled">
+                        <li class="feature-item">
+                            <i class="contact-icon icon-phone"></i>&nbsp;&nbsp;:&nbsp;&nbsp;
+                            <h4 class="feature-title mb-0">{{ $shipAddress->mobile ?? '' }}</h4>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;:&nbsp;&nbsp; 
+                            <p class="feature-title mb-0">{{ ucfirst($shipAddress->name) ?? '' }}<br/>{{ $shipAddress->address ?? '' }}, {{ $shipAddress->city ?? '' }}, {{ $shipAddress->state ?? '' }}, {{ $shipAddress->country ?? '' }}
+                                <br/>{{ $shipAddress->landmark ?? '' }}</p>
+                        </li>
+                    </ul>
+                    <a href="/dashboard/shippingAddress" wire:navigate class="btn btn-secondary mb-10">{{ __('message.Edit') }}<i class="fa fa-edit"></i></a>
+                    @else
+                    <a href="/dashboard/shippingAddress" wire:navigate class="btn btn-secondary mb-10"> {{ __('message.Add shipping address') }}<i class="fa fa-plus"></i></a>
+                    @endif
+                    
+                </div>
             </div><!-- /.col-lg-6 -->
+            <div class="col-sm-12 col-md-6 col-lg-4"></div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="cart-total-amount">
+                    <h6>{{ __('message.Cart Totals') }}</h6>
+                    <ul class="list-unstyled mb-30">
+                    <li><span> {{ __('message.Subtotal') }} :</span><span>{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{$subTotal ?? ''}}</span></li>
+                    <li><span> {{ __('message.Charge') }} :</span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{ $charge ?? '0'}}</span></li>
+                    <li><span> {{ __('message.Total') }} :</span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{$totalPrice ?? ''}}</span></li>
+                    </ul>
+                    <a href="/dashboard/Checkout" wire:navigate></a><button type="submit" class="btn btn-secondary btn-block">
+                        <span>{{ __('message.Proceed To Checkout') }}</span> <i class="icon-arrow-right"></i>
+                    </button></a>
+                </div><!-- /.cart-total-amount -->
+            </div><!-- /.col-lg-6 -->
+
         </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /.shopping-cart -->
