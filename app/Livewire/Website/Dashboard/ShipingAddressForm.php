@@ -9,7 +9,7 @@ use Session;
 
 class ShipingAddressForm extends Component
 {
-    public $sessUser, $shipAddressData, $ship_id;
+    public $sessUser, $shipAddressData, $ship_id, $previousURL;
 
     #[Rule('required')]
     public $name, $address, $city, $state, $country, $landmark;
@@ -39,6 +39,8 @@ class ShipingAddressForm extends Component
         } else {
             return $this->redirect('/login', navigate: true);
         }
+
+        $this->previousURL = url()->previous();
     }
 
     public function updateshippingaddress()

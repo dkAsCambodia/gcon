@@ -2,11 +2,17 @@
 namespace App\Livewire\Website;
 use Livewire\Component;
 use App\Models\Customer;
+use App\Models\RestaurantCart;
 use Session;
 
 class LoginPage extends Component
 {
-        public $card_number, $phone, $password;
+        public $card_number, $phone, $password, $previousURL,$guest_id;
+
+        public function mount()
+        {
+            $this->previousURL = url()->previous();
+        }
 
         public function render()
         {
@@ -42,9 +48,16 @@ class LoginPage extends Component
                 if($customer['password'] == base64_encode($this->password)  ){
                     unset($customer['password']);
                     Session::put('memberdata', $customer);
+                   // code for cart setup START
+                        if(Session::get('guest_Cust_id')){
+                            $this->guest_id = Session::get('guest_Cust_id');
+                            RestaurantCart::where(['order_status' => '0', 'food_cart_status' => '1', 'customer_id' => $this->guest_id])->update(['customer_id' => $customer['id']]);
+                            Session::forget('guest_Cust_id');
+                        }
+                        // code for cart setup END
                     $msg =  __('message.Login Successfully!');
                     $this->dispatch('toast', message: $msg, notify:'success' ); 
-                    return $this->redirect('/dashboard', navigate: true);
+                    return $this->redirect($this->previousURL, navigate: true);
                    
                 }else{
                     $msg =  __('message.Invalid Password!');

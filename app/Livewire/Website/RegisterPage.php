@@ -4,12 +4,13 @@ use Livewire\Component;
 use App\Models\MemberType;
 use App\Models\AuthorizedBye;
 use App\Models\Customer;
+use App\Models\RestaurantCart;
 use Session;
 
 class RegisterPage extends Component
 {
    
-    public $membertype=1, $card_number='G', $name, $phone, $email, $password, $issue_by=4, $address, $country, $line_id, $facebook_id, $instagram;
+    public $membertype=1, $card_number='G', $name, $phone, $email, $password, $issue_by=4, $address, $country, $line_id, $facebook_id, $instagram, $guest_id;
     public $latestSequence, $prefix;
 
     // OnKeyUp validation in field START
@@ -112,7 +113,14 @@ class RegisterPage extends Component
             'instagram' => $this->instagram,
             'created_at' =>  $created_at
         );
-        Customer::create($data);
+        $user = Customer::create($data);
+        // code for cart setup START
+        if(Session::get('guest_Cust_id')){
+            $this->guest_id = Session::get('guest_Cust_id');
+            RestaurantCart::where(['order_status' => '0', 'food_cart_status' => '1', 'customer_id' => $this->guest_id])->update(['customer_id' => $user->id]);
+            Session::forget('guest_Cust_id');
+        }
+        // code for cart setup END
                 // For Toster START
         $msg =  __('message.Member Registered Successfully!');
         $this->dispatch('toast', message: $msg, notify:'success' );

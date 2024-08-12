@@ -139,6 +139,7 @@ class Header extends Component
     {
         // Session::flush();
         Session::forget('memberdata');
+        Session::forget('guest_Cust_id');
         $msg =  __('message.Logout Successfully!');
         $this->dispatch('toast', message: $msg, notify:'success' ); 
         // return redirect('/');
