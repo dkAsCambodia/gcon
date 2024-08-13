@@ -319,5 +319,9 @@ return [
     "Enter landmark" => "បញ្ចូលទីតាំងសម្គាល់",
     "zip" => "zip",
     "Enter zip" => "បញ្ចូល zip",
+    "Updated Successfully!" => "ធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ!",
+    "Added Successfully!" => "បានបន្ថែមដោយជោគជ័យ!",
+    "Edit" => "កែសម្រួល",
+    "Add shipping address" => "បន្ថែមអាសយដ្ឋានដឹកជញ្ជូន",
 
 ];

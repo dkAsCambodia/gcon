@@ -51,6 +51,7 @@ class LoginPage extends Component
                    // code for cart setup START
                         if(Session::get('guest_Cust_id')){
                             $this->guest_id = Session::get('guest_Cust_id');
+                            RestaurantCart::where(['order_status' => '0', 'food_cart_status' => '1', 'customer_id' => $customer['id']])->delete();
                             RestaurantCart::where(['order_status' => '0', 'food_cart_status' => '1', 'customer_id' => $this->guest_id])->update(['customer_id' => $customer['id']]);
                             Session::forget('guest_Cust_id');
                         }

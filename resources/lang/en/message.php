@@ -324,8 +324,7 @@ return [
     "Added Successfully!" => "Added Successfully!",
     "Edit" => "Edit",
     "Add shipping address" => "Add shipping address",
-    "zip" => "zip",
-    "zip" => "zip",
+    
    
     
     
