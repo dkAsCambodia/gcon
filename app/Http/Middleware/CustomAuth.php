@@ -25,6 +25,7 @@ class CustomAuth
         if(
             ($path == 'profile' && !Session::get('memberdata'))
          || (strpos($path, 'dashboard') !== false && !Session::has('memberdata'))
+         || (strpos($path, 'log') !== false && !Session::has('memberdata'))
         )
         {
             return redirect('/login');

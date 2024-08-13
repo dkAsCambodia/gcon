@@ -319,5 +319,9 @@ return [
     "Enter landmark" => "เข้าสู่จุดสังเกต",
     "zip" => "ซิป",
     "Enter zip" => "ใส่ซิป",
+    "Updated Successfully!" => "อัปเดตเรียบร้อยแล้ว!",
+    "Added Successfully!" => "เพิ่มเรียบร้อยแล้ว!",
+    "Edit" => "แก้ไข",
+    "Add shipping address" => "เพิ่มที่อยู่จัดส่ง",
 
 ];
