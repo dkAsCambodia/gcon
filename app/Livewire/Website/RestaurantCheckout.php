@@ -8,12 +8,15 @@ use App\Models\RestaurantCart;
 use App\Models\ShipAddresse;
 use Session;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\Rule; 
 
 class RestaurantCheckout extends Component
 {
 
-    public $cust_id, $cartList, $totalPrice=0, $cartCount, $subTotal, $charge, $shipAddress;
+    public $cust_id, $cartList, $totalPrice=0, $cartCount, $subTotal, $charge, $shipAddress, $delivery_suggestion;
     
+    #[Rule('required')]
+    public $payment_type;
 
     public function mount()
     {
@@ -23,40 +26,22 @@ class RestaurantCheckout extends Component
         //  dd($this->shipAddress);
     }
 
-    public function increaseQty($cartrowId)
+    public function OrderPlaceSave()
     {
-        $cartData=RestaurantCart::where('id', $cartrowId)->first();
-        if(!empty($cartData)){
-            $new_qty = $cartData->f_qty + 1;
-            RestaurantCart::where('id', $cartrowId)->update(['f_qty' => $new_qty]);
-            $this->getCartList();
-            $this->calculateTotalPrice();
-        }else{
-            dd('data not found!');
-        }
-        
-    }
+        $validated = $this->validate();
+        // dd($validated);
+        date_default_timezone_set('Asia/Phnom_Penh');
+        $created_at=date("Y-m-d h:i:s");
+        $data=array(
+            // 'card_number'      => $this->card_number,
+            'payment_type'      => $this->payment_type,
+            'delivery_suggestion'      => $this->delivery_suggestion,
+            'created_at' =>  $created_at,
+        );
+        dd($data);
+        // $user = Customer::create($data);
 
-    public function decreaseQty($cartrowId)
-    {
-        $cartData=RestaurantCart::where('id', $cartrowId)->first();
-        if(!empty($cartData) && $cartData->f_qty > 1){
-            $new_qty = $cartData->f_qty - 1;
-            RestaurantCart::where('id', $cartrowId)->update(['f_qty' => $new_qty]);
-        }else{
-            RestaurantCart::where('id', $cartrowId)->delete();
-        }
-        $this->getCartList();
-        $this->calculateTotalPrice();
     }
-
-    public function deleteFoodformCart($cartrowId)
-    {
-        RestaurantCart::where('id', $cartrowId)->delete();
-        $this->getCartList();
-        $this->calculateTotalPrice();
-    }
-
     
 
     public function getCartList()

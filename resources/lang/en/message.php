@@ -314,7 +314,6 @@ return [
     "Charge" => "Charge",
     "Cart" => "Cart",
     "View Cart" => "View Cart",
-
     "My shipping address" => "My shipping address",
     "landmark" => "landmark",
     "Enter landmark" => "Enter landmark",
@@ -324,6 +323,18 @@ return [
     "Added Successfully!" => "Added Successfully!",
     "Edit" => "Edit",
     "Add shipping address" => "Add shipping address",
+
+    "Delivery service for your favourite restaurants - GCON" => "Delivery service for your favourite restaurants - GCON",
+    "Checkout" => "Checkout",
+    "Delivery address" => "Delivery address",
+    "Note to rider - e.g. building, landmark" => "Note to rider - e.g. building, landmark",
+    "Your order from GCON" => "Your order from GCON",
+    "Place order" => "Place order",
+    "Cash on Delivery" => "Cash on Delivery",
+    "Cart" => "Cart",
+    "Cart" => "Cart",
+    "Cart" => "Cart",
+    "Cart" => "Cart",
     
    
     

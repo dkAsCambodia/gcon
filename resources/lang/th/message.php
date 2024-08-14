@@ -323,5 +323,12 @@ return [
     "Added Successfully!" => "เพิ่มเรียบร้อยแล้ว!",
     "Edit" => "แก้ไข",
     "Add shipping address" => "เพิ่มที่อยู่จัดส่ง",
+    "Delivery service for your favourite restaurants - GCON" => "บริการจัดส่งร้านอาหารที่คุณชื่นชอบ - GCON",
+    "Checkout" => "ชำระเงิน",
+    "Delivery address" => "ที่อยู่จัดส่ง",
+    "Note to rider - e.g. building, landmark" => "หมายเหตุถึงผู้ขับขี่ - เช่น อาคารสถานที่สำคัญ",
+    "Your order from GCON" => "คำสั่งซื้อของคุณจาก GCON",
+    "Place order" => "สั่งซื้อ",
+    "Cash on Delivery" => "เงินสดในการจัดส่ง",
 
 ];

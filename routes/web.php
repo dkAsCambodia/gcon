@@ -96,7 +96,7 @@ Route::get('/GBooking/restaurant/newSeller', RestaurantSellerFormPage::class)->n
 Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage');
 Route::get('/GBooking/restaurant/foods/{restaurant_id}/{cat_id?}', FoodListPage::class)->name('FoodListPage');
 Route::get('/GBooking/restaurant/viewcart', ViewcartPage::class)->name('restaurantViewCartPage');
-Route::get('/GBooking/restaurant/log/checkout', RestaurantCheckout::class)->name('restaurantCheckout');
+Route::get('/GBooking/restaurant/logAuth/checkout', RestaurantCheckout::class)->name('restaurantCheckout');
 //For GBooking restaurant END
 
 Route::get('/location', function (Request $request) {
