@@ -114,7 +114,7 @@
                     <li><span> {{ __('message.Charge') }} :</span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{ $charge ?? '0'}}</span></li>
                     <li><span> {{ __('message.Total') }} :</span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{$totalPrice ?? ''}}</span></li>
                     </ul>
-                    <a href="/GBooking/restaurant/log/checkout" wire:navigate><button type="button" class="btn btn-secondary btn-block">
+                    <a href="/GBooking/restaurant/logAuth/checkout" wire:navigate><button type="button" class="btn btn-secondary btn-block">
                         <span>{{ __('message.Proceed To Checkout') }}</span> <i class="icon-arrow-right"></i>
                     </button></a>
                 </div><!-- /.cart-total-amount -->

@@ -323,5 +323,12 @@ return [
     "Added Successfully!" => "បានបន្ថែមដោយជោគជ័យ!",
     "Edit" => "កែសម្រួល",
     "Add shipping address" => "បន្ថែមអាសយដ្ឋានដឹកជញ្ជូន",
+    "Delivery service for your favourite restaurants - GCON" => "សេវាកម្មដឹកជញ្ជូនសម្រាប់ភោជនីយដ្ឋានដែលអ្នកចូលចិត្ត - GCON",
+    "Checkout" => "ពិនិត្យចេញ",
+    "Delivery address" => "អាសយដ្ឋានដឹកជញ្ជូន",
+    "Note to rider - e.g. building, landmark" => "ចំណាំទៅអ្នកជិះ - ឧ។ អគារ, កន្លែងសម្គាល់",
+    "Your order from GCON" => "ការបញ្ជាទិញរបស់អ្នកពី GCON",
+    "Place order" => "ដាក់បញ្ជា",
+    "Cash on Delivery" => "សាច់ប្រាក់លើការដឹកជញ្ជូន",
 
 ];
