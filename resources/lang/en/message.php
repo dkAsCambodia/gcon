@@ -331,7 +331,7 @@ return [
     "Your order from GCON" => "Your order from GCON",
     "Place order" => "Place order",
     "Cash on Delivery" => "Cash on Delivery",
-    "Cart" => "Cart",
+    "Ordered Successfully!" => "Ordered Successfully!",
     "Cart" => "Cart",
     "Cart" => "Cart",
     "Cart" => "Cart",

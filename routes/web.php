@@ -19,6 +19,7 @@ use App\Livewire\Website\DashboardPage;
 use App\Livewire\Website\RestaurantPage;
 use App\Livewire\Website\ViewcartPage;
 use App\Livewire\Website\RestaurantCheckout;
+use App\Livewire\Website\RestaurantPaymentOption;
 use App\Livewire\Website\FoodListPage;
 use App\Livewire\Website\RestaurantSellerFormPage;
 use App\Livewire\Website\dashboard\EditProfileForm;
@@ -97,6 +98,7 @@ Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage'
 Route::get('/GBooking/restaurant/foods/{restaurant_id}/{cat_id?}', FoodListPage::class)->name('FoodListPage');
 Route::get('/GBooking/restaurant/viewcart', ViewcartPage::class)->name('restaurantViewCartPage');
 Route::get('/GBooking/restaurant/logAuth/checkout', RestaurantCheckout::class)->name('restaurantCheckout');
+Route::get('/GBooking/restaurant/logAuth/paymentOptions/{amount}/{currencySymbol}/{currency}', RestaurantPaymentOption::class)->name('RestaurantPaymentOption'); ////
 //For GBooking restaurant END
 
 Route::get('/location', function (Request $request) {

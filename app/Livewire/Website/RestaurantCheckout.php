@@ -6,14 +6,18 @@ use App\Models\Language;
 use App\Models\RestaurantFood;
 use App\Models\RestaurantCart;
 use App\Models\ShipAddresse;
+use App\Models\RestaurantOrder;
 use Session;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Rule; 
+use Carbon\Carbon;
+
 
 class RestaurantCheckout extends Component
 {
 
     public $cust_id, $cartList, $totalPrice=0, $cartCount, $subTotal, $charge, $shipAddress, $delivery_suggestion;
+    public $order_key;
     
     #[Rule('required')]
     public $payment_type;
@@ -29,18 +33,81 @@ class RestaurantCheckout extends Component
     public function OrderPlaceSave()
     {
         $validated = $this->validate();
-        // dd($validated);
         date_default_timezone_set('Asia/Phnom_Penh');
         $created_at=date("Y-m-d h:i:s");
-        $data=array(
-            // 'card_number'      => $this->card_number,
-            'payment_type'      => $this->payment_type,
-            'delivery_suggestion'      => $this->delivery_suggestion,
-            'created_at' =>  $created_at,
-        );
-        dd($data);
-        // $user = Customer::create($data);
+        $this->order_key= $this->GenerateOrderKey();
+            $TotalcardData = RestaurantCart::join('restaurant_foods', 'restaurant_carts.food_id', '=', 'restaurant_foods.id')
+                    ->join('currencies', 'restaurant_foods.currency_id', '=', 'currencies.id')
+                    ->where([
+                        'restaurant_carts.order_status' => '0',
+                        'restaurant_carts.food_cart_status' => '1',
+                        'restaurant_carts.customer_id' => $this->cust_id
+                    ])
+                    ->select(
+                        'restaurant_carts.id as cart_id',
+                        'restaurant_foods.id as food_id',
+                        'restaurant_foods.restaurant_id',
+                        'restaurant_foods.price',
+                        'restaurant_foods.currency_id',
+                        'restaurant_carts.f_qty',
+                        'currencies.currency_code',
+                        'currencies.currency_symbol',
+                    )
+                    ->groupBy(
+                        'restaurant_carts.id',
+                        'restaurant_foods.id',
+                        'restaurant_foods.restaurant_id',
+                        'restaurant_foods.price',
+                        'restaurant_foods.currency_id',
+                        'restaurant_carts.f_qty',
+                        'currencies.currency_code',
+                        'currencies.currency_symbol',
+                    )
+                    ->get();
+                // dd($TotalcardData);
+            foreach ($TotalcardData as $cartData) {
+                // Create a new instance of the RestaurantOrder model
+                $order = new RestaurantOrder();
+                $order->restaurant_id = $cartData->restaurant_id;
+                $order->food_id = $cartData->food_id;
+                $order->cart_id  = $cartData->cart_id;
+                $order->cust_id = $this->cust_id;
+                $order->address_id = $this->shipAddress->id;
+                $order->order_key = $this->order_key;
+                $order->quantity  = $cartData->f_qty;
+                $order->subTotal  = $this->subTotal;
+                $order->charge  = $this->charge;
+                $order->totalPayAmount  = $this->totalPrice;
+                $order->currency  = $cartData->currency_code;
+                $order->currency_symbol  = $cartData->currency_symbol;
+                $order->payment_type  = $this->payment_type;
+                $order->order_date  = $created_at;
+                $order->delivery_suggestion  = $this->delivery_suggestion;
+                
+                $order->save();
+            }
 
+            $orderdata = RestaurantOrder::where('order_key', $this->order_key)->first();
+          
+            if($this->payment_type=='online'){
+                Session::put('restaurant_orderKey', $this->order_key);
+                return $this->redirect('/GBooking/restaurant/logAuth/paymentOptions'.'/'.base64_encode($this->totalPrice).'/'.$orderdata->currency_symbol.'/'.base64_encode($orderdata->currency), navigate: true);
+            }else{
+                $msg =  __('message.Ordered Successfully!');
+                $this->dispatch('toast', message: $msg, notify:'success' ); 
+                return $this->redirect('restaurantFood/invoice'.'/'.base64_encode($this->totalPrice).'/'.$orderdata->currency_symbol.'/'.base64_encode($orderdata->currency).'/'.base64_encode($this->order_key), navigate: true);
+            }
+            
+
+
+    }
+
+    public function GenerateOrderKey()
+    {
+        $prefix = 'GCON';
+        $datetime = Carbon::now()->format('dmyHis');
+        $order_key = $prefix . $datetime;
+        return $order_key;
     }
     
 
