@@ -330,5 +330,6 @@ return [
     "Your order from GCON" => "คำสั่งซื้อของคุณจาก GCON",
     "Place order" => "สั่งซื้อ",
     "Cash on Delivery" => "เงินสดในการจัดส่ง",
+    "Ordered Successfully!" => "สั่งซื้อสำเร็จแล้ว!",
 
 ];

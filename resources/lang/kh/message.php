@@ -330,5 +330,6 @@ return [
     "Your order from GCON" => "ការបញ្ជាទិញរបស់អ្នកពី GCON",
     "Place order" => "ដាក់បញ្ជា",
     "Cash on Delivery" => "សាច់ប្រាក់លើការដឹកជញ្ជូន",
-
+    "Ordered Successfully!" => "បញ្ជាដោយជោគជ័យ!",
+    
 ];
