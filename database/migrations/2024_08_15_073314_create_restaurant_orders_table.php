@@ -20,7 +20,9 @@ return new class extends Migration
             $table->foreignId('address_id')->constrained('ship_addresses')->onDelete('cascade');
             $table->string('order_key')->nullable();
             $table->string('quantity')->nullable();
-            $table->string('subAmount')->nullable();
+            $table->string('subTotal')->nullable();
+            $table->string('charge')->nullable();
+            $table->string('totalPayAmount')->nullable();
             $table->string('currency')->nullable();
             $table->string('currency_symbol')->nullable();
             $table->string('TransactionId')->nullable();
