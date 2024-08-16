@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 
 use Omnipay\Omnipay;
 use App\Models\ConcertTblTransaction;
+use App\Models\RestaurantOrder;
+use App\Models\RestaurantCart;
 use Session;
 
 class PaypalPaymentController extends Controller
@@ -57,8 +59,19 @@ class PaypalPaymentController extends Controller
                             'message' => 'Donation with Paypal',
                         ]);
                     // Code for update data into DB END
-                    // echo "<pre>";  print_r($data); die;
                     $response->redirect();
+                }elseif(!empty(Session::get('restaurant_orderKey'))){
+                
+                        $restaurant_orderKey=Session::get('restaurant_orderKey');
+                        // Code for update data into DB START
+                        RestaurantOrder::where('order_key', $restaurant_orderKey)
+                            ->update([
+                                'TransactionId' => $data['id'],
+                                'receipt_url' => $data['links']['1']['href'],
+                                'gateway_name' => 'Paypal',
+                            ]);
+                        // Code for update data into DB END
+                        $response->redirect();
                 }else{
                     echo "Something Went Wrong!"; die;
                 }
@@ -85,7 +98,6 @@ class PaypalPaymentController extends Controller
                 $created_date=date("Y-m-d H:i:s");
                 if(!empty(Session::get('sess_transaction_recordId'))){
                     $recordId=Session::get('sess_transaction_recordId');
-                   
                     ConcertTblTransaction::where('id', $recordId)
                     ->update([
                             'response_all' => json_encode($arr, true),
@@ -94,9 +106,31 @@ class PaypalPaymentController extends Controller
                             'status' => 'success',
                         ]);
                         $transaction = ConcertTblTransaction::where('id', $recordId)->first();
+                        Session::forget('sess_transaction_recordId');
                         $msg =  __('message.Table Booked Successfully!');
-               
                     return redirect('/invoice'.'/'.base64_encode($transaction->total_amount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->id))->withsuccess($msg);
+                
+                }elseif(!empty(Session::get('restaurant_orderKey'))){
+                        $restaurant_orderKey=Session::get('restaurant_orderKey');
+                        RestaurantOrder::where('order_key', $restaurant_orderKey)
+                        ->update([
+                                'response_all' => json_encode($arr, true),
+                                'payment_time' => $created_date,
+                                'future_payment_custId' => $arr['payer']['payer_info']['payer_id'],
+                                'payment_status' => 'success',
+                                'order_status' => 'ordered',
+                            ]);
+                            $transaction = RestaurantOrder::where('order_key', $restaurant_orderKey)->first();
+                            // Update Cart list
+                            RestaurantCart::where('customer_id', $transaction->cust_id)
+                            ->update([
+                                    'order_status' => '1',
+                                ]);
+                            // Update Cart list
+                            Session::forget('restaurant_orderKey');
+                            $msg =  __('message.Ordered Successfully!');
+                        return redirect('restaurantFood/invoice'.'/'.base64_encode($transaction->totalPayAmount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->order_key))->withsuccess($msg);
+                        
                 }else{
                     echo "Something Went Wrong!"; die;
                 }  
@@ -108,10 +142,14 @@ class PaypalPaymentController extends Controller
         else{
             return 'Payment declined!!';
         }
+       
+
+
     }
 
     public function paypalCancel(Request $request)
     {
+        // Session::forget('sess_transaction_recordId');
         return redirect()->back();
     }
 }
