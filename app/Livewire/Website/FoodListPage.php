@@ -21,7 +21,7 @@ class FoodListPage extends Component
     {
         $this->FoodId = base64_decode($encodedFoodId);
 
-        $existdata = RestaurantCart::where([ 'food_id' => $this->FoodId, 'customer_id' => $this->uniqueId])->first();
+        $existdata = RestaurantCart::where([ 'food_id' => $this->FoodId, 'order_status' => '0', 'customer_id' => $this->uniqueId])->first();
         if(!empty($existdata)){
             $old_qty= $existdata->f_qty;
             $finalQty=$old_qty + 1;

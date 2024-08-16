@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ConcertTblTransaction;
+use App\Models\RestaurantOrder;
+use App\Models\RestaurantCart;
 use Session;
 
 class StripePaymentController extends Controller
@@ -40,9 +42,36 @@ class StripePaymentController extends Controller
                             'status' => $payment_status,
                         ]);
                         $transaction = ConcertTblTransaction::where('id', $recordId)->first();
+                        Session::forget('sess_transaction_recordId');
                         $msg =  __('message.Table Booked Successfully!');
                 
                     return redirect('/invoice'.'/'.base64_encode($transaction->total_amount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->id))->withsuccess($msg);
+                
+                }elseif(!empty(Session::get('restaurant_orderKey'))){
+                    $restaurant_orderKey=Session::get('restaurant_orderKey');
+                    
+                    RestaurantOrder::where('order_key', $restaurant_orderKey)
+                    ->update([
+                            'TransactionId' => $data->id,
+                            'receipt_url' => $data->receipt_url,
+                            'gateway_name' => 'Stripe',
+                            'response_all' => $data,
+                            'payment_time' => $created_date,
+                            'future_payment_custId' => $data->customer,
+                            'payment_status' => $payment_status,
+                            'order_status' => 'ordered',
+                        ]);
+                        $transaction = RestaurantOrder::where('order_key', $restaurant_orderKey)->first();
+                        // Update Cart list
+                        RestaurantCart::where('customer_id', $transaction->cust_id)
+                        ->update([
+                                'order_status' => '1',
+                            ]);
+                        // Update Cart list
+                        Session::forget('restaurant_orderKey');
+                        $msg =  __('message.Table Booked Successfully!');
+                        return redirect('restaurantFood/invoice'.'/'.base64_encode($transaction->totalPayAmount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->order_key))->withsuccess($msg);
+                    
                 }
         }else{
             echo "Something Went Wrong!";
