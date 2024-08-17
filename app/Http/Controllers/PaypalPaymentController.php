@@ -122,14 +122,15 @@ class PaypalPaymentController extends Controller
                             ]);
                             $transaction = RestaurantOrder::where('order_key', $restaurant_orderKey)->first();
                             // Update Cart list
-                            RestaurantCart::where('customer_id', $transaction->cust_id)
-                            ->update([
-                                    'order_status' => '1',
-                                ]);
+                            RestaurantCart::where('customer_id', $transaction->cust_id)->delete();
+                            // ->update([
+                            //         'order_status' => '1',
+                            //         'food_cart_status' => '0',
+                            //     ]);
                             // Update Cart list
                             Session::forget('restaurant_orderKey');
                             $msg =  __('message.Ordered Successfully!');
-                        return redirect('restaurantFood/invoice'.'/'.base64_encode($transaction->totalPayAmount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->order_key))->withsuccess($msg);
+                        return redirect('restaurantFood/logAuth/invoice'.'/'.base64_encode($transaction->totalPayAmount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->order_key))->withsuccess($msg);
                         
                 }else{
                     echo "Something Went Wrong!"; die;

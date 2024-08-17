@@ -112,7 +112,7 @@
                     <ul class="list-unstyled mb-30">
                     <li><span> {{ __('message.Subtotal') }} :</span><span>{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{$subTotal ?? ''}}</span></li>
                     <li><span> {{ __('message.Charge') }} :</span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{ $charge ?? '0'}}</span></li>
-                    <li><span> {{ __('message.Total') }} :</span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{$totalPrice ?? ''}}</span></li>
+                    <li><span> {{ __('message.Total') }} :<p class="text text-secondary">({{ __('message.incl. fees and tax') }})</p></span><span class="font-weight-bold">{{ !empty($cartrow->getcurrencyData->currency_symbol) ? $cartrow->getcurrencyData->currency_symbol : '' }} {{$totalPrice ?? ''}}</span></li>
                     </ul>
                     <a href="/GBooking/restaurant/logAuth/checkout" wire:navigate><button type="button" class="btn btn-secondary btn-block">
                         <span>{{ __('message.Proceed To Checkout') }}</span> <i class="icon-arrow-right"></i>

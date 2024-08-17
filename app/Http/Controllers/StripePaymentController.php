@@ -23,6 +23,8 @@ class StripePaymentController extends Controller
         if(!empty($data->receipt_url)){
                 if($data->status == 'succeeded' || $data->status == 'success'){
                     $payment_status ='success';
+                }else{
+                    $payment_status ='failed';
                 }
                 date_default_timezone_set('Asia/Phnom_Penh');
                 $created_date=date("Y-m-d H:i:s");
@@ -62,15 +64,20 @@ class StripePaymentController extends Controller
                             'order_status' => 'ordered',
                         ]);
                         $transaction = RestaurantOrder::where('order_key', $restaurant_orderKey)->first();
-                        // Update Cart list
-                        RestaurantCart::where('customer_id', $transaction->cust_id)
-                        ->update([
-                                'order_status' => '1',
-                            ]);
-                        // Update Cart list
+
+                        if($payment_status == 'success'){
+                            // Update Cart list
+                            RestaurantCart::where('customer_id', $transaction->cust_id)->delete();
+                            // ->update([
+                            //         'order_status' => '1',
+                            //         'food_cart_status' => '0',
+                            //     ]);
+                            // Update Cart lists
+                        }
+                        
                         Session::forget('restaurant_orderKey');
                         $msg =  __('message.Table Booked Successfully!');
-                        return redirect('restaurantFood/invoice'.'/'.base64_encode($transaction->totalPayAmount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->order_key))->withsuccess($msg);
+                        return redirect('restaurantFood/logAuth/invoice'.'/'.base64_encode($transaction->totalPayAmount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->order_key))->withsuccess($msg);
                     
                 }
         }else{
