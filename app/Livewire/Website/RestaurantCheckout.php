@@ -95,7 +95,7 @@ class RestaurantCheckout extends Component
             }else{
                 $msg =  __('message.Ordered Successfully!');
                 $this->dispatch('toast', message: $msg, notify:'success' ); 
-                return $this->redirect('restaurantFood/invoice'.'/'.base64_encode($this->totalPrice).'/'.$orderdata->currency_symbol.'/'.base64_encode($orderdata->currency).'/'.base64_encode($this->order_key), navigate: true);
+                return $this->redirect('restaurantFood/logAuth/invoice'.'/'.base64_encode($this->totalPrice).'/'.$orderdata->currency_symbol.'/'.base64_encode($orderdata->currency).'/'.base64_encode($this->order_key), navigate: true);
             }
             
 

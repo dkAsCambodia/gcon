@@ -332,8 +332,9 @@ return [
     "Place order" => "Place order",
     "Cash on Delivery" => "Cash on Delivery",
     "Ordered Successfully!" => "Ordered Successfully!",
-    "Cart" => "Cart",
-    "Cart" => "Cart",
+
+    "incl. fees and tax" => "incl. fees and tax",
+    "Gcon Restaurant Foods Invoice" => "Gcon Restaurant Foods Invoice",
     "Cart" => "Cart",
     
    
