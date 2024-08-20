@@ -28,6 +28,7 @@ use App\Livewire\Website\dashboard\EditProfileForm;
 use App\Livewire\Website\dashboard\ConcertBookingList;
 use App\Livewire\Website\dashboard\ConcertCalcelationPolicyPage;
 use App\Livewire\Website\dashboard\ShipingAddressForm;
+use App\Livewire\Website\dashboard\RestaurantFoodOrderList;
 use App\Livewire\Website\Email\ForgetPassMailComponent;
 
 use App\Models\TblGbooking;
@@ -67,6 +68,7 @@ Route::get('/dashboard', DashboardPage::class)->name('dashboard.user');
 Route::get('/dashboard/updateProfile', EditProfileForm::class)->name('dashboard.updateProfile');
 Route::get('/dashboard/myConcertBooking', ConcertBookingList::class)->name('dashboard.myConcertBooking');
 Route::get('/dashboard/shippingAddress', ShipingAddressForm::class)->name('dashboard.myshippingAddress');
+Route::get('/dashboard/myOrderedFoods', RestaurantFoodOrderList::class)->name('dashboard.myOrderedFoods');
 // For Customer dashboard END
 //For GEntertainment concert START
 Route::get('/GEntertainment/concert', ConcertPage::class)->name('concert');

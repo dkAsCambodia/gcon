@@ -17,10 +17,10 @@
             </ol>
             </nav>
         </div><!-- /.container -->
-        </div><!-- /.breadcrumb-area -->
+        </div><!-- /.breadcrumb-area --> 
     </section><!-- /.page-title -->
 
-    <section class="pb-10">
+    <section class="pb-10 mb-10">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-10 offset-md-1">
@@ -48,7 +48,7 @@
                                                     </a>
                                                 </div>
                                                 <a href="void:javascript()" wire:click="loadFoodDetails( {{ $cartrow->id }} )" wire:loading.attr="disabled" data-toggle="modal" data-target="#myModal">
-                                                    <h5 class="cart-product-title">{{ !empty($cartrow->quantity) ? $cartrow->quantity : '1' }} x {{ !empty($cartrow->translationValue->food_translation_name) ? ucwords($cartrow->translationValue->food_translation_name) : '' }}</h5>
+                                                    <h5 class="cart-product-title">{{ !empty($cartrow->quantity) ? $cartrow->quantity : '1' }} x {{ !empty($cartrow->translationValue->food_translation_name) ? ucwords($cartrow->translationValue->food_translation_name) : 'item' }}</h5>
                                                 </a>
                                             </td>
                                             <td class="cart-product-price">{{ !empty($cartrow->currency_symbol) ? $cartrow->currency_symbol : '' }} {{ !empty($cartrow->price) ? $cartrow->price*$cartrow->quantity : '' }}</td>
@@ -61,28 +61,37 @@
                                 </table>
                             </div><!-- /.cart-table -->
                         </div><!-- /.row -->
-                        <hr/>
+                        {{-- <hr/> --}}
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                              <div class="heading-layout2 text-center mb-50">
+                                <p><span class="text-dark font-weight-bold">Order</span>  #<span class="text-dark font-weight-bold">{{ !empty($transactiondata->order_key) ? $transactiondata->order_key : '' }}</span></p>
+                                    @if(!empty($transactiondata->order_date))
+                                        <p>{{ __('message.Order on') }} :  <?php $formattedDate = date("d M h:i", strtotime($transactiondata->order_date));
+                                                echo strtoupper($formattedDate);?>
+                                            </p>
+                                    @endif
+                              </div>
+                            </div><!-- /.col-lg-6 -->
+                          </div><!-- /.row -->
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                <h6>{{ __('message.Delivery address') }}</h6>
                                 <div class="about-Text">
                                     @if(!empty($shipAddress))
                                        
                                         <ul class="features-list-layout2 list-unstyled">
                                             <li class="feature-item">
                                                 <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;:&nbsp;&nbsp;
-                                                <p class="feature-title mb-0"><span class="text text-secondary">Order from</span><br/>{{ $shipAddress->mobile ?? '' }}</p>
-                                                
+                                                <p class="feature-title mb-0"><span class="text text-secondary">{{ __('message.Order from') }}</span><br/>{{ $restaurantDetails->restaurantName ?? 'GCON Restaurant' }} ({{ !empty($restaurantDetails->address) ? ($restaurantDetails->address) : 'Poi Pet' }})</p>
                                             </li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-                                            
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
                                             <li class="feature-item">
                                                 <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;:&nbsp;&nbsp; 
-                                                <p class="feature-title mb-0"><span class="text text-secondary">Delivered to</span><br/>{{ $shipAddress->address ?? '' }}, {{ $shipAddress->city ?? '' }}, {{ $shipAddress->state ?? '' }}, {{ $shipAddress->landmark ?? '' }}</p>
+                                                <p class="feature-title mb-0"><span class="text text-secondary">{{ __('message.Delivered to') }}</span><br/>{{ $shipAddress->address ?? '' }}, {{ $shipAddress->city ?? '' }}, {{ $shipAddress->state ?? '' }}, {{ $shipAddress->landmark ?? '' }}</p>
                                             </li>
                                         </ul>  
                                     @endif
@@ -91,11 +100,16 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="cart-total-amount">
-                            {{-- <h6>{{ __('message.Cart Totals') }}</h6> --}}
                             <ul class="list-unstyled mb-30">
+                                @if(!empty($transactiondata->TransactionId))
+                                <li><span> {{ __('message.TransactionId') }} :</span><span>{{ !empty($transactiondata->TransactionId) ? $transactiondata->TransactionId : '' }}</span></li>
+                                @endif
+                            <li><span> {{ __('message.Payment type') }} :</span><span>{{ !empty($transactiondata->payment_type) ? $transactiondata->payment_type : '' }}</span></li>
+                            <li><span> {{ __('message.Status') }} :</span><span>{{ !empty($transactiondata->order_status) ? $transactiondata->order_status : '' }}</span></li>
+                            
                             <li><span> {{ __('message.Subtotal') }} :</span><span>{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{$transactiondata->subTotal ?? ''}}</span></li>
                             <li><span> {{ __('message.Charge') }} :</span><span class="font-weight-bold">{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{ $transactiondata->charge ?? '0'}}</span></li>
-                            <li><span> <h2>{{ __('message.Total') }} :</h2> <span class="text text-secondary">({{ __('message.incl. fees and tax') }})</span> </span><h2><span class="font-weight-bold">{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{$transactiondata->totalPayAmount ?? ''}}</span></h2></li>
+                            <li><span> <h4>{{ __('message.Total') }} :</h4> <span class="text text-secondary">({{ __('message.incl. fees and tax') }})</span> </span><h4><span class="font-weight-bold">{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{$transactiondata->totalPayAmount ?? ''}}</span></h4></li>
                             </ul>
                             </div><!-- /.cart-total-amount -->
                             </div>

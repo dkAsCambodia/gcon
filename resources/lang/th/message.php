@@ -331,5 +331,13 @@ return [
     "Place order" => "สั่งซื้อ",
     "Cash on Delivery" => "เงินสดในการจัดส่ง",
     "Ordered Successfully!" => "สั่งซื้อสำเร็จแล้ว!",
+    "incl. fees and tax" => "รวม ค่าธรรมเนียมและภาษี",
+    "Gcon Restaurant Foods Invoice" => "ใบแจ้งหนี้อาหารร้านอาหาร GCON",
+    "Order from" => "สั่งซื้อจาก",
+    "Delivered to" => "จัดส่งไปที่",
+    "Invoice" => "ใบแจ้งหนี้",
+
+    "Order on" => "สั่งซื้อได้ที่",
+    "My Ordered Foods" => "อาหารที่ฉันสั่ง",
 
 ];
