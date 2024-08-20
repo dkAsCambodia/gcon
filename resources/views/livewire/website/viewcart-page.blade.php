@@ -93,8 +93,8 @@
                             <h4 class="feature-title mb-0">{{ $shipAddress->mobile ?? '' }}</h4>
                         </li>
                         <li class="feature-item">
-                            <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;:&nbsp;&nbsp; 
-                            <p class="feature-title mb-0">{{ ucfirst($shipAddress->name) ?? '' }}<br/>{{ $shipAddress->address ?? '' }}, {{ $shipAddress->city ?? '' }}, {{ $shipAddress->state ?? '' }}, {{ $shipAddress->country ?? '' }}
+                            <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;:&nbsp;&nbsp; <h4 class="feature-title mb-0">{{ ucfirst($shipAddress->name) ?? '' }}</h4>
+                            <p class="feature-title mb-0">{{ $shipAddress->address ?? '' }}, {{ $shipAddress->city ?? '' }}, {{ $shipAddress->state ?? '' }}, {{ $shipAddress->country ?? '' }}
                                 <br/>{{ $shipAddress->landmark ?? '' }}</p>
                         </li>
                     </ul>
