@@ -97,9 +97,26 @@ class RestaurantCheckout extends Component
                 Session::put('restaurant_orderKey', $this->order_key);
                 return $this->redirect('/GBooking/restaurant/logAuth/paymentOptions'.'/'.base64_encode($this->totalPrice).'/'.$orderdata->currency_symbol.'/'.base64_encode($orderdata->currency), navigate: true);
             }else{
+
+                    RestaurantOrder::where('order_key', $this->order_key)
+                        ->update([
+                                'order_status' => 'ordered',
+                            ]);
+                         
+                    // Update Cart list
+                    if(!empty($orderdata)){
+                        RestaurantCart::where('customer_id', $orderdata->cust_id)
+                        ->update([
+                                'order_status' => '1',
+                                'food_cart_status' => '0',
+                            ]);
+                        // Update Cart list
+                    }
+                    Session::forget('restaurant_orderKey');
+
                 $msg =  __('message.Ordered Successfully!');
                 $this->dispatch('toast', message: $msg, notify:'success' ); 
-                return $this->redirect('restaurantFood/logAuth/invoice'.'/'.base64_encode($this->totalPrice).'/'.$orderdata->currency_symbol.'/'.base64_encode($orderdata->currency).'/'.base64_encode($this->order_key), navigate: true);
+                return $this->redirect('/restaurantFood/logAuth/invoice'.'/'.base64_encode($this->totalPrice).'/'.$orderdata->currency_symbol.'/'.base64_encode($orderdata->currency).'/'.base64_encode($this->order_key), navigate: true);
             }
             
 

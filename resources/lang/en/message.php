@@ -323,7 +323,6 @@ return [
     "Added Successfully!" => "Added Successfully!",
     "Edit" => "Edit",
     "Add shipping address" => "Add shipping address",
-
     "Delivery service for your favourite restaurants - GCON" => "Delivery service for your favourite restaurants - GCON",
     "Checkout" => "Checkout",
     "Delivery address" => "Delivery address",
@@ -332,10 +331,15 @@ return [
     "Place order" => "Place order",
     "Cash on Delivery" => "Cash on Delivery",
     "Ordered Successfully!" => "Ordered Successfully!",
-
     "incl. fees and tax" => "incl. fees and tax",
-    "Gcon Restaurant Foods Invoice" => "Gcon Restaurant Foods Invoice",
-    "Cart" => "Cart",
+    "Gcon Restaurant Foods Invoice" => "GCON Restaurant Foods Invoice",
+    "Order from" => "Order from",
+    "Delivered to" => "Delivered to",
+    "Invoice" => "Invoice",
+
+    "Order on" => "Order on",
+    "My Ordered Foods" => "My Ordered Foods",
+  
     
    
     

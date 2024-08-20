@@ -7,19 +7,21 @@ use App\Models\RestaurantFood;
 use App\Models\RestaurantCart;
 use App\Models\ShipAddresse;
 use App\Models\RestaurantOrder;
+use App\Models\Restaurant;
 use Session;
 use Illuminate\Support\Facades\DB;
 
 class RestaurantFoodInvoicePage extends Component
 {
     public $amount, $currencySymbol, $currency, $orderKey;
-    public $transactiondata, $shipAddress, $OrderedcartList;
+    public $transactiondata, $shipAddress, $OrderedcartList, $restaurantDetails;
 
     public function mount()
     {
         $this->transactiondata = RestaurantOrder::where('order_key', base64_decode($this->orderKey))->first();
         if(!empty($this->transactiondata)){
 
+            $this->restaurantDetails = Restaurant::where(['id' => $this->transactiondata->restaurant_id,'openStatus' => '1', 'status' => '1'])->first();
             $this->shipAddress = ShipAddresse::where(['id' => $this->transactiondata->address_id,'ship_status' => '1'])->first();
             $this->getCartOrderedList();
             // dd($this->OrderedcartList);

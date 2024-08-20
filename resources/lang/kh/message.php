@@ -262,7 +262,6 @@ return [
     "Parnter with Gcon" => "ដៃគូជាមួយ Gcon",
     "Partner Providers Registration" => "ការចុះឈ្មោះអ្នកផ្តល់ដៃគូ",
     "Interested? Fill in the form below to become our partner and increase your revenue" => "ចាប់អារម្មណ៍? បំពេញទម្រង់ខាងក្រោម ដើម្បីក្លាយជាដៃគូរបស់យើង និងបង្កើនប្រាក់ចំណូលរបស់អ្នក។",
-    
     "Restaurant/ Shop Name" => "ឈ្មោះភោជនីយដ្ឋាន/ហាង",
     "Enter here" => "ចូលទីនេះ",
     "Business Type" => "ប្រភេទ​ពាណិជ្ជកម្ម",
@@ -331,5 +330,13 @@ return [
     "Place order" => "ដាក់បញ្ជា",
     "Cash on Delivery" => "សាច់ប្រាក់លើការដឹកជញ្ជូន",
     "Ordered Successfully!" => "បញ្ជាដោយជោគជ័យ!",
+    "incl. fees and tax" => "រួមបញ្ចូល ថ្លៃនិងពន្ធ",
+    "Gcon Restaurant Foods Invoice" => "វិក័យប័ត្រអាហារភោជនីយដ្ឋាន Gcon",
+    "Order from" => "បញ្ជាទិញពី",
+    "Delivered to" => "បញ្ជូនទៅ",
+    "Invoice" => "វិក្កយបត្រ",
+
+    "Order on" => "បញ្ជាទិញនៅលើ",
+    "My Ordered Foods" => "អាហារដែលបានបញ្ជាទិញរបស់ខ្ញុំ",
     
 ];
