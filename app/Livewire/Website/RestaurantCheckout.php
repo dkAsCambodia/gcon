@@ -32,7 +32,11 @@ class RestaurantCheckout extends Component
 
     public function OrderPlaceSave()
     {
+        
         $validated = $this->validate();
+        if(empty($this->shipAddress)){
+            return $this->redirect('/dashboard/shippingAddress', navigate: true);
+        }
         date_default_timezone_set('Asia/Phnom_Penh');
         $created_at=date("Y-m-d h:i:s");
         $this->order_key= $this->GenerateOrderKey();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2024 at 06:04 AM
+-- Generation Time: Aug 20, 2024 at 06:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -544,7 +544,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (47, '2024_07_17_043437_create_restaurant_food_translations_table', 41),
 (48, '2024_07_17_104517_add_currency_id_to_restaurant_foods_table', 42),
 (49, '2024_07_23_070157_create_restaurant_carts_table', 43),
-(50, '2024_07_23_093141_create_restaurant_carts_table', 44);
+(50, '2024_07_23_093141_create_restaurant_carts_table', 44),
+(51, '2024_08_08_101448_create_ship_addresses_table', 45),
+(52, '2024_08_15_073314_create_restaurant_orders_table', 45);
 
 -- --------------------------------------------------------
 
@@ -671,7 +673,9 @@ INSERT INTO `restaurant_carts` (`id`, `customer_id`, `food_id`, `f_qty`, `order_
 (1, 230720241632, 2, 1, 0, 1, '2024-07-23 09:32:49', '2024-07-23 09:32:49'),
 (2, 230720241632, 1, 1, 0, 1, '2024-07-23 02:36:03', '2024-07-23 02:36:03'),
 (3, 230720241632, 1, 1, 0, 1, '2024-07-23 03:33:41', '2024-07-23 03:33:41'),
-(4, 230720241632, 1, 1, 0, 1, '2024-07-23 03:33:44', '2024-07-23 03:33:44');
+(4, 230720241632, 1, 1, 0, 1, '2024-07-23 03:33:44', '2024-07-23 03:33:44'),
+(10, 1, 1, 2, 1, 0, '2024-08-19 21:13:57', '2024-08-20 04:14:36'),
+(11, 1, 2, 1, 1, 0, '2024-08-19 21:14:01', '2024-08-20 04:14:36');
 
 -- --------------------------------------------------------
 
@@ -772,7 +776,7 @@ INSERT INTO `restaurant_foods` (`id`, `seller_id`, `restaurant_id`, `restaurant_
 (1, '3', '2', '2', 'thai rosted fish', 'images/restaurant/food/01J3016QMPC2DPA12K5RXDGAQ5.jpg', '5', '3', '19', 'seller', '1', NULL, '2024-07-17 07:56:05', '2024-07-17 02:43:33'),
 (2, '3', '2', '2', 'fish curry', 'images/restaurant/food/01J303HN416TX59S5SSVAY52BZ.jpg', '100', '3', '19', 'seller', '1', NULL, '2024-07-17 07:56:05', '2024-07-17 03:24:28'),
 (3, '3', '3', '3', 'Green Tea', 'images/restaurant/food/01J305QRA26FRPDD7RDKWEXZMT.jpg', '20', '3', '3', 'seller', '1', NULL, '2024-07-17 04:02:45', '2024-07-18 03:55:54'),
-(4, '2', '1', '1', 'Noodle with chicken', 'images/restaurant/food/01J306EKVP33WCM13BM3GF7K22.png', '100', '3', '10', 'seller', '1', NULL, '2024-07-17 04:15:14', '2024-07-17 04:15:14');
+(4, '2', '1', '1', 'Noodle with chicken', 'images/restaurant/food/01J306EKVP33WCM13BM3GF7K22.png', '100', '3', '10', 'seller', '1', NULL, '2024-07-17 04:15:14', '2024-08-19 20:39:07');
 
 -- --------------------------------------------------------
 
@@ -806,6 +810,55 @@ INSERT INTO `restaurant_food_translations` (`id`, `restaurant_food_id`, `languag
 (8, 1, 3, 'ត្រីអាំង', 'ត្រីប្រៃផ្អែម និងជូរ', 'ត្រីប្រឡាក់ប្រឡាក់ជាមួយទឹកជ្រលក់ហឹរ និងផ្អែម (សម្រាប់តែចំណាំ)', '2024-07-19 04:19:43', '2024-07-19 04:20:53'),
 (9, 2, 3, 'ការីត្រីជាមួយអង្ករ', 'ម្ហូបថៃឆ្ងាញ់', 'បាយត្រី និងបាយថៃល្អបំផុត', '2024-07-19 04:23:13', '2024-07-19 04:24:51'),
 (10, 2, 2, 'แกงปลากับข้าว', 'อาหารไทยแสนอร่อย', 'เสริมแกงปลาไทยและข้าว', '2024-07-19 04:23:34', '2024-07-19 04:25:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurant_orders`
+--
+
+CREATE TABLE `restaurant_orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `restaurant_id` bigint(20) UNSIGNED NOT NULL,
+  `food_id` bigint(20) UNSIGNED NOT NULL,
+  `cart_id` bigint(20) UNSIGNED NOT NULL,
+  `cust_id` bigint(20) UNSIGNED NOT NULL,
+  `address_id` bigint(20) UNSIGNED NOT NULL,
+  `order_key` varchar(255) DEFAULT NULL,
+  `quantity` varchar(255) DEFAULT NULL,
+  `subTotal` varchar(255) DEFAULT NULL,
+  `charge` varchar(255) DEFAULT NULL,
+  `totalPayAmount` varchar(255) DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
+  `currency_symbol` varchar(255) DEFAULT NULL,
+  `TransactionId` varchar(255) DEFAULT NULL,
+  `payment_type` varchar(255) DEFAULT NULL,
+  `payment_status` varchar(255) NOT NULL DEFAULT 'pending',
+  `response_all` longtext DEFAULT NULL,
+  `receipt_url` longtext DEFAULT NULL,
+  `future_payment_custId` varchar(255) DEFAULT NULL,
+  `payment_time` varchar(255) DEFAULT NULL,
+  `gateway_name` varchar(255) DEFAULT NULL,
+  `order_status` varchar(255) NOT NULL DEFAULT 'pending',
+  `order_date` varchar(255) DEFAULT NULL,
+  `deliveryBoyId` varchar(255) DEFAULT NULL,
+  `delivery_suggestion` longtext DEFAULT NULL,
+  `assign_status` enum('pending','assigned','accepted','shipped','rejected','delivered','cancelled') NOT NULL DEFAULT 'pending',
+  `cancel_reason` longtext DEFAULT NULL,
+  `latitude` varchar(255) DEFAULT NULL,
+  `longitude` varchar(255) DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `restaurant_orders`
+--
+
+INSERT INTO `restaurant_orders` (`id`, `restaurant_id`, `food_id`, `cart_id`, `cust_id`, `address_id`, `order_key`, `quantity`, `subTotal`, `charge`, `totalPayAmount`, `currency`, `currency_symbol`, `TransactionId`, `payment_type`, `payment_status`, `response_all`, `receipt_url`, `future_payment_custId`, `payment_time`, `gateway_name`, `order_status`, `order_date`, `deliveryBoyId`, `delivery_suggestion`, `assign_status`, `cancel_reason`, `latitude`, `longitude`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(6, 2, 1, 10, 1, 1, 'GCON200824111411', '2', '110', '5', '115', 'THB', '฿', 'PAYID-M3CBQFY6N959878YF430083Y', 'online', 'success', '{\"id\":\"PAYID-M3CBQFY6N959878YF430083Y\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"4V965082LB928305U\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-a0xcu29988399@personal.example.com\",\"first_name\":\"DK\",\"last_name\":\"Gupta\",\"payer_id\":\"CJEW9GJ4SFFZN\",\"shipping_address\":{\"recipient_name\":\"DK Gupta\",\"line1\":\"1 Main St\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\"},\"country_code\":\"US\"}},\"transactions\":[{\"amount\":{\"total\":\"115.00\",\"currency\":\"THB\",\"details\":{\"subtotal\":\"115.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"PLVAQ4NRYMUJ2\",\"email\":\"sb-4ocvf30023489@business.example.com\"},\"item_list\":{\"shipping_address\":{\"recipient_name\":\"DK Gupta\",\"line1\":\"1 Main St\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\"}},\"related_resources\":[{\"sale\":{\"id\":\"2UA51759AK368325N\",\"state\":\"completed\",\"amount\":{\"total\":\"115.00\",\"currency\":\"THB\",\"details\":{\"subtotal\":\"115.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"19.01\",\"currency\":\"THB\"},\"receivable_amount\":{\"value\":\"2.66\",\"currency\":\"USD\"},\"exchange_rate\":\"0.027715398391086\",\"parent_payment\":\"PAYID-M3CBQFY6N959878YF430083Y\",\"create_time\":\"2024-08-20T04:14:34Z\",\"update_time\":\"2024-08-20T04:14:34Z\",\"links\":[{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/sale\\/2UA51759AK368325N\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/sale\\/2UA51759AK368325N\\/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/payment\\/PAYID-M3CBQFY6N959878YF430083Y\",\"rel\":\"parent_payment\",\"method\":\"GET\"}]}}]}],\"failed_transactions\":[],\"create_time\":\"2024-08-20T04:14:14Z\",\"update_time\":\"2024-08-20T04:14:34Z\",\"links\":[{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/payment\\/PAYID-M3CBQFY6N959878YF430083Y\",\"rel\":\"self\",\"method\":\"GET\"}]}', 'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-4V965082LB928305U', 'CJEW9GJ4SFFZN', '2024-08-20 11:14:36', 'Paypal', 'ordered', '2024-08-20 11:14:11', NULL, NULL, 'pending', NULL, NULL, NULL, NULL, '2024-08-20 04:14:11', '2024-08-20 04:14:36'),
+(7, 2, 2, 11, 1, 1, 'GCON200824111411', '1', '110', '5', '115', 'THB', '฿', 'PAYID-M3CBQFY6N959878YF430083Y', 'online', 'success', '{\"id\":\"PAYID-M3CBQFY6N959878YF430083Y\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"4V965082LB928305U\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-a0xcu29988399@personal.example.com\",\"first_name\":\"DK\",\"last_name\":\"Gupta\",\"payer_id\":\"CJEW9GJ4SFFZN\",\"shipping_address\":{\"recipient_name\":\"DK Gupta\",\"line1\":\"1 Main St\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\"},\"country_code\":\"US\"}},\"transactions\":[{\"amount\":{\"total\":\"115.00\",\"currency\":\"THB\",\"details\":{\"subtotal\":\"115.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"PLVAQ4NRYMUJ2\",\"email\":\"sb-4ocvf30023489@business.example.com\"},\"item_list\":{\"shipping_address\":{\"recipient_name\":\"DK Gupta\",\"line1\":\"1 Main St\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\"}},\"related_resources\":[{\"sale\":{\"id\":\"2UA51759AK368325N\",\"state\":\"completed\",\"amount\":{\"total\":\"115.00\",\"currency\":\"THB\",\"details\":{\"subtotal\":\"115.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"19.01\",\"currency\":\"THB\"},\"receivable_amount\":{\"value\":\"2.66\",\"currency\":\"USD\"},\"exchange_rate\":\"0.027715398391086\",\"parent_payment\":\"PAYID-M3CBQFY6N959878YF430083Y\",\"create_time\":\"2024-08-20T04:14:34Z\",\"update_time\":\"2024-08-20T04:14:34Z\",\"links\":[{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/sale\\/2UA51759AK368325N\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/sale\\/2UA51759AK368325N\\/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/payment\\/PAYID-M3CBQFY6N959878YF430083Y\",\"rel\":\"parent_payment\",\"method\":\"GET\"}]}}]}],\"failed_transactions\":[],\"create_time\":\"2024-08-20T04:14:14Z\",\"update_time\":\"2024-08-20T04:14:34Z\",\"links\":[{\"href\":\"https:\\/\\/api.sandbox.paypal.com\\/v1\\/payments\\/payment\\/PAYID-M3CBQFY6N959878YF430083Y\",\"rel\":\"self\",\"method\":\"GET\"}]}', 'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-4V965082LB928305U', 'CJEW9GJ4SFFZN', '2024-08-20 11:14:36', 'Paypal', 'ordered', '2024-08-20 11:14:11', NULL, NULL, 'pending', NULL, NULL, NULL, NULL, '2024-08-20 04:14:11', '2024-08-20 04:14:36');
 
 -- --------------------------------------------------------
 
@@ -872,6 +925,39 @@ INSERT INTO `sellers` (`id`, `sellerLoginId`, `shopName`, `businessType`, `cuisi
 (3, '5', 'thai house', 'Restaurant', 'thai food', 'preta', 'khun', 'images/restaurant/shop/EtdyXQDydzzXIMaU6vCGvIaJj18K3dnimkmYsaK6.jpg', '25A Alpha\ntagore lane', 'poipet', 'KH', NULL, 'approved', '1', NULL, '2024-06-13 23:07:27', '2024-06-14 11:07:27'),
 (4, '6', 'cafe In', 'Shop', 'coffie', 'khun', 'cafe', 'images/restaurant/shop/T4Q69VgSXhUMCn9FOHg9G5jw2uua7kXfSPnpVbHv.jpg', 'poipet\nPoipet is a city in Banteay Meanchey Province in western Cambodia,', 'poipet', 'KH', NULL, 'pending', '1', NULL, '2024-06-13 23:11:32', '2024-06-14 11:11:32'),
 (5, '7', 'ddddd', 'Shop', 'ddddde', 'gopal', 'pay', 'images/restaurant/shop/RhPPWueV6mbT7OfaGmYVwj5Puf6Gi3SfT8TbgEfi.jpg', '25A Alpha\ntagore lane', 'poipet', 'KH', 'gconadmin@gmail.com', 'approved', '1', NULL, '2024-06-25 02:47:44', '2024-06-24 19:51:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ship_addresses`
+--
+
+CREATE TABLE `ship_addresses` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `cust_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `zip` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `landmark` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `lat` varchar(255) DEFAULT NULL,
+  `long` varchar(255) DEFAULT NULL,
+  `ship_status` int(11) NOT NULL DEFAULT 1,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ship_addresses`
+--
+
+INSERT INTO `ship_addresses` (`id`, `cust_id`, `name`, `mobile`, `address`, `city`, `zip`, `state`, `country`, `landmark`, `location`, `lat`, `long`, `ship_status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'dk', '7234567890', '25A Alpha', 'poipet', '226022', 'Banteay Meanchey', 'Cambodia', 'beer city', NULL, NULL, NULL, 1, NULL, '2024-08-19 20:56:27', '2024-08-19 20:56:27');
 
 -- --------------------------------------------------------
 
@@ -1197,6 +1283,17 @@ ALTER TABLE `restaurant_food_translations`
   ADD KEY `restaurant_food_translations_language_id_foreign` (`language_id`);
 
 --
+-- Indexes for table `restaurant_orders`
+--
+ALTER TABLE `restaurant_orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `restaurant_orders_restaurant_id_foreign` (`restaurant_id`),
+  ADD KEY `restaurant_orders_food_id_foreign` (`food_id`),
+  ADD KEY `restaurant_orders_cart_id_foreign` (`cart_id`),
+  ADD KEY `restaurant_orders_cust_id_foreign` (`cust_id`),
+  ADD KEY `restaurant_orders_address_id_foreign` (`address_id`);
+
+--
 -- Indexes for table `restaurant_translations`
 --
 ALTER TABLE `restaurant_translations`
@@ -1209,6 +1306,13 @@ ALTER TABLE `restaurant_translations`
 --
 ALTER TABLE `sellers`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ship_addresses`
+--
+ALTER TABLE `ship_addresses`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ship_addresses_cust_id_foreign` (`cust_id`);
 
 --
 -- Indexes for table `table_categories`
@@ -1318,7 +1422,7 @@ ALTER TABLE `member_types`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1336,7 +1440,7 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `restaurant_carts`
 --
 ALTER TABLE `restaurant_carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `restaurant_categories`
@@ -1363,6 +1467,12 @@ ALTER TABLE `restaurant_food_translations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `restaurant_orders`
+--
+ALTER TABLE `restaurant_orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `restaurant_translations`
 --
 ALTER TABLE `restaurant_translations`
@@ -1373,6 +1483,12 @@ ALTER TABLE `restaurant_translations`
 --
 ALTER TABLE `sellers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `ship_addresses`
+--
+ALTER TABLE `ship_addresses`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `table_categories`
@@ -1444,11 +1560,27 @@ ALTER TABLE `restaurant_food_translations`
   ADD CONSTRAINT `restaurant_food_translations_restaurant_food_id_foreign` FOREIGN KEY (`restaurant_food_id`) REFERENCES `restaurant_foods` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `restaurant_orders`
+--
+ALTER TABLE `restaurant_orders`
+  ADD CONSTRAINT `restaurant_orders_address_id_foreign` FOREIGN KEY (`address_id`) REFERENCES `ship_addresses` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `restaurant_orders_cart_id_foreign` FOREIGN KEY (`cart_id`) REFERENCES `restaurant_carts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `restaurant_orders_cust_id_foreign` FOREIGN KEY (`cust_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `restaurant_orders_food_id_foreign` FOREIGN KEY (`food_id`) REFERENCES `restaurant_foods` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `restaurant_orders_restaurant_id_foreign` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `restaurant_translations`
 --
 ALTER TABLE `restaurant_translations`
   ADD CONSTRAINT `restaurant_translations_language_id_foreign` FOREIGN KEY (`language_id`) REFERENCES `languages` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `restaurant_translations_restaurant_id_foreign` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `ship_addresses`
+--
+ALTER TABLE `ship_addresses`
+  ADD CONSTRAINT `ship_addresses_cust_id_foreign` FOREIGN KEY (`cust_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `table_categories`

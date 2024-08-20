@@ -67,11 +67,11 @@ class StripePaymentController extends Controller
 
                         if($payment_status == 'success'){
                             // Update Cart list
-                            RestaurantCart::where('customer_id', $transaction->cust_id)->delete();
-                            // ->update([
-                            //         'order_status' => '1',
-                            //         'food_cart_status' => '0',
-                            //     ]);
+                            RestaurantCart::where('customer_id', $transaction->cust_id)
+                            ->update([
+                                    'order_status' => '1',
+                                    'food_cart_status' => '0',
+                                ]);
                             // Update Cart lists
                         }
                         
