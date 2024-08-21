@@ -339,6 +339,13 @@ return [
 
     "Order on" => "Order on",
     "My Ordered Foods" => "My Ordered Foods",
+    "Reason" => "Reason",
+    "Cancel Order" => "Cancel Order",
+    "Do you want to cancel this order?" => "Do you want to cancel this order?",
+    "Enter Cancellation reason" => "Enter Cancellation reason",
+    "Reason" => "Reason",
+    
+    
   
     
    
