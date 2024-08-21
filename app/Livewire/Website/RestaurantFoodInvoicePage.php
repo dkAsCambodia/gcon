@@ -10,14 +10,18 @@ use App\Models\RestaurantOrder;
 use App\Models\Restaurant;
 use Session;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\Rule; 
 
 class RestaurantFoodInvoicePage extends Component
 {
     public $amount, $currencySymbol, $currency, $orderKey;
-    public $transactiondata, $shipAddress, $OrderedcartList, $restaurantDetails;
+    public $transactiondata, $shipAddress, $OrderedcartList, $restaurantDetails, $currentURL;
+    #[Rule('required')]
+    public $cancel_reason;
 
     public function mount()
     {
+        $this->currentURL = url()->current();   
         $this->transactiondata = RestaurantOrder::where('order_key', base64_decode($this->orderKey))->first();
         if(!empty($this->transactiondata)){
 
@@ -54,6 +58,27 @@ class RestaurantFoodInvoicePage extends Component
         })
         ->get();
     }
+
+    // public function loadFoodDetails()
+    // {
+    //     // dd('dddd');
+    //     $this->modalPopup = '';
+    //     $this->modalPopup = 'show';
+       
+    // }
+
+    public function cancelOrderfun(){
+      
+        $validated = $this->validate();
+         RestaurantOrder::where('order_key', base64_decode($this->orderKey))
+                    ->update(['cancel_reason' => $this->cancel_reason, 'order_status' => 'Cancelled',]);
+        // $this->getCartOrderedList();
+        // $this->modalPopup = '';
+        $msg =  __('message.Your Order has been Cancelled Successfully!');
+        $this->dispatch('toast', message: $msg, notify:'success' );
+        return $this->redirect($this->currentURL, navigate: true);
+    }
+
 
     public function render()
     {

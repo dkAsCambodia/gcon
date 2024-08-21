@@ -43,11 +43,11 @@
                                         <tr class="cart-product">
                                             <td class="d-flex align-items-center">
                                                 <div class="cart-product-img">
-                                                    <a href="void:javascript()" wire:click="loadFoodDetails( {{ $cartrow->id }} )" wire:loading.attr="disabled" data-toggle="modal" data-target="#myModal">
+                                                    <a href="void:javascript()">
                                                 <img src="{{ asset('storage/'.$cartrow->food_img ) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" height="50px" width="100%" alt="product" />
                                                     </a>
                                                 </div>
-                                                <a href="void:javascript()" wire:click="loadFoodDetails( {{ $cartrow->id }} )" wire:loading.attr="disabled" data-toggle="modal" data-target="#myModal">
+                                                <a href="void:javascript()">
                                                     <h5 class="cart-product-title">{{ !empty($cartrow->quantity) ? $cartrow->quantity : '1' }} x {{ !empty($cartrow->translationValue->food_translation_name) ? ucwords($cartrow->translationValue->food_translation_name) : 'item' }}</h5>
                                                 </a>
                                             </td>
@@ -105,12 +105,17 @@
                                 <li><span> {{ __('message.TransactionId') }} :</span><span>{{ !empty($transactiondata->TransactionId) ? $transactiondata->TransactionId : '' }}</span></li>
                                 @endif
                             <li><span> {{ __('message.Payment type') }} :</span><span>{{ !empty($transactiondata->payment_type) ? $transactiondata->payment_type : '' }}</span></li>
-                            <li><span> {{ __('message.Status') }} :</span><span>{{ !empty($transactiondata->order_status) ? $transactiondata->order_status : '' }}</span></li>
-                            
+                            <li><span> {{ __('message.Status') }} :</span><span class="text-{{ $transactiondata->order_status=='Cancelled' ? 'danger' : 'success' }}"><strong>{{ !empty($transactiondata->order_status) ? ucfirst($transactiondata->order_status) : '' }}</strong></span></li>
+                            @if($transactiondata->order_status=='Cancelled')
+                            <li><span> {{ __('message.Reason') }} :</span><span>{{ !empty($transactiondata->cancel_reason) ? $transactiondata->cancel_reason : '' }}</span></li>
+                            @endif
                             <li><span> {{ __('message.Subtotal') }} :</span><span>{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{$transactiondata->subTotal ?? ''}}</span></li>
                             <li><span> {{ __('message.Charge') }} :</span><span class="font-weight-bold">{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{ $transactiondata->charge ?? '0'}}</span></li>
                             <li><span> <h4>{{ __('message.Total') }} :</h4> <span class="text text-secondary">({{ __('message.incl. fees and tax') }})</span> </span><h4><span class="font-weight-bold">{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{$transactiondata->totalPayAmount ?? ''}}</span></h4></li>
-                            </ul>
+                            @if($transactiondata->order_status!='Cancelled')
+                            <li><button class="btn btn-danger" data-toggle="modal" data-target="#myModal">{{ __('message.Cancel Order') }}</button></li>
+                            @endif
+                        </ul>
                             </div><!-- /.cart-total-amount -->
                             </div>
                         </div>
@@ -133,6 +138,50 @@
             </div><!-- /.col-lg-8 -->
           </div><!-- /.row -->
         </div><!-- /.container -->
+
+        <!-- The Modal CODE START -->
+        <div class="modal fade" id="myModal" style="display:none" aria-modal="false" wire:ignore>
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title"></h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <h5>{{ __('message.Do you want to cancel this order?') }}</h5>
+                <form wire:submit.prevent="cancelOrderfun" class="contact-panel-form">
+                    @csrf
+                    <div class="form-group">
+                        <label for="cancel_reason">{{ __('message.Enter Cancellation reason') }}</label>
+                        <textarea row="2" class="form-control @error('cancel_reason') is-invalid @enderror" wire:model.live="cancel_reason" maxlength="300">
+                        </textarea>
+                        @error('cancel_reason')
+                            <label class="error" for="cancel_reason">{{ $message }}</label>
+                            @enderror
+                    </div>
+                    <button type="submit" class="btn btn-secondary btn-block">
+                        <span>{{ __('message.Cancel') }}</span> <i class="icon-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+            <!-- Modal footer -->
+            {{-- <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div> --}}
+          </div>
+        </div>
+      </div>
+     <!-- The Modal CODE START -->
+     <script>
+        window.addEventListener('openModal', event => {
+            console.log('openModal event received');
+            $('#myModal').modal('show');
+        });
+    </script>
+
+
         <script>
             function printAndHide() {
                 // Hide the widget-download element
