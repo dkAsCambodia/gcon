@@ -335,8 +335,11 @@ return [
     "Order from" => "បញ្ជាទិញពី",
     "Delivered to" => "បញ្ជូនទៅ",
     "Invoice" => "វិក្កយបត្រ",
-
     "Order on" => "បញ្ជាទិញនៅលើ",
     "My Ordered Foods" => "អាហារដែលបានបញ្ជាទិញរបស់ខ្ញុំ",
+    "Reason" => "ហេតុផល",
+    "Cancel Order" => "បោះបង់ការបញ្ជាទិញ",
+    "Do you want to cancel this order?" => "តើអ្នកចង់លុបចោលការបញ្ជាទិញនេះទេ?",
+    "Enter Cancellation reason" => "បញ្ចូលហេតុផលនៃការលុបចោល",
     
 ];

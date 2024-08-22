@@ -336,8 +336,11 @@ return [
     "Order from" => "สั่งซื้อจาก",
     "Delivered to" => "จัดส่งไปที่",
     "Invoice" => "ใบแจ้งหนี้",
-
     "Order on" => "สั่งซื้อได้ที่",
     "My Ordered Foods" => "อาหารที่ฉันสั่ง",
+    "Reason" => "เหตุผล",
+    "Cancel Order" => "ยกเลิกคำสั่งซื้อ",
+    "Do you want to cancel this order?" => "คุณต้องการยกเลิกคำสั่งซื้อนี้หรือไม่?",
+    "Enter Cancellation reason" => "ป้อนเหตุผลการยกเลิก",
 
 ];
