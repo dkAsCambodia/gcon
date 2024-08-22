@@ -344,6 +344,8 @@ return [
     "Do you want to cancel this order?" => "Do you want to cancel this order?",
     "Enter Cancellation reason" => "Enter Cancellation reason",
     "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
     
     
   

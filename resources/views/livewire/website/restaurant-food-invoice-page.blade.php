@@ -112,9 +112,25 @@
                             <li><span> {{ __('message.Subtotal') }} :</span><span>{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{$transactiondata->subTotal ?? ''}}</span></li>
                             <li><span> {{ __('message.Charge') }} :</span><span class="font-weight-bold">{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{ $transactiondata->charge ?? '0'}}</span></li>
                             <li><span> <h4>{{ __('message.Total') }} :</h4> <span class="text text-secondary">({{ __('message.incl. fees and tax') }})</span> </span><h4><span class="font-weight-bold">{{ !empty($transactiondata->currency_symbol) ? $transactiondata->currency_symbol : '' }} {{$transactiondata->totalPayAmount ?? ''}}</span></h4></li>
-                            @if($transactiondata->order_status!='Cancelled')
-                            <li><button class="btn btn-danger" data-toggle="modal" data-target="#myModal">{{ __('message.Cancel Order') }}</button></li>
+                            
+                            @php
+                            $givenDate = new DateTime($transactiondata->order_date);
+                            $currentDate = new DateTime();
+                            
+                            // Format both dates to 'Y-m-d' to compare only the date portion
+                            $givenDateFormatted = $givenDate->format('Y-m-d');
+                            $currentDateFormatted = $currentDate->format('Y-m-d');
+                            @endphp
+                            
+                            @if ($givenDateFormatted == $currentDateFormatted)
+                                <!-- Show the button -->
+                                @if($transactiondata->order_status!='Cancelled' && $transactiondata->order_status!='delivered')
+                                <li><button class="btn btn-danger" data-toggle="modal" data-target="#myModal">{{ __('message.Cancel Order') }}</button></li>
+                                @endif
                             @endif
+                            
+
+                            
                         </ul>
                             </div><!-- /.cart-total-amount -->
                             </div>
