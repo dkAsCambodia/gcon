@@ -5,6 +5,7 @@ use Livewire\Component;
 use App\Models\Restaurant;
 use App\Models\RestaurantCategory;
 use App\Models\RestaurantFood;
+use App\Models\RestaurantFoodTranslation;
 use App\Models\RestaurantCart;
 use App\Models\Language;
 use Session;
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\DB;
 class FoodListPage extends Component
 {
     public $restaurant_id, $cat_id=Null, $RestaurantDetails, $calegoryList, $foodList, $restaurantList, $FoodId, $cartCount, $uniqueId;
-
-
     
+    public $search = ''; // Search term
+    public $foods = []; 
 
     public function addToCart($encodedFoodId)
     {
@@ -52,6 +53,7 @@ class FoodListPage extends Component
    
     public function mount($restaurant_id, $cat_id=Null)
     {
+        $this->foods = [];
          // Generate unique customerId for session
         if(Session::get('memberdata')){
             $this->uniqueId = Session::get('memberdata')['id'];
@@ -77,6 +79,25 @@ class FoodListPage extends Component
 
         $this->foodList = $this->getFoods($this->cat_id);
         // dd( $this->foodList);
+    }
+
+    public function updatedSearch()
+    {
+        if (strlen($this->search) > 1) {
+            // $this->foods = RestaurantFoodTranslation::where('food_translation_name', 'like', '%' . $this->search . '%')->get();
+            $this->foods = RestaurantFoodTranslation::where('food_translation_name', 'like', '%' . $this->search . '%')
+                ->orWhere('translation_title', 'like', '%' . $this->search . '%')
+                ->orWhere('translation_desc', 'like', '%' . $this->search . '%')
+                ->get();
+            // dd( $this->foods);
+        } else {
+            $this->foods = []; // Clear suggestions if input is too short
+        }
+    }
+
+    public function getSerachDataFun()
+    {
+        return $this->redirect('/GBooking/restaurant/searchFood/'.base64_encode($this->search), navigate: true);
     }
 
     public function getFoods($cat_id=Null){
