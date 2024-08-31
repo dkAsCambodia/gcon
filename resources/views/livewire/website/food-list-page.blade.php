@@ -83,9 +83,20 @@
                 <div class="widget widget-search">
                   <h5 class="widget-title">{{ __('message.Search foods here') }}</h5>
                   <div class="widget-content">
-                    <form class="widget-form-search">
-                      <input type="text" class="form-control" placeholder="Search...">
+                    <form class="widget-form-search" wire:submit.prevent="getSerachDataFun">
+                      @csrf
+                      {{-- <input type="text" class="form-control" placeholder="Search...">
+                      <button class="btn" type="submit"><i class="icon-search"></i></button> --}}
+
+                      <input list="foodSuggestions" type="text" wire:model.live="search" placeholder="Search..." class="form-control">
                       <button class="btn" type="submit"><i class="icon-search"></i></button>
+                      <datalist id="foodSuggestions">
+                        @if(!empty($foods))
+                          @foreach($foods as $food)
+                              <option value="{{ !empty($food->food_translation_name) ? ucwords($food->food_translation_name) : '' }}"></option>
+                          @endforeach
+                          @endif
+                      </datalist>
                     </form>
                   </div><!-- /.widget-content -->
                 </div><!-- /.widget-search -->
