@@ -342,5 +342,8 @@ return [
     "Cancel Order" => "ยกเลิกคำสั่งซื้อ",
     "Do you want to cancel this order?" => "คุณต้องการยกเลิกคำสั่งซื้อนี้หรือไม่?",
     "Enter Cancellation reason" => "ป้อนเหตุผลการยกเลิก",
+    "not found" => "ไม่พบ",
+    "We found" => "เราพบว่า",
+    "results for" => "ผลลัพธ์สำหรับ",
 
 ];
