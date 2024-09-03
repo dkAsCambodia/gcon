@@ -341,5 +341,8 @@ return [
     "Cancel Order" => "បោះបង់ការបញ្ជាទិញ",
     "Do you want to cancel this order?" => "តើអ្នកចង់លុបចោលការបញ្ជាទិញនេះទេ?",
     "Enter Cancellation reason" => "បញ្ចូលហេតុផលនៃការលុបចោល",
+    "not found" => "រកមិនឃើញ",
+    "We found" => "យើងបានរកឃើញ",
+    "results for" => "លទ្ធផលសម្រាប់",
     
 ];
