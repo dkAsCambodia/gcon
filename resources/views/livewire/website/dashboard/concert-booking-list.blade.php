@@ -36,7 +36,7 @@
                           <td class="cart-product-total">{{ $key+1  ?? ''}}</td>
                           <td class="d-flex align-items-center">
                             <div class="cart-product-img">
-                              <img src="{{ asset('storage/'.$tablerow->bookingTable->tbl_img) ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdxXTJfjkJRIYLXuESrhcWOZFpV6b27WQFoXKXWMqxs_7X2HNR5b9h93oNkWszI6uNj2k&usqp=CAU' }}" alt="product" />
+                              <img src="{{ asset('storage/'.$tablerow->bookingTable->tbl_img) ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdxXTJfjkJRIYLXuESrhcWOZFpV6b27WQFoXKXWMqxs_7X2HNR5b9h93oNkWszI6uNj2k&usqp=CAU' }}" height="50px" width="50px" alt="product" />
                             </div>
                             <h5 class="cart-product-title">{{ $tablerow->bookingTable->translationValue->tbl_name ?? ''}}</h5>
                           </td>
