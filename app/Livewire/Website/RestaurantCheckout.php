@@ -53,6 +53,7 @@ class RestaurantCheckout extends Component
                         'restaurant_foods.restaurant_id',
                         'restaurant_foods.price',
                         'restaurant_foods.currency_id',
+                        'restaurant_foods.seller_id',
                         'restaurant_carts.f_qty',
                         'currencies.currency_code',
                         'currencies.currency_symbol',
@@ -63,6 +64,7 @@ class RestaurantCheckout extends Component
                         'restaurant_foods.restaurant_id',
                         'restaurant_foods.price',
                         'restaurant_foods.currency_id',
+                        'restaurant_foods.seller_id',
                         'restaurant_carts.f_qty',
                         'currencies.currency_code',
                         'currencies.currency_symbol',
@@ -75,6 +77,7 @@ class RestaurantCheckout extends Component
                 $order->restaurant_id = $cartData->restaurant_id;
                 $order->food_id = $cartData->food_id;
                 $order->cart_id  = $cartData->cart_id;
+                $order->seller_id = $cartData->seller_id;
                 $order->cust_id = $this->cust_id;
                 $order->address_id = $this->shipAddress->id;
                 $order->order_key = $this->order_key;
