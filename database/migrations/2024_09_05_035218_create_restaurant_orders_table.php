@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('restaurant_id')->constrained('restaurants')->onDelete('cascade');
             $table->foreignId('food_id')->constrained('restaurant_foods')->onDelete('cascade');
             $table->foreignId('cart_id')->constrained('restaurant_carts')->onDelete('cascade');
+            $table->string('seller_id');
             $table->foreignId('cust_id')->constrained('customers')->onDelete('cascade');
             $table->foreignId('address_id')->constrained('ship_addresses')->onDelete('cascade');
             $table->string('order_key')->nullable();
