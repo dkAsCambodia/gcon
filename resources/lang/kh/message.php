@@ -344,5 +344,27 @@ return [
     "not found" => "រកមិនឃើញ",
     "We found" => "យើងបានរកឃើញ",
     "results for" => "លទ្ធផលសម្រាប់",
+
+    // for filament section START
+    "Serial number" => "Serial number",
+    "Seller" => "Seller",
+    "Restaurant Name" => "Restaurant Name",
+    "Foods" => "Foods",
+    "Customer Name" => "Customer Name",
+    "Order Key" => "Order Key",
+    "Amount" => "Amount",
+    "Currency" => "Currency",
+    "Payment Status" => "Payment Status",
+    "Order Status" => "Order Status",
+    "Assign Status" => "Assign Status",
+    "Order Date" => "Order Date",
+
+    "Foods Management" => "Foods Management",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    // for filament section END
     
 ];
