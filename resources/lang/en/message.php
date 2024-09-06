@@ -336,7 +336,6 @@ return [
     "Order from" => "Order from",
     "Delivered to" => "Delivered to",
     "Invoice" => "Invoice",
-
     "Order on" => "Order on",
     "My Ordered Foods" => "My Ordered Foods",
     "Reason" => "Reason",
@@ -346,6 +345,29 @@ return [
     "not found" => "not found",
     "We found" => "We found",
     "results for" => "results for",
+
+
+    // for filament section START
+    "Serial number" => "Serial number",
+    "Seller" => "Seller",
+    "Restaurant Name" => "Restaurant Name",
+    "Foods" => "Foods",
+    "Customer Name" => "Customer Name",
+    "Order Key" => "Order Key",
+    "Amount" => "Amount",
+    "Currency" => "Currency",
+    "Payment Status" => "Payment Status",
+    "Order Status" => "Order Status",
+    "Assign Status" => "Assign Status",
+    "Order Date" => "Order Date",
+
+    "Foods Management" => "Foods Management",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    // for filament section END
     
     
   

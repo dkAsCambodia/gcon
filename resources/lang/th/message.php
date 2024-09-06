@@ -346,4 +346,26 @@ return [
     "We found" => "เราพบว่า",
     "results for" => "ผลลัพธ์สำหรับ",
 
+    // for filament section START
+    "Serial number" => "หมายเลขซีเรียล",
+    "Seller" => "ผู้ขาย",
+    "Restaurant Name" => "ชื่อร้านอาหาร",
+    "Foods" => "อาหาร",
+    "Customer Name" => "ชื่อลูกค้า",
+    "Order Key" => "คีย์การสั่งซื้อ",
+    "Amount" => "จำนวน",
+    "Currency" => "สกุลเงิน",
+    "Payment Status" => "สถานะการชำระเงิน",
+    "Order Status" => "สถานะการสั่งซื้อ",
+    "Assign Status" => "กำหนดสถานะ",
+    "Order Date" => "วันที่สั่งซื้อ",
+
+    "Foods Management" => "การจัดการอาหาร",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    "Reason" => "Reason",
+    // for filament section END
+
 ];
