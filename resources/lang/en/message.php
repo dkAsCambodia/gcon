@@ -360,13 +360,24 @@ return [
     "Order Status" => "Order Status",
     "Assign Status" => "Assign Status",
     "Order Date" => "Order Date",
-
     "Foods Management" => "Foods Management",
-    "Reason" => "Reason",
-    "Reason" => "Reason",
-    "Reason" => "Reason",
-    "Reason" => "Reason",
-    "Reason" => "Reason",
+    "Ordered food transaction" => "Ordered food transaction",
+    "Pending" => "Pending",
+    "Ordered" => "Ordered",
+    "Assigned" => "Assigned",
+    "Accepted" => "Accepted",
+    "Shipped" => "Shipped",
+    "Rejected" => "Rejected",
+    "Delivered" => "Delivered",
+    "Cancelled" => "Cancelled",
+    "View" => "View",
+    "Save changes" => "Save changes",
+    "All" => "All",
+    "List" => "List",
+    "Gateway name" => "Gateway name",
+    "Delivery suggestion" => "Delivery suggestion",
+    "Cancellation reason" => "Cancellation reason",
+   
     // for filament section END
     
     

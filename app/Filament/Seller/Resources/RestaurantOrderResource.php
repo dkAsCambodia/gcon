@@ -20,13 +20,13 @@ class RestaurantOrderResource extends Resource
 {
     protected static ?string $model = RestaurantOrder::class;
     protected static ?string $navigationIcon = 'heroicon-o-credit-card';
-    public static function getNavigationGroup(): ?string
-    {
+    public static function getNavigationGroup(): ?string{
         return __('message.Foods Management');
     }
+    public static function getModelLabel(): string{
+        return __('message.Ordered food transaction');
+    }
 
-
-    protected static ?string $modelLabel = 'Ordered food transaction';
     protected static ?string $slug = 'ordered-food';
     protected static ?int $navigationSort = 3;
 
@@ -98,7 +98,7 @@ class RestaurantOrderResource extends Resource
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('delivery_suggestion')
-                    ->label(__('message.delivery suggestion'))
+                    ->label(__('message.Delivery suggestion'))
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('cancel_reason')
@@ -185,8 +185,14 @@ class RestaurantOrderResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\ViewAction::make()->label(__('message.View')),
+                Tables\Actions\ViewAction::make()
+                    ->label(__('message.View'))
+                    ->modalHeading(__('message.View'))
+                    ->modalButton(__('message.Closedk')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))
+                    ->modalHeading(__('message.Edit'))
+                    ->modalButton(__('message.Save changes')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
