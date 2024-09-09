@@ -6,9 +6,9 @@
               <div class="d-flex align-items-center justify-content-between">
                 <ul class="contact-list d-flex flex-wrap align-items-center list-unstyled mb-0">
                   <li class="miniPopup-language-area">
-                    <button class="miniPopup-language-trigger" type="button">@if(session()->get('locale') == 'th')
+                    <button class="miniPopup-language-trigger" type="button">@if(session()->get('locale') == 'th-TH')
                                                                             Thai
-                                                                            @elseif(session()->get('locale') == 'kh')
+                                                                            @elseif(session()->get('locale') == 'km')
                                                                             Khmer
                                                                             @elseif(session()->get('locale') == 'en')
                                                                             English
