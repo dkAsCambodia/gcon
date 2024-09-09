@@ -376,6 +376,6 @@ return [
     "Gateway name" => "ชื่อเกตเวย์",
     "Delivery suggestion" => "ข้อเสนอแนะการจัดส่ง",
     "Cancellation reason" => "เหตุผลในการยกเลิก",
-    // for filament section END
+    // for filament section END 
 
 ];
