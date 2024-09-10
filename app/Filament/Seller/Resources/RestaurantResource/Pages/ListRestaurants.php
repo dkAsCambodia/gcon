@@ -11,6 +11,11 @@ class ListRestaurants extends ListRecords
 {
     protected static string $resource = RestaurantResource::class;
 
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
+    
     protected function getHeaderActions(): array
     {
         return [

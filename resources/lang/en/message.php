@@ -377,7 +377,14 @@ return [
     "Gateway name" => "Gateway name",
     "Delivery suggestion" => "Delivery suggestion",
     "Cancellation reason" => "Cancellation reason",
-   
+    "Restaurant Management" => "Restaurant Management",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
     // for filament section END
     
     

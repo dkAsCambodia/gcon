@@ -12,6 +12,11 @@ class ListRestaurantFoodTranslations extends ListRecords
 {
     protected static string $resource = RestaurantFoodTranslationResource::class;
 
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
+    
     protected function getHeaderActions(): array
     {
         return [

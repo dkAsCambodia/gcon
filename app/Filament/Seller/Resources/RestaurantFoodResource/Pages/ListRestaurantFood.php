@@ -10,7 +10,11 @@ use Illuminate\Database\Eloquent\Builder;
 class ListRestaurantFood extends ListRecords
 {
     protected static string $resource = RestaurantFoodResource::class;
-
+    
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
     protected function getHeaderActions(): array
     {
         return [
