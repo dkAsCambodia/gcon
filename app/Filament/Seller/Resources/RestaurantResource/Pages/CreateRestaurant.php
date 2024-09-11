@@ -9,7 +9,10 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateRestaurant extends CreateRecord
 {
     protected static string $resource = RestaurantResource::class;
-
+    public function getBreadcrumb(): string
+    {
+        return __('message.New');
+    }
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         if($data['lat']){
