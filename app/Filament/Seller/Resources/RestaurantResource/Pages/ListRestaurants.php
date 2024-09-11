@@ -19,17 +19,17 @@ class ListRestaurants extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('message.Add New Restaurant'))->modalButton(__('message.Save changes')),
         ];
     }
 
     public function getTabs(): array
     {
         return [
-            'all' => Tab::make('All'),
-            'GEntertainment' => Tab::make('Active')
+            'all' => Tab::make(__('message.All')),
+            'GEntertainment' => Tab::make(__('message.Active'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', '1')),
-            'GBooking' => Tab::make('InActive')
+            'GBooking' => Tab::make(__('message.Inactive'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', '0')),
         ];
     }
