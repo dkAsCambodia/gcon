@@ -394,7 +394,6 @@ return [
     "created_at" => "สร้างขึ้น_at",
     "updated_at" => "อัปเดต_at",
     "Delete" => "ลบ",
-
     "Restaurant Translation" => "การแปลร้านอาหาร",
     "All language" => "ทุกภาษา",
     "English" => "ภาษาอังกฤษ",
@@ -407,6 +406,10 @@ return [
     "Add New Restaurant" => "เพิ่มร้านอาหารใหม่",
     "New" => "ใหม่",
     "Language" => "ภาษา",
+    "Category Management" => "การจัดการหมวดหมู่",
+    "Food categories" => "หมวดอาหาร",
+    "Category Name or Menu name" => "ชื่อหมวดหมู่หรือชื่อเมนู",
+    "Created By" => "สร้างโดย",
     // for filament section END 
 
 ];

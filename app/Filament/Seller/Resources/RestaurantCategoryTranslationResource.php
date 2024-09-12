@@ -21,8 +21,12 @@ class RestaurantCategoryTranslationResource extends Resource
 {
     protected static ?string $model = RestaurantCategoryTranslation::class;
     protected static ?string $navigationIcon = 'heroicon-o-tag';
-    protected static ?string $navigationGroup = 'Category Management';
-    protected static ?string $modelLabel = 'Food Category Translation';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Category Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Food Category Translation');
+    }
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
@@ -36,7 +40,7 @@ class RestaurantCategoryTranslationResource extends Resource
                     ->required()
                     ->reactive(),
                 Forms\Components\Select::make('language_id')
-                    ->label('Select language')
+                    ->label(__('message.Select language'))
                     ->options(Language::where('status', 1)->pluck('name', 'id')) 
                     ->required()
                     ->prefixIcon('heroicon-o-flag')

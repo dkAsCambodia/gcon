@@ -21,27 +21,31 @@ class RestaurantCategoryResource extends Resource
     protected static ?string $model = RestaurantCategory::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
-    protected static ?string $navigationGroup = 'Category Management';
-    protected static ?string $modelLabel = 'Food categories';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Category Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Food categories');
+    }
     protected static ?int $navigationSort = 2;
-
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Select::make('seller_id')
-                    ->label('Select seller')
+                    ->label(__('message.Select seller'))
                     ->options(Seller::where('sellerLoginId', auth()->id())->pluck('firstName', 'id')) 
                     ->prefixIcon('heroicon-o-tag')
                     ->required(),
                 Forms\Components\Select::make('restaurant_id')
-                    ->label('Restaurants')
+                    ->label(__('message.Select Restaurant'))
                     ->options(Restaurant::getRestaurantOptions())
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
                     ->reactive(),
                 Forms\Components\TextInput::make('cat_name')
+                    ->label(__('message.Category Name or Menu name'))
                     ->required()
                     ->prefixIcon('heroicon-o-tag')
                     // ->rule(function ($record) {
@@ -49,11 +53,13 @@ class RestaurantCategoryResource extends Resource
                     // })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('created_by')
+                    ->label(__('message.Created By'))
                     ->default('seller')
                     ->prefixIcon('heroicon-o-user')
                     ->readOnly()
                     ->maxLength(255),
                 Forms\Components\Toggle::make('cat_status')
+                    ->label(__('message.Status'))
                     ->default(1)
                     ->onIcon('heroicon-m-bolt')
                     ->offIcon('heroicon-m-user')
@@ -67,27 +73,28 @@ class RestaurantCategoryResource extends Resource
             ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
                 Tables\Columns\TextColumn::make('seller_id')
-                    ->label('Seller Name')
+                    ->label(__('message.Seller'))
                     ->getStateUsing(function ($record) {
                         return $record->getsellerData->firstName . ' ' . $record->getsellerData->lastName;
                     })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('restaurantData.restaurantName')
-                    ->label('Restaurant Name')
+                    ->label(__('message.Restaurant Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('cat_name')
-                    ->label('Category Name')
+                    ->label(__('message.Category Name or Menu name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_by')
+                    ->label(__('message.Created By'))
                     ->searchable(),
                 Tables\Columns\IconColumn::make('cat_status')
-                    ->label('Status')
+                    ->label(__('message.Status'))
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make(__('message.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -97,9 +104,9 @@ class RestaurantCategoryResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

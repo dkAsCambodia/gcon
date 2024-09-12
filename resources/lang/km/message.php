@@ -393,7 +393,6 @@ return [
     "created_at" => "បានបង្កើត_នៅ",
     "updated_at" => "updated_at",
     "Delete" => "លុប",
-
     "Restaurant Translation" => "ការបកប្រែភោជនីយដ្ឋាន",
     "All language" => "ភាសាទាំងអស់។",
     "English" => "ភាសាអង់គ្លេស",
@@ -406,6 +405,10 @@ return [
     "Add New Restaurant" => "បន្ថែមភោជនីយដ្ឋានថ្មី។",
     "New" => "ថ្មី។",
     "Language" => "ភាសា",
+    "Category Management" => "ការគ្រប់គ្រងប្រភេទ",
+    "Food categories" => "ប្រភេទអាហារ",
+    "Category Name or Menu name" => "ឈ្មោះប្រភេទ ឬឈ្មោះម៉ឺនុយ",
+    "Created By" => "បង្កើតដោយ",
     // for filament section END
     
 ];
