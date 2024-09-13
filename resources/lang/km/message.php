@@ -409,6 +409,20 @@ return [
     "Food categories" => "ប្រភេទអាហារ",
     "Category Name or Menu name" => "ឈ្មោះប្រភេទ ឬឈ្មោះម៉ឺនុយ",
     "Created By" => "បង្កើតដោយ",
+    "Food Category Translation" => "ការបកប្រែប្រភេទអាហារ",
+    "Select Restaurant Category" => "ជ្រើសរើសប្រភេទភោជនីយដ្ឋាន",
+    "Restaurant Category" => "ប្រភេទភោជនីយដ្ឋាន",
+    "Category Translation Name" => "ឈ្មោះ​ការ​បកប្រែ​ប្រភេទ",
+    "Add New Translation" => "បន្ថែមការបកប្រែថ្មី។",
+    "Foods translation" => "ការបកប្រែអាហារ",
+    "Food name" => "ឈ្មោះអាហារ",
+    "Food Image" => "រូបភាពអាហារ",
+    "Food status" => "ស្ថានភាពអាហារ",
+    "Select Food" => "ជ្រើសរើសអាហារ",
+    "Food translation name" => "ឈ្មោះការបកប្រែអាហារ",
+    "Translation title" => "ចំណងជើងការបកប្រែ",
+    "Translation description" => "ការពិពណ៌នាការបកប្រែ",
+    "Add New Food Translation" => "បន្ថែមការបកប្រែអាហារថ្មី។",
     // for filament section END
     
 ];

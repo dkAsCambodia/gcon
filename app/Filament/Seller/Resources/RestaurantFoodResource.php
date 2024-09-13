@@ -23,8 +23,12 @@ class RestaurantFoodResource extends Resource
     protected static ?string $model = RestaurantFood::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Foods Management';
-    protected static ?string $modelLabel = 'Foods';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Foods Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Foods');
+    }
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
@@ -32,51 +36,55 @@ class RestaurantFoodResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('seller_id')
-                    ->label('Select seller')
+                    ->label(__('message.Select seller'))
                     ->options(Seller::where('sellerLoginId', auth()->id())->pluck('firstName', 'id')) 
                     ->prefixIcon('heroicon-o-tag')
                     ->required(),
                 Forms\Components\Select::make('restaurant_id')
-                    ->label('Restaurants')
+                    ->label(__('message.Select Restaurant'))
                     ->options(Restaurant::getRestaurantOptions())
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
                     ->reactive(),
                 Forms\Components\Select::make('restaurant_cat_id')
-                    ->label('Category Name')
+                    ->label(__('message.Select Restaurant Category'))
                     ->options(RestaurantCategory::getRestaurantCategoryOptions())
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
                     ->reactive(),
                 Forms\Components\TextInput::make('food_name')
+                    ->label(__('message.Food name'))
                     // ->rule(function ($record) {
                     //     return $record ? 'unique:restaurant_foods,food_name,' . $record->id : 'unique:restaurant_foods,food_name';
                     // })
                     ->maxLength(255),
                 Forms\Components\Select::make('currency_id')
-                    ->label('Currency')
+                    ->label(__('message.Currency'))
                     ->options(Currency::where('deleted_at', NULL)->pluck('currency_code', 'id'))
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
                     ->reactive(),
                 Forms\Components\TextInput::make('price')
+                    ->label(__('message.Price'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('discount')
-                    ->label('Discount in %')
+                    ->label(__('message.Discount in %'))
                     ->prefixIcon('heroicon-m-receipt-percent')
                     ->numeric(),
                 Forms\Components\TextInput::make('created_by')
                     ->default('seller')
+                    ->label(__('message.Created By'))
                     ->prefixIcon('heroicon-o-user')
                     ->readOnly()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('food_img')
-                    ->label('Food Image')
+                    ->label(__('message.Food Image'))
                     ->required()
                     ->directory('images/restaurant/food')
                     ->image(),
                 Forms\Components\Toggle::make('food_status')
+                    ->label(__('message.Food status'))
                     ->default(1)
                     ->onIcon('heroicon-m-bolt')
                     ->offIcon('heroicon-m-user')
@@ -90,39 +98,44 @@ class RestaurantFoodResource extends Resource
             ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
                 Tables\Columns\TextColumn::make('seller_id')
-                    ->label('Seller Name')
+                    ->label(__('message.Seller'))
                     ->getStateUsing(function ($record) {
                         return $record->getsellerData->firstName . ' ' . $record->getsellerData->lastName;
                     })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('restaurantData.restaurantName')
-                    ->label('Restaurant Name')
+                    ->label(__('message.Restaurant Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('getRestaurantCategory.cat_name')
-                    ->label('Category Name')
+                    ->label(__('message.Category Name or Menu name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('food_name')
+                    ->label(__('message.Food name'))
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('food_img')
+                    ->label(__('message.Food Image'))
                     ->square(),
                 Tables\Columns\TextColumn::make('price')
+                    ->label(__('message.Price'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('getcurrencyData.currency_code')
-                    ->label('Currency')
+                    ->label(__('message.Currency'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('discount')
+                    ->label(__('message.Discount'))
                     ->searchable(),
                 Tables\Columns\IconColumn::make('food_status')
+                    ->label(__('message.Food status'))
                     ->boolean(),
-                Tables\Columns\TextColumn::make('deleted_at')
+                Tables\Columns\TextColumn::make(__('message.deleted_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make(__('message.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -132,9 +145,9 @@ class RestaurantFoodResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

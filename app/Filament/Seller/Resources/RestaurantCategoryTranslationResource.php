@@ -34,7 +34,7 @@ class RestaurantCategoryTranslationResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('restaurant_category_id')
-                    ->label("Restaurant's Category")
+                    ->label(__('message.Select Restaurant Category'))
                     ->options(RestaurantCategory::getRestaurantCategoryOptions())
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
@@ -46,7 +46,7 @@ class RestaurantCategoryTranslationResource extends Resource
                     ->prefixIcon('heroicon-o-flag')
                     ->required(),
                 Forms\Components\TextInput::make('cat_translation_name')
-                    ->label('Category Translation Name')
+                    ->label(__('message.Category Translation Name'))
                     // ->rule(function ($record) {
                     //     return $record ? 'unique:restaurant_category_translations,cat_translation_name,' . $record->id : 'unique:restaurant_category_translations,cat_translation_name';
                     // })
@@ -62,21 +62,21 @@ class RestaurantCategoryTranslationResource extends Resource
             ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
                 Tables\Columns\TextColumn::make('RestaurantCategoryData.cat_name')
-                    ->label('RestaurantCategory')
+                    ->label(__('message.Restaurant Category'))
                     ->numeric()
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('languages.name')
-                    ->label('Language')
+                    ->label(__('message.Language'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('cat_translation_name')
-                    ->label('Category Translation Name')
+                    ->label(__('message.Category Translation Name'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make(__('message.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -86,8 +86,8 @@ class RestaurantCategoryTranslationResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

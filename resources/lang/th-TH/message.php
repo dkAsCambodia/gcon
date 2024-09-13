@@ -410,6 +410,20 @@ return [
     "Food categories" => "หมวดอาหาร",
     "Category Name or Menu name" => "ชื่อหมวดหมู่หรือชื่อเมนู",
     "Created By" => "สร้างโดย",
+    "Food Category Translation" => "การแปลหมวดอาหาร",
+    "Select Restaurant Category" => "เลือกหมวดหมู่ร้านอาหาร",
+    "Restaurant Category" => "หมวดร้านอาหาร",
+    "Category Translation Name" => "ชื่อการแปลหมวดหมู่",
+    "Add New Translation" => "เพิ่มการแปลใหม่",
+    "Foods translation" => "แปลอาหาร",
+    "Food name" => "ชื่ออาหาร",
+    "Food Image" => "รูปภาพอาหาร",
+    "Food status" => "สถานะอาหาร",
+    "Select Food" => "เลือกอาหาร",
+    "Food translation name" => "ชื่อแปลอาหาร",
+    "Translation title" => "ชื่อคำแปล",
+    "Translation description" => "คำอธิบายการแปล",
+    "Add New Food Translation" => "เพิ่มการแปลอาหารใหม่",
     // for filament section END 
 
 ];
