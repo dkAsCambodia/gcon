@@ -25,10 +25,10 @@ class ListRestaurantFood extends ListRecords
     public function getTabs(): array
     {
         return [
-            'all' => Tab::make('All'),
-            'GEntertainment' => Tab::make('Active')
+            'all' => Tab::make(__('message.All')),
+            'GEntertainment' => Tab::make(__('message.Active'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('food_status', '1')),
-            'GBooking' => Tab::make('InActive')
+            'GBooking' => Tab::make(__('message.Inactive'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('food_status', '0')),
         ];
     }
