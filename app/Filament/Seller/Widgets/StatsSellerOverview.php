@@ -12,18 +12,18 @@ class StatsSellerOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Restaurants', Restaurant::owner()->count())
-                ->description('All Restaurants')
+            Stat::make(__('message.Restaurants'), Restaurant::owner()->count())
+                ->description(__('message.All Restaurants'))
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart([7, 2, 10, 3, 15, 4, 17])
                 ->color('success'),
-            Stat::make('Category', RestaurantCategory::owner()->count())
-                ->description('All Categories')
+            Stat::make(__('message.Category'), RestaurantCategory::owner()->count())
+                ->description(__('message.All Categories'))
                 ->descriptionIcon('heroicon-m-arrow-trending-down')
                 ->chart([7, 2, 10, 3, 15, 4, 17])
                 ->color('danger'),
-            Stat::make('Food', RestaurantFood::owner()->count())
-                ->description('All foods')
+            Stat::make(__('message.Foods'), RestaurantFood::owner()->count())
+                ->description(__('message.All foods'))
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart([7, 2, 10, 3, 15, 4, 17])
                 ->color('success'),

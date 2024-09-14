@@ -4,7 +4,10 @@ use Filament\Widgets\ChartWidget;
 
 class RestaurantCategoryChart extends ChartWidget
 {
-    protected static ?string $heading = 'Chart';
+    protected static ?string $heading;
+    public function __construct() {
+        static::$heading = __('message.Chart');
+    }
 
     protected static ?int $sort = 1;
     protected static ?string $maxHeight = '300px';
@@ -12,7 +15,7 @@ class RestaurantCategoryChart extends ChartWidget
     
     public function getDescription(): ?string
     {
-       return 'The number of Gcon Service Chart per month.';
+       return __('message.The number of Gcon Service Chart per month');
     }
     protected function getOptions(): array
     {
@@ -59,7 +62,7 @@ class RestaurantCategoryChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'G-CON posts created',
+                    'label' => __('message.G-CON posts created'),
                     'data' => [0, 10, 5, 2, 21, 32, 45, 74, 65, 45, 77, 89],
                     'backgroundColor' => '#36A2EB',
                     'borderColor' => 'lightgreen',
