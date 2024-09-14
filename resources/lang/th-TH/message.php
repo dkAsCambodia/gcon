@@ -424,6 +424,18 @@ return [
     "Translation title" => "ชื่อคำแปล",
     "Translation description" => "คำอธิบายการแปล",
     "Add New Food Translation" => "เพิ่มการแปลอาหารใหม่",
+    "All Restaurants" => "ร้านอาหารทั้งหมด",
+    "Category" => "หมวดหมู่",
+    "All Categories" => "ทุกหมวดหมู่",
+    "All foods" => "อาหารทั้งหมด",
+    "Dashboard" => "แดชบอร์ด",
+    "Welcome" => "ยินดีต้อนรับ",
+    "Food Chart" => "แผนภูมิอาหาร",
+    "The number of RestaurantFood Registration Chart per month" => "จำนวนแผนภูมิทะเบียนอาหารของร้านอาหารต่อเดือน",
+    "RestaurantFood Registration" => "ร้านอาหาร ทะเบียนอาหาร",
+    "Chart" => "แผนภูมิ",
+    "The number of Gcon Service Chart per month" => "จำนวนแผนภูมิบริการ Gcon ต่อเดือน",
+    "G-CON posts created" => "สร้างโพสต์ G-CON แล้ว",
     // for filament section END 
 
 ];

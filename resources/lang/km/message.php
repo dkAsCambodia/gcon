@@ -423,6 +423,18 @@ return [
     "Translation title" => "ចំណងជើងការបកប្រែ",
     "Translation description" => "ការពិពណ៌នាការបកប្រែ",
     "Add New Food Translation" => "បន្ថែមការបកប្រែអាហារថ្មី។",
+    "All Restaurants" => "ភោជនីយដ្ឋានទាំងអស់។",
+    "Category" => "ប្រភេទ",
+    "All Categories" => "ប្រភេទទាំងអស់។",
+    "All foods" => "អាហារទាំងអស់។",
+    "Dashboard" => "ផ្ទាំងគ្រប់គ្រង",
+    "Welcome" => "សូមស្វាគមន៍",
+    "Food Chart" => "តារាងអាហារ",
+    "The number of RestaurantFood Registration Chart per month" => "ចំនួនតារាងចុះឈ្មោះភោជនីយដ្ឋានអាហារប្រចាំខែ",
+    "RestaurantFood Registration" => "ការចុះឈ្មោះភោជនីយដ្ឋាន",
+    "Chart" => "គំនូសតាង",
+    "The number of Gcon Service Chart per month" => "ចំនួននៃតារាងសេវាកម្ម Gcon ក្នុងមួយខែ",
+    "G-CON posts created" => "ប្រកាស G-CON ត្រូវបានបង្កើតឡើង",
     // for filament section END
     
 ];

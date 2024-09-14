@@ -8,7 +8,11 @@ use Flowframe\Trend\TrendValue;
 
 class RestaurantFoodChart extends ChartWidget
 {
-    protected static ?string $heading = 'Food Chart';
+    protected static ?string $heading;
+    public function __construct() {
+        static::$heading = __('message.Food Chart');
+    }
+
     protected static ?string $pollingInterval = '10s';
     protected static ?int $sort = 0;
     public ?string $filter = '';
@@ -16,7 +20,7 @@ class RestaurantFoodChart extends ChartWidget
 
     public function getDescription(): ?string
     {
-       return 'The number of RestaurantFood Registration Chart per month.';
+       return __('message.The number of RestaurantFood Registration Chart per month');
     }
 
     protected function getOptions(): array
@@ -87,7 +91,7 @@ class RestaurantFoodChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'RestaurantFood Registration',
+                    'label' => __('message.RestaurantFood Registration'),
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],
