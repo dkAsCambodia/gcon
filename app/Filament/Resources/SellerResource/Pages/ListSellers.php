@@ -9,7 +9,10 @@ use Filament\Resources\Pages\ListRecords;
 class ListSellers extends ListRecords
 {
     protected static string $resource = SellerResource::class;
-
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
     protected function getHeaderActions(): array
     {
         return [

@@ -16,23 +16,29 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class CurrencyResource extends Resource
 {
     protected static ?string $model = Currency::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
+
+    public static function getModelLabel(): string{
+        return __('message.Currency');
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label(__('message.Currency name'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency_code')
+                    ->label(__('message.Currency code'))
                     ->required()
                     ->rule(function ($record) {
                         return $record ? 'unique:currencies,currency_code,' . $record->id : 'unique:currencies,currency_code';
                     })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency_symbol')
+                    ->label(__('message.Currency symbol'))
                     ->required()
                     ->maxLength(255),
             ]);
@@ -43,20 +49,23 @@ class CurrencyResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label(__('message.Currency name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('currency_code')
+                    ->label(__('message.Currency code'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('currency_symbol')
+                    ->label(__('message.Currency symbol'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('deleted_at')
+                Tables\Columns\TextColumn::make(__('message.deleted_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make(__('message.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

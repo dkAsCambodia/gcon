@@ -8,7 +8,10 @@ use Flowframe\Trend\TrendValue;
 
 class CustomerChart extends ChartWidget
 {
-    protected static ?string $heading = 'Customer Chart';
+    protected static ?string $heading;
+    public function __construct() {
+        static::$heading = __('message.Customer Chart');
+    }
     protected static ?string $pollingInterval = '10s';
     protected static ?int $sort = 0;
     public ?string $filter = '';
@@ -16,7 +19,7 @@ class CustomerChart extends ChartWidget
     
     public function getDescription(): ?string
     {
-       return 'The number of Customer Registration Chart per month.';
+       return __('message.The number of Customer Registration Chart per month');
     }
 
     protected function getOptions(): array
@@ -87,7 +90,7 @@ class CustomerChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Customer Registration',
+                    'label' => __('message.Customer Registration'),
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],

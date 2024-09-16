@@ -11,7 +11,10 @@ use Illuminate\Database\Eloquent\Builder;
 class ListConcertTblTransactions extends ListRecords
 {
     protected static string $resource = ConcertTblTransactionResource::class;
-
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
     protected function getHeaderActions(): array
     {
         return [

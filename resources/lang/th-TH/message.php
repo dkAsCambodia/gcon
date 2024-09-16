@@ -436,6 +436,22 @@ return [
     "Chart" => "แผนภูมิ",
     "The number of Gcon Service Chart per month" => "จำนวนแผนภูมิบริการ Gcon ต่อเดือน",
     "G-CON posts created" => "สร้างโพสต์ G-CON แล้ว",
+
+    "Customers" => "ลูกค้า",
+    "All Customers" => "ลูกค้าทุกท่าน",
+    "GBooking" => "GBooking",
+    "All GBooking" => "GBooking ทั้งหมด",
+    "Concert Table" => "โต๊ะคอนเสิร์ต",
+    "Concert Booking Table" => "โต๊ะจองคอนเสิร์ต",
+    "All Seller" => "ผู้ขายทั้งหมด",
+    "Delivery Boy" => "เด็กส่งของ",
+    "All DeliveryBoy" => "เดลิเวอรี่บอยทั้งหมด",
+    "Customer Chart" => "แผนภูมิลูกค้า",
+    "The number of Customer Registration Chart per month" => "จำนวนแผนภูมิการลงทะเบียนลูกค้าต่อเดือน",
+    "Customer Registration" => "การลงทะเบียนลูกค้า",
+    "Currency name" => "ชื่อสกุลเงิน",
+    "Currency code" => "รหัสสกุลเงิน",
+    "Currency symbol" => "สัญลักษณ์สกุลเงิน",
     // for filament section END 
 
 ];

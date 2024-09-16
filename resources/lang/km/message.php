@@ -435,6 +435,22 @@ return [
     "Chart" => "គំនូសតាង",
     "The number of Gcon Service Chart per month" => "ចំនួននៃតារាងសេវាកម្ម Gcon ក្នុងមួយខែ",
     "G-CON posts created" => "ប្រកាស G-CON ត្រូវបានបង្កើតឡើង",
+
+    "Customers" => "អតិថិជន",
+    "All Customers" => "អតិថិជនទាំងអស់។",
+    "GBooking" => "GBooking",
+    "All GBooking" => "GBooking ទាំងអស់។",
+    "Concert Table" => "តារាងប្រគុំតន្ត្រី",
+    "Concert Booking Table" => "តារាងកក់ការប្រគុំតន្ត្រី",
+    "All Seller" => "អ្នកលក់ទាំងអស់។",
+    "Delivery Boy" => "ក្មេងប្រុសដឹកជញ្ជូន",
+    "All DeliveryBoy" => "DeliveryBoy ទាំងអស់។",
+    "Customer Chart" => "គំនូសតាងអតិថិជន",
+    "The number of Customer Registration Chart per month" => "ចំនួនតារាងចុះឈ្មោះអតិថិជនក្នុងមួយខែ",
+    "Customer Registration" => "ការចុះឈ្មោះអតិថិជន",
+    "Currency name" => "ឈ្មោះរូបិយប័ណ្ណ",
+    "Currency code" => "លេខកូដរូបិយប័ណ្ណ",
+    "Currency symbol" => "និមិត្តសញ្ញារូបិយប័ណ្ណ",
     // for filament section END
     
 ];
