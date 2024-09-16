@@ -12,7 +12,10 @@ use Illuminate\Database\Eloquent\Builder;
 class ListTableCategoryTranslations extends ListRecords
 {
     protected static string $resource = TableCategoryTranslationResource::class;
-
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
     protected function getHeaderActions(): array
     {
         return [

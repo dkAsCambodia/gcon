@@ -9,7 +9,10 @@ use Filament\Resources\Pages\ListRecords;
 class ListLanguages extends ListRecords
 {
     protected static string $resource = LanguageResource::class;
-
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
     protected function getHeaderActions(): array
     {
         return [

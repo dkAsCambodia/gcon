@@ -14,9 +14,11 @@ use Filament\Pages\Actions\CreateAction;
 class ListBookingtables extends ListRecords
 {
     protected static string $resource = BookingtableResource::class;
-
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
     
-
     protected function getHeaderActions(): array
     {
         $recipient = auth()->user();

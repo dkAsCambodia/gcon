@@ -1,6 +1,6 @@
 <div>
-    <section class="page-title-layout2 page-title-light text-center pb-0 bg-overlay bg-parallax">
-        <div class="bg-img"><img src="https://img.freepik.com/free-psd/food-menu-restaurant-facebook-cover-template_106176-384.jpg?size=626&ext=jpg" style="height:100%;width: 100%;" alt="background"></div>
+    <section class="page-title-layout2 page-title-light text-center pb-0 bg-overlay">
+        <div class="bg-img"><img src="{{ URL::to('website/assets/images/banners/restBanner1.jpg') }}" style="height:200px;width:100%;" alt="background"></div>
         <div class="container">
           <div class="row">
             {{-- <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 offset-xl-3">

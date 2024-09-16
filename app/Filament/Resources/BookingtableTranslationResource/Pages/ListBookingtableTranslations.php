@@ -12,7 +12,10 @@ use Illuminate\Database\Eloquent\Builder;
 class ListBookingtableTranslations extends ListRecords
 {
     protected static string $resource = BookingtableTranslationResource::class;
-
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
     protected function getHeaderActions(): array
     {
         return [
