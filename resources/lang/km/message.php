@@ -435,7 +435,6 @@ return [
     "Chart" => "គំនូសតាង",
     "The number of Gcon Service Chart per month" => "ចំនួននៃតារាងសេវាកម្ម Gcon ក្នុងមួយខែ",
     "G-CON posts created" => "ប្រកាស G-CON ត្រូវបានបង្កើតឡើង",
-
     "Customers" => "អតិថិជន",
     "All Customers" => "អតិថិជនទាំងអស់។",
     "GBooking" => "GBooking",
@@ -451,6 +450,19 @@ return [
     "Currency name" => "ឈ្មោះរូបិយប័ណ្ណ",
     "Currency code" => "លេខកូដរូបិយប័ណ្ណ",
     "Currency symbol" => "និមិត្តសញ្ញារូបិយប័ណ្ណ",
+    "Language name" => "ឈ្មោះភាសា",
+    "Language Code" => "កូដភាសា",
+    "Order" => "បញ្ជាទិញ",
+    "Icon" => "រូបតំណាង",
+    "Admin Management" => "ការគ្រប់គ្រងរដ្ឋបាល",
+    "Admin Users" => "អ្នកប្រើប្រាស់អ្នកគ្រប់គ្រង",
+    "Name" => "ឈ្មោះ",
+    "Role" => "តួនាទី",
+    "Member Management" => "ការគ្រប់គ្រងសមាជិក",
+    "Address Information" => "ព័ត៌មានអាសយដ្ឋាន",
+    "Social Information" => "ព័ត៌មានសង្គម",
+    "Export" => "នាំចេញ",
+    "Link" => "តំណភ្ជាប់",
     // for filament section END
     
 ];

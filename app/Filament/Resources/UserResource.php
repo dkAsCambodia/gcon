@@ -17,22 +17,24 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
-    protected static ?string $navigationGroup = 'Admin Management';
-    public static function getNavigationLabel(): string
-    {
-        return __( key: 'Admin User');
+    public static function getNavigationGroup(): ?string{
+        return __('message.Admin Management');
     }
-
+    public static function getModelLabel(): string{
+        return __('message.Admin Users');
+    }
 
     public static function form(Form $form): Form
     {
         return $form
         ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label(__('message.Name'))
                     ->prefixIcon('heroicon-o-user')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
+                    ->label(__('message.Email'))
                     ->prefixIcon('heroicon-m-envelope')
                     ->email()
                     ->rule(function ($record) {
@@ -41,6 +43,7 @@ class UserResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phoneNumber')
+                    ->label(__('message.Phone Number'))
                     ->tel()
                     ->prefixIcon('heroicon-m-phone')
                     ->required()
@@ -51,6 +54,7 @@ class UserResource extends Resource
                 // Forms\Components\TextInput::make('email_verified_at')
                 //     ->prefixIcon('heroicon-m-calendar-days'),
                 Forms\Components\TextInput::make('password')
+                    ->label(__('message.Password'))
                     ->password()
                     ->revealable()
                     // ->unique(ignorable: fn ($record) => $record)
@@ -59,6 +63,7 @@ class UserResource extends Resource
                     ->prefixIcon('heroicon-m-lock-closed')
                     ->maxLength(255),
                 Forms\Components\Select::make('role')
+                    ->label(__('message.Role'))
                     ->options([
                         'admin' => 'admin',
                         'seller' => 'seller',
@@ -74,15 +79,20 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                ->label(__('message.Serial number'))
                 ->badge()
                 ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('name')
+                    ->label(__('message.Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                    ->label(__('message.Email'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phoneNumber')
+                    ->label(__('message.Phone Number'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('role')
+                    ->label(__('message.Role'))
                     ->searchable()
                     ->formatStateUsing(fn (string $state): string => ucfirst($state))
                     ->badge()
@@ -91,11 +101,11 @@ class UserResource extends Resource
                         'admin' => 'success',
                         'seller' => 'danger',
                     }),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make(__('message.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -105,9 +115,9 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
