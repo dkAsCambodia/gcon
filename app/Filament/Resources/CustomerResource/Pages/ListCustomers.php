@@ -24,10 +24,10 @@ class ListCustomers extends ListRecords
     public function getTabs(): array
     {
         return [
-            'all' => Tab::make('All customers'),
-            'active' => Tab::make('Active')
+            'all' => Tab::make(__('message.All')),
+            'active' => Tab::make(__('message.Active'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 1)),
-            'inactive' => Tab::make('Inactive')
+            'inactive' => Tab::make(__('message.Inactive'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 0)),
         ];
     }
