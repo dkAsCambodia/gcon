@@ -17,7 +17,12 @@ class MemberTypeResource extends Resource
 {
     protected static ?string $model = MemberType::class;
     protected static ?string $navigationIcon = 'heroicon-o-credit-card';
-    protected static ?string $navigationGroup = 'Member Management';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Member Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Member Type');
+    }
     protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
@@ -25,6 +30,7 @@ class MemberTypeResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('member_type_name')
+                    ->label(__('message.Enter Member Type'))
                     ->required()
                     ->prefixIcon('heroicon-m-credit-card')
                     ->rule(function ($record) {
@@ -32,10 +38,11 @@ class MemberTypeResource extends Resource
                     })
                     ->maxLength(255),
                 Forms\Components\TextInput::make('discount')
-                    ->label('Discount in %')
+                    ->label(__('message.Discount in %'))
                     ->prefixIcon('heroicon-m-receipt-percent')
                     ->numeric(),
                 Forms\Components\Toggle::make('status')
+                    ->label(__('message.Status'))
                     ->required(),
             ]);
     }
@@ -45,20 +52,23 @@ class MemberTypeResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                    ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('member_type_name')
+                    ->label(__('message.Member Type'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('discount')
-                    ->label('Discount in %')
+                    ->label(__('message.Discount in %'))
                     ->searchable(),
                 Tables\Columns\IconColumn::make('status')
+                    ->label(__('message.Status'))
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make(__('message.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -68,8 +78,8 @@ class MemberTypeResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

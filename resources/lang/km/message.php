@@ -463,6 +463,10 @@ return [
     "Social Information" => "ព័ត៌មានសង្គម",
     "Export" => "នាំចេញ",
     "Link" => "តំណភ្ជាប់",
+    "Enter Member Type" => "បញ្ចូលប្រភេទសមាជិក",
+    "Username" => "ឈ្មោះអ្នកប្រើប្រាស់",
+    "Lat" => "ឡាត",
+    "Long" => "វែង",
     // for filament section END
     
 ];

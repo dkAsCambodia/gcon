@@ -18,9 +18,12 @@ class AuthorizedByeResource extends Resource
     protected static ?string $model = AuthorizedBye::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationGroup = 'Member Management';
-    protected static ?string $navigationLabel = 'Issue By';
-    protected static ?string $modelLabel = 'issue by the people';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Member Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Issue By');
+    }
     protected static ?string $slug = 'issue-by';
     protected static ?int $navigationSort = 1;
 
@@ -29,6 +32,7 @@ class AuthorizedByeResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('authorized_by')
+                    ->label(__('message.Issue By'))
                     ->required()
                     ->rule(function ($record) {
                         return $record ? 'unique:authorized_byes,authorized_by,' . $record->id : 'unique:authorized_byes,authorized_by';
@@ -36,6 +40,7 @@ class AuthorizedByeResource extends Resource
                     ->prefixIcon('heroicon-m-user')
                     ->maxLength(255),
                 Forms\Components\Toggle::make('status')
+                    ->label(__('message.Status'))
                     ->default('1')
                     ->onIcon('heroicon-m-bolt')
                     ->offIcon('heroicon-m-user')
@@ -49,17 +54,20 @@ class AuthorizedByeResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                ->label(__('message.Serial number'))
                 ->badge()
                 ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('authorized_by')
+                    ->label(__('message.Issue By'))
                     ->searchable(),
                 Tables\Columns\IconColumn::make('status')
+                    ->label(__('message.Status'))
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make(__('message.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -69,8 +77,8 @@ class AuthorizedByeResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -464,6 +464,10 @@ return [
     "Social Information" => "ข้อมูลทางสังคม",
     "Export" => "ส่งออก",
     "Link" => "ลิงค์",
+    "Enter Member Type" => "กรอกประเภทสมาชิก",
+    "Username" => "ชื่อผู้ใช้",
+    "Lat" => "ลาด",
+    "Long" => "ยาว",
     
     // for filament section END 
 
