@@ -21,7 +21,12 @@ class GbookingTranslationResource extends Resource
 {
     protected static ?string $model = GbookingTranslation::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Booking Management';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Booking Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Gbooking Translation');
+    }
     
     protected static ?int $navigationSort = 1;
 
@@ -30,26 +35,27 @@ class GbookingTranslationResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('tbl_gbooking_id')
-                    ->label('Recognize')
+                    ->label(__('message.Recognize'))
                     ->options(TblGbooking::where('status', 1)->pluck('BookingType', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->searchable()
                     ->required(),
                 Forms\Components\Select::make('language_id')
-                    ->label('Select language')
+                    ->label(__('message.Select language'))
                     ->options(Language::where('status', 1)->pluck('name', 'id')) 
                     ->prefixIcon('heroicon-o-flag')
                     ->searchable()
                     ->required(),
                 Forms\Components\TextInput::make('GBookingname')
-                    ->label('Name')
+                    ->label(__('message.Name'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('title')
+                    ->label(__('message.Title'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('desc')
-                    ->label('Description')
+                    ->label(__('message.Description'))
                     ->columnSpanFull(),
             ]);
     }
@@ -59,31 +65,32 @@ class GbookingTranslationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                    ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('gbookingdata.BookingType')
-                    ->label('Gbooking slug')
+                    ->label(__('message.BookingType slug'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('gbookingdata.recognize')
-                    ->label('Recognize')
+                    ->label(__('message.Recognize'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('languages.name')
-                    ->label('Language')
+                    ->label(__('message.Language'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('GBookingname')
-                    ->label('Name')
+                    ->label(__('message.Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
+                    ->label(__('message.Title'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('desc')
-                    ->label('Description')
+                    ->label(__('message.Description'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                Tables\Columns\TextColumn::make(__('message.created_at'))
+                    ->dateTime('d-M-Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -92,9 +99,9 @@ class GbookingTranslationResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -468,6 +468,15 @@ return [
     "Username" => "ชื่อผู้ใช้",
     "Lat" => "ลาด",
     "Long" => "ยาว",
+    "Booking Management" => "การจัดการการจอง",
+    "Recognize" => "จำได้",
+    "BookingType slug" => "ทากประเภทการจอง",
+    "Image" => "ภาพ",
+    "Gbooking Translation" => "การแปล Gbooking",
+    "Description" => "คำอธิบาย",
+    "Time slot" => "ช่วงเวลา",
+    "Time" => "เวลา",
+    "Interval" => "ช่วงเวลา",
     
     // for filament section END 
 
