@@ -480,6 +480,8 @@ return [
     "Interval" => "Interval",
     "List" => "List",
     "List" => "List",
+    "List" => "List",
+    "List" => "List",
     // for filament section END
     
     
