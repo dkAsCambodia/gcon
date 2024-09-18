@@ -26,12 +26,12 @@ class ListTblGbookings extends ListRecords
     public function getTabs(): array
     {
         return [
-            'all' => Tab::make('All'),
-            'GEntertainment' => Tab::make('GEntertainment')
+            'all' => Tab::make(__('message.All')),
+            'GEntertainment' => Tab::make(__('message.G-Entertainment'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('recognize', 'GEntertainment')),
-            'GBooking' => Tab::make('GBooking')
+            'GBooking' => Tab::make(__('message.G-Booking'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('recognize', 'GBooking')),
-            'GService' => Tab::make('GService')
+            'GService' => Tab::make(__('message.G-Service'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('recognize', 'GService')),
         ];
     }

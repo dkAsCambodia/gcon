@@ -19,7 +19,12 @@ class TimeslotResource extends Resource
 {
     protected static ?string $model = Timeslot::class;
     protected static ?string $navigationIcon = 'heroicon-o-clock';
-    protected static ?string $navigationGroup = 'Booking Management';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Booking Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Time slot');
+    }
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
@@ -27,10 +32,12 @@ class TimeslotResource extends Resource
         return $form
             ->schema([
                     TimePicker::make('time')
+                    ->label(__('message.Time'))
                     ->required()
                     ->seconds(false)
                     ->prefixIcon('heroicon-m-clock'),
                 Forms\Components\Select::make('interval')
+                    ->label(__('message.Interval'))
                     ->options([
                         'AM' => 'AM',
                         'PM' => 'PM',
@@ -38,9 +45,11 @@ class TimeslotResource extends Resource
                     ->prefixIcon('heroicon-m-arrow-path-rounded-square')
                     ->required(),
                 Forms\Components\TextInput::make('orderby')
+                    ->label(__('message.Order'))
                     ->prefixIcon('heroicon-m-list-bullet')
                     ->numeric(),
                 Forms\Components\Toggle::make('status')
+                    ->label(__('message.Status'))
                     ->required(),
             ]);
     }
@@ -50,23 +59,27 @@ class TimeslotResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                    ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('time')
+                    ->label(__('message.Time'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('interval')
+                    ->label(__('message.Interval'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('orderby')
+                    ->label(__('message.Order'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('status')
+                    ->label(__('message.Status'))
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                Tables\Columns\TextColumn::make(__('message.created_at'))
+                    ->dateTime('d-M-Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -74,8 +87,8 @@ class TimeslotResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

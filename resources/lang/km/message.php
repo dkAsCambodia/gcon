@@ -467,6 +467,15 @@ return [
     "Username" => "ឈ្មោះអ្នកប្រើប្រាស់",
     "Lat" => "ឡាត",
     "Long" => "វែង",
+    "Booking Management" => "ការគ្រប់គ្រងការកក់",
+    "Recognize" => "ទទួលស្គាល់",
+    "BookingType slug" => "ប្រភេទការកក់ទុក",
+    "Image" => "រូបភាព",
+    "Gbooking Translation" => "ការបកប្រែ Gbooking",
+    "Description" => "ការពិពណ៌នា",
+    "Time slot" => "ចន្លោះពេល",
+    "Time" => "ពេលវេលា",
+    "Interval" => "ចន្លោះពេល",
     // for filament section END
     
 ];

@@ -22,8 +22,12 @@ class TblGbookingResource extends Resource
 {
     protected static ?string $model = TblGbooking::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Booking Management';
-    protected static ?string $navigationLabel = 'GBooking';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Booking Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.GBooking');
+    }
     protected static ?string $modelLabel = 'GBooking';
     protected static ?int $navigationSort = 0;
 
@@ -32,6 +36,7 @@ class TblGbookingResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('recognize')
+                    ->label(__('message.Recognize'))
                             ->options([
                                 'GEntertainment' => 'GEntertainment',
                                 'GBooking' => 'GBooking',
@@ -40,7 +45,7 @@ class TblGbookingResource extends Resource
                             ->prefixIcon('heroicon-o-rectangle-stack')
                             ->required(),
                 Forms\Components\TextInput::make('BookingType')
-                    ->label('BookingType slug')
+                    ->label(__('message.BookingType slug'))
                     ->rule(function ($record) {
                         return $record ? 'unique:tbl_gbookings,BookingType,' . $record->id : 'unique:tbl_gbookings,BookingType';
                     })
@@ -48,19 +53,22 @@ class TblGbookingResource extends Resource
                     ->prefix('https://')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('discount')
-                    ->label('Discount in %')
+                    ->label(__('message.Discount in %'))
                     ->prefixIcon('heroicon-m-receipt-percent')
                     ->numeric(),
                 Forms\Components\TextInput::make('order')
+                    ->label(__('message.Order'))
                     ->required()
                     ->prefixIcon('heroicon-m-list-bullet')
                     ->numeric(),
                 Forms\Components\Toggle::make('status')
+                    ->label(__('message.Status'))
                     ->default('0')
                     ->onIcon('heroicon-m-bolt')
                     ->onColor('success')
                     ->required(),
                 Forms\Components\FileUpload::make('image')
+                    ->label(__('message.Image'))
                     ->required()
                     ->directory('images/services')
                     ->image(),
@@ -72,7 +80,7 @@ class TblGbookingResource extends Resource
         return $table
             ->headerActions([
                 // ExportAction::make()
-                ExportAction::make()->exports([
+                ExportAction::make()->label(__('message.Export'))->exports([
                     ExcelExport::make()->fromTable()->except([
                         'Serial_number', 'updated_at',
                     ]),
@@ -83,29 +91,33 @@ class TblGbookingResource extends Resource
             ])
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                    ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('BookingType')
-                    ->label('BookingType slug')
+                    ->label(__('message.BookingType slug'))
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image')
+                    ->label(__('message.Image'))
                     ->square(),
                 Tables\Columns\TextColumn::make('recognize')
+                    ->label(__('message.Recognize'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('discount')
-                    ->label('Discount in %')
+                    ->label(__('message.Discount in %'))
                     ->searchable(),
                 Tables\Columns\IconColumn::make('status')
+                    ->label(__('message.Status'))
                     ->boolean(),
                 Tables\Columns\TextColumn::make('order')
+                    ->label(__('message.Order'))
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                Tables\Columns\TextColumn::make(__('message.created_at'))
+                    ->dateTime('d-M-Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -114,13 +126,13 @@ class TblGbookingResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                    ExportBulkAction::make()->exports([
+                    ExportBulkAction::make()->label(__('message.Export'))->exports([
                         ExcelExport::make()->fromTable()->except([
                             'Serial_number', 'updated_at',
                         ]),
