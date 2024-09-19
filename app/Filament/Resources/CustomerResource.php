@@ -202,13 +202,15 @@ class CustomerResource extends Resource
                 //     ->searchable(),
                 // Tables\Columns\TextColumn::make('country')
                 //     ->searchable(),
-                Tables\Columns\TextColumn::make(__('message.created_at'))
-                    ->dateTime('d-M-Y')
-                    ->sortable(),
                 Tables\Columns\IconColumn::make('status')
                     ->label(__('message.Status'))
                     ->boolean(),
-                Tables\Columns\TextColumn::make(__('message.updated_at'))
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('message.Created at'))
+                    ->dateTime('d-M-Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('message.Updated at'))
                     ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

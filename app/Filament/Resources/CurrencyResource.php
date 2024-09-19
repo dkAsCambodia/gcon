@@ -57,16 +57,18 @@ class CurrencyResource extends Resource
                 Tables\Columns\TextColumn::make('currency_symbol')
                     ->label(__('message.Currency symbol'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make(__('message.deleted_at'))
-                    ->dateTime()
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->label(__('message.Deleted at'))
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make(__('message.created_at'))
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make(__('message.updated_at'))
-                    ->dateTime()
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('message.Created at'))
+                    ->dateTime('d-M-Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('message.Updated at'))
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
