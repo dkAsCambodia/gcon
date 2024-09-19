@@ -11,7 +11,10 @@ use Filament\Notifications\Actions\Action;
 class CreateBookingtable extends CreateRecord
 {
     protected static string $resource = BookingtableResource::class;
-    
+    public function getBreadcrumb(): string
+    {
+        return __('message.New');
+    }
 
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
