@@ -20,10 +20,12 @@ class BookingtableTranslationResource extends Resource
 {
     protected static ?string $model = BookingtableTranslation::class;
     protected static ?string $navigationIcon = 'heroicon-o-ticket';
-
-    protected static ?string $navigationLabel = 'Concert Table translation';
-    protected static ?string $navigationGroup = 'Concert Booking';
-    protected static ?string $modelLabel = 'Concert Table translations';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Concert Booking');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Concert Table translations');
+    }
     protected static ?string $slug = 'concertTableTranslation';
     protected static ?int $navigationSort = 3;
 
@@ -32,30 +34,30 @@ class BookingtableTranslationResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('bookingtable_id')
-                    ->label('ConcertTable ID')
+                    ->label(__('message.Select ConcertTable ID'))
                     ->options(Bookingtable::where('tbl_status', 1)->pluck('id', 'id')) 
                     ->prefix('concertTbl_')
                     ->searchable()
                     ->required(),
                 Forms\Components\Select::make('language_id')
-                    ->label('Select language')
+                    ->label(__('message.Select language'))
                     ->options(Language::where('status', 1)->pluck('name', 'id')) 
                     ->prefixIcon('heroicon-o-flag')
                     ->searchable()
                     ->required(),
                 Forms\Components\TextInput::make('tbl_name')
-                    ->label('Name')
+                    ->label(__('message.ConcertTable Name'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tbl_title')
-                    ->label('No of people')
+                    ->label(__('message.No of people'))
                     ->numeric()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tbl_address')
-                    ->label('Address')
+                    ->label(__('message.Enter address'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tbl_desc')
-                    ->label('description')
+                    ->label(__('message.Description'))
                     ->maxLength(255),
             ]);
     }
@@ -65,26 +67,30 @@ class BookingtableTranslationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                    ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\ImageColumn::make('concerttableData.tbl_img')
-                    ->label('Images')
+                    ->label(__('message.Table Image'))
                     ->square(),
                 Tables\Columns\TextColumn::make('bookingtable_id')
-                    ->label('ConcertTable number')
+                    ->label(__('message.Table number'))
                     ->prefix('concertTbl_')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('languages.name')
-                    ->label('Language')
+                    ->label(__('message.Language'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tbl_name')
+                    ->label(__('message.ConcertTable Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tbl_title')
-                    ->label('No of people')
+                    ->label(__('message.No of people'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tbl_address')
+                    ->label(__('message.Enter address'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tbl_desc')
+                    ->label(__('message.Description'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('message.Created at'))
@@ -101,8 +107,8 @@ class BookingtableTranslationResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

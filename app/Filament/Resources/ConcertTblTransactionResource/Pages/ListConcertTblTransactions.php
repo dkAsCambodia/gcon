@@ -25,14 +25,14 @@ class ListConcertTblTransactions extends ListRecords
     public function getTabs(): array
     {
         return [
-            'all' => Tab::make('All'),
-            'Success' => Tab::make('Success')
+            'all' => Tab::make(__('message.All')),
+            'Success' => Tab::make(__('message.Success'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'success')),
-            'Pending' => Tab::make('Pending')
+            'Pending' => Tab::make(__('message.Pending'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'pending')),
-            'Cancellled Booking' => Tab::make('Cancellled Booking')
+            'Cancellled Booking' => Tab::make(__('message.Cancelled'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('cancelStatus', '1')),
-            
+                
         ];
     }
 }

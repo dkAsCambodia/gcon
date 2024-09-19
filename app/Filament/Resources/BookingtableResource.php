@@ -29,10 +29,13 @@ class BookingtableResource extends Resource
 {
     protected static ?string $model = Bookingtable::class;
     protected static ?string $navigationIcon = 'heroicon-o-ticket';
-
-    protected static ?string $navigationLabel = 'Concert Table';
-    protected static ?string $navigationGroup = 'Concert Booking';
-    protected static ?string $modelLabel = 'Concert Tables';
+ 
+    public static function getNavigationGroup(): ?string{
+        return __('message.Concert Booking');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Concert Tables');
+    }
     protected static ?string $slug = 'concertTable';
     protected static ?int $navigationSort = 2;
 
@@ -41,18 +44,19 @@ class BookingtableResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('cat_id')
-                    ->label('Select Category')
+                    ->label(__('message.Select Category'))
                     ->options(TableCategoryTranslation::where('language_id', 1)->pluck('cat_name', 'table_category_id')) 
                     ->prefixIcon('heroicon-o-tag')
                     ->searchable()
                     ->required(),
                 Forms\Components\Select::make('GBooking_id')
-                    ->label('GBookingtype')
+                    ->label(__('message.Select Gbooking Name'))
                     ->options(TblGbooking::where('status', 1)->pluck('BookingType', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->default('1')
                     ->required(),
                 Forms\Components\TextInput::make('tbl_price')
+                    ->label(__('message.Price'))
                     ->required()
                     ->prefix('$')
                     ->maxLength(255),
@@ -65,25 +69,27 @@ class BookingtableResource extends Resource
                 //     ->prefixIcon('heroicon-o-currency-dollar')
                 //     ->required(),
                 Forms\Components\Select::make('currency')
-                    ->label('currency')
+                    ->label(__('message.Currency'))
                     ->options(Currency::where('deleted_at', NULL)->pluck('name', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->default('1')
                     ->required(),
                 Forms\Components\TextInput::make('discount')
-                    ->label('Discount in %')
+                    ->label(__('message.Discount in %'))
                     ->prefixIcon('heroicon-m-receipt-percent')
                     ->numeric(),
                 Forms\Components\TextInput::make('orderby')
+                    ->label(__('message.Order'))
                     ->required()
                     ->prefixIcon('heroicon-m-list-bullet')
                     ->numeric(),
                 Forms\Components\FileUpload::make('tbl_img')
-                    ->label('Table Image')
+                    ->label(__('message.Table Image'))
                     ->required()
                     ->directory('images/concertTable')
                     ->image(),
                 Forms\Components\Toggle::make('tbl_status')
+                    ->label(__('message.Status'))
                     ->onIcon('heroicon-m-bolt')
                     ->offIcon('heroicon-m-bolt')
                     ->onColor('success')
@@ -96,37 +102,41 @@ class BookingtableResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                    ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('categories.cat_name')
+                    ->label(__('message.Category name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('gbookingdata.BookingType')
-                    ->label('GBookingtype')
+                    ->label(__('message.Gbooking Name'))
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('tbl_img')
-                    ->label('Images')
+                    ->label(__('message.Table Image'))
                     ->square(),
                 Tables\Columns\TextColumn::make('id')
-                    ->label('Table number')
+                    ->label(__('message.Table number'))
                     ->getStateUsing(fn ($record)=> 'concertTbl_'.$record->id)
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('tbl_price')
-                    ->label('Price')
+                    ->label(__('message.Price'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('currencydata.name')
-                    ->label('Currency')
+                    ->label(__('message.Currency'))
                     ->searchable(),
                 // Tables\Columns\TextColumn::make('currency_symbol')
                 //     ->label('CurrencySymbol')
                 //     ->searchable(),
                 Tables\Columns\TextColumn::make('discount')
-                    ->label('Discount in %')
+                    ->label(__('message.Discount in %'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('orderby')
+                    ->label(__('message.Order'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('tbl_status')
+                    ->label(__('message.Status'))
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('message.Created at'))
@@ -143,7 +153,7 @@ class BookingtableResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes'))
                 ->mutateFormDataUsing(function (array $data): array {
                     if($data['currency'] == 'USD'){
                         $cu = '$';
@@ -161,7 +171,7 @@ class BookingtableResource extends Resource
                          ->body('Concert Tables has been updated successfully!'),
                         //  ->sendToDatabase(auth()->user()),
                 ),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
