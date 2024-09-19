@@ -26,7 +26,7 @@ class ListGbookingTranslations extends ListRecords
     public function getTabs(): array
     {
         return [
-            'all' => Tab::make(__('message.All language')),
+            'all' => Tab::make(__('message.All language')), 
             'English' => Tab::make(__('message.English'))
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('language_id', 1)),
             'Thai' => Tab::make(__('message.Thai'))

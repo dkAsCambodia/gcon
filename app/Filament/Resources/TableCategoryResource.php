@@ -20,10 +20,12 @@ class TableCategoryResource extends Resource
 {
     protected static ?string $model = TableCategory::class;
     protected static ?string $navigationIcon = 'heroicon-o-tag';
-
-    protected static ?string $navigationLabel = 'Concert Category';
-    protected static ?string $navigationGroup = 'Concert Booking';
-    protected static ?string $modelLabel = 'Concert categories';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Concert Booking');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Concert categories');
+    }
     protected static ?string $slug = 'concert-category';
     protected static ?int $navigationSort = 0;
 
@@ -32,16 +34,18 @@ class TableCategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('GBooking_id')
-                    ->label('Select Gbooking Name')
+                    ->label(__('message.Select Gbooking Name'))
                     ->options(TblGbooking::where('status', 1)->pluck('BookingType', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->searchable()
                     ->required(),
                 Forms\Components\TextInput::make('order')
+                    ->label(__('message.Order'))
                     ->required()
                     ->prefixIcon('heroicon-m-list-bullet')
                     ->numeric(),
                 Forms\Components\Toggle::make('status')
+                    ->label(__('message.Status'))
                     ->default('0')
                     ->onIcon('heroicon-m-bolt')
                     ->onColor('success')
@@ -54,27 +58,31 @@ class TableCategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                    ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('catgbookingData.BookingType')
-                    ->label('Gbooking Name')
+                    ->label(__('message.Gbooking Name'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('GBooking_id')
-                    ->label('Category ID')
+                    ->label(__('message.Category ID'))
                     ->getStateUsing(fn ($record)=> 'cat_'.$record->id)
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('order')
+                    ->label(__('message.Order'))
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('status')
+                    ->label(__('message.Status'))
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->label(__('message.Created at'))
+                    ->dateTime('d-M-Y')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label(__('message.Updated at'))
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -82,8 +90,8 @@ class TableCategoryResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
