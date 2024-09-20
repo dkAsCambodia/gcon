@@ -20,8 +20,12 @@ class RestaurantOrderResource extends Resource
 {
     protected static ?string $model = RestaurantOrder::class;
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
-    protected static ?string $navigationGroup = 'Restaurant Management';
-    protected static ?string $modelLabel = 'Ordered food transaction';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Restaurant Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Ordered food transaction');
+    }
     protected static ?string $slug = 'orderedfoods';
     protected static ?int $navigationSort = 5;
 
@@ -30,27 +34,31 @@ class RestaurantOrderResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('restaurant_id')
-                    ->label('Restaurants')
+                    ->label(__('message.Restaurant Name'))
                     ->options(Restaurant::pluck('restaurantName', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
                     ->reactive(),
                 Forms\Components\Select::make('cust_id')
-                    ->label('CustomerName')
+                    ->label(__('message.Customer Name'))
                     ->options(Customer::pluck('name', 'id')) 
                     ->prefixIcon('heroicon-m-user')
                     ->default('Guest')
                     ->required(),
                 Forms\Components\TextInput::make('order_key')
+                    ->label(__('message.Order Key'))
                     ->prefixIcon('heroicon-o-tag')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('TransactionId')
+                    ->label(__('message.TransactionId'))
                     ->prefixIcon('heroicon-o-tag')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('payment_type')
+                    ->label(__('message.Payment type'))
                     ->prefixIcon('heroicon-o-tag')
                     ->maxLength(255),
                 Forms\Components\Select::make('payment_status')
+                    ->label(__('message.Payment Status'))
                     ->options([
                         'pending' => 'pending',
                         'success' => 'success',
@@ -59,18 +67,21 @@ class RestaurantOrderResource extends Resource
                     ->prefixIcon('heroicon-m-ticket'),
                 Forms\Components\TextInput::make('totalPayAmount')
                     ->prefixIcon('heroicon-o-currency-dollar')
-                    ->label('Amount')
+                    ->label(__('message.Amount'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency')
+                    ->label(__('message.Currency'))
                     ->prefixIcon('heroicon-o-currency-dollar')
                     ->maxLength(255),
                 Forms\Components\Select::make('order_status')
+                    ->label(__('message.Order Status'))
                     ->options([
                         'pending' => 'pending',
                         'ordered' => 'ordered',
                     ])
                     ->prefixIcon('heroicon-m-ticket'),
                 Forms\Components\Select::make('assign_status') 
+                    ->label(__('message.Assign Status'))
                     ->options([
                         'pending' => 'pending',
                         'assigned' => 'assigned',
@@ -82,12 +93,15 @@ class RestaurantOrderResource extends Resource
                     ])
                     ->prefixIcon('heroicon-m-ticket'),
                 Forms\Components\TextInput::make('gateway_name')
+                    ->label(__('message.Gateway name'))
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('delivery_suggestion')
+                    ->label(__('message.Delivery suggestion'))
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('cancel_reason')
+                    ->label(__('message.Cancellation reason'))
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
             ]);
@@ -98,34 +112,38 @@ class RestaurantOrderResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
+                    ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
                 Tables\Columns\TextColumn::make('getsellerData.firstName')
-                    ->label('Seller')
+                    ->label(__('message.Seller'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('restaurantData.restaurantName')
-                    ->label('Restaurant Name')
+                    ->label(__('message.Restaurant Name'))
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('RestaurantFoodData.food_img')
-                    ->label('Foods')
+                    ->label(__('message.Foods'))
                     ->square(),
                 Tables\Columns\TextColumn::make('Customerdata.name')
-                    ->label('CustomerName')
+                    ->label(__('message.Customer Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('order_key')
-                    ->label('OrderKey')
+                    ->label(__('message.Order Key'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('TransactionId')
+                    ->label(__('message.TransactionId'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('payment_type')
+                    ->label(__('message.Payment type'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('totalPayAmount')
-                    ->label('Amount')
+                    ->label(__('message.Amount'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('currency')
+                    ->label(__('message.Currency'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('payment_status')
-                    ->label('Payment Status')
+                    ->label(__('message.Payment Status'))
                     ->searchable()
                     ->formatStateUsing(fn (string $state): string => ucfirst($state))
                     ->badge()
@@ -134,6 +152,7 @@ class RestaurantOrderResource extends Resource
                         'success' => 'success',
                     }),
                 Tables\Columns\TextColumn::make('order_status')
+                    ->label(__('message.Order Status'))
                     ->searchable()
                     ->formatStateUsing(fn (string $state): string => ucfirst($state))
                     ->badge()
@@ -142,6 +161,7 @@ class RestaurantOrderResource extends Resource
                         'ordered' => 'success',
                     }),
                 Tables\Columns\TextColumn::make('assign_status')
+                    ->label(__('message.Assign Status'))
                     ->searchable()
                     ->formatStateUsing(fn (string $state): string => ucfirst($state))
                     ->badge()
@@ -155,6 +175,7 @@ class RestaurantOrderResource extends Resource
                         'cancelled' => 'danger',
                     }),
                 Tables\Columns\TextColumn::make('order_date')
+                    ->label(__('message.Order Date'))
                     ->dateTime('d-M-Y')
                     ->searchable(),
             ])
@@ -163,8 +184,8 @@ class RestaurantOrderResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalHeading(__('message.Edit'))->modalButton(__('message.Save changes')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

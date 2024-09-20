@@ -503,6 +503,11 @@ return [
     "futurePaymentCustId" => "ការទូទាត់អនាគតCustId",
     "Concert Table information" => "ព័ត៌មានតារាងប្រគុំតន្ត្រី",
     "User information" => "ព័ត៌មានអ្នកប្រើប្រាស់",
+    "Sellers" => "អ្នកលក់",
+    "Seller information" => "ព័ត៌មានពីអ្នកលក់",
+    "Contract Status" => "ស្ថានភាពកិច្ចសន្យា",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    "Available for delivery" => "អាចរកបានសម្រាប់ការចែកចាយ",
     // for filament section END
     
 ];
