@@ -504,6 +504,11 @@ return [
     "futurePaymentCustId" => "FuturePaymentCustId",
     "Concert Table information" => "ข้อมูลตารางคอนเสิร์ต",
     "User information" => "ข้อมูลผู้ใช้",
+    "Sellers" => "ผู้ขาย",
+    "Seller information" => "ข้อมูลผู้ขาย",
+    "Contract Status" => "สถานะสัญญา",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    "Available for delivery" => "มีจำหน่ายสำหรับการจัดส่ง",
     
     // for filament section END 
 

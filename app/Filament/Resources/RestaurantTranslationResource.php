@@ -20,7 +20,12 @@ class RestaurantTranslationResource extends Resource
 {
     protected static ?string $model = RestaurantTranslation::class;
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
-    protected static ?string $navigationGroup = 'Restaurant Management';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Restaurant Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Restaurant Translation');
+    }
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
@@ -28,21 +33,23 @@ class RestaurantTranslationResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('restaurant_id')
-                    ->label('Restaurants')
+                    ->label(__('message.Select Restaurant'))
                     ->options(Restaurant::pluck('restaurantName', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
                     ->reactive(),
                 Forms\Components\Select::make('language_id')
-                    ->label('Select language')
+                    ->label(__('message.Select language'))
                     ->options(Language::where('status', 1)->pluck('name', 'id')) 
                     ->required()
                     ->prefixIcon('heroicon-o-flag')
                     ->required(),
                 Forms\Components\TextInput::make('heading')
+                    ->label(__('message.Heading'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('title')
+                    ->label(__('message.Title'))
                     ->maxLength(255),
             ]);
     }
@@ -52,25 +59,23 @@ class RestaurantTranslationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('restaurantData.restaurantName')
-                    ->label('Restaurant Name')
+                    ->label(__('message.Restaurant Name'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('languages.name')
-                    ->label('Language')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('languages.name')
-                    ->label('Language')
+                    ->label(__('message.Language'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('heading')
+                    ->label(__('message.Heading'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
+                    ->label(__('message.Title'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('message.Created at'))
-                    ->dateTime('d-M-Y')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->label(__('message.Updated at'))
-                    ->dateTime('d-M-Y')
+                Tables\Columns\TextColumn::make(__('message.created_at'))
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make(__('message.updated_at'))
+                    ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -78,8 +83,8 @@ class RestaurantTranslationResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

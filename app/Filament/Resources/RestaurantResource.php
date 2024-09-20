@@ -21,17 +21,22 @@ class RestaurantResource extends Resource
 {
     protected static ?string $model = Restaurant::class;
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
-    protected static ?string $navigationGroup = 'Restaurant Management';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Restaurant Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Restaurant');
+    }
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Shop information')
+                Forms\Components\Section::make(__('message.Shop information'))
                     ->schema([
                         Forms\Components\Select::make('sellerId')
-                            ->label('Select seller')
+                            ->label(__('message.Select seller'))
                             // ->options(Seller::pluck('firstName', 'lastName', 'id')) 
                             ->options(Seller::all()->mapWithKeys(function ($seller) {
                                 return [$seller->id => ucfirst($seller->firstName) . ' ' . $seller->lastName];
@@ -40,29 +45,31 @@ class RestaurantResource extends Resource
                             ->searchable()
                             ->required(),
                         Forms\Components\Select::make('GBookingId')
-                            ->label('GBookingtype')
+                            ->label(__('message.GBooking Type'))
                             ->options(TblGbooking::where('status', 1)->pluck('BookingType', 'id')) 
                             ->prefixIcon('heroicon-o-rectangle-stack')
                             ->default('2')
                             ->reactive(),
                         Forms\Components\TextInput::make('restaurantName')
+                            ->label(__('message.Restaurant Name'))
                             ->required()
                             ->rule(function ($record) {
                                 return $record ? 'unique:restaurants,restaurantName,' . $record->id : 'unique:restaurants,restaurantName';
                             })
                             ->maxLength(255),
                     ])->columns(2),
-                Forms\Components\Section::make('Shop Timing')
+                Forms\Components\Section::make(__('message.Shop Timing'))
                     ->schema([
                         Forms\Components\TimePicker::make('openTime')
-                            ->label('Shop opening time')
+                            ->label(__('message.Shop opening time'))
                             ->required()
                             ->prefixIcon('heroicon-m-play'),
                         Forms\Components\TimePicker::make('closedtime')
-                            ->label('Shop closed time')
+                            ->label(__('message.Shop closed time'))
                             ->required()
                             ->prefixIcon('heroicon-m-play'),
                         Forms\Components\Select::make('openingDay')
+                            ->label(__('message.Opening Day'))
                             ->options([
                                 'sunday' => 'sunday',
                                 'monday' => 'monday',
@@ -75,7 +82,7 @@ class RestaurantResource extends Resource
                             ->prefixIcon('heroicon-m-calendar')
                             ->required(),
                         Forms\Components\Select::make('closingday')
-                            ->label('Closing day')
+                            ->label(__('message.Closing day'))
                             ->options([
                                 'sunday' => 'sunday',
                                 'monday' => 'monday',
@@ -88,26 +95,32 @@ class RestaurantResource extends Resource
                             ->prefixIcon('heroicon-m-calendar')
                             ->required(),
                     ])->columns(2),
-                Forms\Components\Section::make('Shop information')
+                Forms\Components\Section::make(__('message.Shop Address details'))
                     ->schema([
                         Forms\Components\TextInput::make('Discount')
+                            ->label(__('message.Discount in %'))
                             ->maxLength(255),
                         Forms\Components\TextInput::make('lat')
+                            ->label(__('message.Lat'))
                             ->maxLength(255),
                         Forms\Components\TextInput::make('long')
+                            ->label(__('message.Long'))
                             ->maxLength(255),
                         Forms\Components\Textarea::make('address')
+                            ->label(__('message.Address'))
                             ->required(),
                         Forms\Components\FileUpload::make('imgRestaurant')
-                            ->label('Restaurant Image')
+                            ->label(__('message.Restaurant Image'))
                             ->required()
                             ->directory('images/restaurant')
                             ->image(),
                     ])->columns(3),
                 Forms\Components\Toggle::make('openStatus')
+                    ->label(__('message.Open Status'))
                     ->default('1')
                     ->onColor('success'),
                 Forms\Components\Toggle::make('status')
+                    ->label(__('message.Status'))
                     ->default(1)
                     ->onIcon('heroicon-m-bolt')
                     ->offIcon('heroicon-m-user')
@@ -120,24 +133,31 @@ class RestaurantResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('getsellerData.firstName')
-                    ->label('Seller')
+                    ->label(__('message.Seller'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make(ucfirst('gbookingdata.BookingType'))
-                    ->label('GBooking Type')
+                    ->label(__('message.GBooking Type'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('restaurantName')
+                    ->label(__('message.Restaurant Name'))
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('imgRestaurant')
+                    ->label(__('message.Restaurant Image'))
                     ->square(),
                 Tables\Columns\TextColumn::make('openTime')
+                    ->label(__('message.Shop opening time'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('closedtime')
+                    ->label(__('message.Shop closed time'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('openingDay')
+                    ->label(__('message.Opening Day'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('closingday')
+                    ->label(__('message.Closing day'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('openStatus')
+                    ->label(__('message.Open Status'))
                     ->searchable()
                     ->formatStateUsing(fn (string $state): string => $state === '1' ? 'Open' : 'Closed')
                     ->badge()
@@ -146,6 +166,7 @@ class RestaurantResource extends Resource
                         '1' => 'success',
                     }),
                 Tables\Columns\IconColumn::make('status')
+                    ->label(__('message.Status'))
                     ->boolean(),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->label(__('message.Deleted at'))
@@ -167,8 +188,8 @@ class RestaurantResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

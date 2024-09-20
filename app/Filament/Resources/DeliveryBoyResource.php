@@ -19,7 +19,12 @@ class DeliveryBoyResource extends Resource
 {
     protected static ?string $model = DeliveryBoy::class;
     protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationGroup = 'Restaurant Management';
+    public static function getNavigationGroup(): ?string{
+        return __('message.Restaurant Management');
+    }
+    public static function getModelLabel(): string{
+        return __('message.Delivery Boy');
+    }
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
@@ -27,41 +32,55 @@ class DeliveryBoyResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('BookingType')
-                    ->label('GBookingtype')
+                    ->label(__('message.GBooking Type'))
                     ->options(TblGbooking::where('status', 1)->pluck('BookingType', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->default('2')
                     ->reactive(),
                 Forms\Components\TextInput::make('DeliveryBoyId')
+                    ->label(__('message.DeliveryBoyId'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('name')
+                    ->label(__('message.Name'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('mobile')
+                    ->label(__('message.Phone Number'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('address')
+                    ->label(__('message.Address'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('city')
+                    ->label(__('message.City'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('zip')
+                    ->label(__('message.zip'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('state')
+                    ->label(__('message.State'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('country')
+                    ->label(__('message.Country'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('landmark')
+                    ->label(__('message.landmark'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('location')
+                    ->label(__('message.Location'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('lat')
+                    ->label(__('message.Lat'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('long')
+                    ->label(__('message.Long'))
                     ->maxLength(255),
                 Forms\Components\Toggle::make('status')
+                    ->label(__('message.Status'))
                     ->default('0')
                     ->onIcon('heroicon-m-bolt')
                     ->offIcon('heroicon-m-user')
                     ->onColor('success'),
                 Forms\Components\Toggle::make('available_for_delivery')
+                    ->label(__('message.Available for delivery'))
                     ->default('0')
                     ->onIcon('heroicon-m-bolt')
                     ->offIcon('heroicon-m-user')
@@ -79,24 +98,34 @@ class DeliveryBoyResource extends Resource
                 Tables\Columns\TextColumn::make('DeliveryBoyId')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
+                    ->label(__('message.Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('mobile')
+                    ->label(__('message.Phone Number'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('address')
+                    ->label(__('message.Address'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('city')
+                    ->label(__('message.City'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('zip')
+                    ->label(__('message.zip'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('state')
+                    ->label(__('message.State'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('country')
+                    ->label(__('message.Country'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('landmark')
+                    ->label(__('message.landmark'))
                     ->searchable(),
                 Tables\Columns\IconColumn::make('status')
+                    ->label(__('message.Status'))
                     ->boolean(),
                 Tables\Columns\IconColumn::make('available_for_delivery')
+                    ->label(__('message.Available for delivery'))
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('message.Created at'))
@@ -113,9 +142,9 @@ class DeliveryBoyResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalButton(__('message.Save changes')),
+                Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -186,13 +186,8 @@ class RestaurantOrderResource extends Resource
             ])
             ->actions([
                 // Tables\Actions\ViewAction::make()->label(__('message.View')),
-                Tables\Actions\ViewAction::make()
-                    ->label(__('message.View'))
-                    ->modalHeading(__('message.View'))
-                    ->modalButton(__('message.Closedk')),
-                Tables\Actions\EditAction::make()->label(__('message.Edit'))
-                    ->modalHeading(__('message.Edit'))
-                    ->modalButton(__('message.Save changes')),
+                Tables\Actions\ViewAction::make()->label(__('message.View'))->modalHeading(__('message.View')),
+                Tables\Actions\EditAction::make()->label(__('message.Edit'))->modalHeading(__('message.Edit'))->modalButton(__('message.Save changes')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
