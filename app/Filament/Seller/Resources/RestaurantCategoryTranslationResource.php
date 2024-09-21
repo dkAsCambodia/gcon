@@ -72,12 +72,13 @@ class RestaurantCategoryTranslationResource extends Resource
                 Tables\Columns\TextColumn::make('cat_translation_name')
                     ->label(__('message.Category Translation Name'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make(__('message.created_at'))
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make(__('message.updated_at'))
-                    ->dateTime()
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('message.Created at'))
+                    ->dateTime('d-M-Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('message.Updated at'))
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
