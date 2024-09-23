@@ -101,7 +101,7 @@
                   </div><!-- /.widget-content -->
                 </div><!-- /.widget-search -->
                 <div class="widget widget-categories-layout2">
-                  <h5 class="widget-title">{{ __('message.food categories') }}</h5>
+                  <h5 class="widget-title">{{ __('message.Menus') }}</h5>
                   <div class="widget-content">
                     <ul class="list-unstyled mb-0">
                         <li><a href="/GBooking/restaurant/foods/{{ $restaurant_id }}" wire:navigate class="DkactiveItem">{{ __('message.ALL') }}</a></li>

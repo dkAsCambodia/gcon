@@ -94,6 +94,26 @@
           </div><!-- /.row --> --}}
         </div><!-- /.container -->
       </section><!-- /.blog Grid -->
+      {{-- <section> --}}
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="locations-panel">
+                <div class="locations-panel-header">
+                  <h4 class="locations-panel-title">{{ __('message.Menus') }}</h4>
+                </div><!-- /.locations-panel-header -->
+                <ul class="list-unstyled">
+                  @forelse($menuList as $menurow)
+                  <li><a href="/GBooking/restaurant/foods/{{ base64_encode($menurow->restaurant_id) }}/{{ base64_encode($menurow->id) }}" wire:navigate><i class="fa fa-check-alt"></i><span>{{ !empty($menurow->translationValue->cat_translation_name) ? ucwords($menurow->translationValue->cat_translation_name) : '' }}</span></a></li>
+                  @empty
+                  <li></li>
+                  @endforelse
+                </ul>
+              </div><!-- /.locations-panel -->
+            </div><!-- /.col-lg-12 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      {{-- </section><!-- /.locations --> --}}
       <section class="banner-layout3 py-0">
         <div class="top-shape"></div>
         <div class="container-fluid">

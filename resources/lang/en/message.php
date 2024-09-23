@@ -345,6 +345,13 @@ return [
     "not found" => "not found",
     "We found" => "We found",
     "results for" => "results for",
+    "Menus" => "Menus",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
+    "List" => "List",
 
 
     // for filament section START
@@ -510,13 +517,6 @@ return [
     "Contract Status" => "Contract Status",
     "DeliveryBoyId" => "DeliveryBoyId",
     "Available for delivery" => "Available for delivery",
-    "List" => "List",
-    "List" => "List",
-    "List" => "List",
-    "List" => "List",
-    "List" => "List",
-    "List" => "List",
-    "List" => "List",
     
     // for filament section END
     
