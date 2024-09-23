@@ -6200,9 +6200,9 @@ input[type=radio] {
   color: #ffffff;
 }
 
-.locations-panel {
-  margin-bottom: 65px;
-}
+/* .locations-panel {
+  margin-bottom: 0px;
+} */
 .locations-panel .locations-panel-header {
   border-bottom: 2px solid #eaeaea;
   margin-bottom: 25px;

@@ -2,16 +2,24 @@
 namespace App\Livewire\Website;
 use Livewire\Component;
 use App\Models\Restaurant;
+use App\Models\RestaurantCategory;
+use Illuminate\Support\Facades\DB;
 
 class RestaurantPage extends Component
 {
-    public $restaurantList;
+    public $restaurantList, $menuList;
 
     public function mount()
     {
-        // $this->categorydata=Restaurant::where(['status' => '1', 'GBooking_id' => '1'])->orderBy('order', 'asc')->get();
+        
         $this->restaurantList=Restaurant::where(['openStatus' => '1', 'status' => '1'])->orderBy('id', 'desc')->get();
-        // dd($this->restaurantList);
+        $this->menuList = RestaurantCategory::select('cat_name', \DB::raw('MAX(restaurant_id) as restaurant_id'), \DB::raw('MAX(id) as id'))
+    ->where('cat_status', '1')
+    ->groupBy('cat_name') // Group by cat_name to make it unique
+    ->orderBy('id', 'DESC')
+    ->get();
+ 
+        // dd($this->menuList);
     }
 
     public function render()

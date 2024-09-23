@@ -344,6 +344,7 @@ return [
     "not found" => "រកមិនឃើញ",
     "We found" => "យើងបានរកឃើញ",
     "results for" => "លទ្ធផលសម្រាប់",
+    "Menus" => "ម៉ឺនុយ",
 
     // for filament section START
     "Serial number" => "លេខស៊េរី",
@@ -389,9 +390,9 @@ return [
     "Location" => "ទីតាំង",
     "Restaurant Image" => "រូបភាពភោជនីយដ្ឋាន",
     "Open Status" => "បើកស្ថានភាព",
-    "deleted_at" => "deleted_at",
-    "created_at" => "បានបង្កើត_នៅ",
-    "updated_at" => "updated_at",
+    // "deleted_at" => "deleted_at",
+    // "created_at" => "បានបង្កើត_នៅ",
+    // "updated_at" => "updated_at",
     "Delete" => "លុប",
     "Restaurant Translation" => "ការបកប្រែភោជនីយដ្ឋាន",
     "All language" => "ភាសាទាំងអស់។",

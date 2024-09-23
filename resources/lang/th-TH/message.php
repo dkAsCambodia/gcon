@@ -345,6 +345,7 @@ return [
     "not found" => "ไม่พบ",
     "We found" => "เราพบว่า",
     "results for" => "ผลลัพธ์สำหรับ",
+    "Menus" => "เมนู",
 
     // for filament section START
     "Serial number" => "หมายเลขซีเรียล",
@@ -390,9 +391,9 @@ return [
     "Location" => "ที่ตั้ง",
     "Restaurant Image" => "รูปภาพร้านอาหาร",
     "Open Status" => "เปิดสถานะ",
-    "deleted_at" => "ลบแล้ว_at",
-    "created_at" => "สร้างขึ้น_at",
-    "updated_at" => "อัปเดต_at",
+    // "deleted_at" => "ลบแล้ว_at",
+    // "created_at" => "สร้างขึ้น_at",
+    // "updated_at" => "อัปเดต_at",
     "Delete" => "ลบ",
     "Restaurant Translation" => "การแปลร้านอาหาร",
     "All language" => "ทุกภาษา",
