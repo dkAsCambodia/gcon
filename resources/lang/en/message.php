@@ -346,7 +346,7 @@ return [
     "We found" => "We found",
     "results for" => "results for",
     "Menus" => "Menus",
-    "List" => "List",
+    "Member Account Status" => "Member Account Status",
     "List" => "List",
     "List" => "List",
     "List" => "List",

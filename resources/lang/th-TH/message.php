@@ -346,6 +346,7 @@ return [
     "We found" => "เราพบว่า",
     "results for" => "ผลลัพธ์สำหรับ",
     "Menus" => "เมนู",
+    "Member Account Status" => "สถานะบัญชีสมาชิก",
 
     // for filament section START
     "Serial number" => "หมายเลขซีเรียล",
