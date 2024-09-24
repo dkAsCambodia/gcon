@@ -32,9 +32,20 @@
                       </ul><!-- /.social-icons -->
                   </div>
                   <br/>
-                  <p class="mb-30">&nbsp;&nbsp;Member Account Status : <b>{{ $customer->status=='1' ? 'Acitve' : 'InActive' }}</b></p>
+                  <p class="mb-30">&nbsp;&nbsp;{{ __('message.Member Account Status') }} : <b>{{ $customer->status=='1' ? __('message.Active') : __('message.Inactive') }}</b></p>
                   <p class="mb-30"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{{ ucfirst($customer->address) ?? '' }}, {{ ucfirst($customer->country) ?? '' }}</p>
-                  <a href="/dashboard/updateProfile" wire:navigate class="btn btn-secondary mb-10">Edit <i class="fa fa-edit"></i></a>
+                  <!-- For QR code START -->
+                  {!! QrCode::format('svg')
+                  ->size(130)
+                  ->generate($customer->status == '1' 
+                      ? "GCON: {$customer->card_number}\nName: " . ucfirst($customer->name) .
+                      "\nPhone: {$customer->phone}\nEmail: {$customer->email}" . 
+                      "\nMember Account Status: " . ($customer->status == '1' ? 'Active' : 'Inactive') .
+                      "\nAddress: " . ucfirst($customer->address ?? '') . ', ' . ucfirst($customer->country ?? '')
+                      : 'Invalid Code! Please contact Gcon Administrator') !!}
+                <!-- For QR code END -->
+                &nbsp;&nbsp;&nbsp;&nbsp;<a href="/dashboard/updateProfile" wire:navigate class="btn btn-secondary mb-10">{{ __('message.Edit') }} <i class="fa fa-edit"></i></a>
+                  
               </div>
           </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->

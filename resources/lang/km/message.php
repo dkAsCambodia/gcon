@@ -345,6 +345,8 @@ return [
     "We found" => "យើងបានរកឃើញ",
     "results for" => "លទ្ធផលសម្រាប់",
     "Menus" => "ម៉ឺនុយ",
+    "Member Account Status" => "ស្ថានភាពគណនីសមាជិក",
+    
 
     // for filament section START
     "Serial number" => "លេខស៊េរី",
