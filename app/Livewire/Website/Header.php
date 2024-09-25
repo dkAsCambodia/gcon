@@ -14,7 +14,7 @@ use App\Models\Country;
 
 class Header extends Component
 {
-    public $IpLocation, $cartCount, $cartList, $totalPrice=0, $subTotal, $charge;
+    public $IpLocation, $cartCount, $cartList, $totalPrice=0, $subTotal, $charge, $search, $foodList, $cat_id;
 
     protected $listeners = ['cartUpdated' => 'updateCartCount'];
 
@@ -61,7 +61,59 @@ class Header extends Component
         $this->getCartList();
         $this->calculateTotalPrice();
          // Code for Total Cart Count START
+        $this->foodList = $this->getFoods($this->cat_id);
+        // dd( $this->foodList);
     }
+
+    public function getSerachDataFun() 
+    {
+        return $this->redirect('/GBooking/restaurant/searchFood/'.base64_encode($this->search), navigate: true);
+    }
+
+    public function getFoods($cat_id = null)
+    {
+        return RestaurantFood::with(['translations' => function ($query) {
+                            $query->where('language_id', Language::where('code', app()->getLocale())->first()?->id ?? 'en');
+                        }])
+                        ->leftJoin('restaurant_carts', function($join) {
+                            $join->on('restaurant_foods.id', '=', 'restaurant_carts.food_id')
+                                ->where('restaurant_carts.order_status', '=', 0)
+                                ->where('restaurant_carts.food_cart_status', '=', 1);
+                                // ->where('restaurant_carts.customer_id', '=', $this->uniqueId); 
+                        })
+                        ->select(
+                            'restaurant_foods.id',
+                            'restaurant_foods.food_name',
+                            'restaurant_foods.food_img',
+                            'restaurant_foods.price',
+                            'restaurant_foods.discount',
+                            'restaurant_foods.food_status',
+                            'restaurant_foods.restaurant_cat_id',
+                            'restaurant_foods.seller_id',
+                            'restaurant_foods.currency_id',
+                            DB::raw('IFNULL(SUM(restaurant_carts.f_qty), 0) as cart_qty')
+                        )
+                        ->where('restaurant_foods.food_status', 1)
+                        // ->where('restaurant_foods.restaurant_id', base64_decode($this->restaurant_id)) 
+                        ->whereNull('restaurant_foods.deleted_at')
+                        ->when($cat_id, function ($query, $cat_id) {
+                            $query->where('restaurant_foods.restaurant_cat_id', base64_decode($cat_id)); // Decode $cat_id inline
+                        })
+                        ->groupBy(
+                            'restaurant_foods.id',
+                            'restaurant_foods.food_name',
+                            'restaurant_foods.food_img',
+                            'restaurant_foods.price',
+                            'restaurant_foods.discount',
+                            'restaurant_foods.food_status',
+                            'restaurant_foods.restaurant_cat_id',
+                            'restaurant_foods.seller_id',
+                            'restaurant_foods.currency_id'
+                        )
+                        ->orderBy('restaurant_foods.id', 'desc')
+                        ->get();
+    }
+
 
     public function getCartList()
     {
