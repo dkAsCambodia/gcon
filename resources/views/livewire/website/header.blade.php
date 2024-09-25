@@ -50,9 +50,22 @@
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                   </ul><!-- /.social-icons -->
-                  <form class="header-topbar-search">
-                    <input type="text" class="form-control" placeholder="{{ __('message.Search here') }}">
-                    <button class="header-topbar-search-btn"><i class="fa fa-search"></i></button>
+                  <form class="header-topbar-search" wire:submit.prevent="getSerachDataFun">
+                    {{-- <input type="text" class="form-control" placeholder="{{ __('message.Search here') }}"> --}}
+                    
+
+                    <input list="foodSuggestions" type="text" wire:model.live="search" placeholder="Search..." class="form-control">
+                     
+                      <button class="header-topbar-search-btn" type="submit"><i class="fa fa-search"></i></button>
+                      <datalist id="foodSuggestions">
+                        @if(!empty($foods))
+                          @foreach($foods as $food)
+                              <option value="{{ !empty($food->food_translation_name) ? ucwords($food->food_translation_name) : '' }}"></option>
+                          @endforeach
+                          @endif
+                      </datalist>
+
+
                   </form>
                 </div>
               </div>

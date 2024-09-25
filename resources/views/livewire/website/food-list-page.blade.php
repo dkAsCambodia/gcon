@@ -83,7 +83,7 @@
                 <div class="widget widget-search">
                   <h5 class="widget-title">{{ __('message.Search foods here') }}</h5>
                   <div class="widget-content">
-                    <form class="widget-form-search" wire:submit.prevent="getSerachDataFun">
+                    <form class="widget-form-search" wire:submit.prevent="getSerachDataFun"> 
                       @csrf
                       {{-- <input type="text" class="form-control" placeholder="Search...">
                       <button class="btn" type="submit"><i class="icon-search"></i></button> --}}

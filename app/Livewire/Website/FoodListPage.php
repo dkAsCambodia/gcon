@@ -95,7 +95,7 @@ class FoodListPage extends Component
         }
     }
 
-    public function getSerachDataFun()
+    public function getSerachDataFun() 
     {
         return $this->redirect('/GBooking/restaurant/searchFood/'.base64_encode($this->search), navigate: true);
     }
