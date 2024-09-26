@@ -63,7 +63,7 @@
                 <h6 class="footer-widget-title">{{ __('message.City Areas') }} Gcon</h6>
                 <nav>
                   <ul class="list-unstyled">
-                    <li><a href="about-us.html">{{ __('message.About Us') }}</a></li>
+                    <li><a href="/GBooking/restaurant/DeliveryBoyRegistration" wire:navigate >{{ __('message.Delivery Boy') }}</a></li>
                     <li><a href="team.html">{{ __('message.Our Team') }}</a></li>
                     <li><a href="blog.html">{{ __('message.News & Media') }}</a></li>
                     <li><a href="services.html">{{ __('message.Upcoming Events') }}</a></li>
