@@ -21,6 +21,7 @@ use App\Livewire\Website\ViewcartPage;
 use App\Livewire\Website\RestaurantCheckout;
 use App\Livewire\Website\RestaurantPaymentOption;
 use App\Livewire\Website\RestaurantFoodInvoicePage;
+use App\Livewire\Website\RestaurantDeliveryBoyForm;
 use App\Livewire\Website\SearchFoodList;
 
 use App\Livewire\Website\FoodListPage;
@@ -106,6 +107,8 @@ Route::get('/GBooking/restaurant/logAuth/checkout', RestaurantCheckout::class)->
 Route::get('/GBooking/restaurant/logAuth/paymentOptions/{amount}/{currencySymbol}/{currency}', RestaurantPaymentOption::class)->name('RestaurantPaymentOption');
 Route::get('/restaurantFood/logAuth/invoice/{amount}/{currencySymbol}/{currency}/{orderKey}', RestaurantFoodInvoicePage::class);
 Route::get('/GBooking/restaurant/searchFood/{searchValue}', SearchFoodList::class);
+
+Route::get('/GBooking/restaurant/DeliveryBoyRegistration', RestaurantDeliveryBoyForm::class)->name('DeliveryBoyRegistration');
 //For GBooking restaurant END
 
 Route::get('/location', function (Request $request) {
