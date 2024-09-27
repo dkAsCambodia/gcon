@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('delivery_boys', function (Blueprint $table) {
             $table->id();
             $table->string('BookingType')->nullable();
+            $table->string('DeleveryBoyLoginId')->nullable();
             $table->string('DeliveryBoyId')->nullable();
             $table->string('name')->nullable();
             $table->string('mobile')->nullable();

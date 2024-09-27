@@ -67,6 +67,7 @@ class UserResource extends Resource
                     ->options([
                         'admin' => 'admin',
                         'seller' => 'seller',
+                        'DeliverBoy' => 'DeliverBoy',
                     ])
                     ->default('admin')
                     ->prefixIcon('heroicon-m-flag')
@@ -97,7 +98,7 @@ class UserResource extends Resource
                     ->formatStateUsing(fn (string $state): string => ucfirst($state))
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        // 'admin' => 'warning',
+                        'DeliverBoy' => 'warning',
                         'admin' => 'success',
                         'seller' => 'danger',
                     }),

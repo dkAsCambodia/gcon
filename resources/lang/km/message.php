@@ -346,6 +346,12 @@ return [
     "results for" => "លទ្ធផលសម្រាប់",
     "Menus" => "ម៉ឺនុយ",
     "Member Account Status" => "ស្ថានភាពគណនីសមាជិក",
+    "In the next few hours we will contact you, so that we can begin the delivery process together" => "ក្នុងរយៈពេលពីរបីម៉ោងខាងមុខ យើងនឹងទាក់ទងអ្នក ដូច្នេះយើងអាចចាប់ផ្តើមដំណើរការដឹកជញ្ជូនជាមួយគ្នា",
+    "Registered Successfully!" => "ចុះឈ្មោះដោយជោគជ័យ!",
+    "Delivery Boy Registration" => "ការចុះឈ្មោះក្មេងប្រុសដឹកជញ្ជូន",
+    "Process of Partner with Us for delivery foods" => "ដំណើរការនៃដៃគូជាមួយយើងសម្រាប់ការចែកចាយអាហារ",
+    "G-CON will provide Login credentials of check the ordered foods" => "G-CON នឹងផ្តល់លិខិតបញ្ជាក់ការចូលនៃការត្រួតពិនិត្យអាហារដែលបានបញ្ជាទិញ",
+    "If you want to deliver foods with us then you should fill up this form" => "ប្រសិនបើអ្នកចង់ចែកចាយអាហារជាមួយយើង អ្នកគួរតែបំពេញទម្រង់នេះ។",
     
 
     // for filament section START
