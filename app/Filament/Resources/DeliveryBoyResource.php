@@ -103,6 +103,9 @@ class DeliveryBoyResource extends Resource
                 Tables\Columns\TextColumn::make('mobile')
                     ->label(__('message.Phone Number'))
                     ->searchable(),
+                Tables\Columns\TextColumn::make('deliverBoyLoginData.email')
+                    ->label(__('message.Email'))
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('address')
                     ->label(__('message.Address'))
                     ->searchable(),

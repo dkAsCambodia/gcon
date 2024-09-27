@@ -347,6 +347,12 @@ return [
     "results for" => "ผลลัพธ์สำหรับ",
     "Menus" => "เมนู",
     "Member Account Status" => "สถานะบัญชีสมาชิก",
+    "In the next few hours we will contact you, so that we can begin the delivery process together" => "ในอีกไม่กี่ชั่วโมงข้างหน้า เราจะติดต่อคุณเพื่อเริ่มกระบวนการจัดส่งด้วยกัน",
+    "Registered Successfully!" => "ลงทะเบียนสำเร็จแล้ว!",
+    "Delivery Boy Registration" => "การลงทะเบียนเด็กส่งของ",
+    "Process of Partner with Us for delivery foods" => "กระบวนการเป็นพันธมิตรกับเราในการจัดส่งอาหาร",
+    "G-CON will provide Login credentials of check the ordered foods" => "G-CON จะให้ข้อมูลรับรองการเข้าสู่ระบบของการตรวจสอบอาหารที่สั่ง",
+    "If you want to deliver foods with us then you should fill up this form" => "หากคุณต้องการส่งอาหารกับเรา คุณควรกรอกแบบฟอร์มนี้",
 
     // for filament section START
     "Serial number" => "หมายเลขซีเรียล",

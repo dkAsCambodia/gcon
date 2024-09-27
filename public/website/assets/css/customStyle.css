@@ -4,6 +4,10 @@ section#shadow-host-companion {
 .red{
     color:red;
 }
+.blue-Step{
+    color: #252775;
+    font-weight: bold;
+}
 a.DkactiveItem {
     color: #2e3192 !important;
 }

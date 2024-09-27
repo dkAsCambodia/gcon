@@ -14,4 +14,9 @@ class DeliveryBoy extends Model
     {
         return $this->belongsTo(TblGbooking::class,  'BookingType', 'id');
     }
+
+    public function deliverBoyLoginData()
+    {
+        return $this->belongsTo(User::class,  'DeleveryBoyLoginId', 'id');
+    }
 }
