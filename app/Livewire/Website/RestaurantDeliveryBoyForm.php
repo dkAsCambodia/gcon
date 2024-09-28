@@ -33,7 +33,7 @@ class RestaurantDeliveryBoyForm extends Component
             'name'          => $this->name,
             'phoneNumber'   => $this->phoneNumber,
             'email'         => $this->email,
-            'role'          => 'DeliverBoy',
+            'role'          => 'deliveryBoy',
             'password'      => 'password',
         ]);
 

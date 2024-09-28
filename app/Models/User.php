@@ -55,6 +55,10 @@ class User extends Authenticatable implements FilamentUser
         } else if ($panel->getId() === 'seller' && $this->role == 'seller') {
             $seller = Seller::where('sellerLoginId', $this->id)->first();
             return $seller?->status == true && $seller?->contractStatus == 'approved';
+
+        } else if ($panel->getId() === 'deliveryBoy' && $this->role == 'deliveryBoy') {
+            $deliveryboy = DeliveryBoy::where('DeleveryBoyLoginId', $this->id)->first();
+            return $deliveryboy?->status == true;
         }
         return false;
     }
