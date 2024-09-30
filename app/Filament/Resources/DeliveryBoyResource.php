@@ -41,31 +41,53 @@ class DeliveryBoyResource extends Resource
                     ->label(__('message.DeliveryBoyId'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('name')
+                    ->prefixIcon('heroicon-m-user')
                     ->label(__('message.Name'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('mobile')
                     ->label(__('message.Phone Number'))
+                    ->prefixIcon('heroicon-m-phone')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('address')
                     ->label(__('message.Address'))
+                    ->prefixIcon('heroicon-m-map-pin')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('city')
                     ->label(__('message.City'))
+                    ->prefixIcon('heroicon-m-map-pin')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('zip')
                     ->label(__('message.zip'))
+                    ->prefixIcon('heroicon-m-map-pin')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('state')
                     ->label(__('message.State'))
+                    ->prefixIcon('heroicon-m-map-pin')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('country')
+                Forms\Components\Select::make('country')
                     ->label(__('message.Country'))
-                    ->maxLength(255),
+                    ->options([
+                        'KH' => 'Cambodia',
+                        'TH' => 'Thailand',
+                        'VN' => 'Vietnam',
+                        'MY' => 'Malaysia',
+                        'ID' => 'Indonesia',
+                        'US' => 'United States',
+                        'PH' => 'Philippines',
+                        'IN' => 'India',
+                        'CN' => 'China',
+                    ])
+                    ->default('KH')
+                    ->prefixIcon('heroicon-m-flag')
+                    ->searchable()
+                    ->required(),
                 Forms\Components\TextInput::make('landmark')
                     ->label(__('message.landmark'))
+                    ->prefixIcon('heroicon-m-map-pin')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('location')
                     ->label(__('message.Location'))
+                    ->prefixIcon('heroicon-m-map-pin')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('lat')
                     ->label(__('message.Lat'))
@@ -93,7 +115,7 @@ class DeliveryBoyResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make(ucfirst('gbookingdata.BookingType'))
-                    ->label('BookingType')
+                    ->label(__('message.Business Type'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('DeliveryBoyId')
                     ->searchable(),
