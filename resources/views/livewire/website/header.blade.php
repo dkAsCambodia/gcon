@@ -122,6 +122,7 @@
                         
               <li class="nav-item"><a href="/contact" wire:navigate class="nav-item-link {{ Route::is('contact') ? 'active' : '' }}">{{ __('message.Contacts') }}</a></li><!-- /.nav-item -->
               <li class="nav-item"><a href="/aboutus" wire:navigate class="nav-item-link {{ Route::is('aboutus') ? 'active' : '' }}">{{ __('message.AboutUs') }}</a></li><!-- /.nav-item -->
+              <li class="nav-item"><a href="/GEntertainment/events" wire:navigate class="nav-item-link {{ Route::is('events') ? 'active' : '' }}">{{ __('message.Special Events') }}</a></li><!-- /.nav-item -->
               @if(!empty(Session::get('memberdata')))
               <li class="nav-item"><a href="/dashboard" wire:navigate class="nav-item-link {{ Route::is('dashboard.*') ? 'active' : '' }}">{{ __('message.Dashboard') }}</a></li><!-- /.nav-item -->
               <li class="nav-item"><a href="#" wire:click="customerlogout" class="nav-item-link">{{ __('message.Logout') }}</a></li><!-- /.nav-item -->

@@ -9,7 +9,7 @@ class ConcertPage extends Component
     public $tableProductlist;
     public function mount()
     {
-        $this->categorydata=TableCategory::where(['status' => '1', 'GBooking_id' => '1'])->orderBy('order', 'asc')->get();
+        $this->categorydata=TableCategory::where(['status' => '1', 'GBooking_id' => '1'])->where('id', '!=', 8)->orderBy('order', 'asc')->get();
         $this->tableProductlist=Bookingtable::where(['tbl_status' => '1', 'deleteStatus' => '0'])->orderBy('orderby', 'asc')->get();
         // dd($categorydata);
     }

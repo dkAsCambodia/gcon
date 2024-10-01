@@ -353,6 +353,9 @@ return [
     "Process of Partner with Us for delivery foods" => "กระบวนการเป็นพันธมิตรกับเราในการจัดส่งอาหาร",
     "G-CON will provide Login credentials of check the ordered foods" => "G-CON จะให้ข้อมูลรับรองการเข้าสู่ระบบของการตรวจสอบอาหารที่สั่ง",
     "If you want to deliver foods with us then you should fill up this form" => "หากคุณต้องการส่งอาหารกับเรา คุณควรกรอกแบบฟอร์มนี้",
+    "Special Events" => "กิจกรรมพิเศษ",
+
+
 
     // for filament section START
     "Serial number" => "หมายเลขซีเรียล",
@@ -398,9 +401,6 @@ return [
     "Location" => "ที่ตั้ง",
     "Restaurant Image" => "รูปภาพร้านอาหาร",
     "Open Status" => "เปิดสถานะ",
-    // "deleted_at" => "ลบแล้ว_at",
-    // "created_at" => "สร้างขึ้น_at",
-    // "updated_at" => "อัปเดต_at",
     "Delete" => "ลบ",
     "Restaurant Translation" => "การแปลร้านอาหาร",
     "All language" => "ทุกภาษา",

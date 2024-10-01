@@ -352,6 +352,9 @@ return [
     "Process of Partner with Us for delivery foods" => "ដំណើរការនៃដៃគូជាមួយយើងសម្រាប់ការចែកចាយអាហារ",
     "G-CON will provide Login credentials of check the ordered foods" => "G-CON នឹងផ្តល់លិខិតបញ្ជាក់ការចូលនៃការត្រួតពិនិត្យអាហារដែលបានបញ្ជាទិញ",
     "If you want to deliver foods with us then you should fill up this form" => "ប្រសិនបើអ្នកចង់ចែកចាយអាហារជាមួយយើង អ្នកគួរតែបំពេញទម្រង់នេះ។",
+    "Special Events" => "ព្រឹត្តិការណ៍ពិសេស",
+    
+
     
 
     // for filament section START
@@ -398,9 +401,6 @@ return [
     "Location" => "ទីតាំង",
     "Restaurant Image" => "រូបភាពភោជនីយដ្ឋាន",
     "Open Status" => "បើកស្ថានភាព",
-    // "deleted_at" => "deleted_at",
-    // "created_at" => "បានបង្កើត_នៅ",
-    // "updated_at" => "updated_at",
     "Delete" => "លុប",
     "Restaurant Translation" => "ការបកប្រែភោជនីយដ្ឋាន",
     "All language" => "ភាសាទាំងអស់។",
