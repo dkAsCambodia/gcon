@@ -519,6 +519,12 @@ return [
     "Contract Status" => "Contract Status",
     "DeliveryBoyId" => "DeliveryBoyId",
     "Available for delivery" => "Available for delivery",
+    "Event date" => "Event date",
+    "Event Image" => "Event Image",
+    "Special Events" => "Special Events",
+    "Book Now" => "Book Now",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    "DeliveryBoyId" => "DeliveryBoyId",
     
     // for filament section END
     

@@ -517,6 +517,9 @@ return [
     "Contract Status" => "สถานะสัญญา",
     "DeliveryBoyId" => "DeliveryBoyId",
     "Available for delivery" => "มีจำหน่ายสำหรับการจัดส่ง",
+    "Event date" => "วันที่จัดงาน",
+    "Event Image" => "ภาพเหตุการณ์",
+    "Special Events" => "กิจกรรมพิเศษ",
     
     // for filament section END 
 
