@@ -64,10 +64,9 @@
                 <nav>
                   <ul class="list-unstyled">
                     <li><a href="/GBooking/restaurant/DeliveryBoyRegistration" wire:navigate >{{ __('message.Delivery Boy') }}</a></li>
+                    <li><a href="/GEntertainment/events" wire:navigate>{{ __('message.Upcoming Events') }}</a></li>
                     <li><a href="team.html">{{ __('message.Our Team') }}</a></li>
                     <li><a href="blog.html">{{ __('message.News & Media') }}</a></li>
-                    <li><a href="services.html">{{ __('message.Upcoming Events') }}</a></li>
-                    
                   </ul>
                 </nav>
               </div><!-- /.footer-widget-content -->

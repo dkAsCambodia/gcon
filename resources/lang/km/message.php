@@ -517,6 +517,9 @@ return [
     "Contract Status" => "ស្ថានភាពកិច្ចសន្យា",
     "DeliveryBoyId" => "DeliveryBoyId",
     "Available for delivery" => "អាចរកបានសម្រាប់ការចែកចាយ",
+    "Event date" => "កាលបរិច្ឆេទព្រឹត្តិការណ៍",
+    "Event Image" => "រូបភាពព្រឹត្តិការណ៍",
+    "Special Events" => "ព្រឹត្តិការណ៍ពិសេស",
     // for filament section END
     
 ];
