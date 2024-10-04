@@ -22,7 +22,7 @@ class DeliveryBoy extends Model
         return $this->belongsTo(User::class,  'DeleveryBoyLoginId', 'id');
     }
 
-     //Created by dk for seller
+     //Created by dk for DeliveryBoy
      public function scopeOwner(Builder $query)
      {
          $deliveryboy = DeliveryBoy::where('DeleveryBoyLoginId', auth()->id())->first();
@@ -31,5 +31,5 @@ class DeliveryBoy extends Model
          }
          return $query;
      }
-     //Created by dk for seller
+     //Created by dk for DeliveryBoy
 }

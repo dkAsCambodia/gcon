@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 use App\Models\Restaurant;
 use App\Models\Customer;
+use App\Models\DeliveryBoy;
 
 class RestaurantOrderResource extends Resource
 {
@@ -35,26 +36,31 @@ class RestaurantOrderResource extends Resource
             ->schema([
                 Forms\Components\Select::make('restaurant_id')
                     ->label(__('message.Restaurant Name'))
+                    ->disabled()
                     ->options(Restaurant::pluck('restaurantName', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
                     ->reactive(),
                 Forms\Components\Select::make('cust_id')
                     ->label(__('message.Customer Name'))
+                    ->disabled()
                     ->options(Customer::pluck('name', 'id')) 
                     ->prefixIcon('heroicon-m-user')
                     ->default('Guest')
                     ->required(),
                 Forms\Components\TextInput::make('order_key')
                     ->label(__('message.Order Key'))
+                    ->readonly()
                     ->prefixIcon('heroicon-o-tag')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('TransactionId')
                     ->label(__('message.TransactionId'))
+                    ->readonly()
                     ->prefixIcon('heroicon-o-tag')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('payment_type')
                     ->label(__('message.Payment type'))
+                    ->readonly()
                     ->prefixIcon('heroicon-o-tag')
                     ->maxLength(255),
                 Forms\Components\Select::make('payment_status')
@@ -67,12 +73,19 @@ class RestaurantOrderResource extends Resource
                     ->prefixIcon('heroicon-m-ticket'),
                 Forms\Components\TextInput::make('totalPayAmount')
                     ->prefixIcon('heroicon-o-currency-dollar')
+                    ->readonly()
                     ->label(__('message.Amount'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency')
+                    ->readonly()
                     ->label(__('message.Currency'))
                     ->prefixIcon('heroicon-o-currency-dollar')
                     ->maxLength(255),
+                Forms\Components\Select::make('deliveryBoyId')
+                    ->label(__('message.Delivery Boy'))
+                    ->searchable()
+                    ->options(DeliveryBoy::where('status', '1')->where('available_for_delivery', '1')->pluck('name', 'id')) 
+                    ->prefixIcon('heroicon-m-user'),
                 Forms\Components\Select::make('order_status')
                     ->label(__('message.Order Status'))
                     ->options([
@@ -94,10 +107,12 @@ class RestaurantOrderResource extends Resource
                     ->prefixIcon('heroicon-m-ticket'),
                 Forms\Components\TextInput::make('gateway_name')
                     ->label(__('message.Gateway name'))
+                    ->readonly()
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('delivery_suggestion')
                     ->label(__('message.Delivery suggestion'))
+                    ->readonly()
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('cancel_reason')
@@ -141,6 +156,9 @@ class RestaurantOrderResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('currency')
                     ->label(__('message.Currency'))
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deliveryBoydata.name')
+                    ->label(__('message.Delivery Boy'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('payment_status')
                     ->label(__('message.Payment Status'))

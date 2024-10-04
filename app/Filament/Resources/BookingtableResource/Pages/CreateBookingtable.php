@@ -29,21 +29,40 @@ class CreateBookingtable extends CreateRecord
     // }
 
 
+    // protected function getCreatedNotification(): ?Notification
+    // {
+    //     $record= $this->record;
+    //     return Notification::make()
+    //         ->success()
+    //         ->title( __('message.Concert Tables created'))
+    //         ->icon('heroicon-o-ticket')
+    //         ->body(__('message.Concert Table has been created successfully!'))
+    //         ->actions([
+    //             Action::make('View')->button()->url(
+    //                 BookingtableResource::getUrl('edit', ['record' => $record])
+    //             ),
+    //         ])
+    //         ->sendToDatabase(auth()->user());       
+    // }
+
+    
     protected function getCreatedNotification(): ?Notification
     {
-        $record= $this->record;
-        return Notification::make()
-            ->success()
-            ->title('Concert Tables created')
-            ->icon('heroicon-o-ticket')
-            ->body('Concert Tables has been created successfully!')
-            ->actions([
-                Action::make('View')->button()->url(
-                    BookingtableResource::getUrl('edit', ['record' => $record])
-                ),
-            ])
-            ->sendToDatabase(auth()->user());       
+        $record = $this->record;
+        $roles = ['seller', 'admin'];
+        $users = \App\Models\User::whereIn('role', $roles)->get();
+
+        foreach ($users as $user) {
+            Notification::make()
+                ->success()
+                ->title(__('message.Concert Tables created'))
+                ->icon('heroicon-o-ticket')
+                ->body(__('message.Concert Table has been created successfully!'))
+                ->sendToDatabase($user); 
+        }
+        return null;  
     }
+
 
     protected function getRedirectUrl(): string
     {

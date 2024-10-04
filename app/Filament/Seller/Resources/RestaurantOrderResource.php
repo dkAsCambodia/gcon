@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 use App\Models\Restaurant;
 use App\Models\Customer;
+use App\Models\DeliveryBoy;
 
 class RestaurantOrderResource extends Resource
 {
@@ -36,12 +37,14 @@ class RestaurantOrderResource extends Resource
             ->schema([
                 Forms\Components\Select::make('restaurant_id')
                     ->label(__('message.Restaurant Name'))
+                    ->disabled()
                     ->options(Restaurant::pluck('restaurantName', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
                     ->reactive(),
                 Forms\Components\Select::make('cust_id')
                     ->label(__('message.Customer Name'))
+                    ->disabled()
                     ->options(Customer::pluck('name', 'id')) 
                     ->prefixIcon('heroicon-m-user')
                     ->default('Guest')
@@ -49,17 +52,21 @@ class RestaurantOrderResource extends Resource
                 Forms\Components\TextInput::make('order_key')
                     ->label(__('message.Order Key'))
                     ->prefixIcon('heroicon-o-tag')
+                    ->readonly()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('TransactionId')
                     ->prefixIcon('heroicon-o-tag')
+                    ->readonly()
                     ->label(__('message.TransactionId'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('payment_type')
                     ->prefixIcon('heroicon-o-tag')
+                    ->readonly()
                     ->label(__('message.Payment type'))
                     ->maxLength(255),
                 Forms\Components\Select::make('payment_status')
                     ->label(__('message.Payment Status'))
+                    ->disabled()
                     ->options([
                         'pending' => 'pending',
                         'success' => 'success',
@@ -69,11 +76,18 @@ class RestaurantOrderResource extends Resource
                 Forms\Components\TextInput::make('totalPayAmount')
                     ->prefixIcon('heroicon-o-currency-dollar')
                     ->label(__('message.Amount'))
+                    ->readonly()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency')
                     ->prefixIcon('heroicon-o-currency-dollar')
                     ->label(__('message.Currency'))
+                    ->readonly()
                     ->maxLength(255),
+                Forms\Components\Select::make('deliveryBoyId')
+                    ->label(__('message.Delivery Boy'))
+                    ->searchable()
+                    ->options(DeliveryBoy::where('status', '1')->where('available_for_delivery', '1')->pluck('name', 'id')) 
+                    ->prefixIcon('heroicon-m-user'),
                 Forms\Components\Select::make('order_status')
                     ->label(__('message.Order Status'))
                     ->options([
@@ -95,10 +109,12 @@ class RestaurantOrderResource extends Resource
                     ->prefixIcon('heroicon-m-ticket'),
                 Forms\Components\TextInput::make('gateway_name')
                     ->label(__('message.Gateway name'))
+                    ->readonly()
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('delivery_suggestion')
                     ->label(__('message.Delivery suggestion'))
+                    ->readonly()
                     ->prefixIcon('heroicon-m-chevron-double-right')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('cancel_reason')
@@ -111,14 +127,12 @@ class RestaurantOrderResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn ($query) => $query->owner())
             ->columns([
                 Tables\Columns\TextColumn::make('Serial_number')
                     ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
-                Tables\Columns\TextColumn::make('getsellerData.firstName')
-                    ->label(__('message.Seller'))
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('restaurantData.restaurantName')
                    ->label(__('message.Restaurant Name'))
                     ->searchable(),
@@ -142,6 +156,9 @@ class RestaurantOrderResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('currency')
                     ->label(__('message.Currency'))
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deliveryBoydata.name')
+                    ->label(__('message.Delivery Boy'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('payment_status')
                     ->label(__('message.Payment Status'))
