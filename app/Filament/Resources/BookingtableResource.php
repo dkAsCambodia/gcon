@@ -72,7 +72,7 @@ class BookingtableResource extends Resource
                     ->label(__('message.Currency'))
                     ->options(Currency::where('deleted_at', NULL)->pluck('name', 'id')) 
                     ->prefixIcon('heroicon-o-rectangle-stack')
-                    ->default('1')
+                    ->default('3')
                     ->required(),
                 Forms\Components\TextInput::make('discount')
                     ->label(__('message.Discount in %'))
@@ -163,14 +163,20 @@ class BookingtableResource extends Resource
                     $data['currency_symbol'] =$cu;
                     return $data;
                 })
-                ->successNotification(
-                    Notification::make()
-                         ->success()
-                         ->icon('heroicon-o-ticket')
-                         ->title('Concert Tables Updated')
-                         ->body('Concert Tables has been updated successfully!'),
-                        //  ->sendToDatabase(auth()->user()),
-                ),
+                ->after(function ($record) {  // Runs after the edit action is successful
+
+                    $roles = ['seller', 'admin'];
+                    $users = \App\Models\User::whereIn('role', $roles)->get();
+        
+                    foreach ($users as $user) {
+                        Notification::make()
+                            ->success()
+                            ->icon('heroicon-o-ticket')
+                            ->title(__('message.Concert Tables Updated'))
+                            ->body(__('message.Concert Tables has been updated successfully!'))
+                            ->sendToDatabase($user);  // Send notification to each user
+                    }
+                }),
                 Tables\Actions\DeleteAction::make()->label(__('message.Delete')),
             ])
             ->bulkActions([
@@ -192,7 +198,7 @@ class BookingtableResource extends Resource
         return [
             'index' => Pages\ListBookingtables::route('/'),
             'create' => Pages\CreateBookingtable::route('/create'),
-            'edit' => Pages\EditBookingtable::route('/{record}/edit'),
+            // 'edit' => Pages\EditBookingtable::route('/{record}/edit'),
         ];
     }    
 }

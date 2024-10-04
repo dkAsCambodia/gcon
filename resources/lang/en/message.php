@@ -523,6 +523,10 @@ return [
     "Event Image" => "Event Image",
     "Special Events" => "Special Events",
     "Book Now" => "Book Now",
+    "Concert Tables created" => "Concert Tables created",
+    "Concert Table has been created successfully!" => "Concert Table has been created successfully!",
+    "Concert Tables Updated" => "Concert Tables Updated",
+    "Concert Tables has been updated successfully!" => "Concert Tables has been updated successfully!",
     "DeliveryBoyId" => "DeliveryBoyId",
     "DeliveryBoyId" => "DeliveryBoyId",
     
