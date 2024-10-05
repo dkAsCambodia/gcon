@@ -520,6 +520,12 @@ return [
     "Event date" => "កាលបរិច្ឆេទព្រឹត្តិការណ៍",
     "Event Image" => "រូបភាពព្រឹត្តិការណ៍",
     "Special Events" => "ព្រឹត្តិការណ៍ពិសេស",
+    "Book Now" => "កក់ឥឡូវនេះ",
+    "Concert Tables created" => "តារាងប្រគុំតន្ត្រីត្រូវបានបង្កើតឡើង",
+    "Concert Table has been created successfully!" => "តារាងប្រគុំតន្ត្រីត្រូវបានបង្កើតដោយជោគជ័យ!",
+    "Concert Tables Updated" => "បានធ្វើបច្ចុប្បន្នភាពតារាងការប្រគុំតន្ត្រី",
+    "Concert Tables has been updated successfully!" => "តារាងប្រគុំតន្ត្រីត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ!",
+    "Order details" => "ព័ត៌មានលម្អិតនៃការបញ្ជាទិញ",
     // for filament section END
     
 ];

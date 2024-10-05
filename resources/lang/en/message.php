@@ -527,7 +527,7 @@ return [
     "Concert Table has been created successfully!" => "Concert Table has been created successfully!",
     "Concert Tables Updated" => "Concert Tables Updated",
     "Concert Tables has been updated successfully!" => "Concert Tables has been updated successfully!",
-    "DeliveryBoyId" => "DeliveryBoyId",
+    "Order details" => "Order details",
     "DeliveryBoyId" => "DeliveryBoyId",
     
     // for filament section END
