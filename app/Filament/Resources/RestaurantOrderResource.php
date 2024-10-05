@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Models\Restaurant;
 use App\Models\Customer;
 use App\Models\DeliveryBoy;
+use App\Models\ShipAddresse;
 
 class RestaurantOrderResource extends Resource
 {
@@ -42,7 +43,7 @@ class RestaurantOrderResource extends Resource
                     ->required()
                     ->reactive(),
                 Forms\Components\Select::make('cust_id')
-                    ->label(__('message.Customer Name'))
+                    ->label(__('message.Username'))
                     ->disabled()
                     ->options(Customer::pluck('name', 'id')) 
                     ->prefixIcon('heroicon-m-user')
@@ -140,7 +141,7 @@ class RestaurantOrderResource extends Resource
                     ->label(__('message.Foods'))
                     ->square(),
                 Tables\Columns\TextColumn::make('Customerdata.name')
-                    ->label(__('message.Customer Name'))
+                    ->label(__('message.Username'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('order_key')
                     ->label(__('message.Order Key'))
