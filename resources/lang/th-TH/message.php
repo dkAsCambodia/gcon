@@ -520,6 +520,12 @@ return [
     "Event date" => "วันที่จัดงาน",
     "Event Image" => "ภาพเหตุการณ์",
     "Special Events" => "กิจกรรมพิเศษ",
+    "Book Now" => "จองตอนนี้",
+    "Concert Tables created" => "สร้างตารางคอนเสิร์ตแล้ว",
+    "Concert Table has been created successfully!" => "สร้างตารางคอนเสิร์ตสำเร็จแล้ว!",
+    "Concert Tables Updated" => "อัปเดตตารางคอนเสิร์ตแล้ว",
+    "Concert Tables has been updated successfully!" => "ตารางคอนเสิร์ตได้รับการอัพเดตเรียบร้อยแล้ว!",
+    "Order details" => "รายละเอียดการสั่งซื้อ",
     
     // for filament section END 
 

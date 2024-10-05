@@ -35,91 +35,92 @@ class RestaurantOrderResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('restaurant_id')
-                    ->label(__('message.Restaurant Name'))
-                    ->disabled()
-                    ->options(Restaurant::pluck('restaurantName', 'id')) 
-                    ->prefixIcon('heroicon-o-rectangle-stack')
-                    ->required()
-                    ->reactive(),
-                Forms\Components\Select::make('cust_id')
-                    ->label(__('message.Username'))
-                    ->disabled()
-                    ->options(Customer::pluck('name', 'id')) 
-                    ->prefixIcon('heroicon-m-user')
-                    ->default('Guest')
-                    ->required(),
-                Forms\Components\TextInput::make('order_key')
-                    ->label(__('message.Order Key'))
-                    ->readonly()
-                    ->prefixIcon('heroicon-o-tag')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('TransactionId')
-                    ->label(__('message.TransactionId'))
-                    ->readonly()
-                    ->prefixIcon('heroicon-o-tag')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('payment_type')
-                    ->label(__('message.Payment type'))
-                    ->readonly()
-                    ->prefixIcon('heroicon-o-tag')
-                    ->maxLength(255),
-                Forms\Components\Select::make('payment_status')
-                    ->label(__('message.Payment Status'))
-                    ->options([
-                        'pending' => 'pending',
-                        'success' => 'success',
-                        'failed' => 'failed',
-                    ])
-                    ->prefixIcon('heroicon-m-ticket'),
-                Forms\Components\TextInput::make('totalPayAmount')
-                    ->prefixIcon('heroicon-o-currency-dollar')
-                    ->readonly()
-                    ->label(__('message.Amount'))
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('currency')
-                    ->readonly()
-                    ->label(__('message.Currency'))
-                    ->prefixIcon('heroicon-o-currency-dollar')
-                    ->maxLength(255),
-                Forms\Components\Select::make('deliveryBoyId')
-                    ->label(__('message.Delivery Boy'))
-                    ->searchable()
-                    ->options(DeliveryBoy::where('status', '1')->where('available_for_delivery', '1')->pluck('name', 'id')) 
-                    ->prefixIcon('heroicon-m-user'),
-                Forms\Components\Select::make('order_status')
-                    ->label(__('message.Order Status'))
-                    ->options([
-                        'pending' => 'pending',
-                        'ordered' => 'ordered',
-                    ])
-                    ->prefixIcon('heroicon-m-ticket'),
-                Forms\Components\Select::make('assign_status') 
-                    ->label(__('message.Assign Status'))
-                    ->options([
-                        'pending' => 'pending',
-                        'assigned' => 'assigned',
-                        'accepted' => 'accepted',
-                        'shipped' => 'shipped',
-                        'rejected' => 'rejected',
-                        'delivered' => 'delivered',
-                        'cancelled' => 'cancelled',
-                    ])
-                    ->prefixIcon('heroicon-m-ticket'),
-                Forms\Components\TextInput::make('gateway_name')
-                    ->label(__('message.Gateway name'))
-                    ->readonly()
-                    ->prefixIcon('heroicon-m-chevron-double-right')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('delivery_suggestion')
-                    ->label(__('message.Delivery suggestion'))
-                    ->readonly()
-                    ->prefixIcon('heroicon-m-chevron-double-right')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('cancel_reason')
-                    ->label(__('message.Cancellation reason'))
-                    ->prefixIcon('heroicon-m-chevron-double-right')
-                    ->maxLength(255),
+                Forms\Components\Section::make(__('message.Order details'))
+                ->schema([
+                        Forms\Components\Select::make('restaurant_id')
+                            ->label(__('message.Restaurant Name'))
+                            ->disabled()
+                            ->options(Restaurant::pluck('restaurantName', 'id')) 
+                            ->prefixIcon('heroicon-o-rectangle-stack')
+                            ->required()
+                            ->reactive(),
+                        Forms\Components\Select::make('cust_id')
+                            ->label(__('message.Username'))
+                            ->disabled()
+                            ->options(Customer::pluck('name', 'id')) 
+                            ->prefixIcon('heroicon-m-user')
+                            ->default('Guest')
+                            ->required(),
+                        Forms\Components\TextInput::make('order_key')
+                            ->label(__('message.Order Key'))
+                            ->readonly()
+                            ->prefixIcon('heroicon-o-tag')
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('TransactionId')
+                            ->label(__('message.TransactionId'))
+                            ->readonly()
+                            ->prefixIcon('heroicon-o-tag')
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('payment_type')
+                            ->label(__('message.Payment type'))
+                            ->readonly()
+                            ->prefixIcon('heroicon-o-tag')
+                            ->maxLength(255),
+                        Forms\Components\Select::make('payment_status')
+                            ->label(__('message.Payment Status'))
+                            ->options([
+                                'pending' => 'pending',
+                                'success' => 'success',
+                                'failed' => 'failed',
+                            ])
+                            ->prefixIcon('heroicon-m-ticket'),
+                        Forms\Components\TextInput::make('totalPayAmount')
+                            ->prefixIcon('heroicon-o-currency-dollar')
+                            ->readonly()
+                            ->label(__('message.Amount'))
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('currency')
+                            ->readonly()
+                            ->label(__('message.Currency'))
+                            ->prefixIcon('heroicon-o-currency-dollar')
+                            ->maxLength(255),
+                        Forms\Components\Select::make('deliveryBoyId')
+                            ->label(__('message.Delivery Boy'))
+                            ->searchable()
+                            ->options(DeliveryBoy::where('status', '1')->where('available_for_delivery', '1')->pluck('name', 'id')) 
+                            ->prefixIcon('heroicon-m-user'),
+                        Forms\Components\Select::make('order_status')
+                            ->label(__('message.Order Status'))
+                            ->options([
+                                'pending' => 'pending',
+                                'ordered' => 'ordered',
+                            ])
+                            ->prefixIcon('heroicon-m-ticket'),
+                        Forms\Components\Select::make('assign_status') 
+                            ->label(__('message.Assign Status'))
+                            ->options([
+                                'pending' => 'pending',
+                                'assigned' => 'assigned',
+                                'accepted' => 'accepted',
+                                'shipped' => 'shipped',
+                                'rejected' => 'rejected',
+                                'delivered' => 'delivered',
+                                'cancelled' => 'cancelled',
+                            ])
+                            ->prefixIcon('heroicon-m-ticket'),
+                        Forms\Components\TextInput::make('gateway_name')
+                            ->label(__('message.Gateway name'))
+                            ->readonly()
+                            ->prefixIcon('heroicon-m-chevron-double-right')
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('delivery_suggestion')
+                            ->label(__('message.Delivery suggestion'))
+                            ->readonly()
+                            ->prefixIcon('heroicon-m-chevron-double-right')
+                            ->maxLength(255),
+                        Forms\Components\Textarea::make('cancel_reason')
+                            ->label(__('message.Cancellation reason')),
+                    ])->columns(4),
             ]);
     }
 
@@ -218,7 +219,7 @@ class RestaurantOrderResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\ShippingAddressDataRelationManager::class
         ];
     }
 
@@ -227,8 +228,8 @@ class RestaurantOrderResource extends Resource
         return [
             'index' => Pages\ListRestaurantOrders::route('/'),
             // 'create' => Pages\CreateRestaurantOrder::route('/create'),
-            // 'view' => Pages\ViewRestaurantOrder::route('/{record}'),
-            // 'edit' => Pages\EditRestaurantOrder::route('/{record}/edit'),
+            'view' => Pages\ViewRestaurantOrder::route('/{record}'),
+            'edit' => Pages\EditRestaurantOrder::route('/{record}/edit'),
         ];
     }
 
