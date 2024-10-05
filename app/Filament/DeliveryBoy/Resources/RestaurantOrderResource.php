@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Models\Restaurant;
 use App\Models\Customer;
 use App\Models\DeliveryBoy;
+use App\Models\ShipAddresse;
 
 class RestaurantOrderResource extends Resource
 {
@@ -29,6 +30,9 @@ class RestaurantOrderResource extends Resource
         return __('message.Ordered food transaction');
     }
 
+
+    
+
     public static function form(Form $form): Form
     {
         return $form
@@ -41,7 +45,7 @@ class RestaurantOrderResource extends Resource
                 ->required()
                 ->reactive(),
             Forms\Components\Select::make('cust_id')
-                ->label(__('message.Customer Name'))
+                ->label(__('message.Username'))
                 ->disabled()
                 ->options(Customer::pluck('name', 'id')) 
                 ->prefixIcon('heroicon-m-user')
@@ -107,17 +111,35 @@ class RestaurantOrderResource extends Resource
                     'cancelled' => 'cancelled',
                 ])
                 ->prefixIcon('heroicon-m-ticket'),
-            Forms\Components\TextInput::make('delivery_suggestion')
-                ->label(__('message.Delivery suggestion'))
-                ->readonly()
-                ->prefixIcon('heroicon-m-chevron-double-right')
-                ->maxLength(255),
             Forms\Components\TextInput::make('cancel_reason')
                 ->label(__('message.Cancellation reason'))
                 ->prefixIcon('heroicon-m-chevron-double-right')
                 ->maxLength(255),
+                Forms\Components\Section::make(__('message.Shipping Address'))
+                ->schema([
+                    Forms\Components\TextInput::make('delivery_suggestion')
+                        ->label(__('message.Delivery suggestion'))
+                        ->readonly()
+                        ->prefixIcon('heroicon-m-chevron-double-right')
+                        ->maxLength(255),
+                    // Forms\Components\TextInput::make('customer_name')
+                    //     ->label(__('message.Customer Name'))
+                    //     ->prefixIcon('heroicon-m-chevron-double-right')
+                    //     ->maxLength(255),
+                ])->columns(3),
         ]);
     }
+
+    public function mount($record)
+    {
+        parent::mount($record);
+        
+        // Manually populate the customer name from the related model
+        $this->form->fill([
+            'customer_name' => $record->ShippingAddressData ? $record->ShippingAddressData->name : null,
+        ]);
+    }
+
 
     public static function table(Table $table): Table
     {
@@ -134,7 +156,7 @@ class RestaurantOrderResource extends Resource
                 Tables\Columns\ImageColumn::make('RestaurantFoodData.food_img')
                     ->label(__('message.Foods'))
                     ->square(),
-                Tables\Columns\TextColumn::make('Customerdata.name')
+                Tables\Columns\TextColumn::make('ShippingAddressData.name')
                     ->label(__('message.Customer Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('order_key')

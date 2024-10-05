@@ -36,6 +36,11 @@ class RestaurantOrder extends Model
         return $this->belongsTo(Customer::class,  'cust_id', 'id');
     }
 
+    public function ShippingAddressData()
+    {
+        return $this->belongsTo(ShipAddresse::class,  'address_id', 'id');
+    }
+
     public function deliveryBoydata()
     {
         return $this->belongsTo(DeliveryBoy::class,  'deliveryBoyId', 'id');
