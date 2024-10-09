@@ -528,6 +528,11 @@ return [
     "Concert Tables Updated" => "Concert Tables Updated",
     "Concert Tables has been updated successfully!" => "Concert Tables has been updated successfully!",
     "Order details" => "Order details",
+    // Car Wash Function
+    "Car Wash Function" => "Car Wash Function",
+    "Car Banners" => "Car Banners",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    "DeliveryBoyId" => "DeliveryBoyId",
     "DeliveryBoyId" => "DeliveryBoyId",
     
     // for filament section END

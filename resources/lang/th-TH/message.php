@@ -526,6 +526,9 @@ return [
     "Concert Tables Updated" => "อัปเดตตารางคอนเสิร์ตแล้ว",
     "Concert Tables has been updated successfully!" => "ตารางคอนเสิร์ตได้รับการอัพเดตเรียบร้อยแล้ว!",
     "Order details" => "รายละเอียดการสั่งซื้อ",
+     // Car Wash Function
+     "Car Wash Function" => "ฟังก์ชั่นล้างรถ",
+     "Car Banners" => "ป้ายรถ",
     
     // for filament section END 
 

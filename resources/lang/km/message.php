@@ -526,6 +526,9 @@ return [
     "Concert Tables Updated" => "បានធ្វើបច្ចុប្បន្នភាពតារាងការប្រគុំតន្ត្រី",
     "Concert Tables has been updated successfully!" => "តារាងប្រគុំតន្ត្រីត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ!",
     "Order details" => "ព័ត៌មានលម្អិតនៃការបញ្ជាទិញ",
+     // Car Wash Function
+     "Car Wash Function" => "មុខងារលាងរថយន្ត",
+     "Car Banners" => "បដារថយន្ត",
     // for filament section END
     
 ];
