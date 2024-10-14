@@ -175,7 +175,7 @@
             <div class="contact-phone d-flex align-items-center">
               <div class="contact-icon"><i class="icon-chemical9"></i></div>
               <div>
-                <span class="d-block">{{ __('message.Get updates') }} : </span>
+                <span class="d-block">{{ __('message.Get updates') }} dk: </span>
                 <a class="phone-link d-block" href="tel:00201061245741">+855 69861400</a>
               </div>
             </div>
