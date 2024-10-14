@@ -10,7 +10,7 @@ use Session;
 class RegisterPage extends Component
 {
    
-    public $membertype=1, $card_number='G', $name, $phone, $email, $password, $issue_by=4, $address, $country, $line_id, $facebook_id, $instagram, $guest_id;
+    public $membertype=2, $card_number='D', $name, $phone, $email, $password, $issue_by=4, $address, $country, $line_id, $facebook_id, $instagram, $guest_id;
     public $latestSequence, $prefix;
 
     // OnKeyUp validation in field START
