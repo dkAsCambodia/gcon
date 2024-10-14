@@ -15,7 +15,7 @@ class ConcertTblTransaction extends Model
 
     public function bookingTable()
     {
-        return $this->belongsTo(BookingTable::class,  'tableId', 'id');
+        return $this->belongsTo(Bookingtable::class,  'tableId', 'id');
     }
 
     public function categories()
