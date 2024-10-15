@@ -43,7 +43,7 @@
                 <p>{{ __('message.We always provide 100% customer satisfaction and absolute quality without any compromise.') }}</p>
                 <ul class="contact-list list-unstyled">
                   <li>
-                    <a href="mailto:provetta@7oroof.com">
+                    <a href="mailto:beercity@gmail.com">
                       <i class="contact-icon icon-email"></i> <span>beercity@gmail.com</span>
                     </a>
                   </li>
