@@ -44,12 +44,12 @@
                 <ul class="contact-list list-unstyled">
                   <li>
                     <a href="mailto:provetta@7oroof.com">
-                      <i class="contact-icon icon-email"></i> <span>gconzon3@gmail.com</span>
+                      <i class="contact-icon icon-email"></i> <span>beercity@gmail.com</span>
                     </a>
                   </li>
                   <li>
-                    <a href="tel:00201061245741">
-                      <i class="contact-icon icon-phone"></i> <span>(855) 69861401</span>
+                    <a href="tel: 973294524">
+                      <i class="contact-icon icon-phone"></i> <span>(855) 973294524</span>
                     </a>
                   </li>
                 </ul>

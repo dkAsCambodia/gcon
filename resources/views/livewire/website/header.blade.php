@@ -35,7 +35,7 @@
                     </ul><!-- /.miniPopup-language -->
                   </li>
                   <li>
-                    <i class="icon-phone"></i><a href="tel:+5565454117"> (855) 69861400</a>
+                    <i class="icon-phone"></i><a href="tel:+5565454117"> (855) 973294524</a>
                   </li>
                   <li>
                     <i class="icon-location"></i><a href="#">Beer City Poipet Zone 3</a>
@@ -176,7 +176,7 @@
               <div class="contact-icon"><i class="icon-chemical9"></i></div>
               <div>
                 <span class="d-block">{{ __('message.Get updates') }} : </span>
-                <a class="phone-link d-block" href="tel:00201061245741">+855 69861400</a>
+                <a class="phone-link d-block" href="tel:00201061245741">+855 973294524</a>
               </div>
             </div>
           </div>
