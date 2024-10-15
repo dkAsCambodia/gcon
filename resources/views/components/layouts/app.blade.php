@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="{{ URL::to('website/assets/css/customStyle.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Toster CSS START Livewire-->
-  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!-- Toster CSS END Livewire-->
   @livewireStyles
 </head>
@@ -188,19 +188,12 @@
   <script src="{{ URL::to('website/assets/js/main.js') }}"></script>
   <!-- Toster JS START For Livewire-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-{{-- <script>
+<script>
     document.addEventListener("livewire:init", () => {
         Livewire.on("toast", (event) => {
             toastr[event.notify](event.message);
         });
     });
-</script> --}}
-<script>
-  document.addEventListener("livewire:load", () => {
-      window.Livewire.on("toast", (event) => {
-          toastr[event.notify](event.message);
-      });
-  });
 </script>
      <!-- Toster JS END For Livewire-->
  
