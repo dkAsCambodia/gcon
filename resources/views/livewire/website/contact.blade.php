@@ -15,8 +15,8 @@
               <div id="collapse1" class="collapse show" data-parent="#accordion">
                 <div class="accordion-body">
                   <ul class="contact-list list-unstyled mb-0">
-                    <li>Phone: (855) 69861401</li>
-                    <li>Email: gconzon3@gmail.com</li>
+                    <li>Phone: (855) 973294524</li>
+                    <li>Email: beercity@gmail.com</li>
                     <li>Address: Beer City Poipet Zone 3</li>
                     <li>Hours: Mon-Sun: 24*7</li>
                   </ul>
@@ -30,7 +30,7 @@
               <div id="collapse2" class="collapse" data-parent="#accordion">
                 <div class="accordion-body">
                   <ul class="contact-list list-unstyled mb-0">
-                    <li>Phone: (855) 69861401</li>
+                    <li>Phone: (855) 973294524</li>
                     <li>Email: gcon@gmail.com</li>
                     <li>Address: Near Cambodia-Thailand Border</li>
                     <li>Hours: Mon-Sun: 24*7</li>
@@ -52,7 +52,7 @@
           <div class="col-sm-12 col-md-12 col-lg-7">
             <div class="heading-layout2 mb-50">
               <h2 class="heading-subtitle">Contact Us And We Will Respond Within The Next Two Working Days</h2>
-              <h3 class="heading-title">Get In Touch With Your Nearest Local Health Business Sales Executive
+              <h3 class="heading-title">Get In Touch With Your Nearest Local Executive
               </h3>
             </div>
           </div><!-- /.col-lg-7 -->
@@ -62,12 +62,11 @@
             <div class="text-block">
               <p class="text-block-desc">Depending on the nature of your enquiry, the customer care centre staff will
                 then
-                distribute your request for consultation to the appropriate Laboratory Medicine discipline.</p>
-              <p class="text-block-desc">A member of the Medical/Scientific Staff will get back to the requesting
-                healthcare provider within one business day.
+                distribute your request for consultation to the appropriate discipline.</p>
+              <p class="text-block-desc">A member of the GCON Staff will get back to the requesting provider within one day.
               </p>
             </div>
-            <a href="about-us.html" class="btn btn-primary">
+            <a href="#" class="btn btn-primary">
               <span>Accreditation & Licensing</span> <i class="icon-arrow-right"></i>
             </a>
           </div><!-- /.col-lg-4 -->
