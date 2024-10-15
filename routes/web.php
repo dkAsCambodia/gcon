@@ -27,11 +27,11 @@ use App\Livewire\Website\SearchFoodList;
 
 use App\Livewire\Website\FoodListPage;
 use App\Livewire\Website\RestaurantSellerFormPage;
-use App\Livewire\Website\dashboard\EditProfileForm;
-use App\Livewire\Website\dashboard\ConcertBookingList;
-use App\Livewire\Website\dashboard\ConcertCalcelationPolicyPage;
-use App\Livewire\Website\dashboard\ShipingAddressForm;
-use App\Livewire\Website\dashboard\RestaurantFoodOrderList;
+use App\Livewire\Website\Dashboard\EditProfileForm;
+use App\Livewire\Website\Dashboard\ConcertBookingList;
+use App\Livewire\Website\Dashboard\ConcertCalcelationPolicyPage;
+use App\Livewire\Website\Dashboard\ShipingAddressForm;
+use App\Livewire\Website\Dashboard\RestaurantFoodOrderList;
 use App\Livewire\Website\Email\ForgetPassMailComponent;
 
 use App\Models\TblGbooking;
