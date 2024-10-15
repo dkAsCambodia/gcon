@@ -353,6 +353,8 @@ return [
     "G-CON will provide Login credentials of check the ordered foods" => "G-CON នឹងផ្តល់លិខិតបញ្ជាក់ការចូលនៃការត្រួតពិនិត្យអាហារដែលបានបញ្ជាទិញ",
     "If you want to deliver foods with us then you should fill up this form" => "ប្រសិនបើអ្នកចង់ចែកចាយអាហារជាមួយយើង អ្នកគួរតែបំពេញទម្រង់នេះ។",
     "Special Events" => "ព្រឹត្តិការណ៍ពិសេស",
+    "Rider for Grand Delivery" => "Rider សម្រាប់ការដឹកជញ្ជូនដ៏អស្ចារ្យ",
+    "Grand Delivery" => "ការដឹកជញ្ជូនដ៏អស្ចារ្យ",
     
 
     

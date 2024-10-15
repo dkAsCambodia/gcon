@@ -354,6 +354,8 @@ return [
     "G-CON will provide Login credentials of check the ordered foods" => "G-CON จะให้ข้อมูลรับรองการเข้าสู่ระบบของการตรวจสอบอาหารที่สั่ง",
     "If you want to deliver foods with us then you should fill up this form" => "หากคุณต้องการส่งอาหารกับเรา คุณควรกรอกแบบฟอร์มนี้",
     "Special Events" => "กิจกรรมพิเศษ",
+    "Rider for Grand Delivery" => "ไรเดอร์สำหรับแกรนด์เดลิเวอรี่",
+    "Grand Delivery" => "แกรนด์เดลิเวอรี่",
 
 
 

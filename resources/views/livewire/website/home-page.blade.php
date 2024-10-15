@@ -110,10 +110,10 @@
                 <p class="heading-desc font-weight-bold mb-40">{{ __('message.check-in location') }}</p>
               </div>
               <div class="d-flex flex-wrap mb-90">
-                <a href="about-us.html" class="btn btn-white btn-white-style2 mr-30">
+                <a href="/bookingList" wire:navigate class="btn btn-white btn-white-style2 mr-30">
                   <span>{{ __('message.Booking Now') }} !</span> <i class="icon-arrow-right"></i>
                 </a>
-                <a href="contact-us.html" class="btn btn-light btn-outlined">{{ __('message.Contacts') }}</a>
+                <a href="/contact" wire:navigate class="btn btn-light btn-outlined">{{ __('message.Contacts') }}</a>
               </div>
               <div class="fancybox-layout2 fancybox-light">
                 <div class="fancybox-item">

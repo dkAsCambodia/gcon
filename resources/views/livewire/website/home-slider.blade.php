@@ -13,13 +13,13 @@
                   <h2 class="slide-title">{{!empty($slider->translationValue->GBookingname) ? ucwords($slider->translationValue->GBookingname) : ''}} </h2>
                   <p class="slide-desc">{{!empty($slider->translationValue->desc) ? ucwords($slider->translationValue->desc) : ''}} </p>
                   <div class="d-flex flex-wrap align-items-center">
-                    <a href="tests-book-visit.html" class="btn btn-white btn-white-style2 mr-30">
+                    {{-- <a href="#" class="btn btn-white btn-white-style2 mr-30">
                       <span>{{ __('message.Book Now Grand Diamond Hotel') }}</span>
                       <i class="icon-arrow-right"></i>
                     </a>
-                    <a href="tests-services.html" class="btn btn-white btn-outlined">
+                    <a href="#" class="btn btn-white btn-outlined">
                       <span>{{ __('message.Enjoy') }} {{ __('message.G-Service') }}</span>
-                    </a>
+                    </a> --}}
                   </div>
                 </div><!-- /.slide-content -->
               </div><!-- /.col-xl-7 -->
