@@ -188,12 +188,19 @@
   <script src="{{ URL::to('website/assets/js/main.js') }}"></script>
   <!-- Toster JS START For Livewire-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
+{{-- <script>
     document.addEventListener("livewire:init", () => {
         Livewire.on("toast", (event) => {
             toastr[event.notify](event.message);
         });
     });
+</script> --}}
+<script>
+  document.addEventListener("livewire:load", () => {
+      window.Livewire.on("toast", (event) => {
+          toastr[event.notify](event.message);
+      });
+  });
 </script>
      <!-- Toster JS END For Livewire-->
  
