@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Provetta - Laboratory & Science Research HTML5 Template">
+  <meta name="description" content="Grand Diamond Poipet City And Resort">
   <link href="{{ URL::to('website/assets/images/favicon/favicon.png') }}" rel="icon">
   <title>{{ $title ?? 'Gcon' }}</title>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&amp;display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
                 <ul class="contact-list list-unstyled">
                   <li>
                     <a href="mailto:provetta@7oroof.com">
-                      <i class="contact-icon icon-email"></i> <span>provetta@7oroof.com</span>
+                      <i class="contact-icon icon-email"></i> <span>gconzon3@gmail.com</span>
                     </a>
                   </li>
                   <li>
@@ -53,20 +53,20 @@
                     </a>
                   </li>
                 </ul>
-                <a href="contact-us.html" class="btn btn-white mr-10">
+                <a href="/contact" wire:navigate class="btn btn-white mr-10">
                   <i class="fas fa-map-marker-alt"></i> Beer City Poipet Zone 3.
                 </a>
               </div>
             </div><!-- /.col-xl-2 -->
             <div class="col-sm-6 col-md-6 col-lg-3">
               <div class="footer-widget-nav">
-                <h6 class="footer-widget-title">{{ __('message.City Areas') }} Gcon</h6>
+                <h6 class="footer-widget-title">{{ __('message.City Areas') }} GCON</h6>
                 <nav>
                   <ul class="list-unstyled">
-                    <li><a href="/GBooking/restaurant/DeliveryBoyRegistration" wire:navigate >{{ __('message.Delivery Boy') }}</a></li>
+                    <li><a href="/GBooking/restaurant/DeliveryBoyRegistration" wire:navigate >{{ __('message.Rider for Grand Delivery') }}</a></li>
                     <li><a href="/GEntertainment/events" wire:navigate>{{ __('message.Upcoming Events') }}</a></li>
-                    <li><a href="team.html">{{ __('message.Our Team') }}</a></li>
-                    <li><a href="blog.html">{{ __('message.News & Media') }}</a></li>
+                    <li><a href="#">{{ __('message.Our Team') }}</a></li>
+                    <li><a href="/GEntertainment/events" wire:navigate>{{ __('message.News & Media') }}</a></li>
                   </ul>
                 </nav>
               </div><!-- /.footer-widget-content -->
@@ -76,14 +76,14 @@
                   <h6 class="footer-widget-title">{{ __('message.exclusive offers') }}</h6>
                   <nav>
                     <ul class="list-unstyled">
-                      <li><a href="careers.html">{{ __('message.Contact with Grand Diamond City') }}</a></li>
-                      <li><a href="careers.html">{{ __('message.Popular Festivals') }}</a></li>
-                      <li><a href="careers.html">{{ __('message.Careers options') }}</a></li>
+                      <li><a href="/contact" wire:navigate>{{ __('message.Contact with Grand Diamond City') }}</a></li>
+                      <li><a href="/GEntertainment/events" wire:navigate>{{ __('message.Popular Festivals') }}</a></li>
+                      <li><a href=#">{{ __('message.Careers options') }}</a></li>
                     </ul>
                   </nav>
                   <div class="d-flex">
                     <ul class="social-icons list-unstyled mb-0 mr-30">
-                      <li><a href="#"><i class="fab fa-facebook-f" style="position: absolute;top: 16%;left: 17%;"></i></a></li>
+                      <li><a href="https://www.facebook.com/beercitypoipet" target="_blank"><i class="fab fa-facebook-f" style="position: absolute;top: 16%;left: 17%;"></i></a></li>
                       <li><a href="#"><i class="fab fa-instagram" style="position: absolute;top: 16%;left: 17%;"></i></a></li>
                       <li><a href="#"><i class="fab fa-twitter" style="position: absolute;top: 16%;left: 17%;"></i></a></li>
                       <li><a href="#"><i class="fab fa-line" style="position: absolute;top: 16%;left: 17%;"></i></a></li>
@@ -104,7 +104,7 @@
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4 align-items-center">
                   <b><span> {{ __('message.Copyright') }} &copy; 2024-2025 {{ __('message.by') }} </span>
-                  <a class="color-secondary" href="/" wire:navigate >Gcon</a> {{ __('message.All Rights Reserved') }}.</b>
+                  <a class="color-secondary" href="/" wire:navigate >GCON</a> {{ __('message.All Rights Reserved') }}.</b>
                 </div>
                 <div class="col-sm-4"></div>
               

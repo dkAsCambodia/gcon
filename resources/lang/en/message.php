@@ -354,8 +354,8 @@ return [
     "G-CON will provide Login credentials of check the ordered foods" => "G-CON will provide Login credentials of check the ordered foods",
     "If you want to deliver foods with us then you should fill up this form" => "If you want to deliver foods with us then you should fill up this form",
     "Special Events" => "Special Events",
-    "List" => "List",
-    "List" => "List",
+    "Rider for Grand Delivery" => "Rider for Grand Delivery",
+    "Grand Delivery" => "Grand Delivery",
     "List" => "List",
 
 
