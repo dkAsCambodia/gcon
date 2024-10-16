@@ -4,6 +4,7 @@ use Livewire\Component;
 use App\Models\Language;
 use App\Models\TblGbooking;
 use App\Models\RestaurantCart;
+use App\Models\Restaurant;
 use App\Models\RestaurantFood;
 use Session;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ use App\Models\Country;
 
 class Header extends Component
 {
-    public $IpLocation, $cartCount, $cartList, $totalPrice=0, $subTotal, $charge, $search, $foodList, $cat_id;
+    public $IpLocation, $cartCount, $cartList, $totalPrice=0, $subTotal, $charge, $search, $foodList, $cat_id, $restaurantList;
 
     protected $listeners = ['cartUpdated' => 'updateCartCount'];
 
@@ -63,6 +64,7 @@ class Header extends Component
          // Code for Total Cart Count START
         $this->foodList = $this->getFoods($this->cat_id);
         // dd( $this->foodList);
+        $this->restaurantList = Restaurant::where(['openStatus' => '1', 'status' => '1'])->orderBy('id', 'desc')->get();
     }
 
     public function getSerachDataFun() 

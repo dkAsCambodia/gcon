@@ -1,6 +1,25 @@
 <div>
+  <section class="page-title-layout4 py-0">
+    <div class="breadcrumb-area">
+      <div class="container">
+          <nav>
+          <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item">
+              <a href="index.html"><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
+              </li>
+              <li class="breadcrumb-item">
+              <a href="about-us.html"> {{ __('message.G-Booking') }} </a>
+              </li>
+              <li class="breadcrumb-item">
+              <a href="supplies.html">{{ __('message.Grand Delivery') }}</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">{{ __('message.Foods') }}</li>
+          </ol>
+          </nav>
+      </div><!-- /.container -->
+    </div><!-- /.breadcrumb-area --> 
+  </section><!-- /.page-title -->
     <section class="banner-layout3 py-0">
-      <br/>
       {{-- <div class="top-shape"></div> --}}
       <div class="container-fluid">
         <div class="row">
