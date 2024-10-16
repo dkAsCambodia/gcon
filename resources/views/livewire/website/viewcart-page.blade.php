@@ -5,13 +5,13 @@
             <nav>
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                <a href="index.html"><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
+                <a href="/" wire:navigate><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
                 </li>
                 <li class="breadcrumb-item">
-                <a href="about-us.html"> {{ __('message.G-Booking') }} </a>
+                <a href="#"> {{ __('message.G-Booking') }} </a>
                 </li>
                 <li class="breadcrumb-item">
-                <a href="supplies.html">{{ __('message.Grand Delivery') }}</a>
+                <a href="/GBooking/grandDelivery" wire:navigate>{{ __('message.Grand Delivery') }}</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">{{ __('message.Cart') }}</li>
             </ol>
@@ -130,7 +130,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
                 <div class="heading-layout2 text-center mb-50">
                     <h2 class="heading-subtitle">{{ __('message.Empty Cart') }}</h2>
-                    <h3 class="heading-title"><a href="/GBooking/restaurant" wire:navigate>{{ __('message.Go to restaurant') }}</a></h3>
+                    <h3 class="heading-title"><a href="/GBooking/grandDelivery" wire:navigate>{{ __('message.Go to Grand Delivery') }}</a></h3>
                 </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->

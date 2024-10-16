@@ -5,13 +5,13 @@
           <nav>
           <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-              <a href="index.html"><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
+              <a href="/" wire:navigate><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
               </li>
               <li class="breadcrumb-item">
-              <a href="about-us.html"> {{ __('message.G-Booking') }} </a>
+              <a href="#"> {{ __('message.G-Booking') }} </a>
               </li>
               <li class="breadcrumb-item">
-              <a href="supplies.html">{{ __('message.Grand Delivery') }}</a>
+              <a href="/GBooking/grandDelivery" wire:navigate>{{ __('message.Grand Delivery') }}</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">{{ __('message.Foods') }}</li>
           </ol>

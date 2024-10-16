@@ -63,8 +63,8 @@ class Header extends Component
         $this->calculateTotalPrice();
          // Code for Total Cart Count START
         $this->foodList = $this->getFoods($this->cat_id);
-        // dd( $this->foodList);
         $this->restaurantList = Restaurant::where(['openStatus' => '1', 'status' => '1'])->orderBy('id', 'desc')->get();
+        // dd( $this->restaurantList);
     }
 
     public function getSerachDataFun() 
