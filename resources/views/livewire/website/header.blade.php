@@ -120,11 +120,11 @@
                 <ul class="dropdown-menu">
                     @if(!empty($bookings))
                         @foreach($bookings as $key => $booking)
-                            <li class="nav-item {{ $booking->BookingType=='restaurant' ? 'has-dropdown' : '' }}">
+                            <li class="nav-item {{ $booking->BookingType=='BookingRestaurant' ? 'has-dropdown' : '' }}">
                                 <a href="/{{ $booking->recognize . '/' . ($booking->BookingType ?? '') }}" wire:navigate class="nav-item-link">
                                     {{ !empty($booking->translationValue->GBookingname) ? ucwords($booking->translationValue->GBookingname) : '' }}
                                 </a>
-                                  @if(!empty($booking->BookingType=='restaurant'))
+                                  @if(!empty($booking->BookingType=='BookingRestaurant'))
                                     <ul class="dropdown-menu dropdown-submenu">
                                         @foreach($restaurantList as $submenu) 
                                             <li class="nav-item" ><a href="" class="nav-item-link">{{ !empty($submenu->restaurantName) ? ucwords($submenu->restaurantName) : '' }}</a></li>

@@ -1,3 +1,24 @@
+<div>
+<section class="page-title-layout4 py-0">
+  <div class="breadcrumb-area">
+    <div class="container">
+        <nav>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+            <a href="/" wire:navigate><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
+            </li>
+            <li class="breadcrumb-item">
+            <a href="#"> {{ __('message.G-Booking') }} </a>
+            </li>
+            <li class="breadcrumb-item">
+            <a href="/GBooking/grandDelivery" wire:navigate>{{ __('message.Grand Delivery') }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{ __('message.Foods') }}</li>
+        </ol>
+        </nav>
+    </div><!-- /.container -->
+  </div><!-- /.breadcrumb-area --> 
+</section><!-- /.page-title -->
 <section class="shop">
     <div class="container">
       <div class="row">
@@ -97,3 +118,4 @@
       </div><!-- /.row -->
     </div><!-- /.container -->
   </section><!-- /.shop -->
+</div>
