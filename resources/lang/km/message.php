@@ -355,6 +355,7 @@ return [
     "Special Events" => "ព្រឹត្តិការណ៍ពិសេស",
     "Rider for Grand Delivery" => "Rider សម្រាប់ការដឹកជញ្ជូនដ៏អស្ចារ្យ",
     "Grand Delivery" => "ការដឹកជញ្ជូនដ៏អស្ចារ្យ",
+    "Go to Grand Delivery" => "ទៅ Grand Delivery",
     
 
     

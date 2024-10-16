@@ -356,7 +356,7 @@ return [
     "Special Events" => "Special Events",
     "Rider for Grand Delivery" => "Rider for Grand Delivery",
     "Grand Delivery" => "Grand Delivery",
-    "List" => "List",
+    "Go to Grand Delivery" => "Go to Grand Delivery",
 
 
     // for filament section START
