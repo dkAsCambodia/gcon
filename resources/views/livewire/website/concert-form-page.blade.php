@@ -1,7 +1,27 @@
+<div>
+  <section class="page-title-layout4 py-0">
+      <div class="breadcrumb-area">
+      <div class="container">
+          <nav>
+          <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item">
+              <a href="/" wire:navigate><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
+              </li>
+              <li class="breadcrumb-item">
+              <a href="#">{{ __('message.G-Entertainment') }}</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="/GEntertainment/concert" wire:navigate>{{ __('message.Grand Concert') }}</a>
+                </li>
+              <li class="breadcrumb-item active" aria-current="page">{{ __('message.Concert Form') }}</li>
+          </ol>
+          </nav>
+      </div><!-- /.container -->
+      </div><!-- /.breadcrumb-area -->
+  </section><!-- /.page-title -->
 <section class="pb-40">
     <div class="container">
       <div class="row">
-        
         <div class="col-sm-12 col-md-12 col-lg-8 offset-md-2">
           <div class="contact-panel">
             <form wire:submit.prevent="saveconcertForm" class="contact-panel-form">
@@ -227,3 +247,4 @@
   </script>
       {{-- Disable_Browser_Back_JavaScript END --}}
   </section>
+</div>

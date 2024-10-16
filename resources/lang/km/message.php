@@ -356,6 +356,9 @@ return [
     "Rider for Grand Delivery" => "Rider សម្រាប់ការដឹកជញ្ជូនដ៏អស្ចារ្យ",
     "Grand Delivery" => "ការដឹកជញ្ជូនដ៏អស្ចារ្យ",
     "Go to Grand Delivery" => "ទៅ Grand Delivery",
+    "Grand Delivery in GCON" => "ការដឹកជញ្ជូនដ៏អស្ចារ្យនៅ GCON",
+    "Grand Concert" => "ការប្រគុំតន្ត្រីដ៏អស្ចារ្យ",
+    "Concert Form" => "ទម្រង់ការប្រគុំតន្ត្រី",
     
 
     

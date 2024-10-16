@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-12">
           <ul class="list-filter d-flex flex-wrap justify-content-center list-unstyled mb-30">
-            <li><a class="filter active" href="#" data-filter="all">G-Entertainment </a></li>
+            <li><a class="filter active" href="#" data-filter="all">{{ __('message.G-Entertainment') }}</a></li>
           </ul><!-- /.portfolio-filter  -->
         </div><!-- /.col-lg-12 -->
       </div>

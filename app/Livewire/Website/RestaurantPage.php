@@ -24,7 +24,7 @@ class RestaurantPage extends Component
 
     public function render()
     {
-        $title =    __('message.Restaurants');
+        $title =    __('message.Grand Delivery in GCON');
         return view('livewire.website.restaurant-page')->title($title);
     }
 }
