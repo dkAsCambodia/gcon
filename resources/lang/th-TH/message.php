@@ -356,6 +356,7 @@ return [
     "Special Events" => "กิจกรรมพิเศษ",
     "Rider for Grand Delivery" => "ไรเดอร์สำหรับแกรนด์เดลิเวอรี่",
     "Grand Delivery" => "แกรนด์เดลิเวอรี่",
+    "Go to Grand Delivery" => "ไปที่แกรนด์เดลิเวอรี่",
 
 
 

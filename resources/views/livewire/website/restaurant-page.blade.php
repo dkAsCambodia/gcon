@@ -41,7 +41,7 @@
                     <div class="post-item">
                       <div class="post-img">
                         <span class="post-meta-date">
-                          <h6><span class="day"><i class='fas fa-percentage'></i>&nbsp;{{ __('message.Free Delivery') }}</span></h6>
+                          <h6><span class="day"><i class='fas fa-shipping-fast'></i>&nbsp;{{ __('message.Grand Delivery') }}</span></h6>
                           {{-- @if(!empty($row->Discount))
                           <span class="day">Free delivery {{ !empty($row->Discount) ? $row->Discount.'% off' : ''}}</span>
                           @endif --}}
