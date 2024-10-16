@@ -357,6 +357,9 @@ return [
     "Rider for Grand Delivery" => "ไรเดอร์สำหรับแกรนด์เดลิเวอรี่",
     "Grand Delivery" => "แกรนด์เดลิเวอรี่",
     "Go to Grand Delivery" => "ไปที่แกรนด์เดลิเวอรี่",
+    "Grand Delivery in GCON" => "การจัดส่งครั้งใหญ่ใน GCON",
+    "Grand Concert" => "แกรนด์คอนเสิร์ต",
+    "Concert Form" => "แบบฟอร์มคอนเสิร์ต",
 
 
 
