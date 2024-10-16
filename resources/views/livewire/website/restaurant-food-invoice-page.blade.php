@@ -11,7 +11,7 @@
                 <a href="about-us.html"> {{ __('message.G-Booking') }} </a>
                 </li>
                 <li class="breadcrumb-item">
-                <a href="supplies.html">{{ __('message.Restaurants') }}</a>
+                <a href="supplies.html">{{ __('message.Grand Delivery') }}</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">{{ __('message.Invoice') }}</li>
             </ol>

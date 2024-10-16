@@ -1,4 +1,21 @@
+
 <header class="header header-layout1">
+  <style>
+.dropdown-submenu {
+    position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%; 
+    margin-top: -1px;
+}
+.nav-item.has-dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+  </style>
       <div class="header-topbar">
         <div class="container-fluid">
           <div class="row align-items-center">
@@ -35,18 +52,18 @@
                     </ul><!-- /.miniPopup-language -->
                   </li>
                   <li>
-                    <i class="icon-phone"></i><a href="tel:+5565454117"> (855) 973294524</a>
+                    <i class="icon-phone"></i><a href="tel:+855973294524">(+855) 973294524</a>
                   </li>
                   <li>
-                    <i class="icon-location"></i><a href="#">Beer City Poipet Zone 3</a>
+                    <i class="icon-location"></i><a href="https://www.google.com/maps/place/BEER+CITY+Poipet+%E0%B9%82%E0%B8%8B%E0%B8%993/@13.64539,102.568582,16z/data=!4m6!3m5!1s0x311b174af664d179:0x767a10d402b36706!8m2!3d13.6453903!4d102.568582!16s%2Fg%2F11v19mtpyz?hl=en&entry=ttu&g_ep=EgoyMDI0MTAxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Beer City Poipet Zone 3</a>
                   </li>
                   <li>
-                    <i class="icon-clock"></i><a href="contact-us.html">{{ __('message.Opening Hours') }}: 24*7</a>
+                    <i class="icon-clock"></i><a href="#">{{ __('message.Opening Hours') }}: 24*7</a>
                   </li>
                 </ul><!-- /.contact-list -->
                 <div class="d-flex">
                   <ul class="social-icons list-unstyled mb-0 mr-30">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.facebook.com/beercitypoipet" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                   </ul><!-- /.social-icons -->
@@ -96,17 +113,32 @@
                     </ul><!-- /.dropdown-menu -->
               </li><!-- /.nav-item -->
 
-              <li class="nav-item has-dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-item-link {{ Route::is('Gentertainment') ? 'active' : '' }}">{{ __('message.G-Booking') }}</a>
-                  <ul class="dropdown-menu">
-                  @if(!empty($bookings))
-                    @foreach($bookings as $key => $booking)
-                        <li class="nav-item">
-                          <a href="/{{ $booking->recognize."/".$booking->BookingType ?? ''}}" wire:navigate class="nav-item-link">{{!empty($booking->translationValue->GBookingname) ? ucwords($booking->translationValue->GBookingname) : ''}}</a>
-                        </li><!-- /.nav-item -->
-                    @endforeach
-                  @endif
-                    </ul><!-- /.dropdown-menu -->
-              </li><!-- /.nav-item -->
+              <li class="nav-item has-dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-item-link {{ Route::is('Gentertainment') ? 'active' : '' }}">
+                    {{ __('message.G-Booking') }}
+                </a>
+                <ul class="dropdown-menu">
+                    @if(!empty($bookings))
+                        @foreach($bookings as $key => $booking)
+                            <li class="nav-item {{ $booking->BookingType=='restaurant' ? 'has-dropdown' : '' }}">
+                                <a href="/{{ $booking->recognize . '/' . ($booking->BookingType ?? '') }}" wire:navigate class="nav-item-link">
+                                    {{ !empty($booking->translationValue->GBookingname) ? ucwords($booking->translationValue->GBookingname) : '' }}
+                                </a>
+                                  @if(!empty($booking->BookingType=='restaurant'))
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        @foreach($restaurantList as $submenu) 
+                                            <li class="nav-item" ><a href="" class="nav-item-link">{{ !empty($submenu->restaurantName) ? ucwords($submenu->restaurantName) : '' }}</a></li>
+                                            
+                                        @endforeach
+                                    </ul><!-- /.dropdown-menu for submenus -->
+                                  @endif
+                            </li><!-- /.nav-item -->
+                        @endforeach
+                    @endif
+                </ul><!-- /.dropdown-menu -->
+            </li><!-- /.nav-item -->
+            
+            
 
               <li class="nav-item has-dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-item-link {{ Route::is('Gentertainment') ? 'active' : '' }}">{{ __('message.G-Service') }}</a>
                   <ul class="dropdown-menu">
@@ -183,3 +215,4 @@
         </div><!-- /.container -->
       </nav><!-- /.navabr -->
     </header><!-- /.Header -->
+    

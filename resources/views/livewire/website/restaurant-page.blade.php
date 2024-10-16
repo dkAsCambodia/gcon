@@ -15,7 +15,7 @@
                 <li class="breadcrumb-item">
                   <a href="/"><i class="icon-home"></i> <span>{{ __('message.Home') }}</span></a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('message.Restaurants') }}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ __('message.Grand Delivery') }}</li>
               </ol>
             </nav>
           </div><!-- /.container -->

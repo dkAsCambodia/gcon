@@ -102,7 +102,8 @@ Route::get('lang/change', [LocalizationController::class, 'lang_change'])->name(
 
 //For GBooking restaurant START
 Route::get('/GBooking/restaurant/newSeller', RestaurantSellerFormPage::class)->name('newRestaurantSeller');
-Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage');
+Route::get('/GBooking/grandDelivery', RestaurantPage::class)->name('restaurantPage');
+// Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage');
 Route::get('/GBooking/restaurant/foods/{restaurant_id}/{cat_id?}', FoodListPage::class)->name('FoodListPage');
 Route::get('/GBooking/restaurant/viewcart', ViewcartPage::class)->name('restaurantViewCartPage');
 Route::get('/GBooking/restaurant/logAuth/checkout', RestaurantCheckout::class)->name('restaurantCheckout');
