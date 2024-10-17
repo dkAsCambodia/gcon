@@ -532,6 +532,15 @@ return [
     "Concert Tables Updated" => "បានធ្វើបច្ចុប្បន្នភាពតារាងការប្រគុំតន្ត្រី",
     "Concert Tables has been updated successfully!" => "តារាងប្រគុំតន្ត្រីត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ!",
     "Order details" => "ព័ត៌មានលម្អិតនៃការបញ្ជាទិញ",
+    // Car Events & Booking Restaurant
+    "Events & Booking Restaurant" => "ព្រឹត្តិការណ៍ និងការកក់ភោជនីយដ្ឋាន",
+    "Sitting Table Type" => "ប្រភេទតុអង្គុយ",
+    "Daily Concert Booking" => "ការកក់ការប្រគុំតន្ត្រីប្រចាំថ្ងៃ",
+    "Sitting for" => "អង្គុយសម្រាប់",
+    "Table Type" => "ប្រភេទតារាង",
+
+
+
      // Car Wash Function
      "Car Wash Function" => "មុខងារលាងរថយន្ត",
      "Car Banners" => "បដារថយន្ត",
