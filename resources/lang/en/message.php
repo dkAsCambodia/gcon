@@ -537,12 +537,20 @@ return [
     "Concert Tables Updated" => "Concert Tables Updated",
     "Concert Tables has been updated successfully!" => "Concert Tables has been updated successfully!",
     "Order details" => "Order details",
+    // Car Events & Booking Restaurant
+    "Events & Booking Restaurant" => "Events & Booking Restaurant",
+    "Sitting Table Type" => "Sitting Table Type",
+    "Daily Concert Booking" => "Daily Concert Booking",
+    "Sitting for" => "Sitting for",
+    "Table Type" => "Table Type",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    
+   
+    
     // Car Wash Function
     "Car Wash Function" => "Car Wash Function",
     "Car Banners" => "Car Banners",
-    "DeliveryBoyId" => "DeliveryBoyId",
-    "DeliveryBoyId" => "DeliveryBoyId",
-    "DeliveryBoyId" => "DeliveryBoyId",
     
     // for filament section END
     
