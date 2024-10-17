@@ -22,10 +22,10 @@ class RestaurantCategoryTranslationResource extends Resource
     protected static ?string $model = RestaurantCategoryTranslation::class;
     protected static ?string $navigationIcon = 'heroicon-o-tag';
     public static function getNavigationGroup(): ?string{
-        return __('message.Category Management');
+        return __('message.Menu Management');
     }
     public static function getModelLabel(): string{
-        return __('message.Food Category Translation');
+        return __('message.Menu Translation');
     }
     protected static ?int $navigationSort = 2;
 
@@ -34,7 +34,7 @@ class RestaurantCategoryTranslationResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('restaurant_category_id')
-                    ->label(__('message.Select Restaurant Category'))
+                    ->label(__('message.Select Restaurant Menu'))
                     ->options(RestaurantCategory::getRestaurantCategoryOptions())
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()
@@ -46,7 +46,7 @@ class RestaurantCategoryTranslationResource extends Resource
                     ->prefixIcon('heroicon-o-flag')
                     ->required(),
                 Forms\Components\TextInput::make('cat_translation_name')
-                    ->label(__('message.Category Translation Name'))
+                    ->label(__('message.Menu Translation Name'))
                     // ->rule(function ($record) {
                     //     return $record ? 'unique:restaurant_category_translations,cat_translation_name,' . $record->id : 'unique:restaurant_category_translations,cat_translation_name';
                     // })
@@ -62,7 +62,7 @@ class RestaurantCategoryTranslationResource extends Resource
             ->modifyQueryUsing(fn ($query) => $query->owner()) 
             ->columns([
                 Tables\Columns\TextColumn::make('RestaurantCategoryData.cat_name')
-                    ->label(__('message.Restaurant Category'))
+                    ->label(__('message.Category Name or Menu name'))
                     ->numeric()
                     ->searchable()
                     ->sortable(),
@@ -70,7 +70,7 @@ class RestaurantCategoryTranslationResource extends Resource
                     ->label(__('message.Language'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('cat_translation_name')
-                    ->label(__('message.Category Translation Name'))
+                    ->label(__('message.Menu Translation Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('message.Created at'))

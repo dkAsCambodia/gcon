@@ -47,7 +47,7 @@ class RestaurantFoodResource extends Resource
                     ->required()
                     ->reactive(),
                 Forms\Components\Select::make('restaurant_cat_id')
-                    ->label(__('message.Select Restaurant Category'))
+                    ->label(__('message.Select Restaurant Menu'))
                     ->options(RestaurantCategory::getRestaurantCategoryOptions())
                     ->prefixIcon('heroicon-o-rectangle-stack')
                     ->required()

@@ -22,10 +22,10 @@ class RestaurantCategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
     public static function getNavigationGroup(): ?string{
-        return __('message.Category Management');
+        return __('message.Menu Management');
     }
     public static function getModelLabel(): string{
-        return __('message.Food categories');
+        return __('message.Menu');
     }
     protected static ?int $navigationSort = 2;
 
