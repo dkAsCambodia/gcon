@@ -21,7 +21,7 @@ class BookingtableTranslationResource extends Resource
     protected static ?string $model = BookingtableTranslation::class;
     protected static ?string $navigationIcon = 'heroicon-o-ticket';
     public static function getNavigationGroup(): ?string{
-        return __('message.Concert Booking');
+        return __('message.Daily Concert Booking');
     }
     public static function getModelLabel(): string{
         return __('message.Concert Table translations');

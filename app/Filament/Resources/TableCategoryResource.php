@@ -21,7 +21,7 @@ class TableCategoryResource extends Resource
     protected static ?string $model = TableCategory::class;
     protected static ?string $navigationIcon = 'heroicon-o-tag';
     public static function getNavigationGroup(): ?string{
-        return __('message.Concert Booking');
+        return __('message.Daily Concert Booking');
     }
     public static function getModelLabel(): string{
         return __('message.Concert categories');
