@@ -532,7 +532,15 @@ return [
     "Concert Tables Updated" => "อัปเดตตารางคอนเสิร์ตแล้ว",
     "Concert Tables has been updated successfully!" => "ตารางคอนเสิร์ตได้รับการอัพเดตเรียบร้อยแล้ว!",
     "Order details" => "รายละเอียดการสั่งซื้อ",
-     // Car Wash Function
+    // Car Events & Booking Restaurant
+    "Events & Booking Restaurant" => "กิจกรรมและการจองร้านอาหาร",
+    "Sitting Table Type" => "ประเภทโต๊ะนั่ง",
+    "Daily Concert Booking" => "จองคอนเสิร์ตรายวัน",
+    "Sitting for" => "นั่งเพื่อ",
+    "Table Type" => "ประเภทตาราง",
+    
+    
+    // Car Wash Function
      "Car Wash Function" => "ฟังก์ชั่นล้างรถ",
      "Car Banners" => "ป้ายรถ",
     

@@ -9,7 +9,10 @@ use Filament\Resources\Pages\ListRecords;
 class ListSittingTableTypes extends ListRecords
 {
     protected static string $resource = SittingTableTypeResource::class;
-
+    public function getBreadcrumb(): string
+    {
+        return __('message.List');
+    }
     protected function getHeaderActions(): array
     {
         return [
