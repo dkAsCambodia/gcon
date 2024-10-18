@@ -543,6 +543,12 @@ return [
     "Daily Concert Booking" => "Daily Concert Booking",
     "Sitting for" => "Sitting for",
     "Table Type" => "Table Type",
+    "Seating Layout" => "Seating Layout",
+    "Table Name" => "Table Name",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    "DeliveryBoyId" => "DeliveryBoyId",
+    "DeliveryBoyId" => "DeliveryBoyId",
     "DeliveryBoyId" => "DeliveryBoyId",
     "DeliveryBoyId" => "DeliveryBoyId",
     

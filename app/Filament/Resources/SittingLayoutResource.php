@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SittingTableTypeResource\Pages;
-use App\Filament\Resources\SittingTableTypeResource\RelationManagers;
-use App\Models\SittingTableType;
+use App\Filament\Resources\SittingLayoutResource\Pages;
+use App\Filament\Resources\SittingLayoutResource\RelationManagers;
+use App\Models\SittingLayout;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,50 +13,40 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-use App\Models\Currency;
+use App\Models\SittingTableType;
 
-class SittingTableTypeResource extends Resource
+class SittingLayoutResource extends Resource
 {
-    protected static ?string $model = SittingTableType::class;
+    protected static ?string $model = SittingLayout::class;
     protected static ?string $navigationIcon = 'heroicon-o-table-cells';
     public static function getNavigationGroup(): ?string{
         return __('message.Events & Booking Restaurant');
     }
     public static function getModelLabel(): string{
-        return __('message.Sitting Table Type');
+        return __('message.Seating Layout');
     }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('sitting_for')
-                    ->label(__('message.Sitting for'))
-                    ->options([
-                        'events' => 'Events',
-                        'Saikou' => 'Saikou',
-                        'thaihouse' => 'Thai house',
-                    ])
-                    ->default('events')
-                    ->prefixIcon('heroicon-m-academic-cap')
+                Forms\Components\Select::make('sitting_table_type_id')
+                    ->label(__('message.Table Type'))
+                    ->options(
+                        SittingTableType::where('status', 1)->orderBy('id','desc')
+                            ->get()
+                            ->mapWithKeys(function($item) {
+                                return [$item->id => $item->sitting_table_name . ' for ' . ucfirst($item->sitting_for)];
+                            })
+                    )
+                    ->prefixIcon('heroicon-o-rectangle-stack')
                     ->searchable()
                     ->required(),
-                Forms\Components\TextInput::make('sitting_table_name')
-                    ->label(__('message.Table Type'))
+                Forms\Components\TextInput::make('table_name')
+                    ->label(__('message.Table Name'))
                     ->prefixIcon('heroicon-m-arrows-pointing-in')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('price')
-                    ->label(__('message.Price'))
-                    ->required()
-                    ->prefix('$')
-                    ->maxLength(255),
-                Forms\Components\Select::make('currency_id')
-                    ->label(__('message.Currency'))
-                    ->options(Currency::where('deleted_at', NULL)->pluck('name', 'id')) 
-                    ->prefixIcon('heroicon-o-rectangle-stack')
-                    ->default('3')
-                    ->required(),
                 Forms\Components\TextInput::make('order')
                     ->label(__('message.Order'))
                     ->required()
@@ -79,14 +69,14 @@ class SittingTableTypeResource extends Resource
                     ->label(__('message.Serial number'))
                     ->badge()
                     ->state(fn($column) => $column->getRowLoop()->iteration),
-                Tables\Columns\TextColumn::make('sitting_for')
+                Tables\Columns\TextColumn::make('getSittingTabledata.sitting_for')
                     ->label(__('message.Sitting for'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('sitting_table_name')
+                Tables\Columns\TextColumn::make('getSittingTabledata.sitting_table_name')
                     ->label(__('message.Table Type'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('price')
-                    ->label(__('message.Price'))
+                Tables\Columns\TextColumn::make('table_name')
+                    ->label(__('message.Table Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('order')
                     ->label(__('message.Order'))
@@ -131,10 +121,10 @@ class SittingTableTypeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSittingTableTypes::route('/'),
-            // 'create' => Pages\CreateSittingTableType::route('/create'),
-            // 'view' => Pages\ViewSittingTableType::route('/{record}'),
-            // 'edit' => Pages\EditSittingTableType::route('/{record}/edit'),
+            'index' => Pages\ListSittingLayouts::route('/'),
+            // 'create' => Pages\CreateSittingLayout::route('/create'),
+            // 'view' => Pages\ViewSittingLayout::route('/{record}'),
+            // 'edit' => Pages\EditSittingLayout::route('/{record}/edit'),
         ];
     }
 }

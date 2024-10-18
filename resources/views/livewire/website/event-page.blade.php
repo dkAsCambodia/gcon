@@ -20,18 +20,18 @@
                         
                         @if (strtotime($event->event_date) >= strtotime($currentDate)) 
                         <div class="post-img">
-                        <a href="/GEntertainment/events/table" wire:navigate>
+                        <a href="/GEntertainment/events/seatinglayout/{{base64_encode($event->id)}}" wire:navigate>
                             <img src="{{ asset('storage/'.$event->event_img) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" alt="post image" loading="lazy">
                         </a>
                         </div><!-- /.post-img -->
                         <div class="post-body">
                             <div class="post-meta d-flex align-items-center">
                                 <div class="post-meta-cat">
-                                <a href="/GEntertainment/events/table" wire:navigate>{{!empty($event->event_date) ? date('d M Y', strtotime($event->event_date)) : ''}}</a>
+                                <a href="/GEntertainment/events/seatinglayout/{{base64_encode($event->id)}}" wire:navigate>{{!empty($event->event_date) ? date('d M Y', strtotime($event->event_date)) : ''}}</a>
                                 </div><!-- /.blog-meta-cat -->
-                                    <a class="post-meta-author" href="/GEntertainment/events/table" wire:navigate><b>{{ __('message.Book Now') }}</b></a>
+                                    <a class="post-meta-author" href="/GEntertainment/events/seatinglayout/{{base64_encode($event->id)}}" wire:navigate><b>{{ __('message.Book Now') }}</b></a>
                             </div>
-                            <a href="/GEntertainment/events/table" wire:navigate class="btn btn-link">
+                            <a href="/GEntertainment/events/seatinglayout/{{base64_encode($event->id)}}" wire:navigate class="btn btn-link">
                                 <i class="plus-icon">+</i>
                                 <span>Read More</span>
                             </a>
