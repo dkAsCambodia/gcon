@@ -538,6 +538,8 @@ return [
     "Daily Concert Booking" => "ការកក់ការប្រគុំតន្ត្រីប្រចាំថ្ងៃ",
     "Sitting for" => "អង្គុយសម្រាប់",
     "Table Type" => "ប្រភេទតារាង",
+    "Seating Layout" => "ប្លង់កន្លែងអង្គុយ",
+    "Table Name" => "ឈ្មោះតារាង",
 
 
 

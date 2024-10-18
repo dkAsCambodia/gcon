@@ -538,6 +538,8 @@ return [
     "Daily Concert Booking" => "จองคอนเสิร์ตรายวัน",
     "Sitting for" => "นั่งเพื่อ",
     "Table Type" => "ประเภทตาราง",
+    "Seating Layout" => "แผนผังที่นั่ง",
+    "Table Name" => "ชื่อตาราง",
     
     
     // Car Wash Function

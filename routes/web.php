@@ -12,6 +12,7 @@ use App\Livewire\Website\ForgetPassForm;
 use App\Livewire\Website\BookingNowPage;
 use App\Livewire\Website\ConcertPage;
 use App\Livewire\Website\EventPage;
+use App\Livewire\Website\EventSeatLayout;
 use App\Livewire\Website\ConcertFormPage;
 use App\Livewire\Website\PaymentOptionsPage;
 use App\Livewire\Website\ConcertTblInvoicePage;
@@ -74,8 +75,11 @@ Route::get('/dashboard/shippingAddress', ShipingAddressForm::class)->name('dashb
 Route::get('/dashboard/myOrderedFoods', RestaurantFoodOrderList::class)->name('dashboard.myOrderedFoods');
 // For Customer dashboard END
 //For GEntertainment concert START
-Route::get('/GEntertainment/concert', ConcertPage::class)->name('concert');
 Route::get('/GEntertainment/events', EventPage::class)->name('events');
+Route::get('/GEntertainment/events/seatinglayout/{event_id}', EventSeatLayout::class)->name('eventsittinglayout');
+
+
+Route::get('/GEntertainment/concert', ConcertPage::class)->name('concert');
 Route::get('/GEntertainment/concertForm/{tableId?}', ConcertFormPage::class)->name('concertForm');
 Route::get('/paymentOptions/{amount}/{currencySymbol}/{currency}', PaymentOptionsPage::class); ////
 Route::get('/invoice/{amount}/{currencySymbol}/{currency}/{recordId}', ConcertTblInvoicePage::class); ////
