@@ -9,4 +9,9 @@ class SittingTableType extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function sittingLayouts()
+    {
+        return $this->hasMany(SittingLayout::class, 'sitting_table_type_id');
+    }
 }
