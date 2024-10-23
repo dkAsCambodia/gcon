@@ -21,3 +21,25 @@ a.DkactiveItem {
 img.food-img-popup {
     border-radius: 10px;
 }
+
+/* //For Event CSS START */
+.seat {
+    color: #1ea83c;
+    border:1px solid #1ea83c;
+    height: 40px;
+    width: 78px;
+    margin: 3px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 37px;
+}
+.seat:hover {
+    color: #fff;
+    background-color: #1ea83c;
+}
+input.seat-checkbox {
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+}
+/* //For Event CSS END */
