@@ -1,30 +1,4 @@
 <div>
-    <style>
-.seat {
-    color: #1ea83c;
-    border:1px solid #1ea83c;
-    height: 40px;
-    width: 55px;
-    margin: 3px;
-    cursor: pointer;
-    text-align: center;
-    line-height: 37px;
-}
-.seat:hover {
-    color: #fff;
-    background-color: #1ea83c;
-    border:1px solid #1ea83c;
-    height: 40px;
-    width: 55px;
-    margin: 3px;
-    text-align: center;
-}
-input.seat-checkbox {
-    visibility: hidden;
-    height: 0px;
-    width: 0px;
-}
-    </style>
     <section class="page-title-layout4 py-0">
         <div class="breadcrumb-area">
           <div class="container">
@@ -95,34 +69,43 @@ input.seat-checkbox {
           </div><!-- /.row -->
         </div><!-- /.container -->
       </section><!-- /.blog Grid -->
-      {{-- <section class=""> --}}
+      {{-- <section> --}}
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                @foreach($seatlist as $key => $event)
-                    <div class="locations-panel">
-                        <div class="locations-panel-header">
-                        <h4 class="locations-panel-title">Section V </h4>
+              <div class="contact-panel">
+                <form wire:submit.prevent="saveTable" >
+                    @foreach($seatlist as $item)
+                        <div class="locations-panel">
+                            <div class="locations-panel-header">&nbsp;&nbsp;
+                             <h4 class="locations-panel-title">{{ !empty($item->sitting_table_name) ? ucwords($item->sitting_table_name) : '' }} : {{ !empty($item->price) ? $item->price.$item->currency_name : '' }}</h4>
                         </div><!-- /.locations-panel-header -->
-
-                        <div class="screen"></div>
-                            <div class="row">
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <div class="seat">&nbsp;VVIP1<input type="checbox" value="VVIP1" class="seat-checkbox"></div>
-                                <div class="seat">&nbsp;V2<input type="checbox" value="VVIP1" class="seat-checkbox"></div>
-                                <div class="seat">&nbsp;V3<input type="checbox" value="VVIP1" class="seat-checkbox"></div>
-                                <div class="seat">&nbsp;V4<input type="checbox" value="VVIP1" class="seat-checkbox"></div>
-                                <div class="seat">&nbsp;V5<input type="checbox" value="VVIP1" class="seat-checkbox"></div>
-                                <div class="seat">&nbsp;V6<input type="checbox" value="VVIP1" class="seat-checkbox"></div>
-                                <div class="seat">&nbsp;V7<input type="checbox" value="VVIP1" class="seat-checkbox"></div>
-                                <div class="seat">&nbsp;V8<input type="checbox" value="VVIP1" class="seat-checkbox"></div>
-                            </div>
-                    </div><!-- /.locations-panel -->
-                @endforeach
-            </div><!-- /.col-lg-12 -->
+                            <div class="screen"></div>
+                                <div class="row">
+                                
+                                    @forelse($item->layoutRecord as $layout)
+                                    
+                                    <div class="seat">&nbsp;{{ !empty($layout->table_name) ? ucwords($layout->table_name) : '' }}<input type="checbox" value="{{ !empty($layout->id) ? ucwords($layout->id) : '' }}" wire:model="sitting_layouts[]" class="seat-checkbox"></div>
+                                    
+                                    @empty
+                                        <p>No layout records available.</p>
+                                    @endforelse
+                                    
+                                </div> 
+                                    {{-- <div class="seat">&nbsp;V2<input type="checbox" value="VVIP1" class="seat-checkbox"></div> --}}
+                                    
+            
+                        </div><!-- /.locations-panel -->
+                    @endforeach
+                    <br/>
+                    <button type="submit" class="btn btn-success btn-block mb-10">
+                        <span>{{ __('message.Book Now') }}</span> <i class="icon-arrow-right"></i>
+                    </button>
+                </form>
+              </div>
+            </div><!-- /.col-lg-7 -->
           </div><!-- /.row -->
         </div><!-- /.container -->
-      {{-- </section><!-- /.locations --> --}}
-
-      <br/><br/>
+      {{-- </section><!-- /.contact layout 3 --> --}}
+      <br/>
 </div>
