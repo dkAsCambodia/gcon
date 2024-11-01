@@ -37,6 +37,10 @@ img.food-img-popup {
     color: #fff;
     background-color: #1ea83c;
 }
+.seat.checked{
+    color: #fff;
+    background-color: #1ea83c;
+}
 input.seat-checkbox {
     visibility: hidden;
     height: 0px;
