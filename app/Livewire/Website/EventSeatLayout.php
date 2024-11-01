@@ -10,7 +10,7 @@ use DB;
 
 class EventSeatLayout extends Component
 {
-    public $event, $seatlist, $sitting_layouts; 
+    public $event, $seatlist; 
     public function mount($event_id)
     {
         $this->event=Event::where(['id' => base64_decode($event_id), 'status' => '1'])->first();
@@ -36,9 +36,44 @@ class EventSeatLayout extends Component
 
     }
 
-    public function saveTable(){
-        dd($this->sitting_layouts);
+    public $sitting_layouts = [];
+
+    public function toggleSelection($layoutId)
+    {
+        if (in_array($layoutId, $this->sitting_layouts)) {
+            // Remove if already selected
+            $this->sitting_layouts = array_diff($this->sitting_layouts, [$layoutId]);
+        } else {
+            // Add if not selected
+            $this->sitting_layouts[] = $layoutId;
+        }
     }
+
+
+    public function saveTable()
+    {
+        $results = [];
+        $totalPrice = 0;
+        foreach ($this->sitting_layouts as $layoutId) {
+            $data = DB::table('sitting_layouts')
+                ->join('sitting_table_types', 'sitting_layouts.sitting_table_type_id', '=', 'sitting_table_types.id')
+                ->where('sitting_layouts.id', $layoutId)
+                ->select('sitting_table_types.*')
+                ->first(); // Assuming each layoutId corresponds to one row
+
+            if ($data) {
+                $results[] = $data;
+                $totalPrice += $data->price; // Sum up the price for each result
+            }
+        }
+
+        dd([
+            'results' => $results,
+            'totalPrice' => $totalPrice, // Display the total price
+        ]);
+    }
+
+
 
     public function render()
     {

@@ -84,12 +84,24 @@
                                 <div class="row">
                                 
                                     @forelse($item->layoutRecord as $layout)
-                                    
-                                    <div class="seat">&nbsp;{{ !empty($layout->table_name) ? ucwords($layout->table_name) : '' }}<input type="checbox" value="{{ !empty($layout->id) ? ucwords($layout->id) : '' }}" wire:model="sitting_layouts[]" class="seat-checkbox"></div>
-                                    
+                                        <div 
+                                            class="seat {{ in_array($layout->id, $sitting_layouts) ? 'checked' : '' }}" 
+                                            wire:click="toggleSelection({{ $layout->id }})"
+                                        >
+                                            &nbsp;{{ !empty($layout->table_name) ? ucwords($layout->table_name) : '' }}
+                                            <input 
+                                                type="checkbox" 
+                                                value="{{ $layout->id }}" 
+                                                wire:model="sitting_layouts" 
+                                                class="seat-checkbox" 
+                                                {{ in_array($layout->id, $sitting_layouts) ? 'checked' : '' }}
+                                            >
+                                        </div>
                                     @empty
                                         <p>No layout records available.</p>
                                     @endforelse
+
+
                                     
                                 </div> 
                                     {{-- <div class="seat">&nbsp;V2<input type="checbox" value="VVIP1" class="seat-checkbox"></div> --}}
