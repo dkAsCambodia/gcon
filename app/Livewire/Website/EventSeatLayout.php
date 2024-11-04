@@ -54,24 +54,29 @@ class EventSeatLayout extends Component
     {
         $results = [];
         $totalPrice = 0;
+
         foreach ($this->sitting_layouts as $layoutId) {
             $data = DB::table('sitting_layouts')
                 ->join('sitting_table_types', 'sitting_layouts.sitting_table_type_id', '=', 'sitting_table_types.id')
                 ->where('sitting_layouts.id', $layoutId)
                 ->select('sitting_table_types.*')
-                ->first(); // Assuming each layoutId corresponds to one row
+                ->first();
 
             if ($data) {
                 $results[] = $data;
-                $totalPrice += $data->price; // Sum up the price for each result
+                $totalPrice += $data->price;
             }
         }
+        // dd([
+        //     'results' => $results,
+        //     'totalPrice' => $totalPrice, // Display the total price
+        // ]);
+        session()->flash('results', $results);
+        session()->flash('totalPrice', $totalPrice);
 
-        dd([
-            'results' => $results,
-            'totalPrice' => $totalPrice, // Display the total price
-        ]);
+        return $this->redirect('/GEntertainment/events/form'.'/'.base64_encode($this->event->id), navigate: true);
     }
+
 
 
 
