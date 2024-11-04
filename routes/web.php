@@ -13,6 +13,8 @@ use App\Livewire\Website\BookingNowPage;
 use App\Livewire\Website\ConcertPage;
 use App\Livewire\Website\EventPage;
 use App\Livewire\Website\EventSeatLayout;
+use App\Livewire\Website\EventFormPage;
+
 use App\Livewire\Website\ConcertFormPage;
 use App\Livewire\Website\PaymentOptionsPage;
 use App\Livewire\Website\ConcertTblInvoicePage;
@@ -77,6 +79,7 @@ Route::get('/dashboard/myOrderedFoods', RestaurantFoodOrderList::class)->name('d
 //For GEntertainment concert START
 Route::get('/GEntertainment/events', EventPage::class)->name('events');
 Route::get('/GEntertainment/events/seatinglayout/{event_id}', EventSeatLayout::class)->name('eventsittinglayout');
+Route::get('/GEntertainment/events/form/{event_id}', EventFormPage::class)->name('eventForm');
 
 
 Route::get('/GEntertainment/concert', ConcertPage::class)->name('concert');
