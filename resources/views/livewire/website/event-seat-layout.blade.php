@@ -110,9 +110,11 @@
                         </div><!-- /.locations-panel -->
                     @endforeach
                     <br/>
+                    @if(!empty($totalPrice))
                     <button type="submit" class="btn btn-success btn-block mb-10">
-                        <span>{{ __('message.Book Now') }}</span> <i class="icon-arrow-right"></i>
+                        <span>{{ __('message.Book Now') }} {{ !empty($item->price) ? $item->currency_name : '' }}{{ $totalPrice ?? ''}}</span> <i class="icon-arrow-right"></i>
                     </button>
+                    @endif
                 </form>
               </div>
             </div><!-- /.col-lg-7 -->

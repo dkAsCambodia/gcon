@@ -360,9 +360,13 @@ return [
     "Grand Delivery in GCON" => "Grand Delivery in GCON",
     "Grand Concert" => "Grand Concert",
     "Concert Form" => "Concert Form",
+    "1 or 2 or 3" => "1 or 2 or 3",
+    "Booking Events Table Form" => "Booking Events Table Form",
+    "Booking Summary" => "Booking Summary",
     "Menus" => "Menus",
     "Menus" => "Menus",
     "Menus" => "Menus",
+
 
 
     
