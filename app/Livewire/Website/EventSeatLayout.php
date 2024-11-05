@@ -6,6 +6,7 @@ use App\Models\SittingTableType;
 use App\Models\Currency;
 use App\Models\SittingLayout;
 use DB;
+use Session;
 
 
 class EventSeatLayout extends Component
@@ -36,17 +37,40 @@ class EventSeatLayout extends Component
 
     }
 
-    public $sitting_layouts = [];
+    // public $sitting_layouts = [];
+    // public function toggleSelection($layoutId)
+    // {
+    //     if (in_array($layoutId, $this->sitting_layouts)) {
+    //         // Remove if already selected
+    //         $this->sitting_layouts = array_diff($this->sitting_layouts, [$layoutId]);
+    //     } else {
+    //         // Add if not selected
+    //         $this->sitting_layouts[] = $layoutId;
+    //     }
 
+    // }
+
+    public $sitting_layouts = [];
+    public $totalPrice = 0;
+    public function updatedSittingLayouts()
+    {
+        $this->calculateTotalPrice();
+    }
+    public function calculateTotalPrice()
+    {
+        $this->totalPrice = \DB::table('sitting_layouts')
+            ->join('sitting_table_types', 'sitting_layouts.sitting_table_type_id', '=', 'sitting_table_types.id')
+            ->whereIn('sitting_layouts.id', $this->sitting_layouts)
+            ->sum('sitting_table_types.price');
+    }
     public function toggleSelection($layoutId)
     {
         if (in_array($layoutId, $this->sitting_layouts)) {
-            // Remove if already selected
             $this->sitting_layouts = array_diff($this->sitting_layouts, [$layoutId]);
         } else {
-            // Add if not selected
             $this->sitting_layouts[] = $layoutId;
         }
+        $this->calculateTotalPrice();
     }
 
 
@@ -58,8 +82,9 @@ class EventSeatLayout extends Component
         foreach ($this->sitting_layouts as $layoutId) {
             $data = DB::table('sitting_layouts')
                 ->join('sitting_table_types', 'sitting_layouts.sitting_table_type_id', '=', 'sitting_table_types.id')
+                ->join('currencies', 'sitting_table_types.currency_id', '=', 'currencies.id')
                 ->where('sitting_layouts.id', $layoutId)
-                ->select('sitting_table_types.*')
+                ->select('sitting_table_types.price', 'sitting_table_types.currency_id', 'sitting_layouts.id', 'sitting_layouts.table_name', 'currencies.currency_code', 'currencies.currency_symbol')
                 ->first();
 
             if ($data) {
@@ -71,13 +96,10 @@ class EventSeatLayout extends Component
         //     'results' => $results,
         //     'totalPrice' => $totalPrice, // Display the total price
         // ]);
-        session()->flash('results', $results);
-        session()->flash('totalPrice', $totalPrice);
-
+        Session::put('results', $results);
+        Session::put('totalPrice', $totalPrice);
         return $this->redirect('/GEntertainment/events/form'.'/'.base64_encode($this->event->id), navigate: true);
     }
-
-
 
 
     public function render()
