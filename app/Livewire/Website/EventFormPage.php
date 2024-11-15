@@ -6,8 +6,6 @@ use App\Models\EventTransaction;
 use Livewire\Attributes\Rule;
 use Session;
 
-
-
 class EventFormPage extends Component
 {
 
@@ -71,7 +69,7 @@ class EventFormPage extends Component
                 // For Toster START
             if($this->paymentType=='online'){
                 Session::put('sessEventTransaction_recordId', $newTrnasaction->id);
-                return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->totalprice).'/'.$this->currency_symbol.'/'.base64_encode($this->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
+                return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->totalprice).'/'.$this->currency_symbol.'/'.base64_encode($this->currency_code).'/'.base64_encode($newTrnasaction->id).'/events', navigate: true);
             }
     }
 

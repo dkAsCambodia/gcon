@@ -2,13 +2,14 @@
 namespace App\Livewire\Website;
 use Livewire\Component;
 use App\Models\ConcertTblTransaction;
+use App\Models\EventTransaction;
 
 
 class PaymentPolicyPage extends Component
 {
     public $botton ='inactive';
     public bool $checked = false;
-    public $amount, $currencySymbol, $currency, $recordId;
+    public $amount, $currencySymbol, $currency, $recordId, $type = null;
 
     public function processMark()
     {
@@ -21,6 +22,16 @@ class PaymentPolicyPage extends Component
 
     public function privacyPolicyFun()
     {
+        if(!empty($this->type) && $this->type == 'events'){
+            // dd($this->type);
+            $recordData = EventTransaction::where('id', base64_decode($this->recordId))->first();
+            // dd($recordData);
+            if($recordData->paymentType=='online'){
+                return $this->redirect('/paymentOptions'.'/'.$this->amount.'/'.$this->currencySymbol.'/'.$this->currency, navigate: true);
+            }
+        }
+
+
         $recordData = ConcertTblTransaction::where('id', base64_decode($this->recordId))->first();
         // dd($recordData);
         if($recordData->paymentType=='online'){
