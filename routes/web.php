@@ -14,6 +14,7 @@ use App\Livewire\Website\ConcertPage;
 use App\Livewire\Website\EventPage;
 use App\Livewire\Website\EventSeatLayout;
 use App\Livewire\Website\EventFormPage;
+use App\Livewire\Website\EventInvoicePage;
 
 use App\Livewire\Website\ConcertFormPage;
 use App\Livewire\Website\PaymentOptionsPage;
@@ -27,7 +28,6 @@ use App\Livewire\Website\RestaurantPaymentOption;
 use App\Livewire\Website\RestaurantFoodInvoicePage;
 use App\Livewire\Website\RestaurantDeliveryBoyForm;
 use App\Livewire\Website\SearchFoodList;
-
 use App\Livewire\Website\FoodListPage;
 use App\Livewire\Website\RestaurantSellerFormPage;
 use App\Livewire\Website\Dashboard\EditProfileForm;
@@ -80,13 +80,14 @@ Route::get('/dashboard/myOrderedFoods', RestaurantFoodOrderList::class)->name('d
 Route::get('/GEntertainment/events', EventPage::class)->name('events');
 Route::get('/GEntertainment/events/seatinglayout/{event_id}', EventSeatLayout::class)->name('eventsittinglayout');
 Route::get('/GEntertainment/events/form/{event_id}', EventFormPage::class)->name('eventForm');
+Route::get('/eventsInvoice/{amount}/{currencySymbol}/{currency}/{recordId}', EventInvoicePage::class); ////
 
 
 Route::get('/GEntertainment/concert', ConcertPage::class)->name('concert');
 Route::get('/GEntertainment/concertForm/{tableId?}', ConcertFormPage::class)->name('concertForm');
 Route::get('/paymentOptions/{amount}/{currencySymbol}/{currency}', PaymentOptionsPage::class); ////
 Route::get('/invoice/{amount}/{currencySymbol}/{currency}/{recordId}', ConcertTblInvoicePage::class); ////
-Route::get('/payment/privacypolicy/{amount}/{currencySymbol}/{currency}/{recordId}', PaymentPolicyPage::class); ////
+Route::get('/payment/privacypolicy/{amount}/{currencySymbol}/{currency}/{recordId}/{type?}', PaymentPolicyPage::class); ////
 Route::get('/concertTable/{recordId}/cancellationPolicy', ConcertCalcelationPolicyPage::class); ////
 //For GEntertainment concert END
 

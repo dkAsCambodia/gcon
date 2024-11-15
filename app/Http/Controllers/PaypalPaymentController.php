@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use Omnipay\Omnipay;
 use App\Models\ConcertTblTransaction;
+use App\Models\EventTransaction;
 use App\Models\RestaurantOrder;
 use App\Models\RestaurantCart;
 use Session;
@@ -60,6 +61,19 @@ class PaypalPaymentController extends Controller
                         ]);
                     // Code for update data into DB END
                     $response->redirect();
+                }elseif(!empty(Session::get('sessEventTransaction_recordId'))){
+                   
+                        $recordId=Session::get('sessEventTransaction_recordId');
+                        // Code for update data into DB START
+                        EventTransaction::where('id', $recordId)
+                            ->update([
+                                'transaction_id' => $data['id'],
+                                'receipt_url' => $data['links']['1']['href'],
+                                'gateway_name' => 'Paypal',
+                                'message' => 'Donation with Paypal',
+                            ]);
+                        // Code for update data into DB END
+                        $response->redirect();
                 }elseif(!empty(Session::get('restaurant_orderKey'))){
                 
                         $restaurant_orderKey=Session::get('restaurant_orderKey');
@@ -110,6 +124,20 @@ class PaypalPaymentController extends Controller
                         $msg =  __('message.Table Booked Successfully!');
                     return redirect('/invoice'.'/'.base64_encode($transaction->total_amount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->id))->withsuccess($msg);
                 
+                }elseif(!empty(Session::get('sessEventTransaction_recordId'))){
+                        $recordId=Session::get('sessEventTransaction_recordId');
+                        EventTransaction::where('id', $recordId)
+                        ->update([
+                                'response_all' => json_encode($arr, true),
+                                'payment_time' => $created_date,
+                                'future_payment_custId' => $arr['payer']['payer_info']['payer_id'],
+                                'status' => 'success',
+                            ]);
+                            $transaction = EventTransaction::where('id', $recordId)->first();
+                            Session::forget('sessEventTransaction_recordId');
+                            $msg =  __('message.Table Booked Successfully!');
+                        return redirect('/eventsInvoice'.'/'.base64_encode($transaction->total_amount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->id))->withsuccess($msg);
+                    
                 }elseif(!empty(Session::get('restaurant_orderKey'))){
                         $restaurant_orderKey=Session::get('restaurant_orderKey');
                      
