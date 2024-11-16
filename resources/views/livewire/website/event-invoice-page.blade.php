@@ -26,18 +26,28 @@
                         </div><!-- /.post-item -->
                     </div><!-- /.col-md-6 -->
                     <div class="col-12 col-md-6">
-                        <div class="post-body">
-                            <h4 class="post-title"><a href="#">{{ !empty($eventDetails->event_address) ? ucwords($eventDetails->event_address) : '' }}
-                              </a></h4>
-                            <p class="post-desc">{{ __('message.Discount') }}: {{ !empty($eventDetails->discount) ? ucwords($eventDetails->discount) : '' }}</p>
-                            <p class="post-desc">{{!empty($eventDetails->event_date) ? date('d M Y', strtotime($eventDetails->event_date)) : ''}}</p>
-                           
-                          </div><!-- /.post-body -->
+                        <h5 class="pricing-title">{{ __('message.Booking Summary') }}</h5>
+                      
+                        <hr/>
+                        <div class="cart-total-amount">
+                          <ul class="list-unstyled mb-30">
+                            <li><span>Table :</span>
+                                @foreach ($BookedtableList as $item)
+                                      <div class="seat checked">
+                                          &nbsp;{{ !empty($item->table_name) ? ucwords($item->table_name) : '' }}
+                                          <input type="checkbox" class="seat-checkbox" checked>
+                                      </div>
+                                @endforeach
+                            </li>
+                          <li><span> {{ __('message.Subtotal') }} :</span><span>{{ $subtotal.$item->currency_symbol ?? '' }}</span></li>
+                          <li><span> {{ __('message.Charge') }} :</span><span class="font-weight-bold"> {{ $charge.$item->currency_symbol ?? '0'}}</span></li>
+                          </ul>
+                       </div><!-- /.cart-total-amount -->
                     </div><!-- /.col-md-6 -->
                 </div><!-- /.row -->
                 <div class="row">
                     <div class="col-12 col-md-6">
-                      <br/>
+                      
                       <div class="pricing-widget-layout1">
                         <h5 class="pricing-title">{{ __('message.Customer Information') }}</h5>
                         <ul class="pricing-list list-unstyled mb-0">
@@ -66,19 +76,16 @@
                             @if($cancelButtonShow=='1')
                               <li><span>{{ __('message.Booking Status') }}</span><span class="text-danger">{{ $cancelButtonShow=='1' ? 'Cancelled' : '' }}</span></li>
                             @else
-                              {{-- <li><button class="btn btn-danger" wire:click.prevent="cancelButtonfun({{ $transaction->id }})">{{ __('message.Cancel Booking') }}</button></li> --}}
                                 @php
-                                    $givenDate = new DateTime($transaction->concert_booking_date);
+                                    $givenDate = new DateTime($eventDetails->event_date);
                                     $currentDate = new DateTime();
                                 @endphp
-                                @if ($givenDate > $currentDate && !empty(Session::get('memberdata')))  
+                                @if ($givenDate > $currentDate)  
                                     @if( $transaction->paymentType == 'online')
                                         <li><button href="/concertTable/{{ base64_encode($transaction->id) }}/cancellationPolicy/" wire:navigate class="btn btn-danger">{{ __('message.Cancel Booking') }}</button></li>
                                     @else
                                     <li><button class="btn btn-danger" wire:click.prevent="cancelButtonfun({{ $transaction->id }})">{{ __('message.Cancel Booking') }}</button></li>
-                                @endif
- 
-
+                                  @endif
                                 @endif
                             @endif 
                         
