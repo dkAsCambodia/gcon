@@ -122,7 +122,7 @@
         }
     </script>
     {{-- Disable_Browser_Back_JavaScript START --}}
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         function preventBack() {
             // alert('summary page');
             window.history.forward();
@@ -131,7 +131,7 @@
         window.onunload = function () {
             null
         };
-    </script>
+    </script> --}}
         {{-- Disable_Browser_Back_JavaScript END --}}
         {{-- Code for Cancel Booking Js via sweetalert 2 START --}}
     <script>

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ConcertTblTransaction;
+use App\Models\EventTransaction;
 use App\Models\RestaurantOrder;
 use App\Models\RestaurantCart;
 use Session;
@@ -37,7 +38,7 @@ class StripePaymentController extends Controller
                             'receipt_url' => $data->receipt_url,
                             'gateway_name' => 'Stripe',
                             'payment_timezone' => 'Asia/Bangkok',
-                            'message' => 'Donation with Striipe',
+                            'message' => 'Pay with Striipe',
                             'response_all' => $data,
                             'payment_time' => $created_date,
                             'future_payment_custId' => $data->customer,
@@ -49,6 +50,26 @@ class StripePaymentController extends Controller
                 
                     return redirect('/invoice'.'/'.base64_encode($transaction->total_amount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->id))->withsuccess($msg);
                 
+                }elseif(!empty(Session::get('sessEventTransaction_recordId'))){
+                        $recordId=Session::get('sessEventTransaction_recordId');
+                        
+                        EventTransaction::where('id', $recordId)
+                        ->update([
+                                'transaction_id' => $data->id,
+                                'receipt_url' => $data->receipt_url,
+                                'gateway_name' => 'Stripe',
+                                'message' => 'Pay with Striipe',
+                                'response_all' => $data,
+                                'payment_time' => $created_date,
+                                'future_payment_custId' => $data->customer,
+                                'status' => $payment_status,
+                            ]);
+                            $transaction = EventTransaction::where('id', $recordId)->first();
+                            Session::forget('sessEventTransaction_recordId');
+                            $msg =  __('message.Table Booked Successfully!');
+                    
+                            return redirect('/eventsInvoice'.'/'.base64_encode($transaction->total_amount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->id))->withsuccess($msg);
+
                 }elseif(!empty(Session::get('restaurant_orderKey'))){
                     $restaurant_orderKey=Session::get('restaurant_orderKey');
                     

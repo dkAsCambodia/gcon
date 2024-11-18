@@ -57,7 +57,7 @@ class PaypalPaymentController extends Controller
                             'receipt_url' => $data['links']['1']['href'],
                             'gateway_name' => 'Paypal',
                             'payment_timezone' => 'Asia/Bangkok',
-                            'message' => 'Donation with Paypal',
+                            'message' => 'Pay with Paypal',
                         ]);
                     // Code for update data into DB END
                     $response->redirect();
@@ -70,7 +70,7 @@ class PaypalPaymentController extends Controller
                                 'transaction_id' => $data['id'],
                                 'receipt_url' => $data['links']['1']['href'],
                                 'gateway_name' => 'Paypal',
-                                'message' => 'Donation with Paypal',
+                                'message' => 'Pay with Paypal',
                             ]);
                         // Code for update data into DB END
                         $response->redirect();
@@ -125,7 +125,7 @@ class PaypalPaymentController extends Controller
                     return redirect('/invoice'.'/'.base64_encode($transaction->total_amount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->id))->withsuccess($msg);
                 
                 }elseif(!empty(Session::get('sessEventTransaction_recordId'))){
-                        $recordId=Session::get('sessEventTransaction_recordId');
+                        $recordId=Session::get('sessEventTransaction_recordId'); 
                         EventTransaction::where('id', $recordId)
                         ->update([
                                 'response_all' => json_encode($arr, true),
