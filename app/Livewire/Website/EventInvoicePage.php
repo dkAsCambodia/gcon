@@ -18,21 +18,21 @@ class EventInvoicePage extends Component
     public $transaction, $BookedtableList, $eventDetails, $subtotal = 0, $charge=10;
 
     public $record_id, $cancelButtonShow;
-    protected $listeners = ['cancelConcertTicket' => 'CancelBookingFun'];
+    // protected $listeners = ['cancelConcertTicket' => 'CancelBookingFun'];
 
-    public function cancelButtonfun($id){
+    // public function cancelButtonfun($id){
       
-        $this->record_id = $id;
-        $this->dispatch('show-cancel-confirmation');
-    }
+    //     $this->record_id = $id;
+    //     $this->dispatch('show-cancel-confirmation');
+    // }
 
-    public function CancelBookingFun(){
+    // public function CancelBookingFun(){
       
-        $data= EventTransaction::find($this->record_id);
-        $data->update(['cancel_status' => '1']);
-        $this->cancelButtonShow = '1';
-        $this->dispatch('ticketCancelled');
-    }
+    //     $data= EventTransaction::find($this->record_id);
+    //     $data->update(['cancel_status' => '1']);
+    //     $this->cancelButtonShow = '1';
+    //     $this->dispatch('ticketCancelled');
+    // }
 
 
     public function mount()

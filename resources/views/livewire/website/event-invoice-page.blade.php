@@ -82,9 +82,9 @@
                                 @endphp
                                 @if ($givenDate > $currentDate)  
                                     @if( $transaction->paymentType == 'online')
-                                        <li><button href="/concertTable/{{ base64_encode($transaction->id) }}/cancellationPolicy/" wire:navigate class="btn btn-danger">{{ __('message.Cancel Booking') }}</button></li>
+                                        <li><button href="/concertTable/{{ base64_encode($transaction->id) }}/cancellationPolicy/events" wire:navigate class="btn btn-danger">{{ __('message.Cancel Booking') }}</button></li>
                                     @else
-                                    <li><button class="btn btn-danger" wire:click.prevent="cancelButtonfun({{ $transaction->id }})">{{ __('message.Cancel Booking') }}</button></li>
+                                    {{-- <li><button class="btn btn-danger" wire:click.prevent="cancelButtonfun({{ $transaction->id }})">{{ __('message.Cancel Booking') }}</button></li> --}}
                                   @endif
                                 @endif
                             @endif 

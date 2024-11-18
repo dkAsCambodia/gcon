@@ -360,6 +360,7 @@ return [
     "Grand Delivery in GCON" => "การจัดส่งครั้งใหญ่ใน GCON",
     "Grand Concert" => "แกรนด์คอนเสิร์ต",
     "Concert Form" => "แบบฟอร์มคอนเสิร์ต",
+    "Gcon Events Invoice" => "ใบแจ้งหนี้กิจกรรม Gcon",
 
 
 

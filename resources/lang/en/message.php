@@ -363,7 +363,7 @@ return [
     "1 or 2 or 3" => "1 or 2 or 3",
     "Booking Events Table Form" => "Booking Events Table Form",
     "Booking Summary" => "Booking Summary",
-    "Menus" => "Menus",
+    "Gcon Events Invoice" => "Gcon Events Invoice",
     "Menus" => "Menus",
     "Menus" => "Menus",
 

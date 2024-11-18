@@ -359,6 +359,7 @@ return [
     "Grand Delivery in GCON" => "ការដឹកជញ្ជូនដ៏អស្ចារ្យនៅ GCON",
     "Grand Concert" => "ការប្រគុំតន្ត្រីដ៏អស្ចារ្យ",
     "Concert Form" => "ទម្រង់ការប្រគុំតន្ត្រី",
+    "Gcon Events Invoice" => "វិក្កយបត្រព្រឹត្តិការណ៍ Gcon",
     
 
     
