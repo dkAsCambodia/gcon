@@ -88,7 +88,7 @@ Route::get('/GEntertainment/concertForm/{tableId?}', ConcertFormPage::class)->na
 Route::get('/paymentOptions/{amount}/{currencySymbol}/{currency}', PaymentOptionsPage::class); ////
 Route::get('/invoice/{amount}/{currencySymbol}/{currency}/{recordId}', ConcertTblInvoicePage::class); ////
 Route::get('/payment/privacypolicy/{amount}/{currencySymbol}/{currency}/{recordId}/{type?}', PaymentPolicyPage::class); ////
-Route::get('/concertTable/{recordId}/cancellationPolicy', ConcertCalcelationPolicyPage::class); ////
+Route::get('/concertTable/{recordId}/cancellationPolicy/{type?}', ConcertCalcelationPolicyPage::class); ////
 //For GEntertainment concert END
 
 // For Paypal payment Gateway START
