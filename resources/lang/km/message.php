@@ -360,6 +360,11 @@ return [
     "Grand Concert" => "ការប្រគុំតន្ត្រីដ៏អស្ចារ្យ",
     "Concert Form" => "ទម្រង់ការប្រគុំតន្ត្រី",
     "Gcon Events Invoice" => "វិក្កយបត្រព្រឹត្តិការណ៍ Gcon",
+    "1 or 2 or 3" => "១ ឬ ២ ឬ ៣",
+    "Booking Events Table Form" => "ទម្រង់តារាងព្រឹត្តិការណ៍កក់",
+    "Booking Summary" => "សង្ខេបការកក់",
+    "Your Order has been Cancelled Successfully!" => "ការបញ្ជាទិញរបស់អ្នកត្រូវបានលុបចោលដោយជោគជ័យ!",
+    "Booked" => "បានកក់ទុក",
     
 
     

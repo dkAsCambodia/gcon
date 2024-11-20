@@ -5,15 +5,38 @@ use App\Models\Event;
 use App\Models\SittingTableType;
 use App\Models\Currency;
 use App\Models\SittingLayout;
+use App\Models\EventTransaction;
 use DB;
 use Session;
 
 
 class EventSeatLayout extends Component
 {
-    public $event, $seatlist; 
+    public $event, $seatlist, $BookedallSeatIds=null; 
     public function mount($event_id)
     {
+        
+        // $booked=EventTransaction::select('id','table_arr')->where(['event_id' => base64_decode($event_id), 'status' => 'success', 'cancel_status' => '0'])->get();
+
+        $booked = EventTransaction::select('table_arr')
+                ->where([
+                    'event_id' => base64_decode($event_id),
+                    'status' => 'success',
+                    'cancel_status' => '0'
+                ])->get();
+
+            // Extract and merge seat_ids into a single array
+            $this->BookedallSeatIds = $booked->pluck('table_arr') // Get all table_arr values
+                ->map(function ($tableArr) {
+                    return json_decode($tableArr, true); // Decode JSON to array
+                })
+                ->flatten() // Flatten into a single array
+                ->unique() // Get unique seat_ids
+                ->sort() // Sort in increasing order
+                ->values() // Reindex the array
+                ->toArray();
+            //  dd($this->BookedallSeatIds);
+
         $this->event=Event::where(['id' => base64_decode($event_id), 'status' => '1'])->first();
         $SittingTableType = SittingTableType::where('sitting_for', 'events')->orderBy('order','ASC')->get();
 

@@ -46,4 +46,11 @@ input.seat-checkbox {
     height: 0px;
     width: 0px;
 }
+.seat.booked {
+    background: darkred;
+    opacity: 0.4;
+    border: 1px solid darkred;
+    color: white;
+    font-size: 15px;
+}
 /* //For Event CSS END */

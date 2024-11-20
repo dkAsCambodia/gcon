@@ -365,7 +365,7 @@ return [
     "Booking Summary" => "Booking Summary",
     "Gcon Events Invoice" => "Gcon Events Invoice",
     "Your Order has been Cancelled Successfully!" => "Your Order has been Cancelled Successfully!",
-    "Menus" => "Menus",
+    "Booked" => "Booked",
 
 
 
