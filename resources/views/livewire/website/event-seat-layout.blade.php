@@ -84,6 +84,13 @@
                                 <div class="row">
                                 
                                     @forelse($item->layoutRecord as $layout)
+
+                                        @if(in_array($layout->id, $BookedallSeatIds))
+                                            <div class="seat booked">
+                                                &nbsp;{{ __('message.Booked') }}
+                                                <input type="checkbox" class="seat-checkbox" >
+                                            </div>
+                                        @else
                                         <div 
                                             class="seat {{ in_array($layout->id, $sitting_layouts) ? 'checked' : '' }}" 
                                             wire:click="toggleSelection({{ $layout->id }})"
@@ -97,6 +104,7 @@
                                                 {{ in_array($layout->id, $sitting_layouts) ? 'checked' : '' }}
                                             >
                                         </div>
+                                        @endif
                                     @empty
                                         <p>No layout records available.</p>
                                     @endforelse

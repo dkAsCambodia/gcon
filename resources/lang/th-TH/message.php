@@ -361,6 +361,11 @@ return [
     "Grand Concert" => "แกรนด์คอนเสิร์ต",
     "Concert Form" => "แบบฟอร์มคอนเสิร์ต",
     "Gcon Events Invoice" => "ใบแจ้งหนี้กิจกรรม Gcon",
+    "1 or 2 or 3" => "1 หรือ 2 หรือ 3",
+    "Booking Events Table Form" => "แบบฟอร์มตารางการจองกิจกรรม",
+    "Booking Summary" => "สรุปการจอง",
+    "Your Order has been Cancelled Successfully!" => "คำสั่งซื้อของคุณถูกยกเลิกเรียบร้อยแล้ว!",
+    "Booked" => "จองแล้ว",
 
 
 
