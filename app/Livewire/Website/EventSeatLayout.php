@@ -43,7 +43,7 @@ class EventSeatLayout extends Component
         $data = [];
         foreach ($SittingTableType as $seatTyperow) {
             $record = SittingLayout::select(['id', 'sitting_table_type_id', 'table_name', 'order', 'status'])
-                ->where('sitting_table_type_id', $seatTyperow->id)->orderBy('order','ASC')->get();
+                ->where('sitting_table_type_id', $seatTyperow->id)->where('status', '1')->orderBy('order','ASC')->get();
     
             $data[] = (object) [
                 'id' => $seatTyperow->id,
