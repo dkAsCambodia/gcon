@@ -3,6 +3,9 @@
       <a href="/dashboard" wire:navigate class="{{ Route::is('dashboard.user') ? 'active' : '' }} {{ Route::is('dashboard.updateProfile') ? 'active' : '' }}"><span class="cat-title">{{ __('message.View profile') }}</span><span class="cat-count"><i class='fas fa-address-book'></i></span></a>
     </li>
     <li>
+      <a href="/dashboard/myConcertBooking" wire:navigate class="{{ Route::is('dashboard.myConcertBooking') ? 'active' : '' }}"><span class="cat-title">{{ __('message.My Events booking') }}</span><span class="cat-count"><i class="fa fa-list" aria-hidden="true"></i></span></a>
+    </li>
+    <li>
       <a href="/dashboard/myConcertBooking" wire:navigate class="{{ Route::is('dashboard.myConcertBooking') ? 'active' : '' }}"><span class="cat-title">{{ __('message.My concert booking') }}</span><span class="cat-count"><i class="fa fa-list" aria-hidden="true"></i></span></a>
     </li>
     <li>
