@@ -32,6 +32,7 @@ use App\Livewire\Website\FoodListPage;
 use App\Livewire\Website\RestaurantSellerFormPage;
 use App\Livewire\Website\Dashboard\EditProfileForm;
 use App\Livewire\Website\Dashboard\ConcertBookingList;
+use App\Livewire\Website\Dashboard\EventBookingList;
 use App\Livewire\Website\Dashboard\ConcertCalcelationPolicyPage;
 use App\Livewire\Website\Dashboard\ShipingAddressForm;
 use App\Livewire\Website\Dashboard\RestaurantFoodOrderList;
@@ -73,6 +74,7 @@ Route::get('/bookingList', BookingNowPage::class)->name('bookingList');
 Route::get('/dashboard', DashboardPage::class)->name('dashboard.user');
 Route::get('/dashboard/updateProfile', EditProfileForm::class)->name('dashboard.updateProfile');
 Route::get('/dashboard/myConcertBooking', ConcertBookingList::class)->name('dashboard.myConcertBooking');
+Route::get('/dashboard/specialEvents', EventBookingList::class)->name('dashboard.specialEvents');
 Route::get('/dashboard/shippingAddress', ShipingAddressForm::class)->name('dashboard.myshippingAddress');
 Route::get('/dashboard/myOrderedFoods', RestaurantFoodOrderList::class)->name('dashboard.myOrderedFoods');
 // For Customer dashboard END
