@@ -366,6 +366,10 @@ return [
     "Booking Summary" => "สรุปการจอง",
     "Your Order has been Cancelled Successfully!" => "คำสั่งซื้อของคุณถูกยกเลิกเรียบร้อยแล้ว!",
     "Booked" => "จองแล้ว",
+    "My Events booking" => "การจองกิจกรรมของฉัน",
+    "Success" => "ความสำเร็จ",
+    "Pending" => "รอดำเนินการ",
+    "Cancelled" => "ยกเลิก",
 
 
 

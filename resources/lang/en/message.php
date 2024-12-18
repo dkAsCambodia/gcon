@@ -366,6 +366,14 @@ return [
     "Gcon Events Invoice" => "Gcon Events Invoice",
     "Your Order has been Cancelled Successfully!" => "Your Order has been Cancelled Successfully!",
     "Booked" => "Booked",
+    "My Events booking" => "My Events booking",
+    "Success" => "Success",
+    "Pending" => "Pending",
+    "Cancelled" => "Cancelled",
+    "Booked" => "Booked",
+    "Booked" => "Booked",
+    "Booked" => "Booked",
+    
 
 
 
