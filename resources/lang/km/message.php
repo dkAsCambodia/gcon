@@ -365,6 +365,10 @@ return [
     "Booking Summary" => "សង្ខេបការកក់",
     "Your Order has been Cancelled Successfully!" => "ការបញ្ជាទិញរបស់អ្នកត្រូវបានលុបចោលដោយជោគជ័យ!",
     "Booked" => "បានកក់ទុក",
+    "My Events booking" => "ការកក់ព្រឹត្តិការណ៍របស់ខ្ញុំ",
+    "Success" => "ជោគជ័យ",
+    "Pending" => "កំពុងរង់ចាំ",
+    "Cancelled" => "បានលុបចោល",
     
 
     
