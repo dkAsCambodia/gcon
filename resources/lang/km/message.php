@@ -369,6 +369,9 @@ return [
     "Success" => "ជោគជ័យ",
     "Pending" => "កំពុងរង់ចាំ",
     "Cancelled" => "បានលុបចោល",
+    "Grand Restaurants" => "ភោជនីយដ្ឋានធំ",
+    "Booking Restaurants" => "ការកក់ភោជនីយដ្ឋាន",
+    "Availability" => "ភាពអាចរកបាន",
     
 
     

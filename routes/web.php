@@ -30,6 +30,10 @@ use App\Livewire\Website\RestaurantDeliveryBoyForm;
 use App\Livewire\Website\SearchFoodList;
 use App\Livewire\Website\FoodListPage;
 use App\Livewire\Website\RestaurantSellerFormPage;
+
+
+use App\Livewire\Website\BookingRestaurantTables;
+
 use App\Livewire\Website\Dashboard\EditProfileForm;
 use App\Livewire\Website\Dashboard\ConcertBookingList;
 use App\Livewire\Website\Dashboard\EventBookingList;
@@ -113,7 +117,12 @@ Route::get('lang/change', [LocalizationController::class, 'lang_change'])->name(
 //For GBooking restaurant START
 Route::get('/GBooking/restaurant/newSeller', RestaurantSellerFormPage::class)->name('newRestaurantSeller');
 Route::get('/GBooking/grandDelivery', RestaurantPage::class)->name('restaurantPage');
-// Route::get('/GBooking/restaurant', RestaurantPage::class)->name('restaurantPage');
+
+// BookingRestaurantTable START
+Route::get('/GBooking/BookingRestaurant', BookingRestaurantTables::class)->name('BookingRestaurantTable');
+Route::get('/GBooking/BookingRestaurant/seatinglayout/{restaurant_id}', EventSeatLayout::class)->name('eventsittinglayout');
+// BookingRestaurantTable END
+
 Route::get('/GBooking/restaurant/foods/{restaurant_id}/{cat_id?}', FoodListPage::class)->name('FoodListPage');
 Route::get('/GBooking/restaurant/viewcart', ViewcartPage::class)->name('restaurantViewCartPage');
 Route::get('/GBooking/restaurant/logAuth/checkout', RestaurantCheckout::class)->name('restaurantCheckout');

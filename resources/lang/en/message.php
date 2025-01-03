@@ -370,9 +370,13 @@ return [
     "Success" => "Success",
     "Pending" => "Pending",
     "Cancelled" => "Cancelled",
-    "Booked" => "Booked",
-    "Booked" => "Booked",
-    "Booked" => "Booked",
+    "Grand Restaurants" => "Grand Restaurants",
+    "Booking Restaurants" => "Booking Restaurants",
+    "Availability" => "Availability",
+    "Availability" => "Availability",
+    "Availability" => "Availability",
+    "Availability" => "Availability",
+    "Availability" => "Availability",
     
 
 
