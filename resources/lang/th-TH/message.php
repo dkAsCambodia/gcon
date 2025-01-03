@@ -370,6 +370,9 @@ return [
     "Success" => "ความสำเร็จ",
     "Pending" => "รอดำเนินการ",
     "Cancelled" => "ยกเลิก",
+    "Grand Restaurants" => "ร้านอาหารแกรนด์",
+    "Booking Restaurants" => "การจองร้านอาหาร",
+    "Availability" => "ความพร้อมใช้งาน",
 
 
 

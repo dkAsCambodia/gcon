@@ -130,7 +130,7 @@
                                             <li class="nav-item" ><a href="" class="nav-item-link">{{ !empty($submenu->restaurantName) ? ucwords($submenu->restaurantName) : '' }}</a></li>
                                             
                                         @endforeach
-                                    </ul><!-- /.dropdown-menu for submenus -->
+                                    </ul><!-- /.dropdown-menu for submenus --> 
                                   @endif
                             </li><!-- /.nav-item -->
                         @endforeach
