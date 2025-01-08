@@ -33,6 +33,7 @@ use App\Livewire\Website\RestaurantSellerFormPage;
 
 
 use App\Livewire\Website\BookingRestaurantTables;
+use App\Livewire\Website\BookingRestaurantTableSeatlayout;
 
 use App\Livewire\Website\Dashboard\EditProfileForm;
 use App\Livewire\Website\Dashboard\ConcertBookingList;
@@ -120,7 +121,7 @@ Route::get('/GBooking/grandDelivery', RestaurantPage::class)->name('restaurantPa
 
 // BookingRestaurantTable START
 Route::get('/GBooking/BookingRestaurant', BookingRestaurantTables::class)->name('BookingRestaurantTable');
-Route::get('/GBooking/BookingRestaurant/seatinglayout/{restaurant_id}', EventSeatLayout::class)->name('eventsittinglayout');
+Route::get('/GBooking/BookingRestaurant/seatinglayout/{restaurant_id}', BookingRestaurantTableSeatlayout::class)->name('BookingRestaurantTableSeatlayout');
 // BookingRestaurantTable END
 
 Route::get('/GBooking/restaurant/foods/{restaurant_id}/{cat_id?}', FoodListPage::class)->name('FoodListPage');
