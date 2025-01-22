@@ -35,6 +35,7 @@
                   <p class="mb-30">&nbsp;&nbsp;{{ __('message.Member Account Status') }} : <b>{{ $customer->status=='1' ? __('message.Active') : __('message.Inactive') }}</b></p>
                   <p class="mb-30"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{{ ucfirst($customer->address) ?? '' }}, {{ ucfirst($customer->country) ?? '' }}</p>
                   <!-- For QR code START -->
+                  {{ QrCode::format('svg')->size(130)->generate($customer->card_number) }} &nbsp;
                   {!! QrCode::format('svg')
                   ->size(130)
                   ->generate($customer->status == '1' 
