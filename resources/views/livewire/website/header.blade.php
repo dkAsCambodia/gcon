@@ -127,7 +127,7 @@
                                   @if(!empty($booking->BookingType=='BookingRestaurant'))
                                     <ul class="dropdown-menu dropdown-submenu">
                                         @foreach($restaurantList as $submenu) 
-                                            <li class="nav-item" ><a href="" class="nav-item-link">{{ !empty($submenu->restaurantName) ? ucwords($submenu->restaurantName) : '' }}</a></li>
+                                            <li class="nav-item" ><a href="#" class="nav-item-link">{{ !empty($submenu->restaurantName) ? ucwords($submenu->restaurantName) : '' }}</a></li>
                                             
                                         @endforeach
                                     </ul><!-- /.dropdown-menu for submenus --> 
