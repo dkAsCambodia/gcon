@@ -18,7 +18,7 @@
           </nav>
       </div><!-- /.container -->
       </div><!-- /.breadcrumb-area -->
-  </section><!-- /.page-title -->
+  </section><!-- /.page-title --> 
 <section class="pb-40">
     <div class="container">
       <div class="row">
