@@ -15,11 +15,11 @@ use App\Models\Restaurant;
 class BookingRestaurantTableSeatlayout extends Component
 {
     public $event, $seatlist, $BookedallSeatIds=null; 
-
+    public $date, $time, $no_of_people, $name, $email, $phone, $address, $paymentType, $preferredSeats='Other';
 
     public function mount($restaurant_id)
     {
- 
+        $this->date = now()->toDateString();
         // $booked=EventTransaction::select('id','table_arr')->where(['event_id' => base64_decode($event_id), 'status' => 'success', 'cancel_status' => '0'])->get();
 
         $booked = EventTransaction::select('table_arr')
