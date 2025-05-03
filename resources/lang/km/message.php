@@ -372,6 +372,7 @@ return [
     "Grand Restaurants" => "ភោជនីយដ្ឋានធំ",
     "Booking Restaurants" => "ការកក់ភោជនីយដ្ឋាន",
     "Availability" => "ភាពអាចរកបាន",
+    "Special Requests" => "សំណើពិសេស",
     
 
     

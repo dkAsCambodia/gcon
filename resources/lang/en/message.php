@@ -373,7 +373,7 @@ return [
     "Grand Restaurants" => "Grand Restaurants",
     "Booking Restaurants" => "Booking Restaurants",
     "Availability" => "Availability",
-    "Availability" => "Availability",
+    "Special Requests" => "Special Requests",
     "Availability" => "Availability",
     "Availability" => "Availability",
     "Availability" => "Availability",
