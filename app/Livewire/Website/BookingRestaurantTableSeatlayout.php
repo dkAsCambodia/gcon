@@ -130,7 +130,7 @@ class BookingRestaurantTableSeatlayout extends Component
 
     public function render()
     {
-        $title =    __('message.Special Events');
+        $title =    __('message.Booking Restaurant Table Form');
         return view('livewire.website.booking-restaurant-table-seatlayout')->title($title);
     }
 }

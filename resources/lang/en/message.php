@@ -374,7 +374,7 @@ return [
     "Booking Restaurants" => "Booking Restaurants",
     "Availability" => "Availability",
     "Special Requests" => "Special Requests",
-    "Availability" => "Availability",
+    "Booking Restaurant Table Form" => "Booking Restaurant Table Form",
     "Availability" => "Availability",
     "Availability" => "Availability",
     

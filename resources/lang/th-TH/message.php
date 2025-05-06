@@ -374,6 +374,7 @@ return [
     "Booking Restaurants" => "การจองร้านอาหาร",
     "Availability" => "ความพร้อมใช้งาน",
     "Special Requests" => "คำขอพิเศษ",
+    "Booking Restaurant Table Form" => "แบบฟอร์มการจองโต๊ะร้านอาหาร",
 
 
 

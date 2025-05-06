@@ -69,7 +69,7 @@
           </div><!-- /.row -->
         </div><!-- /.container -->
       </section><!-- /.blog Grid -->
-      <section class="pb-40">
+      {{-- <section> --}}
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-8 offset-md-2">
@@ -78,7 +78,7 @@
                 @csrf
                   <div class="row">
                     <div class="col-sm-12">
-                      <h4 class="contact-panel-title">{{ __('message.Booking Concert Table Form') }}</h4>
+                      <h4 class="contact-panel-title">{{ __('message.Booking Restaurant Table Form') }}</h4>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4">
                       <div class="form-group">
@@ -222,7 +222,7 @@
             </div><!-- /.col-lg-8 -->
           </div><!-- /.row -->
         </div><!-- /.container -->
-      </section>
+      {{-- </section> --}}
 
       <br/>
 </div>
