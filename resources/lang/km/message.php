@@ -373,6 +373,7 @@ return [
     "Booking Restaurants" => "ការកក់ភោជនីយដ្ឋាន",
     "Availability" => "ភាពអាចរកបាន",
     "Special Requests" => "សំណើពិសេស",
+    "Booking Restaurant Table Form" => "ទម្រង់តារាងកក់ភោជនីយដ្ឋាន",
     
 
     
