@@ -374,6 +374,8 @@ return [
     "Availability" => "ភាពអាចរកបាន",
     "Special Requests" => "សំណើពិសេស",
     "Booking Restaurant Table Form" => "ទម្រង់តារាងកក់ភោជនីយដ្ឋាន",
+    "Flat fee" => "តម្លៃផ្ទះល្វែង",
+    "Book Table Now" => "តារាងកក់ឥឡូវនេះ",
     
 
     

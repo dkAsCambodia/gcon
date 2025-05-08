@@ -375,6 +375,11 @@ return [
     "Availability" => "Availability",
     "Special Requests" => "Special Requests",
     "Booking Restaurant Table Form" => "Booking Restaurant Table Form",
+    "Flat fee" => "Flat fee",
+    "Book Table Now" => "Book Table Now",
+    "Availability" => "Availability",
+    "Availability" => "Availability",
+    "Availability" => "Availability",
     "Availability" => "Availability",
     "Availability" => "Availability",
     
