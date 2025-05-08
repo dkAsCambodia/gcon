@@ -19,7 +19,7 @@
           </div><!-- /.container -->
         </div><!-- /.breadcrumb-area --> 
       </section><!-- /.page-title -->
-    <section class="blog-layout2">
+    <div class="blog-layout2">
         <div class="container">
           <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
@@ -27,20 +27,20 @@
                     <div class="post-item featured-post">
                             <div class="post-img">
                             <a href="#">
-                                <img src="{{ asset('storage/'.$event->imgRestaurant) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" alt="post image"  height="370px" loading="lazy">
+                                <img src="{{ asset('storage/'.$restaurantData->imgRestaurant) ?? 'http://127.0.0.1:8000/website/assets/images/sliders/1.jpg' }}" alt="post image"  height="370px" loading="lazy">
                             </a>
                             </div><!-- /.post-img -->
-                            <div class="post-body">
+                            {{-- <div class="post-body">
                                 <div class="post-meta d-flex align-items-center">
                                     <div class="post-meta-cat">
-                                    <a href="/GEntertainment/events/seatinglayout/{{base64_encode($event->id)}}" wire:navigate>{{!empty($event->event_date) ? date('d M Y', strtotime($event->event_date)) : ''}}</a>
+                                    <a href="/GEntertainment/events/seatinglayout/{{base64_encode($restaurantData->id)}}" wire:navigate>{{!empty($restaurantData->event_date) ? date('d M Y', strtotime($restaurantData->event_date)) : ''}}</a>
                                     </div><!-- /.blog-meta-cat -->
                                 </div>
-                                <a href="/GEntertainment/events/seatinglayout/{{base64_encode($event->id)}}" wire:navigate class="btn btn-link">
+                                <a href="/GEntertainment/events/seatinglayout/{{base64_encode($restaurantData->id)}}" wire:navigate class="btn btn-link">
                                     <i class="plus-icon">+</i>
                                     <span>Read More</span>
                                 </a>
-                            </div><!-- /.post-body -->
+                            </div><!-- /.post-body --> --}}
                     </div><!-- /.post-item -->
                 </div><!-- /.col-lg-4 -->
                 <div class="col-sm-6 col-md-6 col-lg-6">
@@ -51,24 +51,22 @@
                                 <img src="{{ URL::to('website/assets/images/saiku2.jpg') }}" alt="post image"  height="370px" loading="lazy">
                             </a>
                             </div><!-- /.post-img -->
-                            <div class="post-body">
+                            {{-- <div class="post-body">
                                 <div class="post-meta d-flex align-items-center">
                                     <div class="post-meta-cat">
                                     <a href="#">{{ __('message.Seating Layout') }}</a>
                                     </div><!-- /.blog-meta-cat -->
                                 </div>
-                                <a href="/GEntertainment/events/seatinglayout/{{base64_encode($event->id)}}" wire:navigate class="btn btn-link">
+                                <a href="/GEntertainment/events/seatinglayout/{{base64_encode($restaurantData->id)}}" wire:navigate class="btn btn-link">
                                     <i class="plus-icon">+</i>
                                     <span>Read More</span>
                                 </a>
-                            </div><!-- /.post-body -->
+                            </div><!-- /.post-body --> --}}
                     </div><!-- /.post-item -->
                 </div><!-- /.col-lg-4 -->
-               
-           
           </div><!-- /.row -->
         </div><!-- /.container -->
-      </section><!-- /.blog Grid -->
+      </div><!-- /.blog Grid -->
       {{-- <section> --}}
         <div class="container">
           <div class="row">
@@ -80,27 +78,7 @@
                     <div class="col-sm-12">
                       <h4 class="contact-panel-title">{{ __('message.Booking Restaurant Table Form') }}</h4>
                     </div>
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                      <div class="form-group">
-                        <label for="special_request">{{ __('message.Special Requests') }} <span class="red">*</span></label>
-                        <input type="text" class="form-control" wire:model="special_request">
-                      </div>
-                    </div><!-- /.col-lg-6 -->
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                      <div class="form-group">
-                        <label for="tbl_amount">{{ __('message.Price') }}</label>
-                        <input type="text" class="form-control" wire:model="tbl_price" readonly>
-                      </div>
-                    </div><!-- /.col-lg-6 -->
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                      <div class="form-group">
-                          <label for="service">{{ __('message.Table quantity') }} <span class="red">*</span></label>
-                          <input type="text" class="form-control @error('quantity') is-invalid @enderror" wire:model.lazy="quantity" placeholder="{{ __('message.1 or 2 or 3') }}" maxlength="2">
-                          @error('quantity')
-                          <label class="error" for="quantity">{{ $message }}</label>
-                          @enderror
-                      </div>
-                    </div><!-- /.col-lg-6 -->
+                   
                     
                     <div class="col-sm-3 col-md-3 col-lg-3">
                       <div class="form-group">
@@ -148,6 +126,28 @@
                             </select>
                         </div>
                   </div><!-- /.col-lg-6 -->
+                  <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="form-group">
+                      <label for="tbl_amount">{{ __('message.Flat fee') }} (฿)</label>
+                      <input type="text" class="form-control" wire:model="flat_fee" readonly>
+                    </div>
+                  </div><!-- /.col-lg-6 -->
+                  <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="service">{{ __('message.Table quantity') }} <span class="red">*</span></label>
+                        <input type="text" class="form-control @error('quantity') is-invalid @enderror" wire:model.lazy="quantity" placeholder="{{ __('message.1 or 2 or 3') }}" maxlength="2">
+                        @error('quantity')
+                        <label class="error" for="quantity">{{ $message }}</label>
+                        @enderror
+                    </div>
+                  </div><!-- /.col-lg-6 -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="special_request">{{ __('message.Special Requests') }} <span class="red">*</span></label>
+                        <input type="text" class="form-control" wire:model="special_request">
+                      </div>
+                    </div><!-- /.col-lg-6 -->
+                    
                     <div class="col-12">
                       <div class="border-top mb-30"></div>
                       <p class="mb-30">{{ __('message.Kindly provide your personal informations below') }}:</p>
@@ -204,7 +204,7 @@
                    
                     <div class="col-12">
                       <button type="submit" wire:click="loading = true" wire:loading.attr="disabled" class="btn btn-secondary btn-block">
-                        <span>{{ __('message.Book Now') }} {{ $tbl_price ?? '' }}</span> <i class="icon-arrow-right"></i>
+                        <span>{{ __('message.Book Table Now') }} {{ $tbl_price ?? '' }}</span> <i class="icon-arrow-right"></i>
                       </button>
                       <a href="/GEntertainment/concert" wire:navigate class="btn btn-primary btn-link btn-block">{{ __('message.Back') }}</a>
                       <center>

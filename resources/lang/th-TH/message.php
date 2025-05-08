@@ -375,6 +375,8 @@ return [
     "Availability" => "ความพร้อมใช้งาน",
     "Special Requests" => "คำขอพิเศษ",
     "Booking Restaurant Table Form" => "แบบฟอร์มการจองโต๊ะร้านอาหาร",
+    "Flat fee" => "ค่าธรรมเนียมคงที่",
+    "Book Table Now" => "จองโต๊ะเลย",
 
 
 

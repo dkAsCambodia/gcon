@@ -14,68 +14,17 @@ use App\Models\Restaurant;
 
 class BookingRestaurantTableSeatlayout extends Component
 {
-    public $event, $seatlist, $BookedallSeatIds=null; 
-    public $date, $time, $no_of_people, $name, $email, $phone, $address, $paymentType, $preferredSeats='Other';
+    public $restaurantData;
+    public $date, $time, $no_of_people, $name, $email, $phone, $address, $paymentType, $preferredSeats='Other', $flat_fee='100';
 
     public function mount($restaurant_id)
     {
         $this->date = now()->toDateString();
-        // $booked=EventTransaction::select('id','table_arr')->where(['event_id' => base64_decode($event_id), 'status' => 'success', 'cancel_status' => '0'])->get();
-
-        $booked = EventTransaction::select('table_arr')
-                ->where([
-                    'event_id' => base64_decode($restaurant_id),
-                    'status' => 'success',
-                    'cancel_status' => '0'
-                ])->get();
-
-            // Extract and merge seat_ids into a single array
-            $this->BookedallSeatIds = $booked->pluck('table_arr') // Get all table_arr values
-                ->map(function ($tableArr) {
-                    return json_decode($tableArr, true); // Decode JSON to array
-                })
-                ->flatten() // Flatten into a single array
-                ->unique() // Get unique seat_ids
-                ->sort() // Sort in increasing order
-                ->values() // Reindex the array
-                ->toArray();
-            //  dd($this->BookedallSeatIds);
-
-        $this->event=Restaurant::where(['id' => base64_decode($restaurant_id), 'status' => '1'])->first();
-        $SittingTableType = SittingTableType::where('sitting_for', 'events')->orderBy('order','ASC')->get();
-
-        $data = [];
-        foreach ($SittingTableType as $seatTyperow) {
-            $record = SittingLayout::select(['id', 'sitting_table_type_id', 'table_name', 'order', 'status'])
-                ->where('sitting_table_type_id', $seatTyperow->id)->where('status', '1')->orderBy('order','ASC')->get();
-    
-            $data[] = (object) [
-                'id' => $seatTyperow->id,
-                'sitting_for' => $seatTyperow->sitting_for,
-                'sitting_table_name' => $seatTyperow->sitting_table_name,
-                'price' => $seatTyperow->price,
-                'currency_id' => $seatTyperow->currency_id,
-                'currency_name' => Currency::where('id', $seatTyperow->currency_id)->value('currency_symbol'),
-                'layoutRecord' => $record,
-            ];
-        }
-        // echo "<pre>"; print_r($data); die;
-        $this->seatlist=$data;
-
+        $this->restaurantData=Restaurant::where(['id' => base64_decode($restaurant_id), 'status' => '1'])->first();
+        // $SittingTableType = SittingTableType::where('sitting_for', 'events')->orderBy('order','ASC')->get();
     }
 
-    // public $sitting_layouts = [];
-    // public function toggleSelection($layoutId)
-    // {
-    //     if (in_array($layoutId, $this->sitting_layouts)) {
-    //         // Remove if already selected
-    //         $this->sitting_layouts = array_diff($this->sitting_layouts, [$layoutId]);
-    //     } else {
-    //         // Add if not selected
-    //         $this->sitting_layouts[] = $layoutId;
-    //     }
-
-    // }
+   
 
     public $sitting_layouts = [];
     public $totalPrice = 0;
