@@ -72,7 +72,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-8 offset-md-2">
               <div class="contact-panel">
-                <form wire:submit.prevent="saveconcertForm" class="contact-panel-form">
+                <form wire:submit.prevent="saveRestaurantBookingForm" class="contact-panel-form">
                 @csrf
                   <div class="row">
                     <div class="col-sm-12">

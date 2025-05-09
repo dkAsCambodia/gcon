@@ -23,58 +23,72 @@ class BookingRestaurantTableSeatlayout extends Component
         $this->restaurantData=Restaurant::where(['id' => base64_decode($restaurant_id), 'status' => '1'])->first();
         // $SittingTableType = SittingTableType::where('sitting_for', 'events')->orderBy('order','ASC')->get();
     }
-
    
 
-    public $sitting_layouts = [];
-    public $totalPrice = 0;
-    public function updatedSittingLayouts()
+    public function saveconcertForm()
     {
-        $this->calculateTotalPrice();
-    }
-    public function calculateTotalPrice()
-    {
-        $this->totalPrice = \DB::table('sitting_layouts')
-            ->join('sitting_table_types', 'sitting_layouts.sitting_table_type_id', '=', 'sitting_table_types.id')
-            ->whereIn('sitting_layouts.id', $this->sitting_layouts)
-            ->sum('sitting_table_types.price');
-    }
-    public function toggleSelection($layoutId)
-    {
-        if (in_array($layoutId, $this->sitting_layouts)) {
-            $this->sitting_layouts = array_diff($this->sitting_layouts, [$layoutId]);
-        } else {
-            $this->sitting_layouts[] = $layoutId;
+        // Reset the loading state
+        sleep(1);
+        $this->loading = false;
+        // $user_id='';
+        // if(!empty(Session::get('memberdata'))){
+        //     $userdata=Session::get('memberdata');
+        //     $user_id=$userdata['id'];
+        // }
+       
+        $validated = $this->validate([ 
+            'quantity' => 'required|numeric',
+            'date' => 'required',
+            'time' => 'required',
+            'name' => 'required',
+            // 'email' => 'required|email|max:255',
+            'phone' => 'required|numeric',
+            'no_of_people' => 'required|numeric',
+            'paymentType' => 'required',
+        ]);
+
+        date_default_timezone_set('Asia/Phnom_Penh');
+        $created_at=date("Y-m-d h:i:s");
+        $userId = $this->getuserId($this->name, $this->phone, $this->email, $this->address);
+        $data=array(
+            'GBooking_id'               => $this->tableDetails->GBooking_id,
+            'cat_id'                    => $this->cat_id,
+            'tableId'                   => $this->tableDetails->id,
+            'user_id'                   => $userId,
+            'name'                      => $this->name,
+            'phone'                     => $this->phone,
+            'email'                     => $this->email,
+            'address'                   => $this->address,
+            'no_of_people'              => $this->no_of_people,
+            'preferredSeats'            => $this->preferredSeats,
+            'quantity'                  => $this->quantity,
+            'paymentType'               => $this->paymentType,
+            'concert_booking_date'      => $this->date,
+            'concert_arrival_time'      => $this->time,
+            'total_amount'              => $this->tableDetails->tbl_price*$this->quantity,
+            'currency'                  => $this->tableDetails->currencydata->currency_code,
+            'currency_symbol'           => $this->tableDetails->currencydata->currency_symbol,
+            'status'                    => 'pending',
+            'created_at' =>  $created_at
+        );
+        $newTrnasaction = ConcertTblTransaction::create($data);
+        // if($this->paymentType=='online'){
+        //     Session::put('sess_transaction_recordId', $newTrnasaction->id);
+        //     return $this->redirect('/paymentOptions'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code), navigate: true);
+        // }else{
+        //     $msg =  __('message.Table Booked Successfully!');
+        //     $this->dispatch('toast', message: $msg, notify:'success' ); 
+        //     return $this->redirect('/invoice'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
+        // }
+        if($this->paymentType=='online'){
+            Session::put('sess_transaction_recordId', $newTrnasaction->id);
         }
-        $this->calculateTotalPrice();
-    }
-
-
-    public function saveTable()
-    {
-        $results = [];
-        $totalPrice = 0;
-
-        foreach ($this->sitting_layouts as $layoutId) {
-            $data = DB::table('sitting_layouts')
-                ->join('sitting_table_types', 'sitting_layouts.sitting_table_type_id', '=', 'sitting_table_types.id')
-                ->join('currencies', 'sitting_table_types.currency_id', '=', 'currencies.id')
-                ->where('sitting_layouts.id', $layoutId)
-                ->select('sitting_table_types.price', 'sitting_table_types.currency_id', 'sitting_layouts.id', 'sitting_layouts.table_name', 'currencies.currency_code', 'currencies.currency_symbol')
-                ->first();
-
-            if ($data) {
-                $results[] = $data;
-                $totalPrice += $data->price;
-            }
-        }
-        // dd([
-        //     'results' => $results,
-        //     'totalPrice' => $totalPrice, // Display the total price
-        // ]);
-        Session::put('results', $results);
-        Session::put('totalPrice', $totalPrice);
-        return $this->redirect('/GEntertainment/events/form'.'/'.base64_encode($this->event->id), navigate: true);
+        //     return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code), navigate: true);
+        // }else{
+            // $msg =  __('message.Table Booked Successfully!');
+            // $this->dispatch('toast', message: $msg, notify:'success' ); 
+            return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
+           
     }
 
     public function render()
