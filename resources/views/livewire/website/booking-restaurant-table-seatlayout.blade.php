@@ -135,7 +135,7 @@
                   <div class="col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
                         <label for="service">{{ __('message.Table quantity') }} <span class="red">*</span></label>
-                        <input type="text" class="form-control @error('quantity') is-invalid @enderror" wire:model.lazy="quantity" placeholder="{{ __('message.1 or 2 or 3') }}" maxlength="2">
+                        <input type="text" class="form-control @error('quantity') is-invalid @enderror" wire:model.live="quantity" placeholder="{{ __('message.1 or 2 or 3') }}" maxlength="2">
                         @error('quantity')
                         <label class="error" for="quantity">{{ $message }}</label>
                         @enderror
@@ -143,7 +143,7 @@
                   </div><!-- /.col-lg-6 -->
                     <div class="col-sm-4 col-md-4 col-lg-4">
                       <div class="form-group">
-                        <label for="special_request">{{ __('message.Special Requests') }} <span class="red">*</span></label>
+                        <label for="special_request">{{ __('message.Special Requests') }}</label>
                         <input type="text" class="form-control" wire:model="special_request">
                       </div>
                     </div><!-- /.col-lg-6 -->
@@ -206,7 +206,7 @@
                       <button type="submit" wire:click="loading = true" wire:loading.attr="disabled" class="btn btn-secondary btn-block">
                         <span>{{ __('message.Book Table Now') }} {{ $tbl_price ?? '' }}</span> <i class="icon-arrow-right"></i>
                       </button>
-                      <a href="/GEntertainment/concert" wire:navigate class="btn btn-primary btn-link btn-block">{{ __('message.Back') }}</a>
+                      <a href="/GBooking/BookingRestaurant" wire:navigate class="btn btn-primary btn-link btn-block">{{ __('message.Back') }}</a>
                       <center>
                         <div class="text-center" wire:loading>
                           <img src="{{ URL::to('website/assets/images/loader.gif') }}" alt="Processing..." width="60px">

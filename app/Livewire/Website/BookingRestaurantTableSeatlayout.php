@@ -9,27 +9,35 @@ use App\Models\SittingLayout;
 use App\Models\EventTransaction;
 use DB;
 use Session;
-
+use Livewire\Attributes\Rule;
 use App\Models\Restaurant;
+use App\Models\Timeslot;
 
 class BookingRestaurantTableSeatlayout extends Component
 {
-    public $restaurantData;
-    public $date, $time, $no_of_people, $name, $email, $phone, $address, $paymentType, $preferredSeats='Other', $flat_fee='100';
+    public $restaurantData, $timeslotList, $special_request;
+    public $loading = false;
+     #[Rule('required')]
+    public $date, $time, $name, $email, $address, $paymentType, $preferredSeats='Other', $flat_fee='100';
+     #[Rule('required|numeric')]
+    public $no_of_people, $quantity, $phone;
 
     public function mount($restaurant_id)
     {
         $this->date = now()->toDateString();
         $this->restaurantData=Restaurant::where(['id' => base64_decode($restaurant_id), 'status' => '1'])->first();
         // $SittingTableType = SittingTableType::where('sitting_for', 'events')->orderBy('order','ASC')->get();
+         $this->timeslotList=Timeslot::where(['status' => '1'])->orderBy('orderby', 'asc')->get();
     }
    
 
-    public function saveconcertForm()
+    public function saveRestaurantBookingForm()
     {
+        $validated = $this->validate();
         // Reset the loading state
         sleep(1);
         $this->loading = false;
+          dd($this);
         // $user_id='';
         // if(!empty(Session::get('memberdata'))){
         //     $userdata=Session::get('memberdata');
