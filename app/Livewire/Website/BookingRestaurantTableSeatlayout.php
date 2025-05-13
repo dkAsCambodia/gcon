@@ -43,17 +43,6 @@ class BookingRestaurantTableSeatlayout extends Component
         //     $userdata=Session::get('memberdata');
         //     $user_id=$userdata['id'];
         // }
-       
-        $validated = $this->validate([ 
-            'quantity' => 'required|numeric',
-            'date' => 'required',
-            'time' => 'required',
-            'name' => 'required',
-            // 'email' => 'required|email|max:255',
-            'phone' => 'required|numeric',
-            'no_of_people' => 'required|numeric',
-            'paymentType' => 'required',
-        ]);
 
         date_default_timezone_set('Asia/Phnom_Penh');
         $created_at=date("Y-m-d h:i:s");

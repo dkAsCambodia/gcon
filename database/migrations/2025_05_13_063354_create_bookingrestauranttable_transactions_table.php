@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookingrestauranttable', function (Blueprint $table) {
+        Schema::create('bookingrestauranttable_transactions', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('GBooking_id')->nullable();
@@ -23,6 +23,10 @@ return new class extends Migration
             $table->string('preferredSeats')->nullable();
             $table->string('quantity')->nullable();
             $table->string('special_request')->nullable();
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
             $table->string('transaction_id')->nullable();
             $table->string('total_amount')->nullable();
             $table->string('currency')->nullable();
@@ -30,10 +34,6 @@ return new class extends Migration
             $table->longText('response_all')->nullable();
             $table->longText('receipt_url')->nullable();
             $table->longText('message')->nullable();
-            $table->string('name')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('address')->nullable();
             $table->string('paymentType')->nullable();
             $table->string('future_payment_custId')->nullable();
             $table->string('payment_time')->nullable();
@@ -49,6 +49,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookingrestauranttable');
+        Schema::dropIfExists('bookingrestauranttable_transactions');
     }
 };
