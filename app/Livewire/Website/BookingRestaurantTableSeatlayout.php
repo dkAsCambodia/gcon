@@ -15,7 +15,7 @@ class BookingRestaurantTableSeatlayout extends Component
     public $restaurantData, $timeslotList, $currencydata, $special_request;
     public $loading = false;
      #[Rule('required')]
-    public $date, $time, $name, $email, $address, $paymentType, $preferredSeats='Other', $flat_fee='100';
+    public $date, $time, $name, $email, $address, $paymentType='online', $preferredSeats='Other', $flat_fee='100';
      #[Rule('required|numeric')]
     public $no_of_people, $quantity, $phone;
 
@@ -25,6 +25,19 @@ class BookingRestaurantTableSeatlayout extends Component
         $this->restaurantData=Restaurant::where(['id' => base64_decode($restaurant_id), 'status' => '1'])->first();
         $this->timeslotList=Timeslot::where(['status' => '1'])->orderBy('orderby', 'asc')->get();
        
+    }
+
+     public function updatedQuantity($value)
+    {
+        if(is_numeric($value)){
+            $this->quantity = $value;
+            $this->flat_fee = 100*$value;
+        }else{
+            $value=1;
+            $this->quantity = '1';
+            $this->flat_fee = 100;
+        }
+        
     }
    
 
@@ -63,24 +76,16 @@ class BookingRestaurantTableSeatlayout extends Component
             'created_at' =>  $created_at
         );
         $newTrnasaction = BookingrestauranttableTransaction::create($data);
-        dd($data);
-        // if($this->paymentType=='online'){
+        // dd($data);
+        
         //     Session::put('sess_transaction_recordId', $newTrnasaction->id);
         //     return $this->redirect('/paymentOptions'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code), navigate: true);
-        // }else{
-        //     $msg =  __('message.Table Booked Successfully!');
-        //     $this->dispatch('toast', message: $msg, notify:'success' ); 
-        //     return $this->redirect('/invoice'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
-        // }
+       
         if($this->paymentType=='online'){
-            Session::put('sess_transaction_recordId', $newTrnasaction->id);
+            Session::put('sess_transaction_bookingRestaurantTable_recordId', $newTrnasaction->id);
+            // return $this->redirect('/paymentOptions'.'/'.base64_encode($this->flat_fee).'/'.$this->currencydata->currency_symbol.'/'.base64_encode($this->currencydata->currency_code), navigate: true);
+            return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->flat_fee).'/'.$this->currencydata->currency_symbol.'/'.base64_encode($this->currencydata->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
         }
-        //     return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code), navigate: true);
-        // }else{
-            // $msg =  __('message.Table Booked Successfully!');
-            // $this->dispatch('toast', message: $msg, notify:'success' ); 
-            return $this->redirect('/payment/privacypolicy'.'/'.base64_encode($this->tableDetails->tbl_price*$this->quantity).'/'.$this->tableDetails->currencydata->currency_symbol.'/'.base64_encode($this->tableDetails->currencydata->currency_code).'/'.base64_encode($newTrnasaction->id), navigate: true);
-           
     }
 
     function generateTrackingKey()
