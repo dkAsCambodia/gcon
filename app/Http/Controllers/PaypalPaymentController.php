@@ -8,6 +8,7 @@ use App\Models\ConcertTblTransaction;
 use App\Models\EventTransaction;
 use App\Models\RestaurantOrder;
 use App\Models\RestaurantCart;
+use App\Models\BookingrestauranttableTransaction;
 use Session;
 
 class PaypalPaymentController extends Controller
@@ -83,6 +84,19 @@ class PaypalPaymentController extends Controller
                                 'TransactionId' => $data['id'],
                                 'receipt_url' => $data['links']['1']['href'],
                                 'gateway_name' => 'Paypal',
+                            ]);
+                        // Code for update data into DB END
+                        $response->redirect();
+                }elseif(!empty(Session::get('sess_transaction_bookingRestaurantTable_recordId'))){
+                   
+                        $recordId=Session::get('sess_transaction_bookingRestaurantTable_recordId');
+                        // Code for update data into DB START
+                        BookingrestauranttableTransaction::where('id', $recordId)
+                            ->update([
+                                'transaction_id' => $data['id'],
+                                'receipt_url' => $data['links']['1']['href'],
+                                'gateway_name' => 'Paypal',
+                                'message' => 'Pay with Paypal',
                             ]);
                         // Code for update data into DB END
                         $response->redirect();
@@ -163,7 +177,20 @@ class PaypalPaymentController extends Controller
                             Session::forget('restaurant_orderKey');
                             $msg =  __('message.Ordered Successfully!');
                         return redirect('restaurantFood/logAuth/invoice'.'/'.base64_encode($transaction->totalPayAmount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->order_key))->withsuccess($msg);
-                        
+                
+                    }elseif(!empty(Session::get('sess_transaction_bookingRestaurantTable_recordId'))){
+                        $recordId=Session::get('sess_transaction_bookingRestaurantTable_recordId'); 
+                        BookingrestauranttableTransaction::where('id', $recordId)
+                        ->update([
+                                'response_all' => json_encode($arr, true),
+                                'payment_time' => $created_date,
+                                'future_payment_custId' => $arr['payer']['payer_info']['payer_id'],
+                                'status' => 'success',
+                            ]);
+                            $transaction = BookingrestauranttableTransaction::where('id', $recordId)->first();
+                            Session::forget('sess_transaction_bookingRestaurantTable_recordId');
+                            $msg =  __('message.Table Booked Successfully!');
+                        return redirect('/eventsInvoice'.'/'.base64_encode($transaction->total_amount).'/'.$transaction->currency_symbol.'/'.base64_encode($transaction->currency).'/'.base64_encode($transaction->id))->withsuccess($msg);
                 }else{
                     echo "Something Went Wrong!"; die;
                 }  
