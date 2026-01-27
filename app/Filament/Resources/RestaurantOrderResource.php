@@ -178,6 +178,7 @@ class RestaurantOrderResource extends Resource
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'pending' => 'danger',
+                        'Cancelled' => 'danger',
                         'ordered' => 'success',
                     }),
                 Tables\Columns\TextColumn::make('assign_status')

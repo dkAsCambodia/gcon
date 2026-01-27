@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2025 at 11:53 AM
+-- Generation Time: Jan 07, 2026 at 03:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -938,7 +938,8 @@ INSERT INTO `restaurant_carts` (`id`, `customer_id`, `food_id`, `f_qty`, `order_
 (30, 1, 1, 1, 1, 0, '2024-10-16 01:31:09', '2024-11-18 07:16:53'),
 (33, 1, 3, 1, 1, 0, '2024-10-16 01:56:00', '2024-11-18 07:16:53'),
 (36, 1, 2, 1, 1, 0, '2024-11-18 00:14:43', '2024-11-18 07:16:53'),
-(37, 1, 1, 1, 1, 0, '2024-11-18 00:14:46', '2024-11-18 07:16:53');
+(37, 1, 1, 1, 1, 0, '2024-11-18 00:14:46', '2024-11-18 07:16:53'),
+(38, 191120251629, 1, 1, 0, 1, '2025-11-19 02:31:40', '2025-11-19 02:31:40');
 
 -- --------------------------------------------------------
 
@@ -1578,7 +1579,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `phoneNumber`, `role`, `email_verifi
 (7, 'gopal pay', 'dddd@gmail.com', '723456888888', 'seller', NULL, '$2y$12$wnXNn8QiiV9ITt2NMECCauDd1D.DaGZIxBPnU728WCubJu.F8OcVe', 'qubymFYVDMxivgrGkC8A8O5vIMBCYid2L12T4JEPTyKBGFMIP5a7ZifODuFQ', '2024-06-25 02:47:44', '2024-06-24 20:00:45'),
 (13, 'MK', 'mk@gmail.com', '7234567888', 'deliveryBoy', NULL, '$2y$12$He5dRp019lM886YmEp5RMOaYNGcM/wzdfg4n4YFhcapL9ioOlouxG', NULL, '2024-09-27 10:52:35', '2024-09-27 10:52:35'),
 (15, 'monk', 'deliveryBoy@gmail.com', '723456666666', 'deliveryBoy', NULL, '$2y$12$n4A0MBwuXSgSyeD5udIvpOB1EI8Ukb4Lm8E9lvb5UpoQBobDOoqp6', NULL, '2024-09-28 07:31:26', '2024-09-28 01:04:09'),
-(16, 'tony', 'tony@gmail.com', '723453333333', 'deliveryBoy', NULL, '$2y$12$QLGWx9VbmrOTmT.hUeBAOeRFXR9mFwENRaEK.nrX/aSh3Obs3.iuS', NULL, '2024-09-28 08:08:44', '2024-09-28 08:08:44');
+(16, 'tony', 'tony@gmail.com', '7234533', 'deliveryBoy', NULL, NULL, NULL, '2024-09-28 08:08:44', '2025-09-24 23:45:37');
 
 --
 -- Indexes for dumped tables
@@ -1956,7 +1957,7 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `restaurant_carts`
 --
 ALTER TABLE `restaurant_carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `restaurant_categories`
